@@ -1,0 +1,25 @@
+{
+  "name": "razorpay-pod",
+  "version": "0.1.0",
+  "summary": "A short description of razorpay-pod.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/razorpay-pod",
+  "license": "MIT",
+  "authors": {
+    "akshaybhalotia": "akshay.bhalotia@razorpay.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/razorpay-pod.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "razorpay-pod": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
