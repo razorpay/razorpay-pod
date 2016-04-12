@@ -1,6 +1,5 @@
 # razorpay-pod
 
-[![CI Status](http://img.shields.io/travis/razorpay/razorpay-pod.svg?style=flat)](https://travis-ci.org/razorpay/razorpay-pod)
 [![Version](https://img.shields.io/cocoapods/v/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
 [![License](https://img.shields.io/cocoapods/l/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
 [![Platform](https://img.shields.io/cocoapods/p/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
@@ -11,9 +10,7 @@ This repository implements pod for Razorpay's iOS Framework.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
-## Installation
+## Installation | Docs
 
 razorpay-pod is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -22,13 +19,7 @@ it, simply add the following line to your Podfile:
 pod "razorpay-pod"
 ```
 
-## Features | Docs
-
-[razorpay.com/mobile](https://razorpay.com/mobile)
-
-## Author
-
-Akshay Bhalotia, akshay.bhalotia@razorpay.com
+For documentation and features, visit [razorpay.com/mobile](https://razorpay.com/mobile).
 
 ## Contributing
 
