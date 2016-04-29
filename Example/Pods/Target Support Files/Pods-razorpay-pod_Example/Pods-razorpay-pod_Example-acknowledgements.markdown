@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## razorpay-pod
 
-Copyright (c) 2016 akshaybhalotia <akshay.bhalotia@razorpay.com>
+Copyright (c) 2016 Razorpay Software Pvt. Ltd.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -43,7 +43,7 @@ static NSString *const OK_BUTTON_TITLE = @"OK";
     @"name" : @"Razorpay",
     @"prefill" :
         @{@"email" : @"contact@razorpay.com", @"contact" : @"18002700323"},
-    @"theme" : @{@"color" : @"rgb(46, 204, 113)"}
+    @"theme" : @{@"color" : @"#3594E2"}
   };
 
   [razorpay open:options];
