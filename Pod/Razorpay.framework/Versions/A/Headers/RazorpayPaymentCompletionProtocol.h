@@ -11,6 +11,10 @@
 @protocol RazorpayPaymentCompletionProtocol <NSObject>
 
 - (void)onPaymentError:(int)code description:(nonnull NSString *)str;
+
+@optional
 - (void)onPaymentSuccess:(nonnull NSString *)payment_id;
+- (void)onPaymentSuccess:(nonnull NSString *)payment_id
+                 andData:(nullable NSDictionary *)response;
 
 @end
