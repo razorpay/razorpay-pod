@@ -31,8 +31,7 @@ static NSString *const OK_BUTTON_TITLE = @"OK";
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
-  razorpay =
-      [Razorpay initWithKey:KEY_ID andDelegate:self forViewController:self];
+  razorpay = [Razorpay initWithKey:KEY_ID andDelegate:self];
 }
 
 - (IBAction)payButtonPressed:(id)sender {
