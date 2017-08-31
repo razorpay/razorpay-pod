@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "razorpay-pod"
-  s.version          = "0.14.1"
+  s.version          = "0.15.1"
   s.summary          = "CocoaPod implementation of Razorpay's Payment SDK"
 
 # This description is used to generate tags and improve search results.
@@ -37,9 +37,9 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.requires_arc = true
 
   # s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'razorpay-pod' => ['Pod/Assets/*.png']
-  }
+  # s.resource_bundles = {
+  #   'razorpay-pod' => ['Pod/Assets/*.png']
+  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'CoreTelephony', 'SystemConfiguration'
