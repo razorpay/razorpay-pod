@@ -13,13 +13,22 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation | Docs
 
 razorpay-pod is available through [CocoaPods]. To install
-it, simply add the following line to your Podfile:
+it, simply add the following line to your Podfile
+
+For version 1.0.0
 
 ```ruby
-pod "razorpay-pod"
+pod 'razorpay-pod', '1.0.0'
 ```
 
-For documentation and features, visit [razorpay.com/mobile].
+For version 1.0.1
+
+```ruby
+pod 'razorpay-pod', '1.0.1'
+```
+
+
+Kindly refer to the documentation from [here](https://razorpay.com/docs/ios/) to understand the difference between v1.0.0 and v1.0.1.
 
 ## Contributing
 
