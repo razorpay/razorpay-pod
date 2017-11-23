@@ -15,16 +15,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
-For version 1.0.0 (Framework Compiled in Swift version 3.1, Use it if you are using Xcode version below 9)
+For version 1.0.3 (Framework Compiled in Swift version 3.1, Use it if you are using Xcode version below 9)
 
 ```ruby
-pod 'razorpay-pod', '1.0.0'
+pod 'razorpay-pod', '1.0.3'
 ```
 
-For version 1.0.2 (Framework Compiled in Swift version 4, Use it if you are using Xcode version 9 and above)
+For version 1.0.4 (Framework Compiled in Swift version 4, Use it if you are using Xcode version 9 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.0.2'
+pod 'razorpay-pod', '1.0.4'
 ```
 
 
