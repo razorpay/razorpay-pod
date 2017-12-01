@@ -18,13 +18,13 @@ it, simply add the following line to your Podfile
 For version 1.0.3 (Framework Compiled in Swift version 3.1, Use it if you are using Xcode version below 9)
 
 ```ruby
-pod 'razorpay-pod', '1.0.3'
+pod 'razorpay-pod', '1.0.5'
 ```
 
 For version 1.0.4 (Framework Compiled in Swift version 4, Use it if you are using Xcode version 9 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.0.4'
+pod 'razorpay-pod', '1.0.6'
 ```
 
 
