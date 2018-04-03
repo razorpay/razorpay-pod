@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Razorpay-Swift.h</key>
 		<data>
-		eT4F7rSU+nrqICsTycd3tZFo1Vk=
+		gEi+HtDhO4ZGSBOxv3bz+eYNpPI=
 		</data>
 		<key>Headers/Razorpay.h</key>
 		<data>
@@ -14,27 +14,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		MFu2vzVyXlUOJ8kEHmFgQ7knhS0=
+		o4738fIunyq9fAGibLnepi2vx2E=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm.swiftdoc</key>
 		<data>
-		ZMps2F6ZzNsMtRGYmd8rkFfQbec=
+		/sI2feGoZ8YSzal989anBu6YEE4=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm.swiftmodule</key>
 		<data>
-		TSvQhlpLxqzBcbrjL3AirKrff5I=
+		aOYzNrUQ2D6TM9Xn/hTnvZaylPg=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		aaSMCD9GrX2scMqC19BVBlaqgjk=
+		xABd9YfUYjvTaZP+I78LaScSzII=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		rO4WlixyUDsu4xCW4wMBCMTvM+0=
+		yEaSptq6uKAZrisDMMaaIVE4ZZw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		O/6PreNsB7hJm8mBuml1fTvnvuM=
+		THFrAEicfrx/BQ8HvbwDLQgolTs=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eT4F7rSU+nrqICsTycd3tZFo1Vk=
+			gEi+HtDhO4ZGSBOxv3bz+eYNpPI=
 			</data>
 			<key>hash2</key>
 			<data>
-			i5TWQlfp6GxewFxXP8yAc46x47Oz0SGtqfWmrjABc7A=
+			tGkXnxlemV2dQ/lsBH0xHHS++TUgWeNpCx5wANxdjj0=
 			</data>
 		</dict>
 		<key>Headers/Razorpay.h</key>
@@ -65,55 +65,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZMps2F6ZzNsMtRGYmd8rkFfQbec=
+			/sI2feGoZ8YSzal989anBu6YEE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			fexrbk5Z9+2CNvFlPNKMijiPfz0Yd12RwLkH8ZLFzxI=
+			TQ52vIr51iuErHp/ovwv8W+yzhiGYcIcUGV/nyhS+lQ=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TSvQhlpLxqzBcbrjL3AirKrff5I=
+			aOYzNrUQ2D6TM9Xn/hTnvZaylPg=
 			</data>
 			<key>hash2</key>
 			<data>
-			oLj41RIjHyXTri+wQ4x/6VjOcgC1nT1NXMwAkVwyXTw=
+			uKpgF0VNyG+YkJhVOTDlAUdzIlR8puSEEv5dI5W1y58=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aaSMCD9GrX2scMqC19BVBlaqgjk=
+			xABd9YfUYjvTaZP+I78LaScSzII=
 			</data>
 			<key>hash2</key>
 			<data>
-			LgvPaqEjD1SpoD1A1bYiSr3sBuhXNLBr95JdAkb0B+k=
+			T4T4haq0N/lueCe2jmHnE7XWSuY46OuS4EU37HjidnM=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rO4WlixyUDsu4xCW4wMBCMTvM+0=
+			yEaSptq6uKAZrisDMMaaIVE4ZZw=
 			</data>
 			<key>hash2</key>
 			<data>
-			39axngkGCtiaFzvSLtX6TBvUZqrhp3xMeoT428wpUZw=
+			+L1+kWfyvw5QbVX3AyWXupjr6i5RPFAwvZqGlDU1vOo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O/6PreNsB7hJm8mBuml1fTvnvuM=
+			THFrAEicfrx/BQ8HvbwDLQgolTs=
 			</data>
 			<key>hash2</key>
 			<data>
-			cunpHkc0wmk7Xr/EJNxuiW8IzvoLyCQF52Eqt4ftjeM=
+			ZT5hPzDXhb1qPtQUXv0EsDODm5xOIhQWnHNkDFnB0A4=
 			</data>
 		</dict>
 	</dict>

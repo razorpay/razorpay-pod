@@ -21,7 +21,7 @@ For version 1.0.11 (Framework Compiled in Swift version 3.1, Use it if you are u
 pod 'razorpay-pod', '1.0.11'
 ```
 
-For version 1.0.12 (Framework Compiled in Swift version 4, Use it if you are using Xcode version 9 and above)
+For version 1.0.12 (Framework Compiled in Swift version 4.1, Use it if you are using Xcode version 9 and above)
 
 ```ruby
 pod 'razorpay-pod', '1.0.12'
