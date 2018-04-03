@@ -8,7 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = "razorpay-pod"
+<<<<<<< HEAD
   s.version          = "1.0.12"
+=======
+  s.version          = "1.0.11"
+>>>>>>> 0a3f2bf3af3944fef1c1865178fbc047207b8287
   s.summary          = "CocoaPod implementation of Razorpay's Payment SDK"
 
 # This description is used to generate tags and improve search results.
