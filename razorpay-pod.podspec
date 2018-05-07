@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "razorpay-pod"
-  s.version          = "1.0.14"
+  s.version          = "1.0.16"
   s.summary          = "CocoaPod implementation of Razorpay's Payment SDK"
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,9 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.platform     = :ios, '8.0'
   
   s.vendored_frameworks = 'Pod/Razorpay.framework'
+  s.prepare_command = <<-CMD
+    chmod 777 ./Pod/SelectDefaultXcode.sh
+    sh ./Pod/SelectDefaultXcode.sh
+  CMD
 
 end
