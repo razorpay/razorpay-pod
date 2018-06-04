@@ -121,7 +121,7 @@ updateReadme
 
 # update the podspec for the new release
 
-sed -i '' "s/$OLD_LEGACY_VERSION/$NEW_LEGACY_VERSION/g" razorpay-pod.podspec
+sed -i '' "s/$OLD_RELEASE_VERSION/$NEW_LEGACY_VERSION/g" razorpay-pod.podspec
 
 # push the required changes , create a PR and finally tag it.
 
