@@ -25,17 +25,9 @@ ARRAY_COUNT=${#ARR_VERSION_COMPONENTS[@]}
 REVISION_VERSION=${ARR_VERSION_COMPONENTS[ARRAY_COUNT - 1]}
 
 DECREMENTED_REVISION_VERSION=$(($REVISION_VERSION - 1))
-NEW_LEGACY_VERSION=${ARR_VERSION_COMPONENTS[0]}.${ARR_VERSION_COMPONENTS[1]}.$DECREMENTED_REVISION_VERSION
+OLD_RELEASE_VERSION=${ARR_VERSION_COMPONENTS[0]}.${ARR_VERSION_COMPONENTS[1]}.$DECREMENTED_REVISION_VERSION
 
-# compute variables required for substitution
-
-OLD_RELEASE_REVISION_VERSION=$(($DECREMENTED_REVISION_VERSION - 1))
-OLD_LEGACY_REVISION_VERSION=$((OLD_RELEASE_REVISION_VERSION - 1))
-
-OLD_RELEASE_VERSION=${ARR_VERSION_COMPONENTS[0]}.${ARR_VERSION_COMPONENTS[1]}."$OLD_RELEASE_REVISION_VERSION"
-OLD_LEGACY_VERSION=${ARR_VERSION_COMPONENTS[0]}.${ARR_VERSION_COMPONENTS[1]}."$OLD_LEGACY_REVISION_VERSION"
-
-echo "old release version : $OLD_RELEASE_VERSION , \nold legacy version :$OLD_LEGACY_VERSION , \nnew release version :$NEW_RELEASE_VERSION , \nnew legacy version :$NEW_LEGACY_VERSION"
+echo "old release version : $OLD_RELEASE_VERSION , \nnew release version :$NEW_RELEASE_VERSION"
 
 # functions
 
@@ -75,10 +67,7 @@ function pushChangesAndCreatePullRequest() {
 }
 
 function updateReadme() {
-
-	sed -i '' "s/$OLD_LEGACY_VERSION/$NEW_LEGACY_VERSION/g" README.md
 	sed -i '' "s/$OLD_RELEASE_VERSION/$NEW_RELEASE_VERSION/g" README.md
-
 }
 
 # NEW VERSION POD RELEASE	 
@@ -104,30 +93,6 @@ sed -i '' "s/$OLD_RELEASE_VERSION/$NEW_RELEASE_VERSION/g" razorpay-pod.podspec
 pushChangesAndCreatePullRequest $NEW_RELEASE_VERSION
 
 echo "\nRelease of $NEW_RELEASE_VERSION  complete !"
-
-# OLD VERSION POD RELEASE
-
-git checkout master
-git pull origin master
-git checkout -b r/v"$NEW_LEGACY_VERSION"
-
-# download the latest framework , unzip it place it in the right location and delete the downloaded files
-
-downloadAndReplaceFramework $NEW_LEGACY_VERSION "RazorpayBitcode"
-
-# update the readme
-
-updateReadme
-
-# update the podspec for the new release
-
-sed -i '' "s/$OLD_RELEASE_VERSION/$NEW_LEGACY_VERSION/g" razorpay-pod.podspec
-
-# push the required changes , create a PR and finally tag it.
-
-pushChangesAndCreatePullRequest $NEW_LEGACY_VERSION
-
-echo "\nRelease of $NEW_LEGACY_VERSION  complete !"
 
 
 
