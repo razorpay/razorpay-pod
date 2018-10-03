@@ -12,15 +12,26 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation | Docs
 
+### Note:
+We no longer support Swift 3 , moving forward only the latest version of swift will be supported.
+
+### Note: 
+We now support another optional parameter to the open method - displayController
+When this parameter is specified , the razorpay controller will be pushed on to this controller's navigation controller if present or presented on this controller if absent.
+
+For example the swift call is 
+
+```
+razorpay.open(options, displayController: self)
+```
+
 razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
-### Note: We no longer support Swift 3 , moving forward only the latest version of swift will be supported.
-
-For version 1.0.23(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
+For version 1.0.24(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.0.23'
+pod 'razorpay-pod', '1.0.24'
 ```
 
 
