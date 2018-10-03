@@ -17,10 +17,10 @@ it, simply add the following line to your Podfile
 
 ### Note: We no longer support Swift 3 , moving forward only the latest version of swift will be supported.
 
-For version 1.0.23(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
+For version 1.0.24(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.0.23'
+pod 'razorpay-pod', '1.0.24'
 ```
 
 
