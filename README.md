@@ -19,6 +19,12 @@ We no longer support Swift 3 , moving forward only the latest version of swift w
 We now support another optional parameter to the open method - displayController
 When this parameter is specified , the razorpay controller will be pushed on to this controller's navigation controller if present or presented on this controller if absent.
 
+For example, the swift call is 
+
+```
+razorpay.open(options, displayController: self)
+```
+
 ### Note:
 If your integrating this on OBJC please replace the line
 ```
@@ -27,12 +33,6 @@ If your integrating this on OBJC please replace the line
 with 
 ```
 # import <Razorpay/Razorpay-Swift.h> in your viewcontroller.m file
-```
-
-As an example, the swift call is 
-
-```
-razorpay.open(options, displayController: self)
 ```
 
 razorpay-pod is available through [CocoaPods]. To install
