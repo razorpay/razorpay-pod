@@ -38,10 +38,10 @@ with
 razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
-For version 1.0.24(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
+For version 1.0.26(Framework Compiled in Swift version 4.2, Use it if you are using Xcode version 10 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.0.24'
+pod 'razorpay-pod', '1.0.26'
 ```
 
 
