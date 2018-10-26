@@ -13,7 +13,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation | Docs
 
 ### Note:
-We no longer support Swift 3 , moving forward only the latest version of swift will be supported.
+We no longer support Swift 3 , moving forward only the latest version of swift will be supported.Also please note that we only support iOS devices using 64 bit architecture i.e iPhone 5s and above.
 
 ### Note: 
 We now support another optional parameter to the open method - displayController
