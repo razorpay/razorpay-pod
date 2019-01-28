@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # to make sure that the shell script fails when any command in the script fails
 
@@ -78,7 +77,7 @@ git checkout -b r/v"$NEW_RELEASE_VERSION"
 
 # download the latest framework , unzip it place it in the right location and delete the downloaded files
 
-downloadAndReplaceFramework $NEW_RELEASE_VERSION "RazorpayBitcodeX9"
+downloadAndReplaceFramework $NEW_RELEASE_VERSION "RazorpayBitcodeX10"
 
 # update the readme
 

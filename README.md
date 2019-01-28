@@ -13,7 +13,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation | Docs
 
 ### Note:
-We no longer support Swift 3 , moving forward only the latest version of swift will be supported.We will only support iOS devices using 64 bit architecture i.e iPhone 5s+ and a minimum deployment target of iOS 10+.This decision has been taken based on the following link that clearly shows that the number of devices running iOS 10 are very minimal.
+We no longer support Swift 3 , moving forward only the latest version of swift will be supported.We only support a minimum deployment target of iOS 10+.This decision has been taken based on the following link that clearly shows that the number of devices running iOS 10 are very minimal.
 https://developer.apple.com/support/app-store/
 
 ### Note: 
