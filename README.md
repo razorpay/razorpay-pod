@@ -42,7 +42,7 @@ it, simply add the following line to your Podfile
 For version 1.1.0(Framework Compiled in Swift version 5, Use it if you are using Xcode version 10 and above)
 
 ```ruby
-pod 'razorpay-pod', '1.1.0'
+pod 'razorpay-pod', '1.1.1'
 ```
 
 
