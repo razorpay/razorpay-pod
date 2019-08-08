@@ -13,7 +13,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation | Docs
 
 ### Note:
-If your integrating this on OBJC please replace the line
+If your integrating this on Objective-C please replace the line
 ```
 #import <Razorpay/Razorpay.h>
 ```
