@@ -210,7 +210,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
 @protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName WithPaymentData:(NSDictionary * _Nullable)paymentData;
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
 @end
 
 @class WKWebView;
@@ -491,7 +491,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
 @protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName WithPaymentData:(NSDictionary * _Nullable)paymentData;
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
 @end
 
 @class WKWebView;
@@ -779,7 +779,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
 @protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName WithPaymentData:(NSDictionary * _Nullable)paymentData;
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
 @end
 
 @class WKWebView;
@@ -1060,7 +1060,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
 @protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName WithPaymentData:(NSDictionary * _Nullable)paymentData;
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
 @end
 
 @class WKWebView;
