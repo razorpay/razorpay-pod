@@ -35,7 +35,7 @@ pod 'razorpay-pod'
 for Swift 5, use : - 
 
 ```ruby
-pod 'razorpay-pod', '1.1.2'
+pod 'razorpay-pod', '1.1.1'
 ```
 
 Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway/ios-integration/standard/) 
