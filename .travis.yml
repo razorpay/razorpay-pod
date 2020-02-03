@@ -6,4 +6,4 @@ os: osx
 osx_image: xcode11.3
 
 script:
-  - xcodebuild test -project Example.xcworkspace -scheme Example -destination "platform=iOS Simulator,name=iPhone 11" -sdk iphonesimulator13.0 CODE_SIGNING_REQUIRED=NO
+  - xcodebuild test -project Example.xcworkspace -scheme Example -destination "platform=iOS Simulator,name=iPhone 11" CODE_SIGNING_REQUIRED=NO
