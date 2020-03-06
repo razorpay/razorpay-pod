@@ -15,7 +15,7 @@ class ViewController : UIViewController {
     let defaultHeight : CGFloat = 40
     let defaultWidth : CGFloat = 120
     
-    let razorpayKey = "" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
+    let razorpayKey = "order_EG8ScwlUahBiD7" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
     
     override func viewDidLoad() {
         super.viewDidLoad()
