@@ -30,7 +30,7 @@ For Swift 5.1 and later -
 pod 'razorpay-pod', '1.1.5'
 ```
 ### Note:
-for older versions check [CHANGELOG](https://github.com/razorpay/razorpay-pod/blob/1.1.5/CHANGELOG.md).
+for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorpay-pod/blob/1.1.5/CHANGELOG.md).
 
 Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway/ios-integration/standard/) 
 
@@ -41,7 +41,7 @@ Thank you, [contributors]!
 
 ## License
 
-razorpay-pod  is free software, and may be redistributed
+razorpay-pod is free software, and may be redistributed
 under the terms specified in the [LICENSE] file.
 
 We :heart: open source software!
