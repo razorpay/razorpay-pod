@@ -11,7 +11,9 @@ import Razorpay
 
 class ViewController : UIViewController {
     
-    var razorpayObj : Razorpay? = nil
+//     var razorpayObj : Razorpay? = nil
+    var razorpayObj: RazorpayCheckout!
+
     let defaultHeight : CGFloat = 40
     let defaultWidth : CGFloat = 120
     
@@ -49,7 +51,9 @@ class ViewController : UIViewController {
     
     private func openRazorpayCheckout() {
         // 1. Initialize razorpay object with provided key. Also depending on your requirement you can assign delegate to self. It can be one of the protocol from RazorpayPaymentCompletionProtocolWithData, RazorpayPaymentCompletionProtocol.
-        razorpayObj = Razorpay.initWithKey(razorpayKey, andDelegate: self)
+//         razorpayObj = Razorpay.initWithKey(razorpayKey, andDelegate: self)
+        razorpayObj = RazorpayCheckout.initWithKey(razorpayTestKey, andDelegate: self)
+
         let options: [AnyHashable:Any] = [
             "prefill": [
                 "contact": "1234567890",
