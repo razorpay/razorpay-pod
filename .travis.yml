@@ -3,7 +3,9 @@
 # * https://github.com/supermarin/xcpretty#usage
 # * https://github.com/codecov/example-swift
 
-os: osx
+language:
+  - swift
+
 osx_image: xcode11.3
 
 script:
