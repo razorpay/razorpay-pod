@@ -1,9 +1,12 @@
 # references:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
+# * https://github.com/codecov/example-swift
 
-os: osx
+language:
+  - swift
+
 osx_image: xcode11.3
 
 script:
-  - xcodebuild test -project Example.xcworkspace -scheme Example -destination "platform=iOS Simulator,name=iPhone 11" CODE_SIGNING_REQUIRED=NO
+ xcodebuild -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

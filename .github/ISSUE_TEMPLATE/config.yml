@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+    - name: ⤴️ Upgrade Issue or Installation issue
+      url: https://pub.dev/packages/razorpay_flutter
+      about: Need help upgrading to the latest flutter version? Follow steps from our plugin docuemntation.
+      
+    - name: 🤔 Need some help in Integrations
+      url: https://razorpay.com/integrations/
+      about: Looking for help with your app? Please refer to the integration documentation.
