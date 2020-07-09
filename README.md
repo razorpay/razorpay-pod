@@ -25,18 +25,12 @@ with
 razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
-For version 1.1.4 (Framework Compiled in Swift version 5.1, Use it if you are using Xcode version 11 and above)
-
+For Swift 5.1 and later - 
 ```ruby
-pod 'razorpay-pod'
+pod 'razorpay-pod', '1.1.5'
 ```
-
 ### Note:
-for Swift 5, use : - 
-
-```ruby
-pod 'razorpay-pod', '1.1.1'
-```
+for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorpay-pod/blob/1.1.5/CHANGELOG.md).
 
 Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway/ios-integration/standard/) 
 
@@ -47,7 +41,7 @@ Thank you, [contributors]!
 
 ## License
 
-razorpay-pod  is free software, and may be redistributed
+razorpay-pod is free software, and may be redistributed
 under the terms specified in the [LICENSE] file.
 
 We :heart: open source software!
