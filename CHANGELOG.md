@@ -1,35 +1,54 @@
 # Changelog
 
-## [Unreleased](https://github.com/razorpay/razorpay-pod/tree/HEAD)
+## [v1.1.6](https://github.com/razorpay/razorpay-pod/tree/v1.1.6) (2020-07-27)
 
-[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5...HEAD)
+[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5a...v1.1.6)
 
 **Closed issues:**
 
-- Support Swift 5.2 Compiler [\#91](https://github.com/razorpay/razorpay-pod/issues/91)
-- Razor pay ios implementation issue [\#90](https://github.com/razorpay/razorpay-pod/issues/90)
-- Module compiled with Swift Error [\#71](https://github.com/razorpay/razorpay-pod/issues/71)
+- Use of undeclared type 'Razorrpay' [\#98](https://github.com/razorpay/razorpay-pod/issues/98)
 
-**Merged pull requests:**
+## [1.1.5a](https://github.com/razorpay/razorpay-pod/tree/1.1.5a) (2020-07-09)
 
-- Added example project for showing use from local pods. [\#89](https://github.com/razorpay/razorpay-pod/pull/89) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
-- Feat : Added FAQ's inside issue template. [\#88](https://github.com/razorpay/razorpay-pod/pull/88) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
+[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.4...1.1.5a)
 
-## [1.1.5](https://github.com/razorpay/razorpay-pod/tree/1.1.5) (2020-02-03)
+**Implemented enhancements:**
+
+- Swift 5.2 support. [\#92](https://github.com/razorpay/razorpay-pod/pull/92) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
+
+## [1.1.4](https://github.com/razorpay/razorpay-pod/tree/1.1.4) (2020-07-09)
+
+[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5...1.1.4)
+
+**Closed issues:**
+
+- Razorpay custom SDK support for swift 5 and Xcode 10.2.1 [\#72](https://github.com/razorpay/razorpay-pod/issues/72)
+
+## [1.1.5](https://github.com/razorpay/razorpay-pod/tree/1.1.5) (2020-05-15)
 
 [Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.3...1.1.5)
 
 **Closed issues:**
 
+- \[Google Pay UPI Integration\] How to integrate Google Pay with Razorpay custom iOS SDK? [\#95](https://github.com/razorpay/razorpay-pod/issues/95)
+- Attempt to present \<UINavigationController: 0x7fc4120e8000\>  on \<x.Starter: 0x7fc411a5d240\> which is already presenting \<x.DonorStart: 0x7fc41041e980\>". [\#94](https://github.com/razorpay/razorpay-pod/issues/94)
+- Support Swift 5.2 Compiler [\#91](https://github.com/razorpay/razorpay-pod/issues/91)
+- Razor pay ios implementation issue [\#90](https://github.com/razorpay/razorpay-pod/issues/90)
 - error: The following binaries use incompatible versions of Swift: [\#87](https://github.com/razorpay/razorpay-pod/issues/87)
 - Module compiled with Swift 5.0 cannot be imported by the Swift 5.1.2 compiler: /Users/sailaja/Desktop/Eemos/Pods/razorpay-pod/Pod/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64.swiftmodule [\#86](https://github.com/razorpay/razorpay-pod/issues/86)
+- white blank screen : swift 5.1  | pod 'razorpay-pod' | "react-native-razorpay": "^2.1.31" [\#85](https://github.com/razorpay/razorpay-pod/issues/85)
 - RazorpayPaymentCompletionProtocol delegate not called [\#84](https://github.com/razorpay/razorpay-pod/issues/84)
 - RazorpayCheckoutWebView deinitialized Xcode 11 [\#82](https://github.com/razorpay/razorpay-pod/issues/82)
 - Razorpay custom SDK not support in Xcode 11 [\#81](https://github.com/razorpay/razorpay-pod/issues/81)
 - swift 5 support after updating the pod I am facing these issues [\#80](https://github.com/razorpay/razorpay-pod/issues/80)
+- Module compiled with Swift Error [\#71](https://github.com/razorpay/razorpay-pod/issues/71)
 
 **Merged pull requests:**
 
+- Travis test - Added test environment. [\#97](https://github.com/razorpay/razorpay-pod/pull/97) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
+- Issue template modification [\#96](https://github.com/razorpay/razorpay-pod/pull/96) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
+- Added example project for showing use from local pods. [\#89](https://github.com/razorpay/razorpay-pod/pull/89) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
+- Feat : Added FAQ's inside issue template. [\#88](https://github.com/razorpay/razorpay-pod/pull/88) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
 - Top bar solution for iOS 13 [\#79](https://github.com/razorpay/razorpay-pod/pull/79) ([Nautiyalsachin](https://github.com/Nautiyalsachin))
 
 ## [1.1.3](https://github.com/razorpay/razorpay-pod/tree/1.1.3) (2019-09-30)

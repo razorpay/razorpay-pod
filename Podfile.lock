@@ -1,5 +1,5 @@
 PODS:
-  - razorpay-pod (1.1.4)
+  - razorpay-pod (1.1.6)
 
 DEPENDENCIES:
   - razorpay-pod (from `.`)
