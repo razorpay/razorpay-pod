@@ -25,9 +25,8 @@ with
 razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
-For Swift 5.1 and later - 
 ```ruby
-pod 'razorpay-pod', '1.1.5'
+pod 'razorpay-pod', '1.1.7'
 ```
 ### Note:
 for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorpay-pod/blob/1.1.5/CHANGELOG.md).
