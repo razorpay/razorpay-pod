@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.1.7](https://github.com/razorpay/razorpay-pod/tree/v1.1.7) (2020-07-27)
+
+[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5a...v1.1.7)
+
+**Implemented enhancements:**
+
+- Pay With CRED added.
+- Clear User Data function added.
+
 ## [v1.1.6](https://github.com/razorpay/razorpay-pod/tree/v1.1.6) (2020-07-27)
 
 [Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5a...v1.1.6)

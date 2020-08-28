@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Razorpay
 import CommonCrypto
 import CoreLocation
@@ -41,14 +41,14 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
 @objc public protocol ExternalWalletSelectionProtocol {
   @objc func onExternalWalletSelected(_ walletName: Swift.String, withPaymentData paymentData: [Swift.AnyHashable : Any]?)
 }
-@objc public class PluginPaymentModel : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc public class PluginPaymentModel : ObjectiveC.NSObject {
   final public let merchantKey: Swift.String
   final public let dictPaymentInformation: [Swift.AnyHashable : Any]
   final public let delegate: Razorpay.PluginPaymentCompletionDelegate
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class Otpelf : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Otpelf : ObjectiveC.NSObject {
   @objc public static func initWithWebView(_ webView: WebKit.WKWebView, andMerchantKey merchantKey: Swift.String?)
   @objc public static func getSharedInstance() -> Razorpay.Otpelf?
   @objc public func setPaymentData(_ data: [Swift.AnyHashable : Any])
@@ -56,11 +56,12 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
   @objc public func close()
   @objc deinit
 }
-@objc final public class RazorpayCheckout : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RazorpayCheckout : ObjectiveC.NSObject {
   @available(*, unavailable, message: "This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.")
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: Razorpay.RazorpayPaymentCompletionProtocol, forViewController vc: UIKit.UIViewController)
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: Razorpay.RazorpayProtocol) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: Razorpay.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
+  @objc public static func publishUri(with data: Swift.String)
   @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: Razorpay.ExternalWalletSelectionProtocol)
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
   @objc final public func open(_ options: [Swift.AnyHashable : Any])
