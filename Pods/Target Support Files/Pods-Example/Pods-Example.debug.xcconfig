@@ -1,4 +1,4 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../Pod"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../Pod" "${PODS_ROOT}/../Pod/Razorpay.xcframework/ios-arm64_armv7" "${PODS_ROOT}/../Pod/Razorpay.xcframework/ios-i386_x86_64-simulator"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 OTHER_LDFLAGS = $(inherited) -framework "Razorpay"
