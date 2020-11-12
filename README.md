@@ -7,7 +7,6 @@
 This repository implements pod for Razorpay's iOS Framework.
 
 ## Usage
-
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Installation | Docs
