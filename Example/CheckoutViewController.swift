@@ -15,7 +15,7 @@ class CheckoutViewController: UIViewController {
     var razorpayObj : RazorpayCheckout? = nil
     var merchantDetails : MerchantsDetails = MerchantsDetails.getDefaultData()
     
-    let razorpayKey = "rzp_test_1DP5mmOlF5G5ag" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
+    let razorpayKey = "rzp_live_ILgsfZCZoFIKMb" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
     
     override func viewDidLoad() {
         super.viewDidLoad()
