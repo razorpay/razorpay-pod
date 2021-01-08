@@ -37,3 +37,4 @@ fastlane/screenshots
 # `pod install` in .travis.yml
 #
 # Pods/
+Pods/Pods.xcodeproj/xcshareddata/xcschemes/razorpay-pod.xcscheme
