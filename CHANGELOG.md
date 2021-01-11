@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.1.11](https://github.com/razorpay/razorpay-pod/tree/v1.1.11) (2021-01-02)
+
+**Implemented enhancements:**
+
+- Support for Swift 5.3.1 & Swift 5.3.2
+- Internal fixes
+
+[Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5a...v1.1.11)
+
 ## [v1.1.8](https://github.com/razorpay/razorpay-pod/tree/v1.1.8) (2020-09-29)
 
 [Full Changelog](https://github.com/razorpay/razorpay-pod/compare/1.1.5a...v1.1.8)
