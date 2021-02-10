@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
     - name: ⤴️ Upgrade Issue or Installation issue
-      url: https://pub.dev/packages/razorpay_flutter
-      about: Need help upgrading to the latest flutter version? Follow steps from our plugin docuemntation.
+      url: https://cocoapods.org/pods/razorpay-pod
+      about: Need help upgrading to the latest razorpay-pod version? Follow steps from our razorpay-pod docuemntation.
       
     - name: 🤔 Need some help in Integrations
       url: https://razorpay.com/integrations/
