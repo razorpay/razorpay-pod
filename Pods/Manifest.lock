@@ -1,5 +1,5 @@
 PODS:
-  - razorpay-pod (1.1.12)
+  - razorpay-pod (1.1.13)
 
 DEPENDENCIES:
   - razorpay-pod (from `.`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  razorpay-pod: e2e8cf25aea59eef51c6851716f188df71adab86
+  razorpay-pod: c0e9c4ae3ed168ab0f59be2acfb3ba8fd57eba57
 
 PODFILE CHECKSUM: 13f35734ef150534c47f232bf238be1a41cfaacc
 
