@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.1.13](https://github.com/razorpay/razorpay-pod/tree/v1.1.13) (2021-05-14)
+
+**Implemented enhancements:**
+
+- Support for Swift 5.4
+- Retry functionality implemented for [more info](https://razorpay.com/docs/payment-gateway/ios-integration/standard/checkout-form-fields/) 
+
 ## [v1.1.12](https://github.com/razorpay/razorpay-pod/tree/v1.1.12) (2021-02-10)
 
 **Implemented enhancements:**
