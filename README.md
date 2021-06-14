@@ -25,7 +25,7 @@ razorpay-pod is available through [CocoaPods]. To install
 it, simply add the following line to your Podfile
 
 ```ruby
-pod 'razorpay-pod', '1.1.12'
+pod 'razorpay-pod', '1.1.14'
 ```
 ### Note:
 for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorpay-pod/blob/1.1.12/CHANGELOG.md).
