@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "razorpay-pod"
-  s.version          = "1.1.13"
+  s.version          = "1.1.15"
   s.summary          = "CocoaPod implementation of Razorpay's Payment SDK"
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.homepage         = "https://github.com/razorpay/razorpay-pod"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "razorpay" => "support@razorpay.com" }
+  s.author           = { "razorpay" => "support@razorpay.com"}
   s.source           = { :git => "https://github.com/razorpay/razorpay-pod.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/razorpay'
 
