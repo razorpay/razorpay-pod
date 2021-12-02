@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Razorpay
 import CommonCrypto
 import CoreLocation
@@ -9,6 +9,7 @@ import Swift
 import SystemConfiguration
 import UIKit
 import WebKit
+import _Concurrency
 public protocol PluginPaymentCompletionDelegate : AnyObject {
   func paymentSuccessful(orderID: Swift.String, dictVerification: [Swift.AnyHashable : Any]?)
   func paymentFailed(code: Swift.Int, errorDescription: Swift.String, data: [Swift.AnyHashable : Any])
@@ -45,7 +46,6 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
   final public let merchantKey: Swift.String
   final public let dictPaymentInformation: [Swift.AnyHashable : Any]
   final public let delegate: Razorpay.PluginPaymentCompletionDelegate
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Otpelf : ObjectiveC.NSObject {
@@ -55,6 +55,11 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
   @objc public func webView(didFinish navigation: WebKit.WKNavigation!) throws
   @objc public func close()
   @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CXAvailability {
+  @objc deinit
+}
+public struct CXError {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RazorpayCheckout : ObjectiveC.NSObject {
   @available(*, unavailable, message: "This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.")
