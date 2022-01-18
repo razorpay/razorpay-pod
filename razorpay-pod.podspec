@@ -36,10 +36,10 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.platform     = :ios, '10.0'
   s.exclude_files = 'UpdatePod.sh'
 
-  s.vendored_frameworks = 'Pod/Razorpay.xcframework'
+  s.vendored_frameworks = 'Pod/Razorpay.framework'
   
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  #s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  #s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.prepare_command = <<-CMD
   #   chmod 777 ./Pod/SelectDefaultXcode.sh
   #   sh ./Pod/SelectDefaultXcode.sh
