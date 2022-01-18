@@ -211,8 +211,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class WKWebView;
 @class NSString;
+@class NSObject;
+
+SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
+@protocol ExternalWalletSelectionProtocol
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
+@end
+
+@class WKWebView;
 @class WKNavigation;
 
 SWIFT_CLASS("_TtC8Razorpay6Otpelf")
@@ -244,50 +251,51 @@ SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
-@class NSURL;
+@class UIViewController;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
 
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
-- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
-- (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)redirectToBankPage;
-- (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)authorize:(NSDictionary * _Nonnull)options;
-- (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
-- (void)userCancelledPayment;
-- (void)decodeURIFrom:(NSString * _Nonnull)data;
++ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
-- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation;
-- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nonnull)getSupportedUPIApps SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("use getAppsWhichSupportUpi(handler:) instead");
-+ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull))handler;
-- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
-- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)clearUserData;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
+@protocol RazorpayProtocol
 @end
 
 
 SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
+@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
+@protocol RazorpayResultProtocol <RazorpayProtocol>
+- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
 @end
 
 
@@ -508,8 +516,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class WKWebView;
 @class NSString;
+@class NSObject;
+
+SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
+@protocol ExternalWalletSelectionProtocol
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
+@end
+
+@class WKWebView;
 @class WKNavigation;
 
 SWIFT_CLASS("_TtC8Razorpay6Otpelf")
@@ -541,50 +556,51 @@ SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
-@class NSURL;
+@class UIViewController;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
 
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
-- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
-- (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)redirectToBankPage;
-- (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)authorize:(NSDictionary * _Nonnull)options;
-- (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
-- (void)userCancelledPayment;
-- (void)decodeURIFrom:(NSString * _Nonnull)data;
++ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
-- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation;
-- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nonnull)getSupportedUPIApps SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("use getAppsWhichSupportUpi(handler:) instead");
-+ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull))handler;
-- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
-- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)clearUserData;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
+@protocol RazorpayProtocol
 @end
 
 
 SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
+@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
+@protocol RazorpayResultProtocol <RazorpayProtocol>
+- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
 @end
 
 
@@ -809,8 +825,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class WKWebView;
 @class NSString;
+@class NSObject;
+
+SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
+@protocol ExternalWalletSelectionProtocol
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
+@end
+
+@class WKWebView;
 @class WKNavigation;
 
 SWIFT_CLASS("_TtC8Razorpay6Otpelf")
@@ -842,50 +865,51 @@ SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
-@class NSURL;
+@class UIViewController;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
 
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
-- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
-- (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)redirectToBankPage;
-- (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)authorize:(NSDictionary * _Nonnull)options;
-- (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
-- (void)userCancelledPayment;
-- (void)decodeURIFrom:(NSString * _Nonnull)data;
++ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
-- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation;
-- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nonnull)getSupportedUPIApps SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("use getAppsWhichSupportUpi(handler:) instead");
-+ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull))handler;
-- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
-- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)clearUserData;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
+@protocol RazorpayProtocol
 @end
 
 
 SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
+@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
+@protocol RazorpayResultProtocol <RazorpayProtocol>
+- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
 @end
 
 
@@ -1106,8 +1130,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class WKWebView;
 @class NSString;
+@class NSObject;
+
+SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
+@protocol ExternalWalletSelectionProtocol
+- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
+@end
+
+@class WKWebView;
 @class WKNavigation;
 
 SWIFT_CLASS("_TtC8Razorpay6Otpelf")
@@ -1139,50 +1170,51 @@ SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
-@class NSURL;
+@class UIViewController;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
 
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
-- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
-- (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
-- (void)redirectToBankPage;
-- (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (void)authorize:(NSDictionary * _Nonnull)options;
-- (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
-- (void)userCancelledPayment;
-- (void)decodeURIFrom:(NSString * _Nonnull)data;
++ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
-- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation;
-- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nonnull)getSupportedUPIApps SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("use getAppsWhichSupportUpi(handler:) instead");
-+ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull))handler;
-- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
-- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
-- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)publishUriWith:(NSString * _Nonnull)data;
+- (void)clearUserData;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
+@protocol RazorpayProtocol
 @end
 
 
 SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
+@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
+@protocol RazorpayResultProtocol <RazorpayProtocol>
+- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
 @end
 
 
