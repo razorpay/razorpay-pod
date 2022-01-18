@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Razorpay
 import CommonCrypto
 import CoreLocation
@@ -24,29 +24,51 @@ public protocol ErrorDescribable {
   var localizedDescription: Swift.String { get }
 }
 public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
-@objc public protocol RazorpayProtocol {
-}
-@objc public protocol RazorpayResultProtocol : Razorpay.RazorpayProtocol {
-  @objc func onComplete(response: [Swift.AnyHashable : Any])
-}
-@objc public protocol RazorpayPaymentCompletionProtocol : Razorpay.RazorpayProtocol {
-  @objc @available(*, deprecated, message: "this function will accept a code of Type Int and not Int32 in future releases")
-  func onPaymentError(_ code: Swift.Int32, description str: Swift.String)
-  @objc func onPaymentSuccess(_ payment_id: Swift.String)
-}
-@objc public protocol RazorpayPaymentCompletionProtocolWithData : Razorpay.RazorpayProtocol {
-  @objc @available(*, deprecated, message: "this function will accept a code of Type Int and not Int32 in future releases")
-  func onPaymentError(_ code: Swift.Int32, description str: Swift.String, andData response: [Swift.AnyHashable : Any]?)
-  @objc func onPaymentSuccess(_ payment_id: Swift.String, andData response: [Swift.AnyHashable : Any]?)
-}
-@objc public protocol ExternalWalletSelectionProtocol {
-  @objc func onExternalWalletSelected(_ walletName: Swift.String, withPaymentData paymentData: [Swift.AnyHashable : Any]?)
-}
 @_hasMissingDesignatedInitializers @objc public class PluginPaymentModel : ObjectiveC.NSObject {
   final public let merchantKey: Swift.String
   final public let dictPaymentInformation: [Swift.AnyHashable : Any]
   final public let delegate: Razorpay.PluginPaymentCompletionDelegate
   @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RazorpayCheckout : ObjectiveC.NSObject {
+  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: Razorpay.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView) -> Razorpay.RazorpayCheckout
+  @objc final public func changeApiKey(_ newApiKey: Swift.String)
+  @objc final public func payWithCred(withOptions options: [Swift.AnyHashable : Any], withSuccessCallback success: @escaping ([Swift.AnyHashable : Any]) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
+  @objc final public func getCardFlows(_ options: [Swift.AnyHashable : Any], withCallback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc final public func getCardOtpData(response: @escaping (Swift.Bool) -> Swift.Void)
+  @objc final public func submitOtp(otp: Swift.String)
+  @objc final public func resendOtp(response: @escaping (Swift.Bool) -> Swift.Void)
+  @objc final public func redirectToBankPage()
+  @objc final public func getPaymentMethods(withOptions options: [Swift.AnyHashable : Any]?, withSuccessCallback success: @escaping ([Swift.AnyHashable : Any]) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
+  @objc final public func getSubscriptionAmount(havingSubscriptionId subId: Swift.String, withSuccessCallback success: @escaping (Swift.UInt64) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
+  @objc final public func getSubscriptionAmount(options: [Swift.AnyHashable : Any], withSuccessCallback success: @escaping (Swift.UInt64) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
+  @objc final public func authorize(_ options: [Swift.AnyHashable : Any])
+  @objc final public func openCheckout(dict: [Swift.AnyHashable : Any])
+  @objc final public func userCancelledPayment()
+  @objc final public func decodeURI(from data: Swift.String)
+  @objc final public func close()
+  @objc final public func webView(_ webView: WebKit.WKWebView, didCommit navigation: WebKit.WKNavigation!)
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError er: Swift.Error)
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: Swift.Error)
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc final public func getCardNetwork(fromCardNumber cardNumber: Swift.String) -> Swift.String
+  @available(*, deprecated, message: "use getAppsWhichSupportUpi(handler:) instead")
+  @objc final public func getSupportedUPIApps() -> [Swift.String]
+  @objc public static func getAppsWhichSupportUpi(handler: @escaping ([Swift.String]) -> Swift.Void)
+  @objc final public func isCardValid(_ cardNumber: Swift.String) -> Swift.Bool
+  @objc final public func isValidVpa(_ vpa: Swift.String, withSuccessCallback success: @escaping (([Swift.AnyHashable : Any]) -> Swift.Void), withFailure failure: @escaping (([Swift.AnyHashable : Any]) -> Swift.Void))
+  @objc final public func getCardNetworkLength(ofNetwork network: Swift.String) -> Swift.Int
+  @objc final public func getBankLogo(havingBankCode bankCode: Swift.String) -> Foundation.URL?
+  @objc final public func getWalletSqLogo(havingWalletName name: Swift.String) -> Foundation.URL?
+  @objc final public func getWalletLogo(havingWalletName name: Swift.String) -> Foundation.URL?
+  @objc final public func payWithExternalPaymentEntity(options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [Razorpay.PluginPaymentDelegate])
+  @objc final public func publishUri(with data: Swift.String)
+  @objc deinit
+}
+@objc public protocol RazorpayPaymentCompletionProtocol {
+  @objc func onPaymentSuccess(_ payment_id: Swift.String, andData response: [Swift.AnyHashable : Any])
+  @objc @available(*, deprecated, message: "this function will accept a code of Type Int and not Int32 in future releases")
+  func onPaymentError(_ code: Swift.Int32, description str: Swift.String, andData response: [Swift.AnyHashable : Any])
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Otpelf : ObjectiveC.NSObject {
   @objc public static func initWithWebView(_ webView: WebKit.WKWebView, andMerchantKey merchantKey: Swift.String?)
@@ -60,19 +82,4 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
   @objc deinit
 }
 public struct CXError {
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RazorpayCheckout : ObjectiveC.NSObject {
-  @available(*, unavailable, message: "This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.")
-  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: Razorpay.RazorpayPaymentCompletionProtocol, forViewController vc: UIKit.UIViewController)
-  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: Razorpay.RazorpayProtocol) -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: Razorpay.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
-  @objc public static func publishUri(with data: Swift.String)
-  @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: Razorpay.ExternalWalletSelectionProtocol)
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
-  @objc final public func open(_ options: [Swift.AnyHashable : Any])
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController, arrExternalPaymentEntities: [Razorpay.PluginPaymentDelegate])
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [Razorpay.PluginPaymentDelegate])
-  @objc final public func close()
-  @objc final public func clearUserData()
-  @objc deinit
 }
