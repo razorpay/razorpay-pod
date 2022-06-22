@@ -71,6 +71,7 @@ public struct CXError {
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
   @objc final public func open(_ options: [Swift.AnyHashable : Any])
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController, arrExternalPaymentEntities: [Razorpay.PluginPaymentDelegate])
+  @objc public static func checkIntegration(withMerchantKey key: Swift.String)
   @objc final public func open(_ options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [Razorpay.PluginPaymentDelegate])
   @objc final public func close()
   @objc final public func clearUserData()
