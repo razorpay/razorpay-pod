@@ -271,6 +271,7 @@ SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 - (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options;
 - (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
 - (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
 - (void)clearUserData;
@@ -582,6 +583,7 @@ SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 - (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options;
 - (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
 - (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)close;
 - (void)clearUserData;
