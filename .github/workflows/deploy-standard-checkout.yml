@@ -1,0 +1,13 @@
+name: Test Dispatch Event
+on:
+  repository_dispatch:
+jobs:
+  Run-Unit-Test:
+    runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+      - name: Xcode Version
+        run: /usr/bin/xcodebuild -version
+      - name: Check out repository code
+        uses: actions/checkout@v2
