@@ -36,3 +36,12 @@ jobs:
 
       - name: Remove old Build
         run: rm -rf ./Pod/Razorpay.xcframework
+
+      - name: Commit Changes
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: "src"
+          author_name: Ramprasad A
+          author_email: ramprasad.a@razorpay.com
+          message: Test Commit RM File
+          new_branch: iOSAutomation
