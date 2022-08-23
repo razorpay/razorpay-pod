@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "razorpay/razorpay-ios"
-          token: ${{ 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 }}
+          token: "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"
