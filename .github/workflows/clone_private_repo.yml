@@ -16,3 +16,9 @@ jobs:
         with:
           repository: "razorpay/razorpay-ios"
           token: "${{ secrets.CI_BOT_TOKEN }}"
+          ref: codeCoverage
+
+      - name: Set permission
+        run: exec chmod +x ./.github/scripts/run-uts.sh
+      - name: Running Standard Checkout Unit Tests
+        run: exec ./.github/scripts/run-uts.sh
