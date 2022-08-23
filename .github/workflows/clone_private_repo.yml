@@ -22,3 +22,17 @@ jobs:
         run: exec chmod +x ./.github/scripts/run-uts.sh
       - name: Running Standard Checkout Unit Tests
         run: exec ./.github/scripts/run-uts.sh
+
+      - name: Set permission to run XCFramework Script
+        run: exec chmod +x ./.github/scripts/create-standard-checkout-build.sh
+      - name: Run Create XCFramework Script
+        run: exec ./.github/scripts/create-standard-checkout-build.sh
+
+      - name: Check out razorpay-pod repository code
+        uses: actions/checkout@v2
+        with:
+          repository: "razorpay/razorpay-pod"
+          token: "${{ secrets.CI_BOT_TOKEN }}"
+
+      - name: Remove old Build
+        run: rm -rf ./Pod/Razorpay.xcframework
