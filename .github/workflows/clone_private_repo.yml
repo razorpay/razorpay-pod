@@ -38,7 +38,7 @@ jobs:
         run: rm -rf ./Pod/Razorpay.xcframework
 
       - name: Commit Changes
-      - uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v9
         with:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
