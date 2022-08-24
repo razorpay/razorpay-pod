@@ -37,6 +37,9 @@ jobs:
       - name: Remove old Build
         run: rm -rf ./Pod/Razorpay.xcframework
 
+      - name: Update new build
+        run: cp -R ~/Desktop/CheckoutOtpelf ./Pod
+
       - name: Commit Changes
         uses: EndBug/add-and-commit@v9
         with:
