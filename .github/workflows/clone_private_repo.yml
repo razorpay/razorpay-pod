@@ -38,7 +38,7 @@ jobs:
         run: rm -rf ./Pod/Razorpay.xcframework
 
       - name: Update new build
-        run: cp -R ~/Desktop/CheckoutOtpelf ./Pod
+        run: cp -R ~/Desktop/CheckoutOtpelf/ ./Pod
 
       - name: Commit Changes
         uses: EndBug/add-and-commit@v9
