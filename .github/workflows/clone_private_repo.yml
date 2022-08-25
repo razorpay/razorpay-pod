@@ -55,6 +55,7 @@ jobs:
           author_email: ramprasad.a@razorpay.com
           message: Test Commit RM File
           new_branch: release-v-1.2.9
+          add: "[./Pod, razorpay-pod.podspec]"
           push: origin release-v-1.2.9 --set-upstream --force
 
       - name: Create Pull Request
@@ -63,6 +64,6 @@ jobs:
           curl \
           -X POST \
           -H 'authorization: Bearer ${{ secrets.CI_BOT_TOKEN }}' \
-          -H "Accept: application/vnd.github.v3+json" \
+          -H "Accept: application/vnd.github+json" \
           https://api.github.com/repos/razorpay/razorpay-pod/pulls \
-          -d '{"title":"v1.2.9 Release","body":"Deploying new Standard checkout SDK Version","head":"release-v-1.2.9","base":"master"}
+          -d '{"title":"v1.2.9 Release","body":"Deploying new Standard checkout SDK Version","head":"release-v-1.2.9","base":"master"}'
