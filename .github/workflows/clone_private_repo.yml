@@ -37,7 +37,7 @@ jobs:
           token: "${{ secrets.CI_BOT_TOKEN }}"
 
       - name: Set permission for PODSPEC Update
-        run: exec chmod +x ./.github/scripts/run-update_podspec_version.sh
+        run: exec chmod +x ./.github/scripts/update_podspec_version.sh
 
       - name: Update Release Version
         run: exec ./.github/scripts/update_podspec_version.sh "1.2.9"
