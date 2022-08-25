@@ -20,11 +20,13 @@ jobs:
 
       - name: Set permission
         run: exec chmod +x ./.github/scripts/run-uts.sh
+
       - name: Running Standard Checkout Unit Tests
         run: exec ./.github/scripts/run-uts.sh
 
       - name: Set permission to run XCFramework Script
         run: exec chmod +x ./.github/scripts/create-standard-checkout-build.sh
+
       - name: Run Create XCFramework Script
         run: exec ./.github/scripts/create-standard-checkout-build.sh
 
@@ -40,7 +42,7 @@ jobs:
       - name: Update new build
         run: cp -R ~/Desktop/CheckoutOtpelf/ ./Pod
 
-      - name: Commit Changes
+      - name: Create Branch and Commit Changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: Ramprasad A
@@ -49,3 +51,13 @@ jobs:
           new_branch: iOSAutomation
           add: ./Pod
           push: origin iOSAutomation --set-upstream --force
+
+      - name: Create Pull Request
+        shell: bash
+        run: |
+          curl \
+          -X POST \
+          -H 'authorization: Bearer ${{ secrets.CI_BOT_TOKEN }}' \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/razorpay/razorpay-pod/pulls \
+          -d '{"title":"","body":"Adminlist updated!","head":"scriptupdate/updated-admin-list","base":"main"}
