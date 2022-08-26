@@ -1,6 +1,13 @@
 name: Test Clone Private Repo
 on:
   push:
+    branches:
+      - master
+
+env:
+  DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
+  DEPLOYMENT_BRANCH_NAME: "release-v-${{DEPLOYMENT_VERSION}}"
+
 jobs:
   Run-Unit-Test:
     runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
@@ -40,7 +47,7 @@ jobs:
         run: exec chmod +x ./.github/scripts/update_podspec_version.sh
 
       - name: Update Release Version
-        run: exec ./.github/scripts/update_podspec_version.sh "1.2.9"
+        run: exec ./.github/scripts/update_podspec_version.sh "${{DEPLOYMENT_VERSION}}"
 
       - name: Remove old Build
         run: rm -rf ./Pod/Razorpay.xcframework
@@ -54,9 +61,9 @@ jobs:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
           message: Test Commit RM File
-          new_branch: release-v-1.2.9
+          new_branch: "${{DEPLOYMENT_BRANCH_NAME}}"
           add: "[./Pod, razorpay-pod.podspec]"
-          push: origin release-v-1.2.9 --set-upstream --force
+          push: origin "${{DEPLOYMENT_BRANCH_NAME}}" --set-upstream --force
 
       - name: Create Pull Request
         shell: bash
@@ -66,4 +73,4 @@ jobs:
           -H 'authorization: Bearer ${{ secrets.CI_BOT_TOKEN }}' \
           -H "Accept: application/vnd.github+json" \
           https://api.github.com/repos/razorpay/razorpay-pod/pulls \
-          -d '{"title":"v1.2.9 Release","body":"Deploying new Standard checkout SDK Version","head":"release-v-1.2.9","base":"master"}'
+          -d '{"title":"v_${{github.event.client_payload.version}}_release","body":"Standard Checkout Deployment","head":"${{DEPLOYMENT_BRANCH_NAME}}","base":"master"}'
