@@ -71,9 +71,9 @@ jobs:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
           message: Test Commit RM File
-          new_branch: "${{DEPLOYMENT_BRANCH_NAME}}"
+          new_branch: $DEPLOYMENT_BRANCH_NAME
           add: "[./Pod, razorpay-pod.podspec]"
-          push: origin "${{DEPLOYMENT_BRANCH_NAME}}" --set-upstream --force
+          push: origin $DEPLOYMENT_BRANCH_NAME --set-upstream --force
 
       - name: Create Pull Request
         shell: bash
