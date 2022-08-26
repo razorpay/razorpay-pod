@@ -67,9 +67,9 @@ jobs:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
           message: Test Commit RM File
-          new_branch: ${{DEPLOYMENT_BRANCH_NAME}}
+          new_branch: ${{env.DEPLOYMENT_BRANCH_NAME}}
           add: "[./Pod, razorpay-pod.podspec]"
-          push: origin ${{DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
+          push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
 
       - name: Create Pull Request
         shell: bash
@@ -79,4 +79,4 @@ jobs:
           -H 'authorization: Bearer ${{ secrets.CI_BOT_TOKEN }}' \
           -H "Accept: application/vnd.github+json" \
           https://api.github.com/repos/razorpay/razorpay-pod/pulls \
-          -d '{"title":"v_${{DEPLOYMENT_VERSION}}_release","body":"Standard Checkout Deployment","head":"${{DEPLOYMENT_BRANCH_NAME}}","base":"master"}'
+          -d '{"title":"v_${{env.DEPLOYMENT_VERSION}}_release","body":"Standard Checkout Deployment","head":"${{env.DEPLOYMENT_BRANCH_NAME}}","base":"master"}'
