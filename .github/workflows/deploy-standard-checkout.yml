@@ -1,7 +1,6 @@
 name: Test Dispatch Event
 on:
-  # repository_dispatch:
-  push:
+  repository_dispatch:
 
 env:
   DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
