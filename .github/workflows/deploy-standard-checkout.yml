@@ -7,10 +7,13 @@ jobs:
     steps:
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
       - name: Xcode Version
         run: /usr/bin/xcodebuild -version
+
       - name: Check out repository code
         uses: actions/checkout@v2
+        
       - name: Display User Sent Data
         run: echo "Data sent in payload Version is ${{ github.event.client_payload.version }}"
         run: echo "Data sent in payload Unit status is ${{ github.event.client_payload.sdk_type }}"
