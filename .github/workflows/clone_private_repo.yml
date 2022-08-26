@@ -1,0 +1,69 @@
+name: Test Clone Private Repo
+on:
+  push:
+jobs:
+  Run-Unit-Test:
+    runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+      - name: Xcode Version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Check out razorpay-ios repository code
+        uses: actions/checkout@v2
+        with:
+          repository: "razorpay/razorpay-ios"
+          token: "${{ secrets.CI_BOT_TOKEN }}"
+          ref: codeCoverage
+
+      - name: Set permission
+        run: exec chmod +x ./.github/scripts/run-uts.sh
+
+      - name: Running Standard Checkout Unit Tests
+        run: exec ./.github/scripts/run-uts.sh
+
+      - name: Set permission to run XCFramework Script
+        run: exec chmod +x ./.github/scripts/create-standard-checkout-build.sh
+
+      - name: Run Create XCFramework Script
+        run: exec ./.github/scripts/create-standard-checkout-build.sh
+
+      - name: Check out razorpay-pod repository code
+        uses: actions/checkout@v2
+        with:
+          repository: "razorpay/razorpay-pod"
+          token: "${{ secrets.CI_BOT_TOKEN }}"
+
+      - name: Set permission for PODSPEC Update
+        run: exec chmod +x ./.github/scripts/update_podspec_version.sh
+
+      - name: Update Release Version
+        run: exec ./.github/scripts/update_podspec_version.sh "1.2.9"
+
+      - name: Remove old Build
+        run: rm -rf ./Pod/Razorpay.xcframework
+
+      - name: Update new build
+        run: cp -R ~/Desktop/CheckoutOtpelf/ ./Pod
+
+      - name: Create Branch and Commit Changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Ramprasad A
+          author_email: ramprasad.a@razorpay.com
+          message: Test Commit RM File
+          new_branch: release-v-1.2.9
+          add: "[./Pod, razorpay-pod.podspec]"
+          push: origin release-v-1.2.9 --set-upstream --force
+
+      - name: Create Pull Request
+        shell: bash
+        run: |
+          curl \
+          -X POST \
+          -H 'authorization: Bearer ${{ secrets.CI_BOT_TOKEN }}' \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/razorpay/razorpay-pod/pulls \
+          -d '{"title":"v1.2.9 Release","body":"Deploying new Standard checkout SDK Version","head":"release-v-1.2.9","base":"master"}'
