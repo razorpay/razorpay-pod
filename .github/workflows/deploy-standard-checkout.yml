@@ -1,7 +1,6 @@
 name: Test Dispatch Event
 on:
-  # repository_dispatch:
-  push:
+  repository_dispatch:
 
 jobs:
   uts_and_build_generation:
