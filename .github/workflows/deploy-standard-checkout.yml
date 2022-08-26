@@ -3,10 +3,6 @@ on:
   # repository_dispatch:
   push:
 
-env:
-  DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
-  DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
-
 jobs:
   uts_and_build_generation:
     runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
@@ -45,6 +41,11 @@ jobs:
     needs: uts_and_build_generation
 
     runs-on: macOS-latest
+
+    env:
+      DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
+      DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
+
     steps:
       - name: Check out razorpay-pod repository code
         uses: actions/checkout@v2
