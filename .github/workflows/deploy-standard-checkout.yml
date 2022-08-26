@@ -4,8 +4,10 @@ on:
   push:
 
 env:
-  DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
-  DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
+  # DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
+  # DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
+  DEPLOYMENT_VERSION: "1.2.9"
+  DEPLOYMENT_BRANCH_NAME: "release-v-1.2.9"
 
 jobs:
   uts_and_build_generation:
