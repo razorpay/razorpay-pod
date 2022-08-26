@@ -1,6 +1,11 @@
 name: Test Dispatch Event
 on:
-  repository_dispatch:
+  # repository_dispatch:
+  push:
+
+env:
+  DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
+  DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
 
 jobs:
   uts_and_build_generation:
@@ -36,16 +41,6 @@ jobs:
       #     echo "Data sent in payload Version is ${{ github.event.client_payload.version }}"
       #     echo "Data sent in payload Unit status is ${{ github.event.client_payload.sdk_type }}"
 
-  deployment_and_pr_creation:
-    needs: uts_and_build_generation
-
-    runs-on: macOS-latest
-
-    env:
-      DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
-      DEPLOYMENT_BRANCH_NAME: "release-v-${{github.event.client_payload.version}}"
-
-    steps:
       - name: Check out razorpay-pod repository code
         uses: actions/checkout@v2
         with:
