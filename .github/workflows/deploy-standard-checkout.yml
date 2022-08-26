@@ -57,7 +57,7 @@ jobs:
         run: exec chmod +x ./.github/scripts/update_podspec_version.sh
 
       - name: Update Release Version
-        run: exec ./.github/scripts/update_podspec_version.sh "${{DEPLOYMENT_VERSION}}"
+        run: exec ./.github/scripts/update_podspec_version.sh $DEPLOYMENT_VERSION
 
       - name: Remove old Build
         run: rm -rf ./Pod/Razorpay.xcframework
