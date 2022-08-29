@@ -7,7 +7,7 @@ NEW_PODSPEC_VERSION=$1
 versionLine="$(grep 's.version ' $file)"
 version=${versionLine##* }
 
-sed -e 's/^"//' -e 's/"$//' <<< $version
+sed -e 's/^"//' -e 's/"$//' <<<$version
 
 echo $version
 
