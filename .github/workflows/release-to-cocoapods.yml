@@ -13,22 +13,12 @@ jobs:
 
       - name: Read version
         id: read-podspec-version
-        run: |
-          version=${{exec ./.github/scripts/read-podspec-version.sh}}
-          echo "::set-output name=pod-version::$version"
-
-      - name: Tag release
-        # id: create-release
-        # uses: actions/create-release@v1
+        # run: |
+        #   version=exec ./.github/scripts/read-podspec-version.sh
+        #   echo "::set-output name=pod-version::$version"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
-        # with:
-        #   tag_name: ${{ github.ref }}
-        #   release_name: Release ${{ github.ref }}
-        #   draft: false
-        #   prerelease: false
-        run: echo "POD Version is read ${{ env.POD_VERSION }}"
+          POD_VERSION: ${{ exec ./.github/scripts/read-podspec-version.sh }}
+        run: echo "Printing Pod Version $ {{ env.POD_VERSION }}"
 
   # cocoapod-release:
   #   runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
