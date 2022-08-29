@@ -7,6 +7,7 @@ jobs:
     steps:
       - name: Check out razorpay-ios repository code
         uses: actions/checkout@v2
+        ref: repoDispatchEventTest
 
       - name: Set permission
         run: exec chmod +x ./.github/scripts/read-podspec-version.sh
@@ -18,17 +19,16 @@ jobs:
           echo "::set-output name=pod-version::$version"
 
       - name: Tag release
-        # id: create-release
-        # uses: actions/create-release@v1
+        id: create-release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
           POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
-        # with:
-        #   tag_name: ${{ github.ref }}
-        #   release_name: Release ${{ github.ref }}
-        #   draft: false
-        #   prerelease: false
-        run: echo "POD Version is read ${{ env.POD_VERSION }}"
+        with:
+          tag_name: ${{ env.POD_VERSION }}
+          release_name: "v${{ env.POD_VERSION }}"
+          draft: false
+          prerelease: false
 
   # cocoapod-release:
   #   runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
