@@ -31,14 +31,17 @@ jobs:
           draft: false
           prerelease: false
 
-  # cocoapod-release:
-  #   runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
-  #   steps:
-  #     - name: Check out razorpay-ios repository code
-  #       uses: actions/checkout@v2
+  cocoapod-release:
+    needs: tag-release
+    runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Check out razorpay-ios repository code
+        uses: actions/checkout@v2
+        with:
+          ref: repoDispatchEventTest
 
-  #     - name: Publish to cocoapods
-  #       env:
-  #         COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-  #       run: |
-  #         pod trunk push razorpay-pod.podspec
+      - name: Publish to cocoapods
+        # env:
+        #   COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          pod lib lint razorpay-pod.podspec
