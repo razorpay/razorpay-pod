@@ -1,0 +1,40 @@
+name: Cocoapod Deployment
+on: push
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Check out razorpay-ios repository code
+        uses: actions/checkout@v2
+
+      - name: Read version
+        id: read-podspec-version
+        run: |
+          version=exec ./scripts/read-podspec-version.sh
+          echo "::set-output name=pod-version::$version"
+
+      - name: Tag release
+        # id: create-release
+        # uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
+        # with:
+        #   tag_name: ${{ github.ref }}
+        #   release_name: Release ${{ github.ref }}
+        #   draft: false
+        #   prerelease: false
+        run: echo "POD Version is read ${{ env.POD_VERSION }}"
+
+  # cocoapod-release:
+  #   runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
+  #   steps:
+  #     - name: Check out razorpay-ios repository code
+  #       uses: actions/checkout@v2
+
+  #     - name: Publish to cocoapods
+  #       env:
+  #         COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+  #       run: |
+  #         pod trunk push razorpay-pod.podspec
