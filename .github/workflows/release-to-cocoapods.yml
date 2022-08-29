@@ -21,7 +21,6 @@ jobs:
 
       - name: Tag release
         id: create-release
-        uses: actions/create-release@v1
         env:
           POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
         run: |
