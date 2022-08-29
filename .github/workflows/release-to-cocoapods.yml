@@ -8,10 +8,13 @@ jobs:
       - name: Check out razorpay-ios repository code
         uses: actions/checkout@v2
 
+      - name: Set permission
+        run: exec chmod +x ./.github/scripts/read-podspec-version.sh
+
       - name: Read version
         id: read-podspec-version
         run: |
-          version=exec ./scripts/read-podspec-version.sh
+          version=exec ./.github/scripts/read-podspec-version.sh
           echo "::set-output name=pod-version::$version"
 
       - name: Tag release
