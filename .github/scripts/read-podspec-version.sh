@@ -7,7 +7,7 @@ NEW_PODSPEC_VERSION=$1
 versionLine="$(grep 's.version ' $file)"
 version=${versionLine##* }
 
-echo $version
+echo sed -e 's|["'\'']||g' $version
 
 # echo "$myUser" | awk '{print $NF}'
     
