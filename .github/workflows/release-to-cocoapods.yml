@@ -20,16 +20,16 @@ jobs:
           echo "::set-output name=pod-version::$version"
 
       - name: Tag release
-        # id: create-release
-        # uses: actions/create-release@v1
+        id: create-release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
           POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
-        # with:
-        #   tag_name: ${{ env.POD_VERSION }}
-        #   release_name: "v${{ env.POD_VERSION }}"
-        #   draft: false
-        #   prerelease: false
+        with:
+          tag_name: "${{ env.POD_VERSION }}"
+          release_name: "v"${{ env.POD_VERSION }}""
+          draft: false
+          prerelease: false
         run: echo "${{ env.POD_VERSION }}"
 
   # cocoapod-release:
