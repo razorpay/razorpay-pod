@@ -18,19 +18,18 @@ jobs:
         run: |
           version=$(exec ./.github/scripts/read-podspec-version.sh)
           echo "::set-output name=pod-version::$version"
-          echo "Reelase Version ${{ version }}"
 
-      # - name: Tag release
-      #   id: create-release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
-      #     POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
-      #   with:
-      #     tag_name: ${{ env.POD_VERSION }}
-      #     release_name: "v${{ env.POD_VERSION }}"
-      #     draft: false
-      #     prerelease: false
+      - name: Tag release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
+        with:
+          tag_name: ${{ env.POD_VERSION }}
+          release_name: v${{ env.POD_VERSION }}
+          draft: false
+          prerelease: false
 
   # cocoapod-release:
   #   runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
