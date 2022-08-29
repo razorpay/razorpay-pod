@@ -14,8 +14,8 @@ jobs:
       - name: Read version
         id: read-podspec-version
         run: |
-          version=exec ./.github/scripts/read-podspec-version.sh
-          echo "::set-output name=pod-version::${{version}}"
+          version=$(exec ./.github/scripts/read-podspec-version.sh)
+          echo "::set-output name=pod-version::$version"
 
       - name: Tag release
         # id: create-release
