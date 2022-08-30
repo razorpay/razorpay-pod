@@ -63,10 +63,10 @@ jobs:
           push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
 
       - name: Upload Release builds to Artifacts
-        uses: actions/checkout@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: "v_${{env.DEPLOYMENT_VERSION}}_release"
-          path: ~/Desktop/CheckoutOtpelf/
+          name: "checkout-otpelf-release"
+          path: ~/Desktop/CheckoutOtpelf
 
       - name: Create Pull Request
         shell: bash
