@@ -3,14 +3,14 @@ on: push
 
 jobs:
   list-artifacts:
-    runs-on: ubuntu-latest # nosemgrep : non-self-hosted-runner
+    runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
     steps:
       - name: Check out razorpay-ios repository code
         uses: actions/checkout@v2
 
-      - name: Get all Artifacts of Repo
-        id: list-artifacts
+      - name: List Artifacts
         uses: actions/github-script@v6
+        id: list-artifacts
         with:
           script: |
             return github.rest.actions.listArtifactsForRepo({
