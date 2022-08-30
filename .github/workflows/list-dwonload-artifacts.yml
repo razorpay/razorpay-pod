@@ -9,7 +9,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get all Artifacts of Repo
-        id: list-artifacts
         uses: actions/github-script@v5
         with:
           script: |
