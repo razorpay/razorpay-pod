@@ -34,11 +34,6 @@ jobs:
       - name: Run Create XCFramework Script
         run: exec ./.github/scripts/create-standard-checkout-build.sh
 
-      # - name: Display User Sent Data
-      #   run: |
-      #     echo "Data sent in payload Version is ${{ github.event.client_payload.version }}"
-      #     echo "Data sent in payload Unit status is ${{ github.event.client_payload.sdk_type }}"
-
       - name: Check out razorpay-pod repository code
         uses: actions/checkout@v2
         with:

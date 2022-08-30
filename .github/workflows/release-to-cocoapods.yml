@@ -1,5 +1,8 @@
 name: Cocoapod Deployment
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tag-release:
@@ -41,7 +44,7 @@ jobs:
           ref: repoDispatchEventTest
 
       - name: Publish to cocoapods
-        # env:
-        #   COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        env:
+          COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: |
           pod lib lint razorpay-pod.podspec
