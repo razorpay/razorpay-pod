@@ -9,8 +9,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get all Artifacts of Repo
-        uses: actions/github-script@v6
         id: list-artifacts
+        uses: actions/github-script@v6
         with:
           script: |
             return github.rest.actions.listArtifactsForRepo({
