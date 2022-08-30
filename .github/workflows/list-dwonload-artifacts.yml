@@ -5,7 +5,7 @@ jobs:
   list-artifacts:
     runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
     steps:
-      - name: Check out razorpay-ios repository code
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: List Artifacts
