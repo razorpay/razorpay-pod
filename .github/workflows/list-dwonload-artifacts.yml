@@ -20,6 +20,7 @@ jobs:
 
       - name: Download Artifact
         uses: dawidd6/action-download-artifact@v2
+        env:
+          ARTIFACT_ID: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].workflow_run.id }}
         with:
-          name: Checkout-Releases-v1.3.0
-          github_token: ${{ secrets.CI_BOT_TOKEN }}
+          run_id: ${{ env.ARTIFACT_ID }}
