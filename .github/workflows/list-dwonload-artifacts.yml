@@ -1,0 +1,17 @@
+name: Cocoapod Deployment
+on: push
+
+jobs:
+  list-artifacts:
+    runs-on: macOS-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Check out razorpay-ios repository code
+        uses: actions/checkout@v2
+
+      - name: Get all Artifacts of Repo
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.repos.listArtifactsForRepo({
+              
+            })
