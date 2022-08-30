@@ -10,9 +10,13 @@ jobs:
 
       - name: Get all Artifacts of Repo
         uses: actions/github-script@v6
+        id: list-artifacts
         with:
           script: |
-            github.rest.actions.listArtifactsForRepo({
+            return github.rest.actions.listArtifactsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo
             })
+
+        - name: Print Artifacts List
+          run: echo ${{ fromJson(steps.list-artifacts.outputs.result).artifacts  }}
