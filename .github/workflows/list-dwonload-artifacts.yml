@@ -10,6 +10,7 @@ jobs:
 
       - name: List Artifacts
         uses: actions/github-script@v6
+        id: list-artifacts
         with:
           script: |
             return github.rest.actions.listArtifactsForRepo({
