@@ -1,6 +1,5 @@
-name: Test Dispatch Event
-on:
-  repository_dispatch:
+name: Deploy Standard Checkout
+on: repository_dispatch
 
 env:
   DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
@@ -35,11 +34,6 @@ jobs:
       - name: Run Create XCFramework Script
         run: exec ./.github/scripts/create-standard-checkout-build.sh
 
-      # - name: Display User Sent Data
-      #   run: |
-      #     echo "Data sent in payload Version is ${{ github.event.client_payload.version }}"
-      #     echo "Data sent in payload Unit status is ${{ github.event.client_payload.sdk_type }}"
-
       - name: Check out razorpay-pod repository code
         uses: actions/checkout@v2
         with:
@@ -63,10 +57,16 @@ jobs:
         with:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
-          message: Test Commit RM File
+          message: "Release standard checkout v${{env.DEPLOYMENT_VERSION}}"
           new_branch: ${{env.DEPLOYMENT_BRANCH_NAME}}
           add: "[./Pod, razorpay-pod.podspec]"
           push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
+
+      - name: Upload Release builds to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Checkout-Releases-v${{env.DEPLOYMENT_VERSION}}"
+          path: ~/Desktop/CheckoutOtpelf
 
       - name: Create Pull Request
         shell: bash
