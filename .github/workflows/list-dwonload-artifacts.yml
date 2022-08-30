@@ -18,6 +18,8 @@ jobs:
               repo: context.repo.repo
             })
 
-      - name: Print Artifacts List
-        run: |
-          echo ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0] }}
+      - name: Download Artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: Checkout-Releases-v1.3.0
+          event: repository_dispatch
