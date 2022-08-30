@@ -24,3 +24,4 @@ jobs:
           ARTIFACT_ID: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].workflow_run.id }}
         with:
           run_id: ${{ env.ARTIFACT_ID }}
+          skip_unpack: true
