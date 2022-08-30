@@ -1,6 +1,5 @@
 name: Test Dispatch Event
-on:
-  repository_dispatch:
+on: push
 
 env:
   DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
@@ -67,6 +66,12 @@ jobs:
           new_branch: ${{env.DEPLOYMENT_BRANCH_NAME}}
           add: "[./Pod, razorpay-pod.podspec]"
           push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
+
+      - name: Upload Release builds to Artifacts
+        uses: actions/checkout@v2
+        with:
+          name: "v_${{env.DEPLOYMENT_VERSION}}_release"
+          path: ~/Desktop/CheckoutOtpelf/
 
       - name: Create Pull Request
         shell: bash
