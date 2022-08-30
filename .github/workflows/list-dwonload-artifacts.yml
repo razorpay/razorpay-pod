@@ -8,15 +8,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      # - name: List Artifacts
-      #   uses: actions/github-script@v6
-      #   id: list-artifacts
-      #   with:
-      #     script: |
-      #       return github.rest.actions.listArtifactsForRepo({
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo
-      #       })
+      - name: List Artifacts
+        uses: actions/github-script@v6
+        with:
+          script: |
+            return github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })
 
-      #   - name: Print Artifacts List
-      #     run: echo ${{ fromJson(steps.list-artifacts.outputs.result).artifacts  }}
+      - name: Print Artifacts List
+        run: echo ${{ fromJson(steps.list-artifacts.outputs.result).artifacts  }}
