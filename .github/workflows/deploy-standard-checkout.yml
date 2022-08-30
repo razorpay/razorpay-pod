@@ -1,5 +1,5 @@
-name: Test Dispatch Event
-on: push
+name: Deploy Standard Checkout
+on: repository_dispatch
 
 env:
   DEPLOYMENT_VERSION: ${{github.event.client_payload.version}}
@@ -57,7 +57,7 @@ jobs:
         with:
           author_name: Ramprasad A
           author_email: ramprasad.a@razorpay.com
-          message: Test Commit RM File
+          message: "Release standard checkout v${{env.DEPLOYMENT_VERSION}}"
           new_branch: ${{env.DEPLOYMENT_BRANCH_NAME}}
           add: "[./Pod, razorpay-pod.podspec]"
           push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
@@ -65,7 +65,7 @@ jobs:
       - name: Upload Release builds to Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: "checkout-otpelf-release"
+          name: "Checkout-Releases-v${{env.DEPLOYMENT_VERSION}}"
           path: ~/Desktop/CheckoutOtpelf
 
       - name: Create Pull Request
