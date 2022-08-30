@@ -18,4 +18,5 @@ jobs:
             })
 
       - name: Print Artifacts List
-        run: echo ${{ fromJson(steps.list-artifacts.outputs.result)  }}
+        run: |
+          echo ${{ fromJson(steps.list-artifacts.outputs.result) }}
