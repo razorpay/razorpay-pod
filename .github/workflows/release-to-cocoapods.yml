@@ -52,7 +52,8 @@ jobs:
           generateReleaseNotes: true
           draft: false
           prerelease: false
-        run: |
+
+      - run: |
           echo "Upload URL ===> ${{ steps.create-release.outputs.upload_url }}"
 
   cocoapod-release:
