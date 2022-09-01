@@ -47,8 +47,8 @@ jobs:
           POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
           ARTIFACT_NAME: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].name }}
         with:
-          tag_name: ${{ env.POD_VERSION }}
-          release_name: "v${{ env.POD_VERSION }}"
+          tag_name: "${{ env.POD_VERSION }}122"
+          release_name: "v_12${{ env.POD_VERSION }}"
           generateReleaseNotes: true
           draft: false
           prerelease: false
