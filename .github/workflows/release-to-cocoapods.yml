@@ -56,10 +56,10 @@ jobs:
         uses: vimtor/action-zip@v1
         env:
           ARTIFACT_NAME: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].name }}
-          with:
-            files: ~/Desktop/${{env.ARTIFACT_NAME}}
-            recursive: false
-            dest: ${{env.ARTIFACT_NAME}}.zip
+        with:
+          files: ~/Desktop/${{env.ARTIFACT_NAME}}
+          recursive: false
+          dest: ${{env.ARTIFACT_NAME}}.zip
 
       - name: Upload Release Asset
         id: upload-release-asset
