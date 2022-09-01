@@ -1,8 +1,5 @@
 name: Cocoapod Deployment
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
   tag-release:
@@ -22,18 +19,40 @@ jobs:
           version=$(exec ./.github/scripts/read-podspec-version.sh)
           echo ::set-output name=pod-version::$version
 
+      - name: List Artifacts
+        uses: actions/github-script@v6
+        id: list-artifacts
+        with:
+          script: |
+            return github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })
+
+      - name: Download Artifact
+        uses: dawidd6/action-download-artifact@v2
+        env:
+          ARTIFACT_ID: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].workflow_run.id }}
+        with:
+          run_id: ${{ env.ARTIFACT_ID }}
+          skip_unpack: true
+          workflow: Deploy Standard Checkout
+          path: ~/Desktop
+
       - name: Tag release
         id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
           POD_VERSION: ${{ steps.read-podspec-version.outputs.pod-version }}
+          ARTIFACT_NAME: ${{ fromJson(steps.list-artifacts.outputs.result).data.artifacts[0].name }}
         with:
           tag_name: ${{ env.POD_VERSION }}
           release_name: "v${{ env.POD_VERSION }}"
           generateReleaseNotes: true
           draft: false
           prerelease: false
+          artifacts: ~/Desktop/"${{ env.ARTIFACT_NAME }}"
 
   cocoapod-release:
     needs: tag-release
