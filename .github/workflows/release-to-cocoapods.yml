@@ -52,7 +52,8 @@ jobs:
           generateReleaseNotes: true
           draft: false
           prerelease: false
-          artifacts: ~/Desktop/${{ env.ARTIFACT_NAME }}
+        run: |
+          echo "Upload URL ===> ${{ steps.create-release.outputs.upload_url }}"
 
   cocoapod-release:
     needs: tag-release
