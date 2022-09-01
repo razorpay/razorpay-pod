@@ -52,7 +52,7 @@ jobs:
           generateReleaseNotes: true
           draft: false
           prerelease: false
-          artifacts: ~/Desktop/"${{ env.ARTIFACT_NAME }}"
+          artifacts: ~/Desktop/${{ env.ARTIFACT_NAME }}
 
   cocoapod-release:
     needs: tag-release
