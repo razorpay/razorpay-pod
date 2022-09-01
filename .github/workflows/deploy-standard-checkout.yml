@@ -52,6 +52,15 @@ jobs:
       - name: Update new build
         run: cp -R ~/Desktop/CheckoutOtpelf/ ./Pod
 
+      - name: Upload Release builds to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Checkout-Releases-v${{env.DEPLOYMENT_VERSION}}"
+          path: ~/Desktop/CheckoutOtpelf
+
+      - name: Remove Framework Folder
+        run: rm -rf ~/Desktop/CheckoutOtpelf/Razorpay.framework
+
       - name: Create Branch and Commit Changes
         uses: EndBug/add-and-commit@v9
         with:
@@ -61,12 +70,6 @@ jobs:
           new_branch: ${{env.DEPLOYMENT_BRANCH_NAME}}
           add: "[./Pod, razorpay-pod.podspec]"
           push: origin ${{env.DEPLOYMENT_BRANCH_NAME}} --set-upstream --force
-
-      - name: Upload Release builds to Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: "Checkout-Releases-v${{env.DEPLOYMENT_VERSION}}"
-          path: ~/Desktop/CheckoutOtpelf
 
       - name: Create Pull Request
         shell: bash
