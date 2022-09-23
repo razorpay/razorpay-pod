@@ -59,7 +59,7 @@ jobs:
           path: ~/Desktop/CheckoutOtpelf
 
       - name: Remove Framework Folder
-        run: rm -rf ~/Desktop/CheckoutOtpelf/Razorpay.framework
+        run: rm -rf ./Pod/Razorpay.framework
 
       - name: Create Branch and Commit Changes
         uses: EndBug/add-and-commit@v9

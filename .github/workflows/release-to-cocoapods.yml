@@ -92,4 +92,4 @@ jobs:
         env:
           COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: |
-          pod lib lint razorpay-pod.podspec
+          pod trunk push razorpay-pod.podspec
