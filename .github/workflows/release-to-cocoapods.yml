@@ -83,11 +83,11 @@ jobs:
     steps:
       - name: Check out razorpay-ios repository code
         uses: actions/checkout@v2
-        with:
-          ref: repoDispatchEventTest
 
       - name: Publish to cocoapods
-        env:
-          COCOAPOD_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: |
-          pod trunk push razorpay-pod.podspec
+          set -eo pipefail
+          pod lib lint --allow-warnings
+          pod trunk push razorpay-pod.podspec --allow-warnings
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
