@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Check out razorpay-ios repository code
         uses: actions/checkout@v2
-        with:
-          ref: repoDispatchEventTest
 
       - name: Set permission
         run: exec chmod +x ./.github/scripts/read-podspec-version.sh
