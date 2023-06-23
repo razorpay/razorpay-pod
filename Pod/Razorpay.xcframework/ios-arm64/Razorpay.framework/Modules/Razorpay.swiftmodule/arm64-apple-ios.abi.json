@@ -2979,7 +2979,7 @@
       "kind": "StringLiteral",
       "offset": 1317,
       "length": 7,
-      "value": "\"1.3.2\""
+      "value": "\"1.3.3\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Lumberjack.swift",
@@ -3119,82 +3119,82 @@
       "kind": "StringLiteral",
       "offset": 1029,
       "length": 144,
-      "value": "\"Are you sure you want to cancel the current transaciton ? You will be taken back to checkout page, where you can choose another payment option\""
+      "value": "\"Are you sure you want to cancel the current transaction ? You will be taken back to checkout page, where you can choose another payment option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1209,
+      "offset": 1218,
       "length": 24,
       "value": "\"User Cancelled Payment\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1311,
+      "offset": 1320,
       "length": 6,
       "value": "\"code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1319,
+      "offset": 1328,
       "length": 19,
       "value": "\"BAD_REQUEST_ERROR\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1340,
+      "offset": 1349,
       "length": 13,
       "value": "\"description\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1355,
+      "offset": 1364,
       "length": 38,
       "value": "\"Payment processing cancelled by user\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1395,
+      "offset": 1404,
       "length": 8,
       "value": "\"source\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1405,
+      "offset": 1414,
       "length": 10,
       "value": "\"customer\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1417,
+      "offset": 1426,
       "length": 6,
       "value": "\"step\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1425,
+      "offset": 1434,
       "length": 24,
       "value": "\"payment_authentication\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1451,
+      "offset": 1460,
       "length": 8,
       "value": "\"reason\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1461,
+      "offset": 1470,
       "length": 19,
       "value": "\"payment_cancelled\""
     },
