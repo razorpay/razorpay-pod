@@ -2774,7 +2774,7 @@
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
       "kind": "StringLiteral",
-      "offset": 10203,
+      "offset": 10252,
       "length": 11,
       "value": "\"rURIEvent\""
     },
@@ -2979,7 +2979,7 @@
       "kind": "StringLiteral",
       "offset": 1317,
       "length": 7,
-      "value": "\"1.3.3\""
+      "value": "\"1.3.4\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/Main\/Lumberjack.swift",
@@ -3201,42 +3201,42 @@
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12348,
+      "offset": 12775,
       "length": 14,
       "value": "\"user_aborted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12386,
+      "offset": 12813,
       "length": 9,
       "value": "\"success\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12418,
+      "offset": 12845,
       "length": 8,
       "value": "\"failed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12348,
+      "offset": 12775,
       "length": 14,
       "value": "\"user_aborted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12386,
+      "offset": 12813,
       "length": 9,
       "value": "\"success\""
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-pod\/razorpay-pod\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 12418,
+      "offset": 12845,
       "length": 8,
       "value": "\"failed\""
     },
