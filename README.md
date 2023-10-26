@@ -39,6 +39,14 @@ for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorp
 
 Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway/ios-integration/standard/)
 
+## Installation with Swift Package Manager (iOS 13+)
+
+[Swift Package Manager](https://www.swift.org/package-manager/) Our SDK is also distributed as a Swift Package that can be natively integrated in SwiftUI applications.
+
+### Installation:
+
+Click File -> Swift Packages -> Add Package Dependency, enter [razorpay-pod repo's URL](https://github.com/razorpay/razorpay-pod). You can also select the dependency rule to select major and minor versions of package and also from a specific branch or commit.
+
 ## Contributing
 
 See the [CONTRIBUTING] document.
