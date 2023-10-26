@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh
-${PODS_ROOT}/../Pod/Razorpay.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/Razorpay.framework/Razorpay
