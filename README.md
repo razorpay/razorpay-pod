@@ -40,7 +40,7 @@ for older cocoapod versions check [CHANGELOG](https://github.com/razorpay/razorp
 
 Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway/ios-integration/standard/)
 
-## Installation with Swift Package Manager (iOS 13+)
+## Swift Package Manager (iOS 13+)
 
 [Swift Package Manager](https://www.swift.org/package-manager/) razorpay-pod is also distributed as Swift Package, follow the below steps for installing the package in your iOS app.
 
