@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
 [![License](https://img.shields.io/cocoapods/l/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
 [![Platform](https://img.shields.io/cocoapods/p/razorpay-pod.svg?style=flat)](http://cocoapods.org/pods/razorpay-pod)
+[![SPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 This repository implements pod for Razorpay's iOS Framework.
 
@@ -41,7 +42,7 @@ Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway
 
 ## Installation with Swift Package Manager (iOS 13+)
 
-[Swift Package Manager](https://www.swift.org/package-manager/) Our SDK is also distributed as a Swift Package that can be natively integrated in SwiftUI applications.
+[Swift Package Manager](https://www.swift.org/package-manager/) razorpay-pod is also distributed as Swift Package, follow the below steps for installing the package in your iOS app.
 
 ### Installation:
 
