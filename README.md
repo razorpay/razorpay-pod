@@ -48,6 +48,8 @@ Refer to the documentation from [here](https://razorpay.com/docs/payment-gateway
 
 Click File -> Swift Packages -> Add Package Dependency, enter [razorpay-pod repo's URL](https://github.com/razorpay/razorpay-pod). You can also select the dependency rule to select major and minor versions of package and also from a specific branch or commit.
 
+Refer to our documentation [here](https://razorpay.com/docs/payments/payment-gateway/ios-integration/standard/)
+
 ## Contributing
 
 See the [CONTRIBUTING] document.
