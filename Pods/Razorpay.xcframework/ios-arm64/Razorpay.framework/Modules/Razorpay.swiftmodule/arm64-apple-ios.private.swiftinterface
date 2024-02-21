@@ -1,17 +1,20 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Razorpay
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CommonCrypto
 import CoreLocation
 import CoreTelephony
+import DeveloperToolsSupport
 import Foundation
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol PluginPaymentCompletionDelegate : AnyObject {
   func paymentSuccessful(orderID: Swift.String, dictVerification: [Swift.AnyHashable : Any]?)
   func paymentFailed(code: Swift.Int, errorDescription: Swift.String, data: [Swift.AnyHashable : Any])
@@ -21,11 +24,50 @@ public protocol PluginPaymentCompletionDelegate : AnyObject {
   @objc func canProcessPayment(model: Razorpay.PluginPaymentModel) -> Swift.Bool
   @objc func identifier() -> Swift.String
   @objc func pay(model: Razorpay.PluginPaymentModel)
+  @objc optional func getExternalPaymentData(mobileNumber: Swift.String, orderId: Swift.String?, handler: @escaping () -> Swift.Void)
+  @objc optional func paymentData() -> [[Swift.AnyHashable : Any]]
+  @objc optional func paymentTPVData() -> [Swift.AnyHashable : Any]
+}
+@objc public protocol UPITurboPlugin {
+  @objc var TPV: (any Razorpay.UPITurboTPVPlugin)? { get }
+  @objc var paymentPlugin: any Razorpay.PluginPaymentDelegate { get }
+  @objc var deviceBindingDone: Swift.Bool { get }
+  @objc func getLinkedUpiAccounts(mobileNumber: Swift.String, resultDelegate: Any)
+  @objc func linkNewAccount(mobileNumber: Swift.String, linkActionDelegate: Any)
+  @objc func fetchAccountBalance(upiAccount: Any?, handler: @escaping (Any?, Any?) -> Swift.Void)
+  @objc func resetUpiPin(upiAccount: Any?, card: Any, handler: @escaping (Any?, Any?) -> Swift.Void)
+  @objc func delinkVpa(upiAccount: Any?, handler: @escaping (Any?, Any?) -> Swift.Void)
+  @objc func changeUpiPin(upiAccount: Any?, handler: @escaping (Any?, Any?) -> Swift.Void)
+}
+@objc public protocol UPITurboTPVPlugin {
+  @objc func linkNewUpiAccount(linkActionDelegate: Any)
+  @objc func setOrderId(orderId: Swift.String) -> any Razorpay.UPITurboTPVPlugin
+  @objc func setCustomerId(customerId: Swift.String) -> any Razorpay.UPITurboTPVPlugin
+  @objc func setMobileNumber(mobile: Swift.String) -> any Razorpay.UPITurboTPVPlugin
+  @objc func setTpvBankAccount(tpvBankAccount: Any) -> any Razorpay.UPITurboTPVPlugin
 }
 public protocol ErrorDescribable {
   var localizedDescription: Swift.String { get }
 }
 public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
+@objc public protocol UPITurboUIPlugin {
+  @objc var TPV: (any Razorpay.UPITurboTPVUIPlugin)? { get }
+  @objc var corePlugin: (any Razorpay.UPITurboPlugin)? { get }
+  @objc var paymentPlugin: (any Razorpay.PluginPaymentDelegate)? { get }
+  @objc func getLinkedUpiAccounts(mobileNumber: Swift.String, resultDelegate: Any)
+  @objc func linkNewUpiAccount(mobileNumber: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
+  @objc func manageUpiAccount(mobileNumber: Swift.String, color: Swift.String)
+  @objc func getUpiAccountObject(upiAccounts: Any?) -> [[Swift.AnyHashable : Any]]?
+}
+@objc public protocol UPITurboTPVUIPlugin {
+  @objc func setOrderId(orderId: Swift.String) -> any Razorpay.UPITurboTPVUIPlugin
+  @objc func setCustomerId(customerId: Swift.String) -> any Razorpay.UPITurboTPVUIPlugin
+  @objc func setMobileNumber(mobile: Swift.String) -> any Razorpay.UPITurboTPVUIPlugin
+  @objc func linkNewUpiAccountWithUI(amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
+}
+public protocol UPITurboUIInternalPlugin : Razorpay.UPITurboUIPlugin {
+  func linkNewUpiAccount(mobileNumber: Swift.String, amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
+}
 @objc public protocol RazorpayProtocol {
 }
 @objc public protocol RazorpayResultProtocol : Razorpay.RazorpayProtocol {
@@ -44,10 +86,25 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
 @objc public protocol ExternalWalletSelectionProtocol {
   @objc func onExternalWalletSelected(_ walletName: Swift.String, withPaymentData paymentData: [Swift.AnyHashable : Any]?)
 }
+public class TurboPluginManager {
+  public init()
+  public func getSessionId() -> Swift.String?
+  public func getMercahntKey() -> Swift.String?
+  public func getHTMLLoaingPage() -> Swift.String
+  public func isCFBEnabledUser() -> Swift.Bool
+  public func getBaseAnalyticsProperties() -> [Swift.AnyHashable : Any]
+  public func trackEvent(eventName: Swift.String, payload: [Swift.AnyHashable : Any])
+  public func submitAnalyticsEvents()
+  public func gatherAnalyticsDataCustomUI() -> [Swift.String : Any]?
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc public class PluginPaymentModel : ObjectiveC.NSObject {
   final public let merchantKey: Swift.String
   final public let dictPaymentInformation: [Swift.AnyHashable : Any]
   final public let delegate: any Razorpay.PluginPaymentCompletionDelegate
+  public func getMerchantKey() -> Swift.String
+  public func getPaymentInfoDict() -> [Swift.AnyHashable : Any]
+  public func getDelegate() -> any Razorpay.PluginPaymentCompletionDelegate
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Otpelf : ObjectiveC.NSObject {
@@ -63,11 +120,16 @@ public typealias PluginPaymentError = Razorpay.ErrorDescribable & Swift.Error
 }
 public struct CXError {
 }
+extension Foundation.URLRequest {
+  public func cURL(pretty: Swift.Bool = false) -> Swift.String
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RazorpayCheckout : ObjectiveC.NSObject {
+  @objc final public var upiTurbo: (any Razorpay.UPITurboUIPlugin)?
   @available(*, unavailable, message: "This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.")
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any Razorpay.RazorpayPaymentCompletionProtocol, forViewController vc: UIKit.UIViewController)
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any Razorpay.RazorpayProtocol) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any Razorpay.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any Razorpay.RazorpayPaymentCompletionProtocolWithData, plugin: (any Razorpay.UPITurboUIPlugin)?) -> Razorpay.RazorpayCheckout
   @objc public static func publishUri(with data: Swift.String)
   @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: any Razorpay.ExternalWalletSelectionProtocol)
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
@@ -77,5 +139,6 @@ public struct CXError {
   @objc final public func open(_ options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any Razorpay.PluginPaymentDelegate])
   @objc final public func close()
   @objc final public func clearUserData()
+  @objc final public func preload()
   @objc deinit
 }
