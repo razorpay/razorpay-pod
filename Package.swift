@@ -20,7 +20,8 @@ let package = Package(
     targets: [
         .target(
             name: "RazorpayCheckout",
-            path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
+            path: "RazorpayCheckout/Sources/RazorpayCheckoutCore",
+            resources: [.copy("PrivacyInfo.xcprivacy")]
         ),
         .binaryTarget(
             name: "Razorpay",

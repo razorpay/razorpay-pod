@@ -31,6 +31,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.license          = 'MIT'
   s.author           = { "razorpay" => "support@razorpay.com"}
   s.source           = { :git => "https://github.com/razorpay/razorpay-pod.git", :tag => s.version.to_s }
+  s.resource_bundles = { "razorpay-pod" => ['**/*.xcprivacy']}
   s.social_media_url = 'https://twitter.com/razorpay'
 
   s.platform     = :ios, '10.0'
