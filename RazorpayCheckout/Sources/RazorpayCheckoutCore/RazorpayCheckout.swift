@@ -13,6 +13,7 @@ extension CheckoutErrors: CustomStringConvertible {
     }
 }
 
+@objc
 public protocol RazorpaySwiftProtocol {
     
 }
@@ -27,6 +28,7 @@ public protocol PaymentCompletionWithDataDelegate: RazorpaySwiftProtocol {
     func onPaymentSuccess(_ payment_id: String, andData response: [AnyHashable : Any]?)
 }
 
+@objc
 public final class RazorpaySwift {
     
     private var razorpay: RazorpayCheckout?
@@ -47,7 +49,7 @@ public final class RazorpaySwift {
         RazorpaySwift.shared.delegate = delegate
         return RazorpaySwift.shared
     }
-    
+    @objc
     public func open(withPayload payload: [AnyHashable: Any]) throws {
         guard let key = self.key else {
             throw CheckoutErrors.keyMissing
@@ -59,7 +61,7 @@ public final class RazorpaySwift {
         self.razorpay?.open(payload)
     }
 }
-
+@objc
 extension RazorpaySwift: RazorpayPaymentCompletionProtocol {
     public func onPaymentError(_ code: Int32, description str: String) {
         (self.delegate as? PaymentCompletionDelegate)?.onPaymentError(code, description: str)
@@ -70,6 +72,7 @@ extension RazorpaySwift: RazorpayPaymentCompletionProtocol {
     }
 }
 
+@objc
 extension RazorpaySwift: RazorpayPaymentCompletionProtocolWithData {
     public func onPaymentError(_ code: Int32, description str: String, andData response: [AnyHashable : Any]?) {
         (self.delegate as? PaymentCompletionWithDataDelegate)?.onPaymentError(code, description: str, andData: response)
