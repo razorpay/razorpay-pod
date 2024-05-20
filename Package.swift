@@ -25,7 +25,7 @@ let package = Package(
         .binaryTarget(
             name: "Razorpay",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(packageVersion)/Razorpay.xcframework.zip",
-            checksum: "7a9aee4f56d1ff0bbedc19451b0c01f26640cb9b4b043502b6e8b3d1e1e3bbbe"
+            checksum: "cb402f717330fe28bbf2c23abe58f6f7"
         ),
     ],
     swiftLanguageVersions: [.v5]
