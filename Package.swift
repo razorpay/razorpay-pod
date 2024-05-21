@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let packageVersion = "1.3.7"
+let packageVersion = "1.3.8"
 
 let package = Package(
     name: "RazorpayCheckout",
@@ -25,7 +25,7 @@ let package = Package(
         .binaryTarget(
             name: "Razorpay",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(packageVersion)/Razorpay.xcframework.zip",
-            checksum: "4094a215ed4db7371e68d1023cda707290cfbf455d9ab43f2e4f712935d7e4ce"
+            checksum: "095cda959931bc812580a1a683d6d2b3fe6b63cb9fa52557c3530363b23a3d33"
         ),
     ],
     swiftLanguageVersions: [.v5]
