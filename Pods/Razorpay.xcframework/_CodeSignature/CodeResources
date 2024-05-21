@@ -78,15 +78,15 @@
 		</data>
 		<key>ios-arm64/Razorpay.framework/Info.plist</key>
 		<data>
-		aDqwANAwkWcHlNpJ7cOT6e2/ja4=
+		wXDCaVvL0bqd7TpKMyIlVyZPwzo=
 		</data>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		eOeznKSbCdH/xo4BKXZj2LLC+Tg=
+		fJUkpPOJyCMftI2tFd3HVzPqAXU=
 		</data>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		2eYfkcpTZF7JNHV7a60gJVtnIIM=
+		f8N98DCQTlO4e3c4DkuxfXeoACw=
 		</data>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>ios-arm64/Razorpay.framework/Razorpay</key>
 		<data>
-		SJ2djcX8fJXsgqI+7mdgSsdf/Gs=
+		8Q01D0L7JgOu83mJepXW/I2rx94=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Assets.car</key>
 		<data>
@@ -186,19 +186,19 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Info.plist</key>
 		<data>
-		ZO4tIaAR5gjeRz3JzpvzqfM+RLw=
+		fkXHVJP4CDxhu1JF8y7AEy4JTLI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		x9uKkK6C2MJ0LI7MkxpC/DdJd6s=
+		mshkdthbNIcH6Y0JJkN5KlxWEa4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		AcxlS4R2VCe9gbqelqJd79gCpxg=
+		ZMa7QtGeU+2V/pgQPyRSSXjOhVU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		sPl6RkJIPCeGgLSWwuLM61Gn4Fk=
+		25R0VsussOXwEZY1dFTNBpLgLE8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -214,7 +214,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		sPl6RkJIPCeGgLSWwuLM61Gn4Fk=
+		25R0VsussOXwEZY1dFTNBpLgLE8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -238,11 +238,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Razorpay</key>
 		<data>
-		mZmB46BZRWEeWjlKZGwDBRRn7m8=
+		v82NuIL0P/XUDIqPs7nLrnUT+xI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<data>
-		r3gQWuE4TcxW62mXNadbww/nK/Q=
+		dITwR3s3u/XcmAUJPPOFkaaSgRc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -449,33 +449,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aDqwANAwkWcHlNpJ7cOT6e2/ja4=
+			wXDCaVvL0bqd7TpKMyIlVyZPwzo=
 			</data>
 			<key>hash2</key>
 			<data>
-			3ZmtgfasK2lPsuC+eRLvdAbfucp6reNoK5I4IDwawQs=
+			BQVBlQWt6QYNmmnuVceEIrhRixfOL8mXvhlNyvd8Vl4=
 			</data>
 		</dict>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eOeznKSbCdH/xo4BKXZj2LLC+Tg=
+			fJUkpPOJyCMftI2tFd3HVzPqAXU=
 			</data>
 			<key>hash2</key>
 			<data>
-			TAcfFdoggLyIeKfq+mCYrwEp6qE2SSmtFOeMGPKMqwc=
+			Cq4JbPvJXP4oVKvOfyT5XnQrVaOLG+EX7nMp6yl3zw0=
 			</data>
 		</dict>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2eYfkcpTZF7JNHV7a60gJVtnIIM=
+			f8N98DCQTlO4e3c4DkuxfXeoACw=
 			</data>
 			<key>hash2</key>
 			<data>
-			bx6d9CnmLBe5qnOVMSv2SGpwbBSD5q1bgbUpz4NOI/E=
+			EbVOMccL+oq6GANRz04Nc+lrOg3cyj7H4XOHA+WQKmo=
 			</data>
 		</dict>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -537,11 +537,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SJ2djcX8fJXsgqI+7mdgSsdf/Gs=
+			8Q01D0L7JgOu83mJepXW/I2rx94=
 			</data>
 			<key>hash2</key>
 			<data>
-			659/ADMliCw+gk0B65UgWNQ93BEk/byi8k7c8457hLk=
+			jQEPpH7Cl3G4xkc52obvKb/EDfEd0P/mY+jFuU967O8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Assets.car</key>
@@ -746,44 +746,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZO4tIaAR5gjeRz3JzpvzqfM+RLw=
+			fkXHVJP4CDxhu1JF8y7AEy4JTLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			tBQJoT9XfxtUDw6YIK8AMRH2SpJ+ISQXkJyNOm5OXLM=
+			9fUrs4OIha9rjtqsST+KnmVqtdGvDuA4qh2yLHaqkes=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x9uKkK6C2MJ0LI7MkxpC/DdJd6s=
+			mshkdthbNIcH6Y0JJkN5KlxWEa4=
 			</data>
 			<key>hash2</key>
 			<data>
-			fNoOVj+5Iq9DD3aFw2NJDWY3KbCS2ekTLAnb7YqB8sk=
+			b4ejxqqlSyEFl7T0YPg4GTnIZCDLqi28Z7PmN3PmwDQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AcxlS4R2VCe9gbqelqJd79gCpxg=
+			ZMa7QtGeU+2V/pgQPyRSSXjOhVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wj4vVb15Z37NfklbQ9vjO3kySGbFa9gv9hP4x1gx048=
+			IKL2T+89DgVor3CtpnlpmtPq3M4CXAen4Vk+nuVWeJ0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sPl6RkJIPCeGgLSWwuLM61Gn4Fk=
+			25R0VsussOXwEZY1dFTNBpLgLE8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dx0czbvPzIIeoeEQJZOx2G488o8vKhmDDUbEBp4QVaA=
+			4YbMAW6jthgZLtqjz7P/0GGzBAIpApyJeBI8M5h1S+E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -823,11 +823,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sPl6RkJIPCeGgLSWwuLM61Gn4Fk=
+			25R0VsussOXwEZY1dFTNBpLgLE8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dx0czbvPzIIeoeEQJZOx2G488o8vKhmDDUbEBp4QVaA=
+			4YbMAW6jthgZLtqjz7P/0GGzBAIpApyJeBI8M5h1S+E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -889,22 +889,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mZmB46BZRWEeWjlKZGwDBRRn7m8=
+			v82NuIL0P/XUDIqPs7nLrnUT+xI=
 			</data>
 			<key>hash2</key>
 			<data>
-			WQsuWeYLL3a7kWzYv36B6L5kQq66nQiqrWW4ti6rg/Q=
+			efRhAAanW1jDhQwSwPU+6mvyIo/NcqsnKJFDz1slHcI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r3gQWuE4TcxW62mXNadbww/nK/Q=
+			dITwR3s3u/XcmAUJPPOFkaaSgRc=
 			</data>
 			<key>hash2</key>
 			<data>
-			5QZCqVFIlPnRSmn8F5oOD/Hji8v7IZ5kEzL+ALZ+IUw=
+			orzgbzL+ZuUThr52uI8PFUbYYwttQCw7l9Eb6bNrMOY=
 			</data>
 		</dict>
 	</dict>
