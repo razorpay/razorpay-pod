@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let packageVersion = "1.3.8"
+let packageVersion = "1.3.9"
 
 let package = Package(
     name: "RazorpayCheckout",
