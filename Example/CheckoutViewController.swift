@@ -67,16 +67,15 @@ class CheckoutViewController: UIViewController,RazorpayPaymentCompletionProtocol
     
     private func openRazorpayCheckout() {
         // 1. Initialize razorpay object with provided key. Also depending on your requirement you can assign delegate to self. It can be one of the protocol from RazorpayPaymentCompletionProtocolWithData, RazorpayPaymentCompletionProtocol.
-        razorpayObj = RazorpayCheckout.initWithKey("rzp_live_JbQIqxBRizNPmu", andDelegateWithData: self)
+        razorpayObj = RazorpayCheckout.initWithKey("rzp_live_ILgsfZCZoFIKMb", andDelegateWithData: self)
         let options: [AnyHashable:Any] = [
-            "amount":363,
-            "currency":"MYR",
-            "image":"https://tenancy.stage02.obdemo.com/assets/img/logo-icon.png",
-            "name":"Tenancy Payment",
+            "amount":100,
+            "currency":"INR",
+            "name":"Test Payment iOS",
             "theme":[
                 "color":"#000000"
             ]
-            ]
+        ]
         if let rzp = self.razorpayObj {
             rzp.open(options)
         } else {

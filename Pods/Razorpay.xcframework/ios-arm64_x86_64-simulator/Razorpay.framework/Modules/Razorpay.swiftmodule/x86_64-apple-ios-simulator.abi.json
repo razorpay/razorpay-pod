@@ -3061,203 +3061,203 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "BooleanLiteral",
-      "offset": 10616,
+      "offset": 10865,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 10712,
+      "offset": 10961,
       "length": 27,
       "value": "\"could not get data source\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10899,
+      "offset": 11148,
       "length": 3,
       "value": "7.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10903,
+      "offset": 11152,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10917,
+      "offset": 11166,
       "length": 4,
       "value": "39.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10922,
+      "offset": 11171,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10935,
+      "offset": 11184,
       "length": 4,
       "value": "83.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 10940,
+      "offset": 11189,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 10954,
+      "offset": 11203,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11079,
+      "offset": 11328,
       "length": 13,
       "value": "\"theme_color\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11179,
+      "offset": 11428,
       "length": 7,
       "value": "\"alpha\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11235,
+      "offset": 11484,
       "length": 5,
       "value": "\"red\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11291,
+      "offset": 11540,
       "length": 7,
       "value": "\"green\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11348,
+      "offset": 11597,
       "length": 6,
       "value": "\"blue\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11555,
+      "offset": 11804,
       "length": 99,
       "value": "\"body in onLoad has a missing value of one or more colors. Filling default color -> body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 11653,
+      "offset": 11902,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 11971,
+      "offset": 12220,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 11991,
+      "offset": 12240,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 12008,
+      "offset": 12257,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 12027,
+      "offset": 12276,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12217,
+      "offset": 12466,
       "length": 7,
       "value": "\"theme\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12276,
+      "offset": 12525,
       "length": 7,
       "value": "\"color\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12405,
+      "offset": 12654,
       "length": 58,
       "value": "\"body in onLoad doesn't have theme_color - body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12462,
+      "offset": 12711,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12893,
+      "offset": 13142,
       "length": 84,
       "value": "\"invalid hex passed in the theme color initOptions -> hexString = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 12976,
+      "offset": 13225,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 13291,
+      "offset": 13540,
       "length": 58,
       "value": "\"body in onLoad doesn't have theme_color - body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 13348,
+      "offset": 13597,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "BooleanLiteral",
-      "offset": 13597,
+      "offset": 13846,
       "length": 5,
       "value": "false"
     },
@@ -3413,7 +3413,7 @@
       "kind": "StringLiteral",
       "offset": 1317,
       "length": 8,
-      "value": "\"1.3.12\""
+      "value": "\"1.3.13\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
