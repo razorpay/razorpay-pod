@@ -106,7 +106,7 @@
 		</data>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		u+0jyssf0VqeasThca56iDfNKAk=
+		C3qendk1eWRaNtXpo1yHysz+2UU=
 		</data>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -134,11 +134,11 @@
 		</data>
 		<key>ios-arm64/Razorpay.framework/Razorpay</key>
 		<data>
-		yi4LvFsmdyOcXDRtdSFnf5ZDpHk=
+		JIsj/sbZRBsULnoYS81P3ukzjiI=
 		</data>
 		<key>ios-arm64/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<data>
-		RXRcwvY+E1uCbo13cG5aoOOfdSQ=
+		KSDdeS8nWbF2R1/wO2VyIHZjpXc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Assets.car</key>
 		<data>
@@ -242,11 +242,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		pL1Pzg21axzJ+NC9xZiTqc8+KV4=
+		ThiC40dQqyRsrTLQ9auxbp6TXFk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		m0FISF5pN6cGsLzRNVV42/r1/7o=
+		TRGWovKBJKsoCCCJ5+TPBSu4uPc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -290,11 +290,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Razorpay</key>
 		<data>
-		oOO7N+5KfpajCYw6OGUeP8mrBo0=
+		NJ5dzI7C6BbCFIMbQZHdpmsoJNE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<data>
-		SSgP0ndUS5ugigwrmIMYz9YNen4=
+		ug9+CZJNInmqBznBqbExYPohBgI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -578,11 +578,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			u+0jyssf0VqeasThca56iDfNKAk=
+			C3qendk1eWRaNtXpo1yHysz+2UU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Qj00IQO6jV1CHfqPSbjtp1grwQCi1iZg4x0R1BXT5oc=
+			D178g8ofUZNyjHbCzKPhnsnlYGHieoMv7AQMWofq5gA=
 			</data>
 		</dict>
 		<key>ios-arm64/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -655,22 +655,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yi4LvFsmdyOcXDRtdSFnf5ZDpHk=
+			JIsj/sbZRBsULnoYS81P3ukzjiI=
 			</data>
 			<key>hash2</key>
 			<data>
-			3ClGPBhMAc0Gdu07/2snKVxl0BmZQ9pFI3ySrIfNI28=
+			5io3Xax1LNHqDgmljmCDW0oao+fQbOE2VkU75gzdVBs=
 			</data>
 		</dict>
 		<key>ios-arm64/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RXRcwvY+E1uCbo13cG5aoOOfdSQ=
+			KSDdeS8nWbF2R1/wO2VyIHZjpXc=
 			</data>
 			<key>hash2</key>
 			<data>
-			HtK67jGmrPmoM8t8uupwfXNHx+Qr9oJ7/hMFLvy2E6s=
+			qBHarLMLIWHm3IwQ9Ffd5W3i4iNiMo/wVmYEpVx6Eio=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Assets.car</key>
@@ -952,22 +952,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pL1Pzg21axzJ+NC9xZiTqc8+KV4=
+			ThiC40dQqyRsrTLQ9auxbp6TXFk=
 			</data>
 			<key>hash2</key>
 			<data>
-			nme5gok5iaB+dak9yTkrsMRRNg8X7ACV3aJhgF+Ccqo=
+			533JKq3A3UWx3MLPCYqJaMD+WLHUQIIeYd3Lmjy9dvo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m0FISF5pN6cGsLzRNVV42/r1/7o=
+			TRGWovKBJKsoCCCJ5+TPBSu4uPc=
 			</data>
 			<key>hash2</key>
 			<data>
-			dSOd2uakYtzeylBcQvBu9kb8F4sGm/yuk5VOEVniz1k=
+			Ggibm9kUoDohAhujdcWuvZoTBQ/CVH5awsrzrzDADZM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -1084,22 +1084,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oOO7N+5KfpajCYw6OGUeP8mrBo0=
+			NJ5dzI7C6BbCFIMbQZHdpmsoJNE=
 			</data>
 			<key>hash2</key>
 			<data>
-			4thvSzbEZmsAVUj+eu7hQqHwQDR/mNF4ktEj6EBfHz0=
+			ce6bQD4+tj1MzeE/f3VWcW5c8t/M5s8nkEf6Wez2Xl8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Razorpay.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SSgP0ndUS5ugigwrmIMYz9YNen4=
+			ug9+CZJNInmqBznBqbExYPohBgI=
 			</data>
 			<key>hash2</key>
 			<data>
-			oVgUtzIIKMKI66j9dgAMUo5Ksm1zdLmAQfARceUZ7jU=
+			U4fl6wgc2Wvi0Dn6rPn73DS3Yls40/A1T55kNGClUJ8=
 			</data>
 		</dict>
 	</dict>
