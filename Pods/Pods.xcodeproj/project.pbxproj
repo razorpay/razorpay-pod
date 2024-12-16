@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FD3AA4D5D1004A763AD73C3EF310B0B0 /* PBXContainerItemProxy */ = {
+		13FA3311415CEDE8B000B10B58EC75CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -36,24 +36,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12889BE0EB4BF8F58A8171EB8651FB04 /* razorpay-pod-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "razorpay-pod-xcframeworks.sh"; sourceTree = "<group>"; };
-		14EEBB4BEC7E0AC61A91048CEACD3115 /* razorpay-pod.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "razorpay-pod.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		1D61BCAA13C8F0FD78154D8897B46EE7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		080C11D2D8319FE180F262BF3D38FA4C /* Razorpay.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Razorpay.xcframework; path = Pod/Razorpay.xcframework; sourceTree = "<group>"; };
 		1F667CC0E19EAF34E5A4119E2121F585 /* Pods-Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Example"; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21BEBA77726B8C519C762E580C97180F /* razorpay-pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "razorpay-pod.release.xcconfig"; sourceTree = "<group>"; };
 		243410B9535472556EA4BB6DBC133A0D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		441854E35F81731E63E53DC7E4EEAD9D /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		64F5D99DB242DA2A4E33EE74C9D54046 /* razorpay-pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "razorpay-pod.release.xcconfig"; sourceTree = "<group>"; };
+		4E3A1E14A2C9B2B2E8A26F26E877C9DA /* razorpay-pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "razorpay-pod.debug.xcconfig"; sourceTree = "<group>"; };
+		6C53BC799C90FACA5D5805B8DFDA8C3F /* razorpay-pod-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "razorpay-pod-xcframeworks.sh"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AF6328385EF1E603C75F196805DA64E2 /* Razorpay.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Razorpay.xcframework; path = Pod/Razorpay.xcframework; sourceTree = "<group>"; };
 		AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D3883BE11B784EE4638D8929F6BCC154 /* razorpay-pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "razorpay-pod.debug.xcconfig"; sourceTree = "<group>"; };
 		D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		DA75A6020B5314702DE5EE066AF4CBC8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		EA21B344259B58996DB73382B1B1521F /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,30 +66,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		008A2857A6AEDFB5B16F6467A941DBED /* Frameworks */ = {
+		1152387DB52F96FF4B1C12CDB3C42AEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF6328385EF1E603C75F196805DA64E2 /* Razorpay.xcframework */,
+				080C11D2D8319FE180F262BF3D38FA4C /* Razorpay.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D2BE43F8978DD759A7B3AE1155A9641 /* Development Pods */ = {
+		4BD2AE21C8E5E6AD25904BFEF16D0076 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				58AC171043D2A9803180E2E37BB421BE /* razorpay-pod */,
+				6888521189BB2945905871A01CC3E319 /* razorpay-pod */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		4FE8AA843C11B4F2651B93771D1592E0 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				DA75A6020B5314702DE5EE066AF4CBC8 /* LICENSE */,
-				14EEBB4BEC7E0AC61A91048CEACD3115 /* razorpay-pod.podspec */,
-				1D61BCAA13C8F0FD78154D8897B46EE7 /* README.md */,
-			);
-			name = Pod;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		57154274EC146FE9C98743DB36E52A70 /* Products */ = {
@@ -111,15 +98,25 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		58AC171043D2A9803180E2E37BB421BE /* razorpay-pod */ = {
+		6888521189BB2945905871A01CC3E319 /* razorpay-pod */ = {
 			isa = PBXGroup;
 			children = (
-				008A2857A6AEDFB5B16F6467A941DBED /* Frameworks */,
-				4FE8AA843C11B4F2651B93771D1592E0 /* Pod */,
-				FAEA4A90BCF3C00F47EB45EE6EABF3EB /* Support Files */,
+				1152387DB52F96FF4B1C12CDB3C42AEC /* Frameworks */,
+				7FB872A77071E361EFA3BD1BA8D875BE /* Support Files */,
 			);
 			name = "razorpay-pod";
-			path = ..;
+			path = "razorpay-pod";
+			sourceTree = "<group>";
+		};
+		7FB872A77071E361EFA3BD1BA8D875BE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C53BC799C90FACA5D5805B8DFDA8C3F /* razorpay-pod-xcframeworks.sh */,
+				4E3A1E14A2C9B2B2E8A26F26E877C9DA /* razorpay-pod.debug.xcconfig */,
+				21BEBA77726B8C519C762E580C97180F /* razorpay-pod.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/razorpay-pod";
 			sourceTree = "<group>";
 		};
 		9BDBD95ED116334D1B2835202D8D3060 /* Pods-Example */ = {
@@ -151,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				3D2BE43F8978DD759A7B3AE1155A9641 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				4BD2AE21C8E5E6AD25904BFEF16D0076 /* Pods */,
 				57154274EC146FE9C98743DB36E52A70 /* Products */,
 				CE2E825F08D3AD0FD76E6D78D7512ED0 /* Targets Support Files */,
 			);
@@ -164,17 +161,6 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAEA4A90BCF3C00F47EB45EE6EABF3EB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				12889BE0EB4BF8F58A8171EB8651FB04 /* razorpay-pod-xcframeworks.sh */,
-				D3883BE11B784EE4638D8929F6BCC154 /* razorpay-pod.debug.xcconfig */,
-				64F5D99DB242DA2A4E33EE74C9D54046 /* razorpay-pod.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/razorpay-pod";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +189,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D0C632B51D3C8F9C3B9C779A6D8A0B9B /* PBXTargetDependency */,
+				FADBA5A5B9F8DC472B6EAEB905D6BE7B /* PBXTargetDependency */,
 			);
 			name = "Pods-Example";
 			productName = Pods_Example;
@@ -281,11 +267,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D0C632B51D3C8F9C3B9C779A6D8A0B9B /* PBXTargetDependency */ = {
+		FADBA5A5B9F8DC472B6EAEB905D6BE7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "razorpay-pod";
 			target = 84CA3424E172CD651235AF0783D01D39 /* razorpay-pod */;
-			targetProxy = FD3AA4D5D1004A763AD73C3EF310B0B0 /* PBXContainerItemProxy */;
+			targetProxy = 13FA3311415CEDE8B000B10B58EC75CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -495,7 +481,7 @@
 		};
 		976277CD801BAD625DC08B5E6AC90953 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64F5D99DB242DA2A4E33EE74C9D54046 /* razorpay-pod.release.xcconfig */;
+			baseConfigurationReference = 21BEBA77726B8C519C762E580C97180F /* razorpay-pod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -513,7 +499,7 @@
 		};
 		99F1C38559DC746419CDE370BDB59B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3883BE11B784EE4638D8929F6BCC154 /* razorpay-pod.debug.xcconfig */;
+			baseConfigurationReference = 4E3A1E14A2C9B2B2E8A26F26E877C9DA /* razorpay-pod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

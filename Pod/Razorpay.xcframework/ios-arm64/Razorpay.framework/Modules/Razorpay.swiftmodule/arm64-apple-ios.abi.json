@@ -951,6 +951,69 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "MagicXResultProtocol",
+        "printedName": "MagicXResultProtocol",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onCheckoutUrlGenerated",
+            "printedName": "onCheckoutUrlGenerated(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Razorpay@objc(pl)MagicXResultProtocol(im)onCheckoutUrlGenerated:",
+            "mangledName": "$s8Razorpay20MagicXResultProtocolP22onCheckoutUrlGeneratedyySSF",
+            "moduleName": "Razorpay",
+            "genericSig": "<τ_0_0 where τ_0_0 : Razorpay.MagicXResultProtocol>",
+            "sugared_genericSig": "<Self where Self : Razorpay.MagicXResultProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@Razorpay@objc(pl)MagicXResultProtocol",
+        "mangledName": "$s8Razorpay20MagicXResultProtocolP",
+        "moduleName": "Razorpay",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -1333,6 +1396,23 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Razorpay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "Razorpay"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "Razorpay",
         "declAttributes": [
@@ -2337,6 +2417,48 @@
           },
           {
             "kind": "Function",
+            "name": "openMagicX",
+            "printedName": "openMagicX(storefrontUrl:itemsData:withDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MagicXResultProtocol",
+                "printedName": "any Razorpay.MagicXResultProtocol",
+                "usr": "c:@M@Razorpay@objc(pl)MagicXResultProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout(im)openMagicXWithStorefrontUrl:itemsData:withDelegate:",
+            "mangledName": "$s8Razorpay0A8CheckoutC10openMagicX13storefrontUrl9itemsData12withDelegateySS_SSAA0D15XResultProtocol_ptF",
+            "moduleName": "Razorpay",
+            "objc_name": "openMagicXWithStorefrontUrl:itemsData:withDelegate:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "close",
             "printedName": "close()",
             "children": [
@@ -2990,15 +3112,36 @@
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1029,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2897,
+      "offset": 1055,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1088,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2996,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
       "kind": "StringLiteral",
-      "offset": 10543,
+      "offset": 10779,
       "length": 11,
       "value": "\"rURIEvent\""
     },
@@ -3262,6 +3405,27 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayMagicxVC.swift",
+      "kind": "StringLiteral",
+      "offset": 331,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayMagicxVC.swift",
+      "kind": "StringLiteral",
+      "offset": 362,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayMagicxVC.swift",
+      "kind": "StringLiteral",
+      "offset": 392,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/Otpelf\/OpinioatedSDKChecksHandler.swift",
       "kind": "BooleanLiteral",
       "offset": 1280,
@@ -3413,7 +3577,7 @@
       "kind": "StringLiteral",
       "offset": 1317,
       "length": 8,
-      "value": "\"1.3.13\""
+      "value": "\"1.3.14\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
@@ -3648,22 +3812,29 @@
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
+      "kind": "BooleanLiteral",
+      "offset": 846,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 13111,
+      "offset": 13344,
       "length": 14,
       "value": "\"user_aborted\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 13149,
+      "offset": 13382,
       "length": 9,
       "value": "\"success\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 13181,
+      "offset": 13414,
       "length": 8,
       "value": "\"failed\""
     },
