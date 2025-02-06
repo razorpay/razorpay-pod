@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Bju3rMGH/QCKRwqZN0W5qAnnnS4=
+		iJ01f1LsXlio0sRiM+A9ZByo55Y=
 		</data>
 		<key>Checkout.storyboardc/Info.plist</key>
 		<data>
@@ -98,6 +98,7 @@
 		</data>
 		<key>Headers/Razorpay-Swift.h</key>
 		<data>
+<<<<<<< Updated upstream
 		PRlKKZ2rnhof0Sd4AKdnLo0/AvU=
 		</data>
 		<key>Info.plist</key>
@@ -115,18 +116,45 @@
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
 		wa5XuHjLFzrAd4JMMkDy1Aa989w=
+=======
+		mlPkUjBt6z0zdE/td0MNe8U1/i8=
+		</data>
+		<key>Info.plist</key>
+		<data>
+		iC8jeZIdMEy9qjH7aT6CcTOyBY0=
+		</data>
+		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<data>
+		yFjA+Iiuh7YUVGwID1Q+8+oA4uo=
+		</data>
+		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		qIIW9EstsdLM/vsQgU1uABB+q5s=
+		</data>
+		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<data>
+		I3RWHeTGscPMI+lF1Sd6iX6NcFQ=
+>>>>>>> Stashed changes
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		Saoy8zir8yQPMB9nV1bvzjh+2XQ=
+		3/mbE18EUwcf8KiLWVy9EQD9ft0=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
+<<<<<<< Updated upstream
 		wa5XuHjLFzrAd4JMMkDy1Aa989w=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
 		HACvRNG5/VniURvE9g4HUHEoLdg=
+=======
+		I3RWHeTGscPMI+lF1Sd6iX6NcFQ=
+		</data>
+		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		F1i/w+twOG9CffXcCZDE4TYoXK4=
+>>>>>>> Stashed changes
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -143,11 +171,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Bju3rMGH/QCKRwqZN0W5qAnnnS4=
+			iJ01f1LsXlio0sRiM+A9ZByo55Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			PHb2ZuQOlqYYHw0P0haHf/aFuDNeeCbe+axDReTr7h0=
+			d0WE3JGG0UHlSOVPMZLzxgGucecHjnbfAUHoQt/RkvU=
 			</data>
 		</dict>
 		<key>Checkout.storyboardc/Info.plist</key>
@@ -396,77 +424,125 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			PRlKKZ2rnhof0Sd4AKdnLo0/AvU=
 			</data>
 			<key>hash2</key>
 			<data>
 			5o4CV9wRfjX11ZL9CaviS1IbJOM6E4Nli4KZckfSGXU=
+=======
+			mlPkUjBt6z0zdE/td0MNe8U1/i8=
+			</data>
+			<key>hash2</key>
+			<data>
+			tHw9uShhkzYJrWZLmmO7FFTagSE8XbTgn89qzeC8l4U=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			w9E+jmA6oaA9bVjiEiEvX5GGJRI=
 			</data>
 			<key>hash2</key>
 			<data>
 			CNWsXqu/kwcMVq25dufPtPsGbSWlPsAsofQE3OYkg0g=
+=======
+			yFjA+Iiuh7YUVGwID1Q+8+oA4uo=
+			</data>
+			<key>hash2</key>
+			<data>
+			AEq6BAKDQHEUB35yqqwXxfWNF4roLL11n4pGAWKW3Ag=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			37ATTy+O5a/dw5MGQ1ClhhEW0nc=
 			</data>
 			<key>hash2</key>
 			<data>
 			8SI9SCcNiuWwXeEZ/bO+vYMmcVcQAA1p9A6PKUByhU4=
+=======
+			qIIW9EstsdLM/vsQgU1uABB+q5s=
+			</data>
+			<key>hash2</key>
+			<data>
+			RArvLyNT1RCEGFys9UvM7WVIjUy+15cpYXioT7JZKiQ=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			wa5XuHjLFzrAd4JMMkDy1Aa989w=
 			</data>
 			<key>hash2</key>
 			<data>
 			4cYK5lsKWkmzGh/b1M+p14MH49wSDzmkOymqDLwGFuw=
+=======
+			I3RWHeTGscPMI+lF1Sd6iX6NcFQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			EvGizaERJDr0iVcYkLCXpigOy/tTK4ff4sbPqcA410w=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Saoy8zir8yQPMB9nV1bvzjh+2XQ=
+			3/mbE18EUwcf8KiLWVy9EQD9ft0=
 			</data>
 			<key>hash2</key>
 			<data>
-			oSFfWtYrVIocLybHsfFIWaGB2IqGS93FO+F6Z84Ox7k=
+			imymbNMCnUO1VgNZlc4UzQtQUD/83WIK/Tg/0uPK53Q=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			wa5XuHjLFzrAd4JMMkDy1Aa989w=
 			</data>
 			<key>hash2</key>
 			<data>
 			4cYK5lsKWkmzGh/b1M+p14MH49wSDzmkOymqDLwGFuw=
+=======
+			I3RWHeTGscPMI+lF1Sd6iX6NcFQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			EvGizaERJDr0iVcYkLCXpigOy/tTK4ff4sbPqcA410w=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< Updated upstream
 			HACvRNG5/VniURvE9g4HUHEoLdg=
 			</data>
 			<key>hash2</key>
 			<data>
 			Z/KPIebEpTUUQqcNUih+hOloemz6M8k71nvwrYOeP1k=
+=======
+			F1i/w+twOG9CffXcCZDE4TYoXK4=
+			</data>
+			<key>hash2</key>
+			<data>
+			Za14Jak5OlQleZTQ7JeWDkJ/JYmDHMWQCjJLzSb1cwQ=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
