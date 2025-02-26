@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Razorpay
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CommonCrypto
@@ -88,6 +88,7 @@ extension Razorpay.UPITurboPrefetchProtocol {
 public protocol UPITurboUIInternalPlugin : Razorpay.UPITurboUIPlugin {
   func linkNewUpiAccount(mobileNumber: Swift.String, amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
   func prefetchAndLinkUpiAccounts(mobileNumber: Swift.String, amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
+  var mobileNumber: Swift.String? { get set }
 }
 @objc public protocol UPITurboPrefetchWithUIProtocol {
   @objc func setCustomerMobile(mobile: Swift.String) -> any Razorpay.UPITurboPrefetchWithUIProtocol
