@@ -4,7 +4,7 @@
 import PackageDescription
 
 
-let packageVersion = "1.3.10"
+let packageVersion = "1.4.0"
 
 
 let package = Package(
