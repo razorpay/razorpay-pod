@@ -106,15 +106,15 @@
 		</data>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		I5i/XVFgyU7Lg6zBAYMGSfdhdPA=
+		4afL309dMwqZNL3G3FfB1BkrQiw=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		Vz+tkOqGanfYbHK10CJFgWEr1CU=
+		xQC6PWyUpCHVqw/Nr7hd1+l2IfE=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		wa5XuHjLFzrAd4JMMkDy1Aa989w=
+		YMoCAT4V/FLi9C90iQ91d7+p+Hw=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		wa5XuHjLFzrAd4JMMkDy1Aa989w=
+		YMoCAT4V/FLi9C90iQ91d7+p+Hw=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		uG+78PX3C8q/HeFs1jlNBqPHus8=
+		Kjic+wrE4/lihNjmKAFN09Bcvyw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -407,33 +407,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			I5i/XVFgyU7Lg6zBAYMGSfdhdPA=
+			4afL309dMwqZNL3G3FfB1BkrQiw=
 			</data>
 			<key>hash2</key>
 			<data>
-			uU9DKvMq5EJEAqTilnfhImX/YLJ71P2/++6m9jyrU2k=
+			FvJWIZkqKZ0k+VPo/cIDh6UZCP/z7AnNnNGA5wTEHRY=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vz+tkOqGanfYbHK10CJFgWEr1CU=
+			xQC6PWyUpCHVqw/Nr7hd1+l2IfE=
 			</data>
 			<key>hash2</key>
 			<data>
-			rioWt46Nljrlggm5rqqSvb4hW4ym5nFKAaQwHzRBSTA=
+			L8OrypqRGQ0NTJxngIW6TInouv0XqTIMbaYc8Z+ONfY=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wa5XuHjLFzrAd4JMMkDy1Aa989w=
+			YMoCAT4V/FLi9C90iQ91d7+p+Hw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4cYK5lsKWkmzGh/b1M+p14MH49wSDzmkOymqDLwGFuw=
+			NORgeKNmsU/7PyKZIPPqTLnZ4AaKIi9mYYE1HcuyDlk=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -451,22 +451,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wa5XuHjLFzrAd4JMMkDy1Aa989w=
+			YMoCAT4V/FLi9C90iQ91d7+p+Hw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4cYK5lsKWkmzGh/b1M+p14MH49wSDzmkOymqDLwGFuw=
+			NORgeKNmsU/7PyKZIPPqTLnZ4AaKIi9mYYE1HcuyDlk=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uG+78PX3C8q/HeFs1jlNBqPHus8=
+			Kjic+wrE4/lihNjmKAFN09Bcvyw=
 			</data>
 			<key>hash2</key>
 			<data>
-			vsGmkT7k8BY1Gxq9Ndi0Qs19sZgK9Elq79lIT0ThAfA=
+			JAj1wnzlnR9ZVrweMWPs37jcvybtffgY8e4XGnQmN3c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

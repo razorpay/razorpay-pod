@@ -2675,18 +2675,12 @@
           {
             "kind": "Function",
             "name": "linkNewUpiAccount",
-            "printedName": "linkNewUpiAccount(mobileNumber:amountInDisplayFormat:color:completionHandler:)",
+            "printedName": "linkNewUpiAccount(amountInDisplayFormat:color:completionHandler:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -2747,8 +2741,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay24UPITurboUIInternalPluginP17linkNewUpiAccount12mobileNumber21amountInDisplayFormat5color17completionHandlerySS_S2SyypSg_AItctF",
-            "mangledName": "$s8Razorpay24UPITurboUIInternalPluginP17linkNewUpiAccount12mobileNumber21amountInDisplayFormat5color17completionHandlerySS_S2SyypSg_AItctF",
+            "usr": "s:8Razorpay24UPITurboUIInternalPluginP17linkNewUpiAccount21amountInDisplayFormat5color17completionHandlerySS_SSyypSg_AHtctF",
+            "mangledName": "$s8Razorpay24UPITurboUIInternalPluginP17linkNewUpiAccount21amountInDisplayFormat5color17completionHandlerySS_SSyypSg_AHtctF",
             "moduleName": "Razorpay",
             "genericSig": "<τ_0_0 where τ_0_0 : Razorpay.UPITurboUIInternalPlugin>",
             "sugared_genericSig": "<Self where Self : Razorpay.UPITurboUIInternalPlugin>",
@@ -2759,18 +2753,12 @@
           {
             "kind": "Function",
             "name": "prefetchAndLinkUpiAccounts",
-            "printedName": "prefetchAndLinkUpiAccounts(mobileNumber:amountInDisplayFormat:color:completionHandler:)",
+            "printedName": "prefetchAndLinkUpiAccounts(amountInDisplayFormat:color:completionHandler:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -2831,8 +2819,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay24UPITurboUIInternalPluginP26prefetchAndLinkUpiAccounts12mobileNumber21amountInDisplayFormat5color17completionHandlerySS_S2SyypSg_AItctF",
-            "mangledName": "$s8Razorpay24UPITurboUIInternalPluginP26prefetchAndLinkUpiAccounts12mobileNumber21amountInDisplayFormat5color17completionHandlerySS_S2SyypSg_AItctF",
+            "usr": "s:8Razorpay24UPITurboUIInternalPluginP26prefetchAndLinkUpiAccounts21amountInDisplayFormat5color17completionHandlerySS_SSyypSg_AHtctF",
+            "mangledName": "$s8Razorpay24UPITurboUIInternalPluginP26prefetchAndLinkUpiAccounts21amountInDisplayFormat5color17completionHandlerySS_SSyypSg_AHtctF",
             "moduleName": "Razorpay",
             "genericSig": "<τ_0_0 where τ_0_0 : Razorpay.UPITurboUIInternalPlugin>",
             "sugared_genericSig": "<Self where Self : Razorpay.UPITurboUIInternalPlugin>",
