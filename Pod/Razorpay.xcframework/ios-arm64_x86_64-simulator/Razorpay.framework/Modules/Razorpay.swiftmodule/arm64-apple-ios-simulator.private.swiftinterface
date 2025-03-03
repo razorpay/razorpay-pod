@@ -86,9 +86,8 @@ extension Razorpay.UPITurboPrefetchProtocol {
   @objc func linkNewUpiAccountWithUI(amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
 }
 public protocol UPITurboUIInternalPlugin : Razorpay.UPITurboUIPlugin {
-  func linkNewUpiAccount(mobileNumber: Swift.String, amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
-  func prefetchAndLinkUpiAccounts(mobileNumber: Swift.String, amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
-  var mobileNumber: Swift.String? { get set }
+  func linkNewUpiAccount(amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
+  func prefetchAndLinkUpiAccounts(amountInDisplayFormat: Swift.String, color: Swift.String, completionHandler: @escaping (Any?, Any?) -> Swift.Void)
 }
 @objc public protocol UPITurboPrefetchWithUIProtocol {
   @objc func setCustomerMobile(mobile: Swift.String) -> any Razorpay.UPITurboPrefetchWithUIProtocol
