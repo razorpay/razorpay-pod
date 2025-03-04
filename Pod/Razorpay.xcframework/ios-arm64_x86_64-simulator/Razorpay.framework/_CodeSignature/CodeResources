@@ -98,27 +98,27 @@
 		</data>
 		<key>Headers/Razorpay-Swift.h</key>
 		<data>
-		29oZi5f9tBbTmdguOICa6X35LS0=
+		pTWmhVZrd9BPlk2GSyvBFMmUHck=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		v685k0z1spvsu7nHMUab+MZTxFM=
+		cW1MJmuu716iW4ixXjDogao7d2w=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		ThiC40dQqyRsrTLQ9auxbp6TXFk=
+		tJW8ExpYsPjDF7/PDB/V+raDHp4=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		TRGWovKBJKsoCCCJ5+TPBSu4uPc=
+		FEb2DCcIM5+ZKFz5WU4EEUJCFzY=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		SUW3ltU/wM/ifSJDSjf5Wye7gMM=
+		lrykXl7W75R9rukZ65ULcBvx9KM=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		1LlO1cTFDM1QhLp8wBqZoWWstOc=
+		ArkBU8SX5ukwEKEq7Q8pknpbEVU=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -126,19 +126,19 @@
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		1LlO1cTFDM1QhLp8wBqZoWWstOc=
+		ArkBU8SX5ukwEKEq7Q8pknpbEVU=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		bCynJBLIj4UnMq/MR4cxK1iTFak=
+		q2H8RcHDra71uO+3gHcR3UtRYKI=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		SUW3ltU/wM/ifSJDSjf5Wye7gMM=
+		lrykXl7W75R9rukZ65ULcBvx9KM=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Ak6Pr035gaBu0lKFtC+07qhsYaU=
+		M82FoRQGArqrE5Mg+Nc+QImlEPE=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -146,11 +146,11 @@
 		</data>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Ak6Pr035gaBu0lKFtC+07qhsYaU=
+		M82FoRQGArqrE5Mg+Nc+QImlEPE=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		vDN7PB0h49mqgnCjy9bQ2uCmqzk=
+		AkUEEwUspbv7xObB2sAb8pPHhXE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -420,55 +420,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			29oZi5f9tBbTmdguOICa6X35LS0=
+			pTWmhVZrd9BPlk2GSyvBFMmUHck=
 			</data>
 			<key>hash2</key>
 			<data>
-			KwfVO8Pk9STvvO8k8oK/diqkm0j0rRIEhyyqj3a0ZXE=
+			fmIMXFx5j90+xc8YQBZ8qq7aLJqtbbrWCkWclfRe9bk=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ThiC40dQqyRsrTLQ9auxbp6TXFk=
+			tJW8ExpYsPjDF7/PDB/V+raDHp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			533JKq3A3UWx3MLPCYqJaMD+WLHUQIIeYd3Lmjy9dvo=
+			+XtADsfMmvYVl7JFXfXhSFUeZwU9a4+ce+zehObyyqQ=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TRGWovKBJKsoCCCJ5+TPBSu4uPc=
+			FEb2DCcIM5+ZKFz5WU4EEUJCFzY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ggibm9kUoDohAhujdcWuvZoTBQ/CVH5awsrzrzDADZM=
+			gzL43SZ7B3BGF75YP766YevcTLU+SBm8tvFJOsA2KAc=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SUW3ltU/wM/ifSJDSjf5Wye7gMM=
+			lrykXl7W75R9rukZ65ULcBvx9KM=
 			</data>
 			<key>hash2</key>
 			<data>
-			ik5Bg3jLkLCF358/fE8cNNaa49MzcSFQbCnPb2H786c=
+			j0lahOPHt8oOd4y3olty68/ey/2YlrS9PUGbMWBm3Ho=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1LlO1cTFDM1QhLp8wBqZoWWstOc=
+			ArkBU8SX5ukwEKEq7Q8pknpbEVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zv5itWB3LZDEaw0WFMfeGzuK3bvcdpemvjVHgbyCA3s=
+			1avSjyxYCjwWp6mAXNtIBjRTbYAp29TaMLeP9yw8OIA=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -486,44 +486,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1LlO1cTFDM1QhLp8wBqZoWWstOc=
+			ArkBU8SX5ukwEKEq7Q8pknpbEVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zv5itWB3LZDEaw0WFMfeGzuK3bvcdpemvjVHgbyCA3s=
+			1avSjyxYCjwWp6mAXNtIBjRTbYAp29TaMLeP9yw8OIA=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bCynJBLIj4UnMq/MR4cxK1iTFak=
+			q2H8RcHDra71uO+3gHcR3UtRYKI=
 			</data>
 			<key>hash2</key>
 			<data>
-			hw7m4cYTkeINdzJSTTNCuk2Ci7kDtN6DSZ11K3VInSQ=
+			r7x7c26eSX1JDrxjzont0GsisdiG0zL2WP9hKBn9Hd4=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SUW3ltU/wM/ifSJDSjf5Wye7gMM=
+			lrykXl7W75R9rukZ65ULcBvx9KM=
 			</data>
 			<key>hash2</key>
 			<data>
-			ik5Bg3jLkLCF358/fE8cNNaa49MzcSFQbCnPb2H786c=
+			j0lahOPHt8oOd4y3olty68/ey/2YlrS9PUGbMWBm3Ho=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ak6Pr035gaBu0lKFtC+07qhsYaU=
+			M82FoRQGArqrE5Mg+Nc+QImlEPE=
 			</data>
 			<key>hash2</key>
 			<data>
-			7ewQmM9xSlBzk+DTl9tPG0PhXwhrRGwYf0hHytfvR5U=
+			3xkAGXrbz6Jx0V46mKCmb6WGsfcpzuxMp18NH3b0OVg=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -541,22 +541,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ak6Pr035gaBu0lKFtC+07qhsYaU=
+			M82FoRQGArqrE5Mg+Nc+QImlEPE=
 			</data>
 			<key>hash2</key>
 			<data>
-			7ewQmM9xSlBzk+DTl9tPG0PhXwhrRGwYf0hHytfvR5U=
+			3xkAGXrbz6Jx0V46mKCmb6WGsfcpzuxMp18NH3b0OVg=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vDN7PB0h49mqgnCjy9bQ2uCmqzk=
+			AkUEEwUspbv7xObB2sAb8pPHhXE=
 			</data>
 			<key>hash2</key>
 			<data>
-			EFUEp2KeQN1JVFYU8INfzNRwmRloew+DGjw/ZuHdA3w=
+			ExKmmhY5z0cUqcTcRp3Bg5FSO8DOSDvQtPHPCGABAkw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
