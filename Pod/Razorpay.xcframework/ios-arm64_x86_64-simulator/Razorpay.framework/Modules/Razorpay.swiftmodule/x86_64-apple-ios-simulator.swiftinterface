@@ -7,6 +7,7 @@ import CoreLocation
 import CoreTelephony
 import DeveloperToolsSupport
 import Foundation
+import Photos
 import Swift
 import SwiftUI
 import SystemConfiguration
