@@ -5543,6 +5543,62 @@
           {
             "kind": "Function",
             "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:andHostedOptiConfig:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any Razorpay.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@Razorpay@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:andHostedOptiConfig:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data0F16HostedOptiConfigACSS_AA0a25PaymentCompletionProtocoldH0_pSDyS2SGtFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
             "printedName": "initWithKey(_:andDelegateWithData:)",
             "children": [
               {
@@ -6279,6 +6335,16 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "Razorpay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "Razorpay"
       },
       {
@@ -6645,14 +6711,14 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
       "kind": "BooleanLiteral",
-      "offset": 3940,
+      "offset": 4433,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/InternalRazorpay.swift",
       "kind": "StringLiteral",
-      "offset": 12016,
+      "offset": 12509,
       "length": 11,
       "value": "\"rURIEvent\""
     },
@@ -7088,7 +7154,7 @@
       "kind": "StringLiteral",
       "offset": 1317,
       "length": 7,
-      "value": "\"1.4.1\""
+      "value": "\"1.4.2\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
@@ -7163,14 +7229,14 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 15752,
+      "offset": 15837,
       "length": 64,
       "value": "\"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "IntegerLiteral",
-      "offset": 15865,
+      "offset": 15950,
       "length": 2,
       "value": "62"
     },
@@ -7331,21 +7397,21 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 14694,
+      "offset": 14781,
       "length": 14,
       "value": "\"user_aborted\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 14732,
+      "offset": 14819,
       "length": 9,
       "value": "\"success\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckoutVC.swift",
       "kind": "StringLiteral",
-      "offset": 14764,
+      "offset": 14851,
       "length": 8,
       "value": "\"failed\""
     },
@@ -8318,7 +8384,7 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 12412,
+      "offset": 12404,
       "length": 5,
       "value": "false"
     },
@@ -9455,6 +9521,34 @@
       "offset": 451,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/GlobalUrlConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 266,
+      "length": 26,
+      "value": "\"https:\/\/api.razorpay.com\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/GlobalUrlConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 335,
+      "length": 26,
+      "value": "\"https:\/\/cdn.razorpay.com\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/GlobalUrlConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 406,
+      "length": 29,
+      "value": "\"https:\/\/static.razorpay.com\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/Main\/GlobalUrlConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 748,
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Projects\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphonesimulator\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphonesimulator\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
