@@ -167,6 +167,7 @@ public class TurboPluginManager {
   @available(*, unavailable, message: "This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.")
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any Razorpay.RazorpayPaymentCompletionProtocol, forViewController vc: UIKit.UIViewController)
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any Razorpay.RazorpayProtocol) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any Razorpay.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String]) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any Razorpay.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any Razorpay.RazorpayPaymentCompletionProtocolWithData, plugin: (any Razorpay.UPITurboUIPlugin)?) -> Razorpay.RazorpayCheckout
   @objc public static func publishUri(with data: Swift.String)

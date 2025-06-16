@@ -364,6 +364,7 @@ SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @property (nonatomic, strong) id <UPITurboUIPlugin> _Nullable upiTurbo;
 + (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (void)publishUriWith:(NSString * _Nonnull)data;
@@ -874,6 +875,7 @@ SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @property (nonatomic, strong) id <UPITurboUIPlugin> _Nullable upiTurbo;
 + (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (void)publishUriWith:(NSString * _Nonnull)data;
