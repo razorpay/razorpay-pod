@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Bju3rMGH/QCKRwqZN0W5qAnnnS4=
+		9EtCg2Ey2Zi4Ua584kuKWTJN01U=
 		</data>
 		<key>Checkout.storyboardc/Info.plist</key>
 		<data>
@@ -98,35 +98,35 @@
 		</data>
 		<key>Headers/Razorpay-Swift.h</key>
 		<data>
-		1sJt0oI76TT+xRxnDJcDHj0yJoY=
+		UsPRKomOtO+yr8FQmC3T2ova+Zs=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bDkZa8k8sO8KCnBUz6bWTxDH4Wc=
+		AfzrchRREO4chwFHq7pA9L53kbI=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		GJlPf1ymMOSs8ivArTR1GH3Gqn4=
+		YTv5J9RfMXdTGXxPHz/pzoUyKIQ=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		fbYyynZ6l7Rne3vMXpcoRkHIia8=
+		ZgjPxbf/7ARtJ4FXuDOvZXP2ty8=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		GLsfx7baeG/t9eh1cdLWIJm6ntM=
+		yw7BHqySUXVI972qbcs1qQCXAUw=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		Saoy8zir8yQPMB9nV1bvzjh+2XQ=
+		XACBMgORzOfUrOipvT4SfaNFECs=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		GLsfx7baeG/t9eh1cdLWIJm6ntM=
+		yw7BHqySUXVI972qbcs1qQCXAUw=
 		</data>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		PgNq3eGX0kS+IYGuhjlwHPHr7FE=
+		DaFdckMxjSSwCL4GfOc9bH9AL2E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Bju3rMGH/QCKRwqZN0W5qAnnnS4=
+			9EtCg2Ey2Zi4Ua584kuKWTJN01U=
 			</data>
 			<key>hash2</key>
 			<data>
-			PHb2ZuQOlqYYHw0P0haHf/aFuDNeeCbe+axDReTr7h0=
+			HcTTFmbApmRduIkc+LudaGbZclscDoJ6VJdjQDMk5z8=
 			</data>
 		</dict>
 		<key>Checkout.storyboardc/Info.plist</key>
@@ -396,77 +396,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1sJt0oI76TT+xRxnDJcDHj0yJoY=
+			UsPRKomOtO+yr8FQmC3T2ova+Zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			h4yyBjfIqeBlfYywLHcWhC1h3+NFGt3VPWVurUB+opM=
+			VZVc+rPs9dvTnA3oq+z0oLb+Hauz6cQRlWIfhmv/tBQ=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GJlPf1ymMOSs8ivArTR1GH3Gqn4=
+			YTv5J9RfMXdTGXxPHz/pzoUyKIQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			tC7S+9XvGtWtdh2UZ/UmITguc4DjBAT6tRdbfoP+eo0=
+			Cxjatyk9iiuOrlSprlw9Yh4bHw3O+Hp7fGLUO5cLGbk=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fbYyynZ6l7Rne3vMXpcoRkHIia8=
+			ZgjPxbf/7ARtJ4FXuDOvZXP2ty8=
 			</data>
 			<key>hash2</key>
 			<data>
-			sRkwaV3uZqX0/sOopZtI1HmYGYYwfGkj4LedA1dJ+F4=
+			uAgMlXzzjr482nx0pSFBrxG2CGoNgzsGfD7Qv+hHAqU=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GLsfx7baeG/t9eh1cdLWIJm6ntM=
+			yw7BHqySUXVI972qbcs1qQCXAUw=
 			</data>
 			<key>hash2</key>
 			<data>
-			/slvx1O0b7Ovc7hrqj6VjXtuPB4fsNjdPa8j36Nhhuo=
+			ANUpAx3OWx3wK5qVMzhGS4QTq4bB743OZ+28kBj3eew=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Saoy8zir8yQPMB9nV1bvzjh+2XQ=
+			XACBMgORzOfUrOipvT4SfaNFECs=
 			</data>
 			<key>hash2</key>
 			<data>
-			oSFfWtYrVIocLybHsfFIWaGB2IqGS93FO+F6Z84Ox7k=
+			QOAG6919+eOSm6L/HM0ULbTZgN28XAt2QqqpMULRPEs=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GLsfx7baeG/t9eh1cdLWIJm6ntM=
+			yw7BHqySUXVI972qbcs1qQCXAUw=
 			</data>
 			<key>hash2</key>
 			<data>
-			/slvx1O0b7Ovc7hrqj6VjXtuPB4fsNjdPa8j36Nhhuo=
+			ANUpAx3OWx3wK5qVMzhGS4QTq4bB743OZ+28kBj3eew=
 			</data>
 		</dict>
 		<key>Modules/Razorpay.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PgNq3eGX0kS+IYGuhjlwHPHr7FE=
+			DaFdckMxjSSwCL4GfOc9bH9AL2E=
 			</data>
 			<key>hash2</key>
 			<data>
-			1r5+5T13ryxe2N5KWAG3m7WJN6dkSxtHCmAMtuWgbk4=
+			ma0n0obkJx3eK4oV+UMANTQQxnmwSqiE6Fgu5RdwZwE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
