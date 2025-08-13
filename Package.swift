@@ -27,6 +27,11 @@ let package = Package(
         .binaryTarget(
             name: "Razorpay",
             path: "Pod/Razorpay.xcframework"
+        ),
+        .testTarget(
+            name: "RazorpayCheckoutTests",
+            dependencies: ["RazorpayCheckout"],
+            path: "RazorpayCheckout/Tests/RazorpayCheckoutTests"
         )
     ],
     swiftLanguageVersions: [.v5]
