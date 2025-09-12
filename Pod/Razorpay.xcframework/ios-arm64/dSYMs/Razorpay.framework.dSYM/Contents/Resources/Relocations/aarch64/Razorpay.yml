@@ -1,10 +1,10 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/vivek.shindhe/Projects/razorpay-ios/RazorpayIOS/DerivedData/iphoneos/Build/Products/Release-iphoneos/Razorpay.framework/Razorpay'
+binary-path:     '/Users/vivek.shindhe/Razorpay/iOS/razorpay-ios/RazorpayIOS/DerivedData/iphoneos/Build/Products/Release-iphoneos/Razorpay.framework/Razorpay'
 relocations:
   - { offset: 0xBB928, size: 0x8, addend: 0x0, symName: _RazorpayVersionString, symObjAddr: 0x0, symBinAddr: 0x59130, symSize: 0x0 }
   - { offset: 0xBB95D, size: 0x8, addend: 0x0, symName: _RazorpayVersionNumber, symObjAddr: 0x30, symBinAddr: 0x59160, symSize: 0x0 }
-  - { offset: 0xBB9C2, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18RemoteConfigHelperC14sharedInstanceACvpZ', symObjAddr: 0x10320, symBinAddr: 0x98958, symSize: 0x0 }
+  - { offset: 0xBB9C2, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18RemoteConfigHelperC14sharedInstanceACvpZ', symObjAddr: 0x10360, symBinAddr: 0x98958, symSize: 0x0 }
   - { offset: 0xBBADB, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18RemoteConfigHelperC14sharedInstance_WZ', symObjAddr: 0x174, symBinAddr: 0x8174, symSize: 0x38 }
   - { offset: 0xBBB72, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18RemoteConfigHelperCMa', symObjAddr: 0x3D8, symBinAddr: 0x83D8, symSize: 0x20 }
   - { offset: 0xBBC43, size: 0x8, addend: 0x0, symName: '_$sSo26SCNetworkReachabilityFlagsVs10SetAlgebraSCSQWb', symObjAddr: 0x89C, symBinAddr: 0x8880, symSize: 0x2C }
@@ -223,9 +223,9 @@ relocations:
   - { offset: 0xC2CEB, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14InternalOtpelfC26OtpElfBridgeMessageHandler33_CAD7F1E8D00B6203AC8D8943A778DF45LLC21userContentController_10didReceiveySo06WKUsersT0C_So08WKScriptG0CtFTf4dnd_n', symObjAddr: 0x25DC, symBinAddr: 0xEBF0, symSize: 0x44C }
   - { offset: 0xC2FC7, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14InternalOtpelfC15initWithWebView_14andMerchantKeyySo05WKWebG0C_SSSgtFZTf4nnd_n', symObjAddr: 0x2A28, symBinAddr: 0xF03C, symSize: 0x36C }
   - { offset: 0xC30CA, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14InternalOtpelfC7webView9didFinishySo12WKNavigationCSg_tFTf4dn_n', symObjAddr: 0x2D94, symBinAddr: 0xF3A8, symSize: 0x194 }
-  - { offset: 0xC32C7, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0C14sharedInstanceACvpZ', symObjAddr: 0x15A98, symBinAddr: 0x98960, symSize: 0x0 }
+  - { offset: 0xC32C7, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0C14sharedInstanceACvpZ', symObjAddr: 0x15AD0, symBinAddr: 0x98960, symSize: 0x0 }
   - { offset: 0xC3461, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0C10lumberjack33_C2103DC0A7BEA85E64BF4B6378FF9B75LLAA10LumberjackCSgvpZ', symObjAddr: 0x3EA0, symBinAddr: 0x965D0, symSize: 0x0 }
-  - { offset: 0xC34B8, size: 0x8, addend: 0x0, symName: '_$sSo18NSNotificationNamea8RazorpayE8URIEventABvpZ', symObjAddr: 0x15AA0, symBinAddr: 0x98968, symSize: 0x0 }
+  - { offset: 0xC34B8, size: 0x8, addend: 0x0, symName: '_$sSo18NSNotificationNamea8RazorpayE8URIEventABvpZ', symObjAddr: 0x15AD8, symBinAddr: 0x98968, symSize: 0x0 }
   - { offset: 0xC34C6, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0C14sharedInstance_WZ', symObjAddr: 0x0, symBinAddr: 0xF5C4, symSize: 0x2C }
   - { offset: 0xC3939, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0CfETo', symObjAddr: 0x1798, symBinAddr: 0x10D28, symSize: 0x12C }
   - { offset: 0xC3968, size: 0x8, addend: 0x0, symName: '_$s8Razorpay08InternalA0CMa', symObjAddr: 0x18C4, symBinAddr: 0x10E54, symSize: 0x20 }
@@ -319,7 +319,7 @@ relocations:
   - { offset: 0xC86ED, size: 0x8, addend: 0x0, symName: '_$sypSgWOc', symObjAddr: 0x590, symBinAddr: 0x1561C, symSize: 0x48 }
   - { offset: 0xC8780, size: 0x8, addend: 0x0, symName: '_$s8Razorpay13ObserverModelV03addB04name8observer8selector6objectSbSS_yp10ObjectiveC8SelectorVypSgtF', symObjAddr: 0x10, symBinAddr: 0x15140, symSize: 0x28C }
   - { offset: 0xC8814, size: 0x8, addend: 0x0, symName: '_$s8Razorpay13ObserverModelV06removeB04name8observer6objectSbSS_ypypSgtF', symObjAddr: 0x29C, symBinAddr: 0x153CC, symSize: 0x250 }
-  - { offset: 0xC8A45, size: 0x8, addend: 0x0, symName: '_$sSo18NSNotificationNamea8RazorpayE19reachabilityChangedABvpZ', symObjAddr: 0x8F48, symBinAddr: 0x98970, symSize: 0x0 }
+  - { offset: 0xC8A45, size: 0x8, addend: 0x0, symName: '_$sSo18NSNotificationNamea8RazorpayE19reachabilityChangedABvpZ', symObjAddr: 0x8F80, symBinAddr: 0x98970, symSize: 0x0 }
   - { offset: 0xC8BC6, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12ReachabilityC13startNotifieryyKF', symObjAddr: 0x0, symBinAddr: 0x15664, symSize: 0x2E0 }
   - { offset: 0xC8CC6, size: 0x8, addend: 0x0, symName: '_$sSo18NSNotificationNamea8RazorpayE19reachabilityChanged_WZ', symObjAddr: 0x2F0, symBinAddr: 0x15944, symSize: 0x34 }
   - { offset: 0xC8D70, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12ReachabilityC19reachabilityChanged33_DADB470212B16C113D34EDAFA5D2D206LLyyF', symObjAddr: 0x324, symBinAddr: 0x15978, symSize: 0x2D4 }
@@ -484,7 +484,7 @@ relocations:
   - { offset: 0xD5C9A, size: 0x8, addend: 0x0, symName: '_$s8Razorpay6OtpelfCfD', symObjAddr: 0x408, symBinAddr: 0x25B7C, symSize: 0x30 }
   - { offset: 0xD5CD1, size: 0x8, addend: 0x0, symName: '_$s8Razorpay6OtpelfC17getSharedInstanceACSgyFZTf4d_n', symObjAddr: 0x43C, symBinAddr: 0x25BB0, symSize: 0xC4 }
   - { offset: 0xD5D35, size: 0x8, addend: 0x0, symName: '_$s8Razorpay6OtpelfC7webView9didFinishySo12WKNavigationCSg_tKFTf4dd_n', symObjAddr: 0x500, symBinAddr: 0x25C74, symSize: 0xE8 }
-  - { offset: 0xD5F2E, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14CXAvailabilityC14sharedInstanceACvpZ', symObjAddr: 0x30D0, symBinAddr: 0x98978, symSize: 0x0 }
+  - { offset: 0xD5F2E, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14CXAvailabilityC14sharedInstanceACvpZ', symObjAddr: 0x3108, symBinAddr: 0x98978, symSize: 0x0 }
   - { offset: 0xD5F8B, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14CXAvailabilityC14sharedInstance_WZ', symObjAddr: 0x0, symBinAddr: 0x25E30, symSize: 0x28 }
   - { offset: 0xD5FB3, size: 0x8, addend: 0x0, symName: '_$s8Razorpay14CXAvailabilityCMa', symObjAddr: 0x40, symBinAddr: 0x25E60, symSize: 0x20 }
   - { offset: 0xD5FC7, size: 0x8, addend: 0x0, symName: '_$s8Razorpay7CXErrorVwxx', symObjAddr: 0x114, symBinAddr: 0x25E8C, symSize: 0x30 }
@@ -560,7 +560,7 @@ relocations:
   - { offset: 0xDB2DF, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18ShortCodeGeneratorV8tobase626numberSSs5Int64V_tFZTf4nd_n', symObjAddr: 0x81D4, symBinAddr: 0x2E1D0, symSize: 0x17C }
   - { offset: 0xDB401, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18ShortCodeGeneratorV11getUniqueIdySSSdFZTf4nd_n', symObjAddr: 0x83D8, symBinAddr: 0x2E3D4, symSize: 0x1C0 }
   - { offset: 0xDB593, size: 0x8, addend: 0x0, symName: '_$s8Razorpay10LumberjackC30gatherAnalyticsDataForCheckoutSDySSypGyFTf4d_n', symObjAddr: 0x8598, symBinAddr: 0x2E594, symSize: 0x324 }
-  - { offset: 0xDB940, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18TurboPluginManagerC11mercahntKeySSSgvpZ', symObjAddr: 0x156D0, symBinAddr: 0x98980, symSize: 0x0 }
+  - { offset: 0xDB940, size: 0x8, addend: 0x0, symName: '_$s8Razorpay18TurboPluginManagerC11mercahntKeySSSgvpZ', symObjAddr: 0x15710, symBinAddr: 0x98980, symSize: 0x0 }
   - { offset: 0xDBC06, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSS_Tg5', symObjAddr: 0x914, symBinAddr: 0x2F32C, symSize: 0x64 }
   - { offset: 0xDBC3E, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFs11AnyHashableV_Tg5', symObjAddr: 0x978, symBinAddr: 0x2F390, symSize: 0x30 }
   - { offset: 0xDBC6B, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSo38UIApplicationOpenExternalURLOptionsKeya_Tg5', symObjAddr: 0x9A8, symBinAddr: 0x2F3C0, symSize: 0x80 }
@@ -640,7 +640,7 @@ relocations:
   - { offset: 0xDF2E4, size: 0x8, addend: 0x0, symName: '_$s8Razorpay7URLTypeOWOb', symObjAddr: 0x508, symBinAddr: 0x32D20, symSize: 0x28 }
   - { offset: 0xDF31E, size: 0x8, addend: 0x0, symName: '_$s8Razorpay7URLTypeO3URLSSyF', symObjAddr: 0x3E8, symBinAddr: 0x32C00, symSize: 0x120 }
   - { offset: 0xDF57A, size: 0x8, addend: 0x0, symName: '_$s8Razorpay9ConstantsV28PAYMENT_CANCELLED_ERROR_JSON_WZ', symObjAddr: 0x0, symBinAddr: 0x32D48, symSize: 0x1F8 }
-  - { offset: 0xDF59E, size: 0x8, addend: 0x0, symName: '_$s8Razorpay9ConstantsV28PAYMENT_CANCELLED_ERROR_JSONSDys11AnyHashableVypGvpZ', symObjAddr: 0x2A30, symBinAddr: 0x98990, symSize: 0x0 }
+  - { offset: 0xDF59E, size: 0x8, addend: 0x0, symName: '_$s8Razorpay9ConstantsV28PAYMENT_CANCELLED_ERROR_JSONSDys11AnyHashableVypGvpZ', symObjAddr: 0x2A70, symBinAddr: 0x98990, symSize: 0x0 }
   - { offset: 0xDF5F9, size: 0x8, addend: 0x0, symName: '_$s8Razorpay9ConstantsV28PAYMENT_CANCELLED_ERROR_JSON_WZ', symObjAddr: 0x0, symBinAddr: 0x32D48, symSize: 0x1F8 }
   - { offset: 0xDF945, size: 0x8, addend: 0x0, symName: '_$s8Razorpay0A13CheckoutModelC8delegate24analyticsUtilityInstance11checkoutURL13otpelfEnabled7options9publicKey17isDataDelegateSet13timeStampOpen0stU6Millis26arrExternalPaymentEntitiesAcA0aB10VCDelegate_pSg_AA13AnalyticsUtilCSSSbSDys11AnyHashableVypGSSSbS2iSayAA06PluginyQ0_pGSgtcfc', symObjAddr: 0x0, symBinAddr: 0x32F40, symSize: 0xD4 }
   - { offset: 0xDF9DE, size: 0x8, addend: 0x0, symName: '_$s8Razorpay0A13CheckoutModelCMa', symObjAddr: 0x128, symBinAddr: 0x33068, symSize: 0x20 }
@@ -745,7 +745,7 @@ relocations:
   - { offset: 0xE57B3, size: 0x8, addend: 0x0, symName: '_$s8Razorpay13CrashReporterCfD', symObjAddr: 0xBA0, symBinAddr: 0x3A738, symSize: 0x10 }
   - { offset: 0xE57D8, size: 0x8, addend: 0x0, symName: '_$s8Razorpay13CrashReporterC012reportStoredB4Dump33_E1A96831138ED3F3E0A51B461F187E33LLyyFTf4d_n', symObjAddr: 0xCE8, symBinAddr: 0x3A7AC, symSize: 0x228 }
   - { offset: 0xE5816, size: 0x8, addend: 0x0, symName: '_$s8Razorpay13CrashReporterC29handleSwiftUnhandledException33_E1A96831138ED3F3E0A51B461F187E33LL16havingSignalCode03andR4Nameys5Int32V_SStFZTf4nnd_n', symObjAddr: 0xF10, symBinAddr: 0x3A9D4, symSize: 0x2E4 }
-  - { offset: 0xE5DF5, size: 0x8, addend: 0x0, symName: '_$s8Razorpay16BaseRemoteConfigC0B7DefaultSDySSypGvpZ', symObjAddr: 0x11120, symBinAddr: 0x98998, symSize: 0x0 }
+  - { offset: 0xE5DF5, size: 0x8, addend: 0x0, symName: '_$s8Razorpay16BaseRemoteConfigC0B7DefaultSDySSypGvpZ', symObjAddr: 0x11160, symBinAddr: 0x98998, symSize: 0x0 }
   - { offset: 0xE5F9C, size: 0x8, addend: 0x0, symName: '_$s8Razorpay16BaseRemoteConfigC0B7Default_WZ', symObjAddr: 0x384, symBinAddr: 0x3B094, symSize: 0x177C }
   - { offset: 0xE7770, size: 0x8, addend: 0x0, symName: '_$s8Razorpay16BaseRemoteConfigCMa', symObjAddr: 0x2CAC, symBinAddr: 0x3D9BC, symSize: 0x20 }
   - { offset: 0xE77A8, size: 0x8, addend: 0x0, symName: '_$ss13_parseInteger5ascii5radixq_Sgx_SitSyRzs010FixedWidthB0R_r0_lFSS_SiTg5', symObjAddr: 0x2D20, symBinAddr: 0x3D9F0, symSize: 0xE4 }
@@ -777,12 +777,12 @@ relocations:
   - { offset: 0xE8FC7, size: 0x8, addend: 0x0, symName: _block_copy_helper, symObjAddr: 0xC78, symBinAddr: 0x3EAD8, symSize: 0x10 }
   - { offset: 0xE8FDB, size: 0x8, addend: 0x0, symName: _block_destroy_helper, symObjAddr: 0xC88, symBinAddr: 0x3EAE8, symSize: 0x8 }
   - { offset: 0xE9397, size: 0x8, addend: 0x0, symName: '_$s8Razorpay15OtpelfConstantsC22InitalOtelfOptionsDict_WZ', symObjAddr: 0x0, symBinAddr: 0x3EAF0, symSize: 0x134 }
-  - { offset: 0xE93BB, size: 0x8, addend: 0x0, symName: '_$s8Razorpay15OtpelfConstantsC22InitalOtelfOptionsDictSDySSypGvpZ', symObjAddr: 0x2D88, symBinAddr: 0x989A0, symSize: 0x0 }
+  - { offset: 0xE93BB, size: 0x8, addend: 0x0, symName: '_$s8Razorpay15OtpelfConstantsC22InitalOtelfOptionsDictSDySSypGvpZ', symObjAddr: 0x2DC0, symBinAddr: 0x989A0, symSize: 0x0 }
   - { offset: 0xE9437, size: 0x8, addend: 0x0, symName: '_$s8Razorpay15OtpelfConstantsC22InitalOtelfOptionsDict_WZ', symObjAddr: 0x0, symBinAddr: 0x3EAF0, symSize: 0x134 }
   - { offset: 0xE956F, size: 0x8, addend: 0x0, symName: '_$s8Razorpay15OtpelfConstantsCMa', symObjAddr: 0x144, symBinAddr: 0x3EC24, symSize: 0x20 }
   - { offset: 0xE97BC, size: 0x8, addend: 0x0, symName: '_$s8Razorpay20WebViewBridgeWrapperCMa', symObjAddr: 0x18, symBinAddr: 0x3EC44, symSize: 0x20 }
   - { offset: 0xE9948, size: 0x8, addend: 0x0, symName: '_$s8Razorpay19RemoteConfigOptionsO8rawValueSSvg', symObjAddr: 0x0, symBinAddr: 0x3EC64, symSize: 0xDC }
-  - { offset: 0xE996C, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12RemoteConfigC14sharedInstanceACvpZ', symObjAddr: 0xA618, symBinAddr: 0x989A8, symSize: 0x0 }
+  - { offset: 0xE996C, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12RemoteConfigC14sharedInstanceACvpZ', symObjAddr: 0xA658, symBinAddr: 0x989A8, symSize: 0x0 }
   - { offset: 0xE9AFD, size: 0x8, addend: 0x0, symName: '_$sSD8RazorpayE5merge5otherySDyxq_G_tFSS_ypTg5', symObjAddr: 0xDC, symBinAddr: 0x3ED40, symSize: 0x3C8 }
   - { offset: 0xE9D11, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12RemoteConfigC14sharedInstance_WZ', symObjAddr: 0x67C, symBinAddr: 0x3F2E0, symSize: 0x44 }
   - { offset: 0xE9D57, size: 0x8, addend: 0x0, symName: '_$s8Razorpay12RemoteConfigCfE', symObjAddr: 0x6C0, symBinAddr: 0x3F324, symSize: 0x1C }
@@ -958,7 +958,7 @@ relocations:
   - { offset: 0xF5D9C, size: 0x8, addend: 0x0, symName: '_$s8Razorpay0A10CheckoutVCC7webView_36runJavaScriptConfirmPanelWithMessage16initiatedByFrame17completionHandlerySo05WKWebE0C_SSSo11WKFrameInfoCySbctFySo13UIAlertActionCcfU0_TA', symObjAddr: 0x3EB0, symBinAddr: 0x4DEA8, symSize: 0x24 }
   - { offset: 0xF5DDB, size: 0x8, addend: 0x0, symName: '_$sIeyB_Ieg_TRTA', symObjAddr: 0x3ED4, symBinAddr: 0x4DECC, symSize: 0xC }
   - { offset: 0xF5E04, size: 0x8, addend: 0x0, symName: '_$s8Razorpay0A10CheckoutVCC7webView_9didFinishySo05WKWebE0C_So12WKNavigationCSgtFyypSg_s5Error_pSgtYbScMYccfU_TA', symObjAddr: 0x4034, symBinAddr: 0x4DEFC, symSize: 0x8 }
-  - { offset: 0xF644B, size: 0x8, addend: 0x0, symName: '_$s8Razorpay10OtpelfDataC14sharedInstanceACvpZ', symObjAddr: 0x2C610, symBinAddr: 0x989B0, symSize: 0x0 }
+  - { offset: 0xF644B, size: 0x8, addend: 0x0, symName: '_$s8Razorpay10OtpelfDataC14sharedInstanceACvpZ', symObjAddr: 0x2C650, symBinAddr: 0x989B0, symSize: 0x0 }
   - { offset: 0xF681A, size: 0x8, addend: 0x0, symName: '_$s8Razorpay10OtpelfDataC14sharedInstance_WZ', symObjAddr: 0x1E44, symBinAddr: 0x4FD8C, symSize: 0x28 }
   - { offset: 0xF68C9, size: 0x8, addend: 0x0, symName: '_$s8Razorpay10OtpelfDataCMa', symObjAddr: 0x3380, symBinAddr: 0x512C8, symSize: 0x20 }
   - { offset: 0xF68DD, size: 0x8, addend: 0x0, symName: '_$sSS8_copyingyS2SFZ', symObjAddr: 0x33E0, symBinAddr: 0x512E8, symSize: 0x50 }
