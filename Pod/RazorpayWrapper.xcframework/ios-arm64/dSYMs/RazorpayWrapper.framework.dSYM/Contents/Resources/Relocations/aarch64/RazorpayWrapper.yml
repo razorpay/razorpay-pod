@@ -1,0 +1,7 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ramprasad.a/Documents/projects/Checkout/razorpay-ios/RazorpayIOS/DerivedData/iphoneos/Build/Products/Release-iphoneos/RazorpayWrapper.framework/RazorpayWrapper'
+relocations:
+  - { offset: 0x33, size: 0x8, addend: 0x0, symName: _RazorpayWrapperVersionString, symObjAddr: 0x0, symBinAddr: 0x6120, symSize: 0x0 }
+  - { offset: 0x67, size: 0x8, addend: 0x0, symName: _RazorpayWrapperVersionNumber, symObjAddr: 0x38, symBinAddr: 0x6158, symSize: 0x0 }
+...
