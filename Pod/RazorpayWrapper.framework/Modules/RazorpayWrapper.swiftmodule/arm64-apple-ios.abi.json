@@ -1,0 +1,28 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "RazorpayWrapper",
+    "printedName": "RazorpayWrapper",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RazorpayWrapper",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RazorpayWrapper"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}
