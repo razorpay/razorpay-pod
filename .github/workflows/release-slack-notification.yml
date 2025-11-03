@@ -100,5 +100,4 @@ jobs:
             token: ${{ secrets.SLACK_BOT_TOKEN }}
             payload: |
                 channel: "#payments-checkout-sdk-releases"
-                text: "A new release has been created: ${{ github.event.release.name }}"
-                payload: ${ steps.build-payload.outputs.payload }
+                payload: ${{ steps.build-payload.outputs.payload }}
