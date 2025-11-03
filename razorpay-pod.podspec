@@ -37,7 +37,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   s.exclude_files = 'UpdatePod.sh'
 
   s.vendored_frameworks = [
-    'Pod/Razorpay.xcframework'
+    'Pod/RazorpayStandard.xcframework'
 ]
   
   #s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
@@ -49,10 +49,9 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    custom.vendored_frameworks = [
-      'Pod/custom/RazorpayCustom.framework',
-      'Pod/RazorpayCore.xcframework',
-      'Pod/RazorpayStandard.xcframework'
+    core.vendored_frameworks = [
+      'Pod/Razorpay.xcframework'
+      'Pod/RazorpayCore.xcframework'
     ]
  end
  
@@ -60,7 +59,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
     custom.vendored_frameworks = [
       'Pod/custom/RazorpayCustom.framework'
     ]
-     custom.dependency = core
+     custom.dependency = 'razorpay-pod/Core'
  end
 
 end
