@@ -59,7 +59,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
     custom.vendored_frameworks = [
       'Pod/custom/RazorpayCustom.framework'
     ]
-     custom.dependency = 'razorpay-pod/Core'
+     custom.dependency 'razorpay-pod/Core'
  end
 
 end
