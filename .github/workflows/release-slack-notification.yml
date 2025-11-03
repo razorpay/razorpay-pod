@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify-slack:
-    runs-on: [self-hosted, k8s-runner]
+    runs-on: ubuntu-latest # nosemgrep : non-self-hosted-runner
     steps:
       - name: Build Slack Payload
         id: build-payload
@@ -101,5 +101,4 @@ jobs:
             payload: |
                 channel: "#payments-checkout-sdk-releases"
                 text: "A new release has been created: ${{ github.event.release.name }}"
-                blocks: |
-                    ${ steps.build-payload.outputs.payload }
+                payload: ${ steps.build-payload.outputs.payload }
