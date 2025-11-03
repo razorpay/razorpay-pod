@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ramprasad.a/Documents/projects/CheckoutModularisation/razorpay-ios/RazorpayIOS/DerivedData/iphoneos/Build/Products/Release-iphoneos/RazorpayCore.framework/RazorpayCore'
+relocations:     []
+...
