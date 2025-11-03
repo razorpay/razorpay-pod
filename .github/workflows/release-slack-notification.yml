@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify-slack:
-    runs-on: self-hosted 
+    runs-on: [self-hosted, k8s-runner]
     steps:
       - name: Build Slack Payload
         id: build-payload
