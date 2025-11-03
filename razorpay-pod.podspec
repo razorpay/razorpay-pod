@@ -49,10 +49,10 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   #   sh ./Pod/SelectDefaultXcode.sh
   # CMD
 
-end
-
 s.subspec 'Custom' do |custom|
     custom.vendored_frameworks = [
       'Pod/custom/RazorpayCustom.framework'
     ]
+end
+
 end
