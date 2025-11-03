@@ -8,96 +8,24 @@ jobs:
   notify-slack:
     runs-on: ubuntu-latest # nosemgrep : non-self-hosted-runner
     steps:
-      - name: Build Slack Payload
-        id: build-payload
+      - name: Build Slack Message
+        id: build-message
         run: |
-          # Start building blocks array
-          blocks='[]'
+            repo_name="${{ github.repository }}"
+            version="${{ github.event.release.tag_name }}"
+            release_body="${{ github.event.release.body }}"
+            release_url="${{ github.event.release.html_url }}"
           
-          # Header
-          header='{"type":"header","text":{"type":"plain_text","text":"🚀 New Release Published"}}'
-          blocks=$(echo "$blocks" | jq ". + [$header]")
-          
-          # Metadata section
-          metadata=$(jq -n --arg version "${{ github.event.release.tag_name }}" \
-            --arg author "${{ github.event.release.author.login }}" \
-            --arg title "${{ github.event.release.name }}" \
-            --arg date "${{ github.event.release.published_at }}" '{
-            "type": "section",
-            "fields": [
-              {"type": "mrkdwn", "text": "*Version:*\n\($version)"},
-              {"type": "mrkdwn", "text": "*Published By:*\n\($author)"},
-              {"type": "mrkdwn", "text": "*Release Title:*\n\($title)"},
-              {"type": "mrkdwn", "text": "*Published At:*\n\($date)"}
-            ]
-          }')
-          blocks=$(echo "$blocks" | jq ". + [$metadata]")
-          
-          # Divider
-          divider='{"type":"divider"}'
-          blocks=$(echo "$blocks" | jq ". + [$divider]")
-          
-          # Release notes (conditional)
-          release_body='${{ github.event.release.body }}'
-          if [ -n "$release_body" ] && [ "$release_body" != "null" ]; then
-            notes=$(jq -n --arg body "$release_body" '{
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "*Release Notes:*\n\n\($body)"
-              }
-            }')
-            blocks=$(echo "$blocks" | jq ". + [$notes]")
-            blocks=$(echo "$blocks" | jq ". + [$divider]")
-          fi
-          
-          # Assets (conditional)
-          assets_json='${{ toJson(github.event.release.assets) }}'
-          asset_count=$(echo "$assets_json" | jq 'length')
-          if [ "$asset_count" -gt 0 ]; then
-            asset_list=$(echo "$assets_json" | jq -r '.[].name' | sed 's/^/- /' | tr '\n' '\n')
-            assets=$(jq -n --arg list "$asset_list" '{
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "*Assets:*\n\($list)"
-              }
-            }')
-            blocks=$(echo "$blocks" | jq ". + [$assets]")
-            blocks=$(echo "$blocks" | jq ". + [$divider]")
-          fi
-          
-          # Link section
-          link=$(jq -n --arg url "${{ github.event.release.html_url }}" '{
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": "<\($url)|View Release on GitHub>"
-            },
-            "accessory": {
-              "type": "button",
-              "text": {"type": "plain_text", "text": "View Release"},
-              "url": $url,
-              "action_id": "view_release"
-            }
-          }')
-          blocks=$(echo "$blocks" | jq ". + [$link]")
-          
-          # Final payload
-          payload=$(jq -n --arg channel "#payments-checkout-sdk-releases" --argjson blocks "$blocks" '{
-            channel: $channel,
-            blocks: $blocks
-          }')
-          
-          echo "payload<<EOF" >> $GITHUB_OUTPUT
-          echo "$payload" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
+            # Build the message text
+            message="Hey folks, a new release has been made for \`$repo_name\`.\n\nThe latest version is \`$version\`.\n\nChangelog:\n\n\`\`\`\n$release_body\n\`\`\`\n\nLink: $release_url\n\nPlease reach out to <!subteam^S0965FP82NS> for any queries on the release."
+            echo "message<<EOF" >> $GITHUB_OUTPUT
+            echo "$message" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
       - name: Send to Slack
         uses: slackapi/slack-github-action@v2.1.1
         with:
-            method: chat.postMessage
-            token: ${{ secrets.SLACK_BOT_TOKEN }}
-            payload: |
-                channel: "#payments-checkout-sdk-releases"
-                payload: ${{ steps.build-payload.outputs.payload }}
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel: "#payments-checkout-sdk-releases"
+            text: ${{ steps.build-message.outputs.message }}
