@@ -50,7 +50,7 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
 
   s.subspec 'Core' do |core|
     core.vendored_frameworks = [
-      'Pod/Razorpay.xcframework'
+      'Pod/Razorpay.xcframework',
       'Pod/RazorpayCore.xcframework'
     ]
  end
