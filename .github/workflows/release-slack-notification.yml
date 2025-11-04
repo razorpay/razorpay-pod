@@ -1,0 +1,41 @@
+name: Slack Release Notification
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify-slack:
+    runs-on: ubuntu-latest # nosemgrep : non-self-hosted-runner
+    steps:
+      - name: Build Slack Message
+        id: build-message
+        run: |
+            repo_name="${{ github.repository }}"
+            version="${{ github.event.release.tag_name }}"
+            release_body="${{ github.event.release.body }}"
+            release_url="${{ github.event.release.html_url }}"
+          
+            # Build the message text with actual newlines (using $'...' syntax)
+            message=$'Hey folks @tech_writers, a new release has been made for `'"$repo_name"$'`.\n\nThe latest version is `'"$version"$'`.\n\n*Changelog:*\n\n'"$release_body"$'\n\nLink: '"$release_url"$'\n\nPlease reach out to @checkout_sdk-oncall for any queries on the release.'
+          
+            # Build complete JSON payload using jq to properly escape
+            # Use mrkdwn: true to enable markdown formatting in Slack
+            payload=$(printf '%b' "$message" | jq -Rs \
+                --arg channel "#payments-checkout-sdk-releases" \
+                '{
+                channel: $channel,
+                text: .,
+                mrkdwn: true
+                }')
+            
+            echo "payload<<EOF" >> $GITHUB_OUTPUT
+            echo "$payload" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+      - name: Send to Slack
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: ${{ steps.build-message.outputs.payload }}
+            
