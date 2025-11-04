@@ -322,35 +322,58 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @protocol PluginPaymentDelegate;
 @protocol MagicXResultProtocol;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol error:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)clearUserDataAndReturnError:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key error:(NSError * _Nullable * _Nullable)error;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
++ (void)clearUserData;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
 @class WKWebView;
 @protocol UPITurboPlugin;
 @class WKNavigation;
+@class NSURL;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// <ul>
+///   <li>
+///     \code
+///           Normal init functions with dedicated flavour inclusion not unified
+///
+///     \endcode</li>
+/// </ul>
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// <ul>
+///   <li>
+///     \code
+///           Combined init functions with multiple flavours inclusion and unified
+///
+///     \endcode</li>
+/// </ul>
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)publishUriWith:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)closeAndReturnError:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none);
-+ (BOOL)initWithKey:(NSString * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none);
-- (BOOL)changeApiKey:(NSString * _Nonnull)newApiKey error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)payWithCredWithOptions:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (BOOL)getCardFlows:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (BOOL)getCardOtpDataAndReturnError:(NSError * _Nullable * _Nullable)error response:(void (^ _Nonnull)(BOOL))response;
+- (void)close;
+- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
+- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
+- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
 + (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
 + (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
 + (void)redirectToBankPage;
@@ -360,19 +383,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 - (void)authorize:(NSDictionary * _Nonnull)options;
 + (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
 + (void)userCancelledPayment;
-- (BOOL)decodeURIFrom:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
+- (void)decodeURIFrom:(NSString * _Nonnull)data;
+- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
 - (BOOL)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (NSString * _Nullable)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-+ (BOOL)getAppsWhichSupportUpiAndReturnError:(NSError * _Nullable * _Nullable)error handler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
+- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
++ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
 + (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
-- (BOOL)isValidVpa:(NSString * _Nonnull)vpa error:(NSError * _Nullable * _Nullable)error withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
+- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 + (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
-- (void)initializeWithKey:(NSString * _Nonnull)key delegate:(id _Nonnull)delegate;
 @end
 
 #endif
@@ -707,35 +734,58 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @protocol PluginPaymentDelegate;
 @protocol MagicXResultProtocol;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol error:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)clearUserDataAndReturnError:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key error:(NSError * _Nullable * _Nullable)error;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)open:(NSDictionary * _Nonnull)options;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
++ (void)clearUserData;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
 @end
 
 @protocol RazorpayPaymentCompletionProtocol;
 @class WKWebView;
 @protocol UPITurboPlugin;
 @class WKNavigation;
+@class NSURL;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// <ul>
+///   <li>
+///     \code
+///           Normal init functions with dedicated flavour inclusion not unified
+///
+///     \endcode</li>
+/// </ul>
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// <ul>
+///   <li>
+///     \code
+///           Combined init functions with multiple flavours inclusion and unified
+///
+///     \endcode</li>
+/// </ul>
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)publishUriWith:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)closeAndReturnError:(NSError * _Nullable * _Nullable)error;
-+ (BOOL)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none);
-+ (BOOL)initWithKey:(NSString * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none);
-- (BOOL)changeApiKey:(NSString * _Nonnull)newApiKey error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)payWithCredWithOptions:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
-- (BOOL)getCardFlows:(NSDictionary * _Nonnull)options error:(NSError * _Nullable * _Nullable)error withCallback:(void (^ _Nonnull)(BOOL))withCallback;
-- (BOOL)getCardOtpDataAndReturnError:(NSError * _Nullable * _Nullable)error response:(void (^ _Nonnull)(BOOL))response;
+- (void)close;
+- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
+- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
+- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
 + (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
 + (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
 + (void)redirectToBankPage;
@@ -745,19 +795,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 - (void)authorize:(NSDictionary * _Nonnull)options;
 + (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
 + (void)userCancelledPayment;
-- (BOOL)decodeURIFrom:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
+- (void)decodeURIFrom:(NSString * _Nonnull)data;
+- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
 - (BOOL)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (NSString * _Nullable)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-+ (BOOL)getAppsWhichSupportUpiAndReturnError:(NSError * _Nullable * _Nullable)error handler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
+- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
++ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
 + (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
-- (BOOL)isValidVpa:(NSString * _Nonnull)vpa error:(NSError * _Nullable * _Nullable)error withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
+- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 + (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
-- (void)initializeWithKey:(NSString * _Nonnull)key delegate:(id _Nonnull)delegate;
 @end
 
 #endif

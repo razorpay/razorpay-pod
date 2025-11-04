@@ -16,6 +16,33 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Razorpay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "Razorpay"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Razorpay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -106,532 +133,6 @@
           {
             "kind": "Function",
             "name": "initWithKey",
-            "printedName": "initWithKey(_:andDelegate:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayCheckout",
-                "printedName": "Razorpay.RazorpayCheckout",
-                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayProtocol",
-                "printedName": "any RazorpayCore.RazorpayProtocol",
-                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayProtocol"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegateACSS_0A4Core0A8Protocol_ptKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
-            "printedName": "initWithKey(_:andDelegateWithData:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayCheckout",
-                "printedName": "Razorpay.RazorpayCheckout",
-                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayPaymentCompletionProtocolWithData",
-                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
-                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4DataACSS_0A4Core0a25PaymentCompletionProtocoldH0_ptKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
-            "printedName": "initWithKey(_:andDelegateWithData:plugin:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayCheckout",
-                "printedName": "Razorpay.RazorpayCheckout",
-                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayPaymentCompletionProtocolWithData",
-                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
-                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(any RazorpayCore.UPITurboUIPlugin)?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UPITurboUIPlugin",
-                    "printedName": "any RazorpayCore.UPITurboUIPlugin",
-                    "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:plugin:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data6pluginACSS_0A4Core0a25PaymentCompletionProtocoldH0_pAG16UPITurboUIPlugin_pSgtKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
-            "printedName": "initWithKey(_:andDelegateWithData:andHostedOptiConfig:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayCheckout",
-                "printedName": "Razorpay.RazorpayCheckout",
-                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayPaymentCompletionProtocolWithData",
-                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
-                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Swift.String]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:andHostedOptiConfig:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data0F16HostedOptiConfigACSS_0A4Core0a25PaymentCompletionProtocoldH0_pSDyS2SGtKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setExternalWalletSelectionDelegate",
-            "printedName": "setExternalWalletSelectionDelegate(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ExternalWalletSelectionProtocol",
-                "printedName": "any RazorpayCore.ExternalWalletSelectionProtocol",
-                "usr": "c:@M@RazorpayCore@objc(pl)ExternalWalletSelectionProtocol"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)setExternalWalletSelectionDelegate:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC34setExternalWalletSelectionDelegateyy0A4Core0deF8Protocol_pKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "open",
-            "printedName": "open(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.AnyHashable : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyHashable",
-                    "printedName": "Swift.AnyHashable",
-                    "usr": "s:s11AnyHashableV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC4openyySDys11AnyHashableVypGKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "open",
-            "printedName": "open(_:displayController:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.AnyHashable : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyHashable",
-                    "printedName": "Swift.AnyHashable",
-                    "usr": "s:s11AnyHashableV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:displayController:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC4open_17displayControllerySDys11AnyHashableVypG_So06UIViewE0CtKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "open",
-            "printedName": "open(_:arrExternalPaymentEntities:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.AnyHashable : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyHashable",
-                    "printedName": "Swift.AnyHashable",
-                    "usr": "s:s11AnyHashableV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[any RazorpayCore.PluginPaymentDelegate]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PluginPaymentDelegate",
-                    "printedName": "any RazorpayCore.PluginPaymentDelegate",
-                    "usr": "c:@M@RazorpayCore@objc(pl)PluginPaymentDelegate"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:arrExternalPaymentEntities:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC4open_26arrExternalPaymentEntitiesySDys11AnyHashableVypG_Say0A4Core06PluginF8Delegate_pGtKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "open",
-            "printedName": "open(_:displayController:arrExternalPaymentEntities:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.AnyHashable : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyHashable",
-                    "printedName": "Swift.AnyHashable",
-                    "usr": "s:s11AnyHashableV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[any RazorpayCore.PluginPaymentDelegate]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PluginPaymentDelegate",
-                    "printedName": "any RazorpayCore.PluginPaymentDelegate",
-                    "usr": "c:@M@RazorpayCore@objc(pl)PluginPaymentDelegate"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:displayController:arrExternalPaymentEntities:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC4open_17displayController26arrExternalPaymentEntitiesySDys11AnyHashableVypG_So06UIViewE0CSay0A4Core06PluginH8Delegate_pGtKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "openMagicX",
-            "printedName": "openMagicX(storefrontUrl:itemsData:withDelegate:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MagicXResultProtocol",
-                "printedName": "any RazorpayCore.MagicXResultProtocol",
-                "usr": "c:@M@RazorpayCore@objc(pl)MagicXResultProtocol"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)openMagicXWithStorefrontUrl:itemsData:withDelegate:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC10openMagicX13storefrontUrl9itemsData12withDelegateySS_SS0A4Core0D15XResultProtocol_ptKF",
-            "moduleName": "Razorpay",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "clearUserData",
-            "printedName": "clearUserData()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)clearUserDataAndReturnError:",
-            "mangledName": "$s8Razorpay0A8CheckoutC13clearUserDatayyKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "checkIntegration",
-            "printedName": "checkIntegration(withMerchantKey:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)checkIntegrationWithMerchantKey:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC16checkIntegration15withMerchantKeyySS_tKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
             "printedName": "initWithKey(_:andDelegate:withPaymentWebView:)",
             "children": [
               {
@@ -660,17 +161,17 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebViewACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CtKFZ",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebViewACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CtFZ",
             "moduleName": "Razorpay",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
+              "RawDocComment",
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -710,8 +211,292 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:plugin:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView6pluginACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH14UPITurboPlugin_ptKFZ",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:plugin:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView6pluginACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH14UPITurboPlugin_ptFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:UIPlugin:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocol",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UPITurboUIPlugin",
+                "printedName": "any RazorpayCore.UPITurboUIPlugin",
+                "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:UIPlugin:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView8UIPluginACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH08UPITurboL0_ptFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKeyyACSSFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocol",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView_ACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:plugin:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocol",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UPITurboPlugin",
+                "printedName": "any RazorpayCore.UPITurboPlugin",
+                "usr": "c:@M@RazorpayCore@objc(pl)UPITurboPlugin"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:plugin::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView6plugin_ACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH14UPITurboPlugin_pSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:UIPlugin:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocol",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UPITurboUIPlugin",
+                "printedName": "any RazorpayCore.UPITurboUIPlugin",
+                "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:UIPlugin::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView8UIPlugin_ACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH08UPITurboL0_pSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKeyyACSS_SbtKFZ",
             "moduleName": "Razorpay",
             "static": true,
             "declAttributes": [
@@ -765,8 +550,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)closeAndReturnError:",
-            "mangledName": "$s8Razorpay0A8CheckoutC5closeyyKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)close",
+            "mangledName": "$s8Razorpay0A8CheckoutC5closeyyF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -774,87 +559,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
-            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:UIPlugin:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RazorpayPaymentCompletionProtocol",
-                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
-                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "WKWebView",
-                "printedName": "WebKit.WKWebView",
-                "usr": "c:objc(cs)WKWebView"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UPITurboUIPlugin",
-                "printedName": "any RazorpayCore.UPITurboUIPlugin",
-                "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:UIPlugin:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView8UIPluginySS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH08UPITurboL0_ptKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "initWithKey",
-            "printedName": "initWithKey(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKeyyySSKFZ",
-            "moduleName": "Razorpay",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -875,8 +579,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)changeApiKey:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC12changeApiKeyyySSKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)changeApiKey:",
+            "mangledName": "$s8Razorpay0A8CheckoutC12changeApiKeyyySSF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -884,7 +588,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -967,8 +670,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)payWithCredWithOptions:error:withSuccessCallback:andFailureCallback:",
-            "mangledName": "$s8Razorpay0A8CheckoutC11payWithCred11withOptions0F15SuccessCallback010andFailureI0ySDys11AnyHashableVypG_yAJcySSctKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)payWithCredWithOptions:withSuccessCallback:andFailureCallback:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11payWithCred11withOptions0F15SuccessCallback010andFailureI0ySDys11AnyHashableVypG_yAJcySSctF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -976,7 +679,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1028,8 +730,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardFlows:error:withCallback:",
-            "mangledName": "$s8Razorpay0A8CheckoutC12getCardFlows_12withCallbackySDys11AnyHashableVypG_ySbctKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardFlows:withCallback:",
+            "mangledName": "$s8Razorpay0A8CheckoutC12getCardFlows_12withCallbackySDys11AnyHashableVypG_ySbctF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1037,7 +739,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1070,8 +771,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardOtpDataAndReturnError:response:",
-            "mangledName": "$s8Razorpay0A8CheckoutC14getCardOtpData8responseyySbc_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardOtpDataWithResponse:",
+            "mangledName": "$s8Razorpay0A8CheckoutC14getCardOtpData8responseyySbc_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1079,7 +780,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1550,8 +1250,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)decodeURIFrom:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC9decodeURI4fromySS_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)decodeURIFrom:",
+            "mangledName": "$s8Razorpay0A8CheckoutC9decodeURI4fromySS_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1559,7 +1259,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1594,8 +1293,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didCommit:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC7webView_9didCommitySo05WKWebD0C_So12WKNavigationCSgtKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didCommit:",
+            "mangledName": "$s8Razorpay0A8CheckoutC7webView_9didCommitySo05WKWebD0C_So12WKNavigationCSgtF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1603,7 +1302,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1644,8 +1342,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFailProvisionalNavigation:withError:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC7webView_28didFailProvisionalNavigation9withErrorySo05WKWebD0C_So12WKNavigationCSgs0J0_ptKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFailProvisionalNavigation:withError:",
+            "mangledName": "$s8Razorpay0A8CheckoutC7webView_28didFailProvisionalNavigation9withErrorySo05WKWebD0C_So12WKNavigationCSgs0J0_ptF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1653,7 +1351,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1769,8 +1466,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardNetworkFromCardNumber:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC14getCardNetwork04fromD6NumberS2S_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardNetworkFromCardNumber:",
+            "mangledName": "$s8Razorpay0A8CheckoutC14getCardNetwork04fromD6NumberS2S_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -1778,7 +1475,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1832,8 +1528,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)getAppsWhichSupportUpiAndReturnError:handler:",
-            "mangledName": "$s8Razorpay0A8CheckoutC22getAppsWhichSupportUpi7handleryySaySDys11AnyHashableVypGGc_tKFZ",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)getAppsWhichSupportUpiWithHandler:",
+            "mangledName": "$s8Razorpay0A8CheckoutC22getAppsWhichSupportUpi7handleryySaySDys11AnyHashableVypGGc_tFZ",
             "moduleName": "Razorpay",
             "static": true,
             "declAttributes": [
@@ -1842,7 +1538,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1927,15 +1622,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay0A8CheckoutC11isCardValidySbSSKF",
-            "mangledName": "$s8Razorpay0A8CheckoutC11isCardValidySbSSKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)isCardValid:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11isCardValidySbSSF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2018,8 +1713,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)isValidVpa:error:withSuccessCallback:withFailure:",
-            "mangledName": "$s8Razorpay0A8CheckoutC10isValidVpa_19withSuccessCallback0F7FailureySS_ySDys11AnyHashableVypGcyAIctKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)isValidVpa:withSuccessCallback:withFailure:",
+            "mangledName": "$s8Razorpay0A8CheckoutC10isValidVpa_19withSuccessCallback0F7FailureySS_ySDys11AnyHashableVypGcyAIctF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -2027,7 +1722,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2049,15 +1743,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay0A8CheckoutC20getCardNetworkLength02ofE0SiSS_tKF",
-            "mangledName": "$s8Razorpay0A8CheckoutC20getCardNetworkLength02ofE0SiSS_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getCardNetworkLengthOfNetwork:",
+            "mangledName": "$s8Razorpay0A8CheckoutC20getCardNetworkLength02ofE0SiSS_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2087,15 +1781,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay0A8CheckoutC11getBankLogo06havingD4Code10Foundation3URLVSgSS_tKF",
-            "mangledName": "$s8Razorpay0A8CheckoutC11getBankLogo06havingD4Code10Foundation3URLVSgSS_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getBankLogoWithHavingBankCode:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11getBankLogo06havingD4Code10Foundation3URLVSgSS_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2125,15 +1819,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay0A8CheckoutC15getWalletSqLogo06havingD4Name10Foundation3URLVSgSS_tKF",
-            "mangledName": "$s8Razorpay0A8CheckoutC15getWalletSqLogo06havingD4Name10Foundation3URLVSgSS_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getWalletSqLogoWithHavingWalletName:",
+            "mangledName": "$s8Razorpay0A8CheckoutC15getWalletSqLogo06havingD4Name10Foundation3URLVSgSS_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2163,15 +1857,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8Razorpay0A8CheckoutC13getWalletLogo06havingD4Name10Foundation3URLVSgSS_tKF",
-            "mangledName": "$s8Razorpay0A8CheckoutC13getWalletLogo06havingD4Name10Foundation3URLVSgSS_tKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)getWalletLogoWithHavingWalletName:",
+            "mangledName": "$s8Razorpay0A8CheckoutC13getWalletLogo06havingD4Name10Foundation3URLVSgSS_tF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2293,8 +1987,642 @@
           },
           {
             "kind": "Function",
-            "name": "initialize",
-            "printedName": "initialize(key:delegate:)",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayProtocol",
+                "printedName": "any RazorpayCore.RazorpayProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegateACSS_0A4Core0A8Protocol_ptFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4DataACSS_0A4Core0a25PaymentCompletionProtocoldH0_ptFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:plugin:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.UPITurboUIPlugin)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UPITurboUIPlugin",
+                    "printedName": "any RazorpayCore.UPITurboUIPlugin",
+                    "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:plugin:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data6pluginACSS_0A4Core0a25PaymentCompletionProtocoldH0_pAG16UPITurboUIPlugin_pSgtFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:andHostedOptiConfig:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:andHostedOptiConfig:error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data0F16HostedOptiConfigACSS_0A4Core0a25PaymentCompletionProtocoldH0_pSDyS2SGtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayProtocol",
+                "printedName": "any RazorpayCore.RazorpayProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate_ACSS_0A4Core0A8Protocol_pSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data_ACSS_0A4Core0a25PaymentCompletionProtocoldH0_pSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:plugin:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.UPITurboUIPlugin)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UPITurboUIPlugin",
+                    "printedName": "any RazorpayCore.UPITurboUIPlugin",
+                    "usr": "c:@M@RazorpayCore@objc(pl)UPITurboUIPlugin"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:plugin::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data6plugin_ACSS_0A4Core0a25PaymentCompletionProtocoldH0_pAG16UPITurboUIPlugin_pSgSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegateWithData:andHostedOptiConfig:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocolWithData",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocolWithData",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocolWithData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegateWithData:andHostedOptiConfig::error:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_011andDelegateD4Data0F16HostedOptiConfig_ACSS_0A4Core0a25PaymentCompletionProtocoldH0_pSDyS2SGSbtKFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setExternalWalletSelectionDelegate",
+            "printedName": "setExternalWalletSelectionDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ExternalWalletSelectionProtocol",
+                "printedName": "any RazorpayCore.ExternalWalletSelectionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)ExternalWalletSelectionProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)setExternalWalletSelectionDelegate:",
+            "mangledName": "$s8Razorpay0A8CheckoutC34setExternalWalletSelectionDelegateyy0A4Core0deF8Protocol_pF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "open",
+            "printedName": "open(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:",
+            "mangledName": "$s8Razorpay0A8CheckoutC4openyySDys11AnyHashableVypGF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "open",
+            "printedName": "open(_:displayController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:displayController:",
+            "mangledName": "$s8Razorpay0A8CheckoutC4open_17displayControllerySDys11AnyHashableVypG_So06UIViewE0CtF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "open",
+            "printedName": "open(_:arrExternalPaymentEntities:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any RazorpayCore.PluginPaymentDelegate]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PluginPaymentDelegate",
+                    "printedName": "any RazorpayCore.PluginPaymentDelegate",
+                    "usr": "c:@M@RazorpayCore@objc(pl)PluginPaymentDelegate"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:arrExternalPaymentEntities:",
+            "mangledName": "$s8Razorpay0A8CheckoutC4open_26arrExternalPaymentEntitiesySDys11AnyHashableVypG_Say0A4Core06PluginF8Delegate_pGtF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "open",
+            "printedName": "open(_:displayController:arrExternalPaymentEntities:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any RazorpayCore.PluginPaymentDelegate]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PluginPaymentDelegate",
+                    "printedName": "any RazorpayCore.PluginPaymentDelegate",
+                    "usr": "c:@M@RazorpayCore@objc(pl)PluginPaymentDelegate"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)open:displayController:arrExternalPaymentEntities:",
+            "mangledName": "$s8Razorpay0A8CheckoutC4open_17displayController26arrExternalPaymentEntitiesySDys11AnyHashableVypG_So06UIViewE0CSay0A4Core06PluginH8Delegate_pGtF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "openMagicX",
+            "printedName": "openMagicX(storefrontUrl:itemsData:withDelegate:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2309,14 +2637,75 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "ProtocolComposition",
-                "printedName": "Any"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MagicXResultProtocol",
+                "printedName": "any RazorpayCore.MagicXResultProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)MagicXResultProtocol"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)initializeWithKey:delegate:",
-            "mangledName": "$s8Razorpay0A8CheckoutC10initialize3key8delegateySS_yptF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)openMagicXWithStorefrontUrl:itemsData:withDelegate:",
+            "mangledName": "$s8Razorpay0A8CheckoutC10openMagicX13storefrontUrl9itemsData12withDelegateySS_SS0A4Core0D15XResultProtocol_ptF",
             "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearUserData",
+            "printedName": "clearUserData()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)clearUserData",
+            "mangledName": "$s8Razorpay0A8CheckoutC13clearUserDatayyFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "checkIntegration",
+            "printedName": "checkIntegration(withMerchantKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)checkIntegrationWithMerchantKey:",
+            "mangledName": "$s8Razorpay0A8CheckoutC16checkIntegration15withMerchantKeyySS_tFZ",
+            "moduleName": "Razorpay",
+            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -2407,36 +2796,66 @@
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "Razorpay",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "Razorpay",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "WebKit",
-        "printedName": "WebKit",
-        "declKind": "Import",
-        "moduleName": "Razorpay"
       }
     ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2324,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2941,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3621,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4107,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3456,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4048,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4695,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5365,
+      "length": 4,
+      "value": "true"
+    }
+  ]
 }
