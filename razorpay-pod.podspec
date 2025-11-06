@@ -30,7 +30,8 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "razorpay" => "support@razorpay.com"}
-  s.source           = { :git => "https://github.com/razorpay/razorpay-pod.git", :tag => s.version.to_s }
+  # s.source           = { :git => "https://github.com/razorpay/razorpay-pod.git", :tag => s.version.to_s }
+    s.source           = { :git => "https://github.com/razorpay/razorpay-pod.git", :branch => "feat/modular-frameworks-test" }
   s.social_media_url = 'https://twitter.com/razorpay'
 
   s.platform     = :ios, '10.0'
@@ -56,10 +57,8 @@ helps businesses accepts online payments via Credit Card, Debit Card, Net bankin
  end
  
  s.subspec 'Custom' do |custom|
-    custom.vendored_frameworks = [
-      'Pod/custom/RazorpayCustom.framework'
-    ]
-     custom.dependency 'razorpay-pod/Core'
+    custom.vendored_frameworks = 'Pod/custom/RazorpayCustom.framework'
+    custom.dependency 'razorpay-pod/Core'
  end
 
 end
