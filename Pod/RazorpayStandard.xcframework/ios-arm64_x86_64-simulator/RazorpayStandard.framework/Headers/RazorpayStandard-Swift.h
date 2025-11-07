@@ -284,6 +284,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import RazorpayCore;
+@import WebKit;
 #endif
 
 #endif
@@ -318,6 +319,13 @@ SWIFT_CLASS("_TtC16RazorpayStandard6Otpelf")
 - (void)setPaymentData:(NSDictionary * _Nonnull)data;
 - (BOOL)webViewWithDidFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
 - (void)close;
+@end
+
+SWIFT_CLASS("_TtC16RazorpayStandard14PreloadManager")
+@interface PreloadManager : NSObject <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol UPITurboUIPlugin;
@@ -357,16 +365,15 @@ SWIFT_CLASS("_TtC16RazorpayStandard30StandardCheckoutImplementation")
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (void)publishUriWith:(NSString * _Nonnull)data;
-- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)open:(NSDictionary * _Nonnull)options checkoutInstance:(id _Nullable)checkoutInstance;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
-- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
-- (void)close;
-- (void)clearUserData;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)closeWithCheckoutInstance:(id _Nullable)checkoutInstance;
+- (void)clearUserDataWithCheckoutInstance:(id _Nullable)checkoutInstance;
 - (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
-- (void)initializeWithKey:(NSString * _Nonnull)key delegate:(id _Nonnull)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -664,6 +671,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import RazorpayCore;
+@import WebKit;
 #endif
 
 #endif
@@ -698,6 +706,13 @@ SWIFT_CLASS("_TtC16RazorpayStandard6Otpelf")
 - (void)setPaymentData:(NSDictionary * _Nonnull)data;
 - (BOOL)webViewWithDidFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
 - (void)close;
+@end
+
+SWIFT_CLASS("_TtC16RazorpayStandard14PreloadManager")
+@interface PreloadManager : NSObject <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol UPITurboUIPlugin;
@@ -737,16 +752,15 @@ SWIFT_CLASS("_TtC16RazorpayStandard30StandardCheckoutImplementation")
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (void)publishUriWith:(NSString * _Nonnull)data;
-- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
+- (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)open:(NSDictionary * _Nonnull)options checkoutInstance:(id _Nullable)checkoutInstance;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
-- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
-- (void)close;
-- (void)clearUserData;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)closeWithCheckoutInstance:(id _Nullable)checkoutInstance;
+- (void)clearUserDataWithCheckoutInstance:(id _Nullable)checkoutInstance;
 - (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
-- (void)initializeWithKey:(NSString * _Nonnull)key delegate:(id _Nonnull)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
