@@ -283,7 +283,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import Foundation;
 @import ObjectiveC;
-@import WebKit;
 #endif
 
 #endif
@@ -306,183 +305,109 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-@class NSString;
-@class NSObject;
-SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
-@protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay20MagicXResultProtocol_")
-@protocol MagicXResultProtocol
-- (void)onCheckoutUrlGenerated:(NSString * _Nonnull)checkoutUrl;
-@end
-
-@class WKWebView;
-@class WKNavigation;
-SWIFT_CLASS("_TtC8Razorpay6Otpelf")
-@interface Otpelf : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (void)initWithWebView:(WKWebView * _Nonnull)webView andMerchantKey:(NSString * _Nullable)merchantKey SWIFT_METHOD_FAMILY(none);
-+ (Otpelf * _Nullable)getSharedInstance SWIFT_WARN_UNUSED_RESULT;
-- (void)setPaymentData:(NSDictionary * _Nonnull)data;
-- (BOOL)webViewWithDidFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (void)close;
-@end
-
-@class PluginPaymentModel;
-SWIFT_PROTOCOL("_TtP8Razorpay21PluginPaymentDelegate_")
-@protocol PluginPaymentDelegate
-- (BOOL)canProcessPaymentWithModel:(PluginPaymentModel * _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithModel:(PluginPaymentModel * _Nonnull)model;
-@optional
-- (void)getExternalPaymentDataWithMobileNumber:(NSString * _Nonnull)mobileNumber orderId:(NSString * _Nullable)orderId handler:(void (^ _Nonnull)(void))handler;
-- (NSArray<NSDictionary *> * _Nonnull)paymentData SWIFT_WARN_UNUSED_RESULT;
-- (NSDictionary * _Nonnull)paymentTPVData SWIFT_WARN_UNUSED_RESULT;
-@end
-
-SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
-@interface PluginPaymentModel : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC8Razorpay14PreloadManager")
-@interface PreloadManager : NSObject <WKNavigationDelegate>
-- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@protocol UPITurboUIPlugin;
-@protocol RazorpayPaymentCompletionProtocol;
-@class UIViewController;
-@protocol RazorpayProtocol;
-@protocol RazorpayPaymentCompletionProtocolWithData;
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayCheckout * _Nonnull shared;)
++ (RazorpayCheckout * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@property (nonatomic, strong) id <UPITurboUIPlugin> _Nullable upiTurbo;
-+ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
+@end
+
+@class NSString;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
+@protocol UPITurboUIPlugin;
+@protocol ExternalWalletSelectionProtocol;
+@class UIViewController;
+@protocol PluginPaymentDelegate;
+@protocol MagicXResultProtocol;
+@interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (void)publishUriWith:(NSString * _Nonnull)data;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-+ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
++ (void)clearUserData;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
+@end
+
+@protocol RazorpayPaymentCompletionProtocol;
+@class WKWebView;
+@protocol UPITurboPlugin;
+@class WKNavigation;
+@class NSURL;
+@interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)publishUriWith:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
 - (void)close;
-- (void)clearUserData;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
-@protocol RazorpayProtocol
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
-@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
-@protocol RazorpayResultProtocol <RazorpayProtocol>
-- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
-@end
-
-SWIFT_CLASS("_TtC8Razorpay7Session")
-@interface Session : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay11TokenPlugin_")
-@protocol TokenPlugin
-- (void)initialize:(id _Nonnull)delegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay34UPITurboLinkedBankAccountsProtocol_")
-@protocol UPITurboLinkedBankAccountsProtocol
-- (void)getLinkedBankAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
-- (void)getLinkedBankAccountsWithCustomerId:(NSString * _Nonnull)customerId resultDelegate:(id _Nonnull)resultDelegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay33UPITurboLinkedUpiAccountsProtocol_")
-@protocol UPITurboLinkedUpiAccountsProtocol
-- (void)getLinkedUpiAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
-- (void)getLinkedUpiAccountsWithCustomerId:(NSString * _Nonnull)customerId resultDelegate:(id _Nonnull)resultDelegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay24UPITurboPrefetchProtocol_")
-@protocol UPITurboPrefetchProtocol
-- (id <UPITurboPrefetchProtocol> _Nonnull)setCustomerMobileWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboPrefetchProtocol> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (void)prefetchAndLinkUpiAccountsWithLinkAccountWithUPIPinNotSet:(BOOL)linkAccountWithUPIPinNotSet linkActionDelegate:(id _Nonnull)linkActionDelegate;
-@end
-
-@protocol UPITurboTPVPlugin;
-SWIFT_PROTOCOL("_TtP8Razorpay14UPITurboPlugin_")
-@protocol UPITurboPlugin <TokenPlugin, UPITurboLinkedBankAccountsProtocol, UPITurboLinkedUpiAccountsProtocol, UPITurboPrefetchProtocol>
-@property (nonatomic, readonly, strong) id <UPITurboTPVPlugin> _Nullable TPV;
-@property (nonatomic, readonly, strong) id <PluginPaymentDelegate> _Nonnull paymentPlugin;
-@property (nonatomic, readonly) BOOL deviceBindingDone;
-- (void)linkNewAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber linkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (void)linkNewAccountWithCustomerId:(NSString * _Nonnull)customerId linkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (void)fetchAccountBalanceWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)resetUpiPinWithUpiAccount:(id _Nullable)upiAccount card:(id _Nonnull)card handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)delinkVpaWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)delinkVpaWithLinkedBankAccount:(id _Nullable)linkedBankAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)changeUpiPinWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay30UPITurboPrefetchWithUIProtocol_")
-@protocol UPITurboPrefetchWithUIProtocol
-- (id <UPITurboPrefetchWithUIProtocol> _Nonnull)setCustomerMobileWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboPrefetchWithUIProtocol> _Nonnull)setColorWithColor:(NSString * _Nonnull)color SWIFT_WARN_UNUSED_RESULT;
-- (void)prefetchAndLinkUpiAccountsWithUIWithCompletionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (void)setUpiPinWithUI:(id _Nonnull)account completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay17UPITurboTPVPlugin_")
-@protocol UPITurboTPVPlugin
-- (void)linkNewUpiAccountWithLinkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (id <UPITurboTPVPlugin> _Nonnull)setOrderIdWithOrderId:(NSString * _Nonnull)orderId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setMobileNumberWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setTpvBankAccountWithTpvBankAccount:(id _Nonnull)tpvBankAccount SWIFT_WARN_UNUSED_RESULT;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay19UPITurboTPVUIPlugin_")
-@protocol UPITurboTPVUIPlugin
-- (id <UPITurboTPVUIPlugin> _Nonnull)setOrderIdWithOrderId:(NSString * _Nonnull)orderId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVUIPlugin> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVUIPlugin> _Nonnull)setMobileNumberWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (void)linkNewUpiAccountWithUIWithAmountInDisplayFormat:(NSString * _Nonnull)amountInDisplayFormat color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay16UPITurboUIPlugin_")
-@protocol UPITurboUIPlugin <TokenPlugin, UPITurboPrefetchWithUIProtocol>
-@property (nonatomic, readonly, strong) id <UPITurboTPVUIPlugin> _Nullable TPV;
-@property (nonatomic, readonly, strong) id <UPITurboPlugin> _Nullable corePlugin;
-@property (nonatomic, readonly, strong) id <PluginPaymentDelegate> _Nullable paymentPlugin;
-- (void)linkNewUpiAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (void)manageUpiAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (NSArray<NSDictionary *> * _Nullable)getUpiAccountObjectWithUpiAccounts:(id _Nullable)upiAccounts SWIFT_WARN_UNUSED_RESULT;
-- (void)getLinkedUpiAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
+- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
+- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
+- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
++ (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
++ (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
++ (void)redirectToBankPage;
++ (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
++ (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
++ (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)authorize:(NSDictionary * _Nonnull)options;
++ (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
++ (void)userCancelledPayment;
+- (void)decodeURIFrom:(NSString * _Nonnull)data;
+- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
+- (BOOL)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
+- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
++ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
++ (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
+- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
+- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
++ (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
 @end
 
 #endif
@@ -778,7 +703,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import Foundation;
 @import ObjectiveC;
-@import WebKit;
 #endif
 
 #endif
@@ -801,183 +725,109 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-@class NSString;
-@class NSObject;
-SWIFT_PROTOCOL("_TtP8Razorpay31ExternalWalletSelectionProtocol_")
-@protocol ExternalWalletSelectionProtocol
-- (void)onExternalWalletSelected:(NSString * _Nonnull)walletName withPaymentData:(NSDictionary * _Nullable)paymentData;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay20MagicXResultProtocol_")
-@protocol MagicXResultProtocol
-- (void)onCheckoutUrlGenerated:(NSString * _Nonnull)checkoutUrl;
-@end
-
-@class WKWebView;
-@class WKNavigation;
-SWIFT_CLASS("_TtC8Razorpay6Otpelf")
-@interface Otpelf : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (void)initWithWebView:(WKWebView * _Nonnull)webView andMerchantKey:(NSString * _Nullable)merchantKey SWIFT_METHOD_FAMILY(none);
-+ (Otpelf * _Nullable)getSharedInstance SWIFT_WARN_UNUSED_RESULT;
-- (void)setPaymentData:(NSDictionary * _Nonnull)data;
-- (BOOL)webViewWithDidFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
-- (void)close;
-@end
-
-@class PluginPaymentModel;
-SWIFT_PROTOCOL("_TtP8Razorpay21PluginPaymentDelegate_")
-@protocol PluginPaymentDelegate
-- (BOOL)canProcessPaymentWithModel:(PluginPaymentModel * _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-- (void)payWithModel:(PluginPaymentModel * _Nonnull)model;
-@optional
-- (void)getExternalPaymentDataWithMobileNumber:(NSString * _Nonnull)mobileNumber orderId:(NSString * _Nullable)orderId handler:(void (^ _Nonnull)(void))handler;
-- (NSArray<NSDictionary *> * _Nonnull)paymentData SWIFT_WARN_UNUSED_RESULT;
-- (NSDictionary * _Nonnull)paymentTPVData SWIFT_WARN_UNUSED_RESULT;
-@end
-
-SWIFT_CLASS("_TtC8Razorpay18PluginPaymentModel")
-@interface PluginPaymentModel : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC8Razorpay14PreloadManager")
-@interface PreloadManager : NSObject <WKNavigationDelegate>
-- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@protocol UPITurboUIPlugin;
-@protocol RazorpayPaymentCompletionProtocol;
-@class UIViewController;
-@protocol RazorpayProtocol;
-@protocol RazorpayPaymentCompletionProtocolWithData;
 SWIFT_CLASS("_TtC8Razorpay16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayCheckout * _Nonnull shared;)
++ (RazorpayCheckout * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@property (nonatomic, strong) id <UPITurboUIPlugin> _Nullable upiTurbo;
-+ (void)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate forViewController:(UIViewController * _Nonnull)vc SWIFT_METHOD_FAMILY(none) SWIFT_UNAVAILABLE_MSG("This method is unavailable. Use initWithKey:andDelegate: instead. See https://docs.razorpay.com/docs/ios for more information.");
+@end
+
+@class NSString;
+@protocol RazorpayProtocol;
+@protocol RazorpayPaymentCompletionProtocolWithData;
+@protocol UPITurboUIPlugin;
+@protocol ExternalWalletSelectionProtocol;
+@class UIViewController;
+@protocol PluginPaymentDelegate;
+@protocol MagicXResultProtocol;
+@interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (void)publishUriWith:(NSString * _Nonnull)data;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (void)setExternalWalletSelectionDelegate:(id <ExternalWalletSelectionProtocol> _Nonnull)walletDelegate;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options;
-- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
-+ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController;
 - (void)open:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (void)open:(NSDictionary * _Nonnull)options displayController:(UIViewController * _Nonnull)displayController arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
++ (void)clearUserData;
++ (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
+@end
+
+@protocol RazorpayPaymentCompletionProtocol;
+@class WKWebView;
+@protocol UPITurboPlugin;
+@class WKNavigation;
+@class NSURL;
+@interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)publishUriWith:(NSString * _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
 - (void)close;
-- (void)clearUserData;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay16RazorpayProtocol_")
-@protocol RazorpayProtocol
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay33RazorpayPaymentCompletionProtocol_")
-@protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay41RazorpayPaymentCompletionProtocolWithData_")
-@protocol RazorpayPaymentCompletionProtocolWithData <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nullable)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nullable)response;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay22RazorpayResultProtocol_")
-@protocol RazorpayResultProtocol <RazorpayProtocol>
-- (void)onCompleteWithResponse:(NSDictionary * _Nonnull)response;
-@end
-
-SWIFT_CLASS("_TtC8Razorpay7Session")
-@interface Session : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay11TokenPlugin_")
-@protocol TokenPlugin
-- (void)initialize:(id _Nonnull)delegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay34UPITurboLinkedBankAccountsProtocol_")
-@protocol UPITurboLinkedBankAccountsProtocol
-- (void)getLinkedBankAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
-- (void)getLinkedBankAccountsWithCustomerId:(NSString * _Nonnull)customerId resultDelegate:(id _Nonnull)resultDelegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay33UPITurboLinkedUpiAccountsProtocol_")
-@protocol UPITurboLinkedUpiAccountsProtocol
-- (void)getLinkedUpiAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
-- (void)getLinkedUpiAccountsWithCustomerId:(NSString * _Nonnull)customerId resultDelegate:(id _Nonnull)resultDelegate;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay24UPITurboPrefetchProtocol_")
-@protocol UPITurboPrefetchProtocol
-- (id <UPITurboPrefetchProtocol> _Nonnull)setCustomerMobileWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboPrefetchProtocol> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (void)prefetchAndLinkUpiAccountsWithLinkAccountWithUPIPinNotSet:(BOOL)linkAccountWithUPIPinNotSet linkActionDelegate:(id _Nonnull)linkActionDelegate;
-@end
-
-@protocol UPITurboTPVPlugin;
-SWIFT_PROTOCOL("_TtP8Razorpay14UPITurboPlugin_")
-@protocol UPITurboPlugin <TokenPlugin, UPITurboLinkedBankAccountsProtocol, UPITurboLinkedUpiAccountsProtocol, UPITurboPrefetchProtocol>
-@property (nonatomic, readonly, strong) id <UPITurboTPVPlugin> _Nullable TPV;
-@property (nonatomic, readonly, strong) id <PluginPaymentDelegate> _Nonnull paymentPlugin;
-@property (nonatomic, readonly) BOOL deviceBindingDone;
-- (void)linkNewAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber linkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (void)linkNewAccountWithCustomerId:(NSString * _Nonnull)customerId linkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (void)fetchAccountBalanceWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)resetUpiPinWithUpiAccount:(id _Nullable)upiAccount card:(id _Nonnull)card handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)delinkVpaWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)delinkVpaWithLinkedBankAccount:(id _Nullable)linkedBankAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-- (void)changeUpiPinWithUpiAccount:(id _Nullable)upiAccount handler:(void (^ _Nonnull)(id _Nullable, id _Nullable))handler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay30UPITurboPrefetchWithUIProtocol_")
-@protocol UPITurboPrefetchWithUIProtocol
-- (id <UPITurboPrefetchWithUIProtocol> _Nonnull)setCustomerMobileWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboPrefetchWithUIProtocol> _Nonnull)setColorWithColor:(NSString * _Nonnull)color SWIFT_WARN_UNUSED_RESULT;
-- (void)prefetchAndLinkUpiAccountsWithUIWithCompletionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (void)setUpiPinWithUI:(id _Nonnull)account completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay17UPITurboTPVPlugin_")
-@protocol UPITurboTPVPlugin
-- (void)linkNewUpiAccountWithLinkActionDelegate:(id _Nonnull)linkActionDelegate;
-- (id <UPITurboTPVPlugin> _Nonnull)setOrderIdWithOrderId:(NSString * _Nonnull)orderId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setMobileNumberWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVPlugin> _Nonnull)setTpvBankAccountWithTpvBankAccount:(id _Nonnull)tpvBankAccount SWIFT_WARN_UNUSED_RESULT;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay19UPITurboTPVUIPlugin_")
-@protocol UPITurboTPVUIPlugin
-- (id <UPITurboTPVUIPlugin> _Nonnull)setOrderIdWithOrderId:(NSString * _Nonnull)orderId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVUIPlugin> _Nonnull)setCustomerIdWithCustomerId:(NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
-- (id <UPITurboTPVUIPlugin> _Nonnull)setMobileNumberWithMobile:(NSString * _Nonnull)mobile SWIFT_WARN_UNUSED_RESULT;
-- (void)linkNewUpiAccountWithUIWithAmountInDisplayFormat:(NSString * _Nonnull)amountInDisplayFormat color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-@end
-
-SWIFT_PROTOCOL("_TtP8Razorpay16UPITurboUIPlugin_")
-@protocol UPITurboUIPlugin <TokenPlugin, UPITurboPrefetchWithUIProtocol>
-@property (nonatomic, readonly, strong) id <UPITurboTPVUIPlugin> _Nullable TPV;
-@property (nonatomic, readonly, strong) id <UPITurboPlugin> _Nullable corePlugin;
-@property (nonatomic, readonly, strong) id <PluginPaymentDelegate> _Nullable paymentPlugin;
-- (void)linkNewUpiAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (void)manageUpiAccountWithMobileNumber:(NSString * _Nonnull)mobileNumber color:(NSString * _Nonnull)color completionHandler:(void (^ _Nonnull)(id _Nullable, id _Nullable))completionHandler;
-- (NSArray<NSDictionary *> * _Nullable)getUpiAccountObjectWithUpiAccounts:(id _Nullable)upiAccounts SWIFT_WARN_UNUSED_RESULT;
-- (void)getLinkedUpiAccountsWithMobileNumber:(NSString * _Nonnull)mobileNumber resultDelegate:(id _Nonnull)resultDelegate;
+- (void)changeApiKey:(NSString * _Nonnull)newApiKey;
+- (void)payWithCredWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)getCardFlows:(NSDictionary * _Nonnull)options withCallback:(void (^ _Nonnull)(BOOL))withCallback;
+- (void)getCardOtpDataWithResponse:(void (^ _Nonnull)(BOOL))response;
++ (void)submitOtpWithOtp:(NSString * _Nonnull)otp;
++ (void)resendOtpWithResponse:(void (^ _Nonnull)(BOOL))response;
++ (void)redirectToBankPage;
++ (void)getPaymentMethodsWithOptions:(NSDictionary * _Nullable)options withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
++ (void)getSubscriptionAmountWithHavingSubscriptionId:(NSString * _Nonnull)subId withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
++ (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
+- (void)authorize:(NSDictionary * _Nonnull)options;
++ (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
++ (void)userCancelledPayment;
+- (void)decodeURIFrom:(NSString * _Nonnull)data;
+- (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
+- (BOOL)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
+- (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
++ (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
++ (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
+- (BOOL)isCardValid:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
+- (void)isValidVpa:(NSString * _Nonnull)vpa withSuccessCallback:(void (^ _Nonnull)(NSDictionary * _Nonnull))success withFailure:(void (^ _Nonnull)(NSDictionary * _Nonnull))failure;
+- (NSInteger)getCardNetworkLengthOfNetwork:(NSString * _Nonnull)network SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getBankLogoWithHavingBankCode:(NSString * _Nonnull)bankCode SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletSqLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)getWalletLogoWithHavingWalletName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
++ (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
+- (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
 @end
 
 #endif

@@ -1,0 +1,5 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/vivek.shindhe/Razorpay/iOS/razorpay-ios/RazorpayIOS/DerivedData/iphonesimulator/Build/Products/Release-iphonesimulator/RazorpayCore.framework/RazorpayCore'
+relocations:     []
+...
