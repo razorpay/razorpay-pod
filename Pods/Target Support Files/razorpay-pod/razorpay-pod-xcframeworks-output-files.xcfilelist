@@ -1,1 +1,3 @@
-${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/Razorpay.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/Core/Razorpay.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/Core/RazorpayCore.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/Core/RazorpayStandard.framework
