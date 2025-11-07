@@ -10,28 +10,6 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers final public class RazorpayCheckout : ObjectiveC.NSObject {
-  @objc public static let shared: Razorpay.RazorpayCheckout
-  @objc deinit
-}
-extension Razorpay.RazorpayCheckout {
-  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol) -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?) -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String]) throws -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String], _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
-  @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: any RazorpayCore.ExternalWalletSelectionProtocol)
-  @objc final public func open(_ options: [Swift.AnyHashable : Any])
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
-  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController, arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
-  @objc final public func openMagicX(storefrontUrl: Swift.String, itemsData: Swift.String, withDelegate magicXProtocol: any RazorpayCore.MagicXResultProtocol)
-  @objc public static func clearUserData()
-  @objc public static func checkIntegration(withMerchantKey key: Swift.String)
-}
 extension Razorpay.RazorpayCheckout {
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, plugin: any RazorpayCore.UPITurboPlugin) -> Razorpay.RazorpayCheckout
@@ -73,4 +51,26 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func payWithExternalPaymentEntity(options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
   @objc final public func setWebView(_ webView: WebKit.WKWebView) throws
   @objc final public func setDelegate(_ delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol) throws
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers final public class RazorpayCheckout : ObjectiveC.NSObject {
+  @objc public static let shared: Razorpay.RazorpayCheckout
+  @objc deinit
+}
+extension Razorpay.RazorpayCheckout {
+  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String]) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String], _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
+  @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: any RazorpayCore.ExternalWalletSelectionProtocol)
+  @objc final public func open(_ options: [Swift.AnyHashable : Any])
+  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
+  @objc final public func open(_ options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
+  @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController, arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
+  @objc final public func openMagicX(storefrontUrl: Swift.String, itemsData: Swift.String, withDelegate magicXProtocol: any RazorpayCore.MagicXResultProtocol)
+  @objc public static func clearUserData()
+  @objc public static func checkIntegration(withMerchantKey key: Swift.String)
 }

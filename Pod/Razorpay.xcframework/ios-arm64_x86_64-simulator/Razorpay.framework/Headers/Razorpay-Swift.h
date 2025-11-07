@@ -322,10 +322,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @protocol PluginPaymentDelegate;
 @protocol MagicXResultProtocol;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
@@ -346,24 +357,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @class WKNavigation;
 @class NSURL;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-/// <ul>
-///   <li>
-///     \code
-///           Normal init functions with dedicated flavour inclusion not unified
-///
-///     \endcode</li>
-/// </ul>
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-/// <ul>
-///   <li>
-///     \code
-///           Combined init functions with multiple flavours inclusion and unified
-///
-///     \endcode</li>
-/// </ul>
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
@@ -734,10 +742,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @protocol PluginPaymentDelegate;
 @protocol MagicXResultProtocol;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate andHostedOptiConfig:(NSDictionary<NSString *, NSString *> * _Nonnull)config SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
@@ -758,24 +777,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @class WKNavigation;
 @class NSURL;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
-/// <ul>
-///   <li>
-///     \code
-///           Normal init functions with dedicated flavour inclusion not unified
-///
-///     \endcode</li>
-/// </ul>
+/// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
+/// for existing SDK users.
+/// This preserves the old initialization flow and prevents any breaking changes for merchants
+/// currently using the older SDK integration.
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nonnull)initWithKey:(NSString * _Nonnull)key SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-/// <ul>
-///   <li>
-///     \code
-///           Combined init functions with multiple flavours inclusion and unified
-///
-///     \endcode</li>
-/// </ul>
+/// Introduces a new throwing <code>initWithKey</code> method (with the <code>unified</code> flag) to support the
+/// modularized SDK architecture.
+/// This initializer enables proper error handling when a specific checkout module
+/// (such as Standard or Custom) is not available at runtime.
+/// NOTE: Merchants need to explicitly pass the <code>unified</code> argument (<code>true</code> / <code>false</code>)
+/// to access this new function. This helps differentiate it from the existing
+/// non-throwing initializer.
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView plugin:(id <UPITurboPlugin> _Nonnull)plugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 + (RazorpayCheckout * _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate withPaymentWebView:(WKWebView * _Nonnull)merchantWebView UIPlugin:(id <UPITurboUIPlugin> _Nonnull)UIPlugin :(BOOL)unified error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;

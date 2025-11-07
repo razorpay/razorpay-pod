@@ -60,7 +60,7 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?) -> Razorpay.RazorpayCheckout
-  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String]) throws -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, andHostedOptiConfig config: [Swift.String : Swift.String]) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
