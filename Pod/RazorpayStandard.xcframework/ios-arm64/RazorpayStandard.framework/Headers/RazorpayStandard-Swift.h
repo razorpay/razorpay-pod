@@ -360,6 +360,7 @@ SWIFT_CLASS("_TtC16RazorpayStandard16RazorpayCheckout")
 
 SWIFT_CLASS("_TtC16RazorpayStandard30StandardCheckoutImplementation")
 @interface StandardCheckoutImplementation : NSObject <StandardCheckoutImplementationProtocol>
+@property (nonatomic, strong) id <UPITurboUIPlugin> _Nullable upiTurbo;
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegate:(id <RazorpayProtocol> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 - (id _Nullable)initWithKey:(NSString * _Nonnull)key andDelegateWithData:(id <RazorpayPaymentCompletionProtocolWithData> _Nonnull)delegate plugin:(id <UPITurboUIPlugin> _Nullable)plugin SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
