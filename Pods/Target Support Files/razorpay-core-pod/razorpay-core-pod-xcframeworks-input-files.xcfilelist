@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/razorpay-core-pod/razorpay-core-pod-xcframeworks.sh
+${PODS_ROOT}/razorpay-core-pod/Pod/core/Razorpay.xcframework
+${PODS_ROOT}/razorpay-core-pod/Pod/core/RazorpayCore.xcframework

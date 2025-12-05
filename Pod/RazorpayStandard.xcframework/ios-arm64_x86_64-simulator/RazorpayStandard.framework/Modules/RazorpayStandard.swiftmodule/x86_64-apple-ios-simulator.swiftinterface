@@ -18,6 +18,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @objc @_inheritsConvenienceInitializers @objcMembers final public class StandardCheckoutImplementation : ObjectiveC.NSObject, RazorpayCore.StandardCheckoutImplementationProtocol {
+  @objc final public var upiTurbo: (any RazorpayCore.UPITurboUIPlugin)?
   @objc final public func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayProtocol) -> Any?
   @objc final public func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData) -> Any?
   @objc final public func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?) -> Any?

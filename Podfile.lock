@@ -1,15 +1,22 @@
 PODS:
-  - razorpay-pod (1.4.7)
+  - razorpay-core-pod (1.0.3)
+  - razorpay-pod (1.5.1):
+    - razorpay-core-pod (~> 1.0.3)
 
 DEPENDENCIES:
   - razorpay-pod (from `.`)
+
+SPEC REPOS:
+  trunk:
+    - razorpay-core-pod
 
 EXTERNAL SOURCES:
   razorpay-pod:
     :path: "."
 
 SPEC CHECKSUMS:
-  razorpay-pod: 7bbc8748a93377d1705f9119b2f947faa9c9e3e1
+  razorpay-core-pod: ef0309dbf8e3e5a1330f6cad89dcf9226d8ef758
+  razorpay-pod: 9d683b08ea22321d5171e015407dfa2181911149
 
 PODFILE CHECKSUM: 1b2708cb97375cabecc890ea1b253cc656074903
 
