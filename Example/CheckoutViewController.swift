@@ -74,6 +74,9 @@ class CheckoutViewController: UIViewController,RazorpayPaymentCompletionProtocol
             "name":"Test Payment iOS",
             "theme":[
                 "color":"#000000"
+            ],
+            "prefill":[
+                "contact":"9731585653"
             ]
         ]
         if let rzp = self.razorpayObj {

@@ -26,7 +26,15 @@ let package = Package(
         ),
         .binaryTarget(
             name: "Razorpay",
-            path: "Pod/Razorpay.xcframework"
+            path: "Pod/core/Razorpay.xcframework"
+        ),
+        .binaryTarget(
+            name: "RazorpayStandard",
+            path: "Pod/RazorpayStandard.xcframework"
+        ),
+        .binaryTarget(
+            name: "RazorpayCore",
+            path: "Pod/core/RazorpayCore.xcframework"
         ),
         .testTarget(
             name: "RazorpayCheckoutTests",
