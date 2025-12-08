@@ -1,11 +1,7 @@
 // swift-tools-version: 5.9
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
-
 let packageVersion = "1.4.1"
-
 
 let package = Package(
     name: "RazorpayCheckout",
@@ -13,21 +9,43 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
+        // This product exposes everything needed to use Razorpay
         .library(
             name: "RazorpayCheckout",
-            targets: ["RazorpayCheckout", "Razorpay"]
+            targets: [
+                "RazorpayCheckout",
+                "Razorpay",
+                "RazorpayCore",
+                "RazorpayStandard"
+            ]
         ),
     ],
     targets: [
         .target(
             name: "RazorpayCheckout",
+            dependencies: [
+                .target(name: "Razorpay"),
+                .target(name: "RazorpayCore"),
+                .target(name: "RazorpayStandard"),
+            ],
             path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
         ),
+
         .binaryTarget(
             name: "Razorpay",
-            path: "Pod/Razorpay.xcframework"
+            path: "Pod/core/Razorpay.xcframework"
         ),
+
+        .binaryTarget(
+            name: "RazorpayStandard",
+            path: "Pod/RazorpayStandard.xcframework"
+        ),
+
+        .binaryTarget(
+            name: "RazorpayCore",
+            path: "Pod/core/RazorpayCore.xcframework"
+        ),
+
         .testTarget(
             name: "RazorpayCheckoutTests",
             dependencies: ["RazorpayCheckout"],
