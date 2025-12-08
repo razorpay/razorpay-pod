@@ -1,4 +1,4 @@
-import Razorpay
+import RazorpayCore
 
 enum CheckoutErrors: Error {
     case keyMissing
