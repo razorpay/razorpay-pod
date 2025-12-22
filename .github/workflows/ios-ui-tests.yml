@@ -21,6 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
+      - name: Downgrade Xcode project objectVersion for CocoaPods
+        run: |
+          sed -i '' 's/objectVersion = 70;/objectVersion = 60;/' Example.xcodeproj/project.pbxproj
 
       - name: Setup Ruby (for CocoaPods)
         uses: ruby/setup-ruby@v1
