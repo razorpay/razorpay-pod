@@ -1,0 +1,82 @@
+name: iOS Standard UI Tests
+
+on:
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ui-tests:
+    runs-on: macos-15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [ "iPhone 16" ]
+        os: [ "18.4" ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Downgrade Xcode project objectVersion for CocoaPods
+        run: |
+          sed -i '' 's/objectVersion = 70;/objectVersion = 60;/' Example.xcodeproj/project.pbxproj
+
+      - name: Setup Ruby (for CocoaPods)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
+      - name: Install pods
+        run: pod install
+
+      - name: List available iOS runtimes and simulators
+        run: xcrun simctl list
+
+      - name: Run UI tests on ${{ matrix.device }} (iOS ${{ matrix.os }})
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -workspace Example.xcworkspace \
+            -scheme ExampleUITests \
+            -destination "platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.os }}" \
+            -resultBundlePath TestResults.xcresult \
+            test
+
+      - name: Upload Xcode test result bundle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-ui-tests-${{ matrix.device }}-iOS-${{ matrix.os }}
+          path: TestResults.xcresult
+
+  comment-on-success:
+    needs: ui-tests
+    runs-on: ubuntu-latest
+    if: ${{ needs.ui-tests.result == 'success' && github.event_name == 'pull_request' }}
+
+    steps:
+      - name: Comment on PR when UI tests pass
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              core.info('No pull_request context, skipping comment.');
+              return;
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: "✅ iOS UI tests passed on all configured simulators."
+            });
