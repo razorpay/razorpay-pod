@@ -49,7 +49,7 @@ jobs:
             -scheme ExampleUITests \
             -destination "platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.os }}" \
             -resultBundlePath TestResults.xcresult \
-            test 2>&1 | xcpretty
+            test
 
       - name: Upload Xcode test result bundle
         uses: actions/upload-artifact@v4
