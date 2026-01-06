@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.5.3](https://github.com/razorpay/razorpay-pod/tree/v1.5.3) (2026-01-06)
+
+**Changes:**
+
+- Updated `razorpay-core-pod` dependency to use optimistic version constraint (`~> 1.0.3`) for better compatibility with patch releases
+
 ## [v1.1.13](https://github.com/razorpay/razorpay-pod/tree/v1.1.13) (2021-05-14)
 
 **Implemented enhancements:**
