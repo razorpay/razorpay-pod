@@ -1,0 +1,28 @@
+PODS:
+  - razorpay-core-pod (1.0.6)
+  - razorpay-pod (1.5.3):
+    - razorpay-core-pod (= 1.0.6)
+
+DEPENDENCIES:
+  - razorpay-core-pod (from `https://github.com/razorpay/razorpay-customui-pod.git`, branch `release/core-1.0.6`)
+  - razorpay-pod (from `.`)
+
+EXTERNAL SOURCES:
+  razorpay-core-pod:
+    :branch: release/core-1.0.6
+    :git: https://github.com/razorpay/razorpay-customui-pod.git
+  razorpay-pod:
+    :path: "."
+
+CHECKOUT OPTIONS:
+  razorpay-core-pod:
+    :commit: 6bfb2d46c78301c4e816aa3644aa5a9661c6a570
+    :git: https://github.com/razorpay/razorpay-customui-pod.git
+
+SPEC CHECKSUMS:
+  razorpay-core-pod: 6da5fb4ed280279d665507fdb50e213d793a5fe2
+  razorpay-pod: 4385cf844aa29389313b741e20c72fe668970d49
+
+PODFILE CHECKSUM: 0f23296d1f4e3cbb7d3b88d0c216a33d40bb07cd
+
+COCOAPODS: 1.16.2
