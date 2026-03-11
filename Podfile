@@ -6,6 +6,8 @@ target 'Example' do
   use_frameworks!
 
 	pod 'razorpay-pod', :path => '.'
+
+
   # Pods for Example
 
 end
