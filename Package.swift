@@ -16,6 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            name: "RazorpayCore",
             url: "https://github.com/razorpay/razorpay-customui-pod.git",
             branch: "chore/spm-optimisation"
         ),
@@ -24,7 +25,7 @@ let package = Package(
         .target(
             name: "RazorpayCheckout",
             dependencies: [
-                .product(name: "RazorpayCoreSPM", package: "razorpay-customui-pod"),
+                .product(name: "RazorpayCoreSPM", package: "RazorpayCore"),
                 .target(name: "RazorpayStandard"),
             ],
             path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
