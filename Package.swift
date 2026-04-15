@@ -1,7 +1,7 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let packageVersion = "1.4.1"
+let packageVersion = "1.5.2"
 
 let package = Package(
     name: "RazorpayCheckout",
@@ -9,31 +9,25 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        // This product exposes everything needed to use Razorpay
         .library(
             name: "RazorpayCheckout",
-            targets: [
-                "RazorpayCheckout",
-                "Razorpay",
-                "RazorpayCore",
-                "RazorpayStandard"
-            ]
+            targets: ["RazorpayCheckout"]
+        ),
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/razorpay/razorpay-customui-pod.git",
+            branch: "chore/spm-optimisation"
         ),
     ],
     targets: [
         .target(
             name: "RazorpayCheckout",
             dependencies: [
-                .target(name: "Razorpay"),
-                .target(name: "RazorpayCore"),
+                .product(name: "RazorpayCoreSPM", package: "razorpay-customui-pod"),
                 .target(name: "RazorpayStandard"),
             ],
             path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
-        ),
-
-        .binaryTarget(
-            name: "Razorpay",
-            path: "Pod/core/Razorpay.xcframework"
         ),
 
         .binaryTarget(
@@ -41,16 +35,11 @@ let package = Package(
             path: "Pod/RazorpayStandard.xcframework"
         ),
 
-        .binaryTarget(
-            name: "RazorpayCore",
-            path: "Pod/core/RazorpayCore.xcframework"
-        ),
-
         .testTarget(
             name: "RazorpayCheckoutTests",
             dependencies: ["RazorpayCheckout"],
             path: "RazorpayCheckout/Tests/RazorpayCheckoutTests"
-        )
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
