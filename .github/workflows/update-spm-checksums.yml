@@ -1,0 +1,79 @@
+name: Update SPM Checksums
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'Package.swift'
+
+# Allow the workflow to commit and push back to the PR branch.
+permissions:
+  contents: write
+
+# Cancel any in-progress run for the same PR branch to avoid
+# concurrent commits racing each other.
+concurrency:
+  group: spm-checksums-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-checksums:
+    # Only run on internal PRs — GITHUB_TOKEN cannot push to forks.
+    # Skip if the bot itself triggered this run (prevents infinite loop).
+    if: |
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'github-actions[bot]'
+
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch base branch for comparison
+        run: git fetch origin ${{ github.base_ref }} --depth=1
+
+      - name: Check if binaryVersion changed
+        id: version
+        run: |
+          BASE=$(git show origin/${{ github.base_ref }}:Package.swift \
+            | grep '^let binaryVersion' \
+            | sed 's/.*"\(.*\)".*/\1/')
+
+          HEAD=$(grep '^let binaryVersion' Package.swift \
+            | sed 's/.*"\(.*\)".*/\1/')
+
+          if [ -z "$HEAD" ]; then
+            echo "❌ Could not extract binaryVersion from Package.swift"
+            exit 1
+          fi
+
+          if [ "$BASE" = "$HEAD" ]; then
+            echo "binaryVersion unchanged ($HEAD) — skipping checksum update"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "binaryVersion changed: $BASE → $HEAD"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "value=$HEAD" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update checksums
+        if: steps.version.outputs.changed == 'true'
+        run: ./.github/scripts/update_spm_checksums.sh
+
+      - name: Commit updated Package.swift
+        if: steps.version.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet Package.swift; then
+            echo "✅ Checksums already up to date — nothing to commit"
+          else
+            git add Package.swift
+            git commit -m "chore: update SPM checksums for v${{ steps.version.outputs.value }}"
+            git push
+          fi
