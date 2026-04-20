@@ -3,39 +3,48 @@ import PackageDescription
 
 let packageVersion = "1.5.2"
 
+let binaryVersion = "test-0.0.1"
+
 let package = Package(
-    name: "RazorpayCheckout",
+    name: "Razorpay",
     platforms: [
         .iOS(.v13)
     ],
     products: [
-        .library(
-            name: "RazorpayCheckout",
-            targets: ["RazorpayCheckout"]
-        ),
-    ],
-    dependencies: [
-        .package(
-            name: "RazorpayCore",
-            url: "https://github.com/razorpay/razorpay-customui-pod.git",
-            branch: "chore/spm-optimisation"
-        ),
+        .library(name: "RazorpayCheckout", targets: ["RazorpayCheckout"]),
+        .library(name: "RazorpayCustomUI",  targets: ["RazorpayCustomUI"]),
     ],
     targets: [
         .target(
             name: "RazorpayCheckout",
-            dependencies: [
-                .product(name: "RazorpayCoreSPM", package: "RazorpayCore"),
-                .target(name: "RazorpayStandard"),
-            ],
+            dependencies: ["RazorpayBinary", "RazorpayCore", "RazorpayStandard"],
             path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
         ),
-
+        .target(
+            name: "RazorpayCustomUI",
+            dependencies: ["RazorpayBinary", "RazorpayCore", "RazorpayCustom"],
+            path: "RazorpayCustomUI/Sources"
+        ),
+        .binaryTarget(
+            name: "RazorpayBinary",
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/Razorpay.xcframework.zip",
+            checksum: "<checksum>"
+        ),
+        .binaryTarget(
+            name: "RazorpayCore",
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayCore.xcframework.zip",
+            checksum: "<checksum>"
+        ),
         .binaryTarget(
             name: "RazorpayStandard",
-            path: "Pod/RazorpayStandard.xcframework"
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayStandard.xcframework.zip",
+            checksum: "<checksum>"
         ),
-
+        .binaryTarget(
+            name: "RazorpayCustom",
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayCustom.xcframework.zip",
+            checksum: "<checksum>"
+        ),
         .testTarget(
             name: "RazorpayCheckoutTests",
             dependencies: ["RazorpayCheckout"],
