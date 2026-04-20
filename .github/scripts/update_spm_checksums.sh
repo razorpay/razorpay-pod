@@ -3,9 +3,9 @@
 # ─────────────────────────────────────────────────────────────
 # update_spm_checksums.sh
 #
-# Reads binaryVersion from Package.swift, zips all four
-# XCFrameworks from the local Pod/ directory, computes their
-# SHA-256 checksums, and updates Package.swift.
+# Reads binaryVersion from Package.swift, downloads the four
+# XCFramework zips from the razorpay-pod release,
+# computes their SHA-256 checksums, and updates Package.swift.
 #
 # Usage:
 #   ./.github/scripts/update_spm_checksums.sh
@@ -14,6 +14,7 @@
 set -euo pipefail
 
 PACKAGE_SWIFT="Package.swift"
+REPO="razorpay/razorpay-pod"
 
 # ── Read binaryVersion from Package.swift ─────────────────────
 
@@ -26,10 +27,12 @@ fi
 
 echo "🔖 binaryVersion: ${VERSION}"
 
-# ── Framework name → local xcframework path ───────────────────
-FRAMEWORK_NAMES=("Razorpay"         "RazorpayCore"                     "RazorpayStandard"               "RazorpayCustom")
-FRAMEWORK_PATHS=("Pod/core/Razorpay.xcframework" "Pod/core/RazorpayCore.xcframework" "Pod/RazorpayStandard.xcframework" "Pod/RazorpayCustom.xcframework")
-FRAMEWORK_TARGETS=("RazorpayBinary" "RazorpayCore"                     "RazorpayStandard"               "RazorpayCustom")
+BASE_URL="https://github.com/${REPO}/releases/download/${VERSION}"
+
+# ── Framework name → SPM target name ─────────────────────────
+
+FRAMEWORK_NAMES=("Razorpay"         "RazorpayCore" "RazorpayStandard" "RazorpayCustom")
+FRAMEWORK_TARGETS=("RazorpayBinary" "RazorpayCore" "RazorpayStandard" "RazorpayCustom")
 
 # ── Helpers ───────────────────────────────────────────────────
 
@@ -56,30 +59,27 @@ update_checksum() {
     rm -f "${PACKAGE_SWIFT}.bak"
 }
 
-# ── Step 1: Zip and checksum ──────────────────────────────────
+# ── Step 1: Download and checksum ────────────────────────────
 
-echo "📦 Zipping XCFrameworks..."
+TMPDIR=$(mktemp -d)
+trap 'rm -rf "$TMPDIR"' EXIT
+
+echo "⬇️  Downloading XCFramework zips for v${VERSION}..."
 
 CHECKSUMS=()
 for i in "${!FRAMEWORK_NAMES[@]}"; do
     name="${FRAMEWORK_NAMES[$i]}"
-    xcf_path="${FRAMEWORK_PATHS[$i]}"
-    zip_path="${xcf_path%.xcframework}.xcframework.zip"
+    zip_name="${name}.xcframework.zip"
+    url="${BASE_URL}/${zip_name}"
+    dest="${TMPDIR}/${zip_name}"
 
-    if [ ! -d "$xcf_path" ]; then
-        echo "❌ Not found: ${xcf_path}"
+    echo "  → ${url}"
+    if ! curl -fsSL "$url" -o "$dest"; then
+        echo "❌ Failed to download: ${url}"
         exit 1
     fi
 
-    rm -f "$zip_path"
-
-    if command -v ditto &>/dev/null; then
-        ditto -c -k --sequesterRsrc --keepParent "$xcf_path" "$zip_path"
-    else
-        (cd "$(dirname "$xcf_path")" && zip -r -y "$(basename "$zip_path")" "$(basename "$xcf_path")")
-    fi
-
-    CHECKSUMS[$i]=$(compute_checksum "$zip_path")
+    CHECKSUMS[$i]=$(compute_checksum "$dest")
     echo "  ✅ ${name}: ${CHECKSUMS[$i]}"
 done
 
