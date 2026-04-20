@@ -28,12 +28,12 @@ let package = Package(
         .binaryTarget(
             name: "RazorpayBinary",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/Razorpay.xcframework.zip",
-            checksum: "d21e9c786f1944447f7e7ae0f19118b23b594e0f802fc786d5590fc00b5f331e"
+            checksum: "<checksum>"
         ),
         .binaryTarget(
             name: "RazorpayCore",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayCore.xcframework.zip",
-            checksum: "e1fe290c57889271ab8ab1245c9c4e4bb6486a927d16e3748e0e71442931b2ef"
+            checksum: "<checksum>"
         ),
         .binaryTarget(
             name: "RazorpayStandard",
