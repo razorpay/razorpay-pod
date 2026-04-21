@@ -3,7 +3,7 @@ import PackageDescription
 
 let packageVersion = "1.5.4"
 
-let binaryVersion = "1.5.4"
+let binaryVersion = "xc-1.5.4"
 
 let package = Package(
     name: "Razorpay",
