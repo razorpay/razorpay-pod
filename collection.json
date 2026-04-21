@@ -37,6 +37,56 @@
                   "version" : "13.0"
                 }
               ],
+              "packageName" : "Razorpay",
+              "products" : [
+                {
+                  "name" : "RazorpayCheckout",
+                  "targets" : [
+                    "RazorpayCheckout"
+                  ],
+                  "type" : {
+                    "library" : [
+                      "automatic"
+                    ]
+                  }
+                },
+                {
+                  "name" : "RazorpayCustomUI",
+                  "targets" : [
+                    "RazorpayCustomUI"
+                  ],
+                  "type" : {
+                    "library" : [
+                      "automatic"
+                    ]
+                  }
+                }
+              ],
+              "targets" : [
+                {
+                  "moduleName" : "RazorpayCheckout",
+                  "name" : "RazorpayCheckout"
+                },
+                {
+                  "moduleName" : "RazorpayCustomUI",
+                  "name" : "RazorpayCustomUI"
+                }
+              ],
+              "toolsVersion" : "5.9"
+            }
+          },
+          "version" : "1.5.4-beta"
+        },
+        {
+          "defaultToolsVersion" : "5.9",
+          "manifests" : {
+            "5.9" : {
+              "minimumPlatformVersions" : [
+                {
+                  "name" : "ios",
+                  "version" : "13.0"
+                }
+              ],
               "packageName" : "RazorpayCheckout",
               "products" : [
                 {
@@ -67,7 +117,7 @@
               "toolsVersion" : "5.9"
             }
           },
-          "version" : "1.5.4-beta"
+          "version" : "1.5.3"
         },
         {
           "defaultToolsVersion" : "5.9",
