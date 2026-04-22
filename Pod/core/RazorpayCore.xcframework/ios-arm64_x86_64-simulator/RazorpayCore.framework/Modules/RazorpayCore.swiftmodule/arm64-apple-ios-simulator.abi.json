@@ -1604,6 +1604,73 @@
           },
           {
             "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:decidePolicyFor:checkoutInstance:handler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKNavigationAction",
+                "printedName": "WebKit.WKNavigationAction",
+                "usr": "c:objc(cs)WKNavigationAction"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(WebKit.WKNavigationActionPolicy) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigationActionPolicy",
+                    "printedName": "WebKit.WKNavigationActionPolicy",
+                    "usr": "c:@E@WKNavigationActionPolicy"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RazorpayCore@objc(pl)CustomCheckoutImplementationProtocol(im)webView:decidePolicyFor:checkoutInstance:handler:",
+            "mangledName": "$s12RazorpayCore36CustomCheckoutImplementationProtocolP7webView_15decidePolicyFor16checkoutInstance7handlerySo05WKWebH0C_So18WKNavigationActionCypSgySo0pqJ0VctF",
+            "moduleName": "RazorpayCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.CustomCheckoutImplementationProtocol>",
+            "sugared_genericSig": "<Self where Self : RazorpayCore.CustomCheckoutImplementationProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getCardNetwork",
             "printedName": "getCardNetwork(fromCardNumber:checkoutInstance:)",
             "children": [
@@ -2293,6 +2360,37 @@
               "ObjC"
             ],
             "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleRedirection",
+            "printedName": "handleRedirection(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RazorpayCore@objc(pl)CustomCheckoutImplementationProtocol(im)handleRedirection:",
+            "mangledName": "$s12RazorpayCore36CustomCheckoutImplementationProtocolP17handleRedirectionySbSSF",
+            "moduleName": "RazorpayCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.CustomCheckoutImplementationProtocol>",
+            "sugared_genericSig": "<Self where Self : RazorpayCore.CustomCheckoutImplementationProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
@@ -3460,8 +3558,42 @@
             "deprecated": true,
             "protocolReq": true,
             "declAttributes": [
-              "Available",
-              "ObjC"
+              "Optional",
+              "ObjC",
+              "Available"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onPaymentSuccess",
+            "printedName": "onPaymentSuccess(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol(im)onPaymentSuccess:",
+            "mangledName": "$s12RazorpayCore0A25PaymentCompletionProtocolP02onC7SuccessyySSF",
+            "moduleName": "RazorpayCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "sugared_genericSig": "<Self where Self : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "deprecated": true,
+            "protocolReq": true,
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Available"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -3514,38 +3646,10 @@
             "moduleName": "RazorpayCore",
             "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.RazorpayPaymentCompletionProtocol>",
             "sugared_genericSig": "<Self where Self : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "deprecated": true,
             "protocolReq": true,
             "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onPaymentSuccess",
-            "printedName": "onPaymentSuccess(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol(im)onPaymentSuccess:",
-            "mangledName": "$s12RazorpayCore0A25PaymentCompletionProtocolP02onC7SuccessyySSF",
-            "moduleName": "RazorpayCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.RazorpayPaymentCompletionProtocol>",
-            "sugared_genericSig": "<Self where Self : RazorpayCore.RazorpayPaymentCompletionProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
+              "Available",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -3598,6 +3702,64 @@
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onPaymentError",
+            "printedName": "onPaymentError(_:description:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RazorpayCore0A25PaymentCompletionProtocolPAAE02onC5Error_11descriptionys5Int32V_SStF",
+            "mangledName": "$s12RazorpayCore0A25PaymentCompletionProtocolPAAE02onC5Error_11descriptionys5Int32V_SStF",
+            "moduleName": "RazorpayCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "sugared_genericSig": "<Self where Self : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onPaymentSuccess",
+            "printedName": "onPaymentSuccess(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RazorpayCore0A25PaymentCompletionProtocolPAAE02onC7SuccessyySSF",
+            "mangledName": "$s12RazorpayCore0A25PaymentCompletionProtocolPAAE02onC7SuccessyySSF",
+            "moduleName": "RazorpayCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "sugared_genericSig": "<Self where Self : RazorpayCore.RazorpayPaymentCompletionProtocol>",
+            "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -9193,23 +9355,23 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayCore.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayCore.swift",
       "kind": "IntegerLiteral",
       "offset": 323,
       "length": 6,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayCore.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayCore.swift",
       "kind": "Dictionary",
       "offset": 1028,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayPublicProtocols.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/iOS\/razorpay-ios\/RazorpayIOS\/RazorpayCore\/RazorpayPublicProtocols.swift",
       "kind": "BooleanLiteral",
-      "offset": 5335,
+      "offset": 5890,
       "length": 5,
       "value": "false"
     }
