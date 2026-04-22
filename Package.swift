@@ -28,22 +28,22 @@ let package = Package(
         .binaryTarget(
             name: "RazorpayBinary",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/Razorpay.xcframework.zip",
-            checksum: "3fc6a373f0165970a946a43165e84eca14b66a57133e33ba7062746a03acd854"
+            checksum: "8ac18d67a8919ecac60946f38ddba9449c09c0814e9b5cf9a41f9db2eae2bfee"
         ),
         .binaryTarget(
             name: "RazorpayCore",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayCore.xcframework.zip",
-            checksum: "b0f4a23697ab4a4e5095e76e671f96441ac0a8e788464e7eceb68d718f746fb1"
+            checksum: "9fb66d7666500d1837e7bf76c7768e933fb5d8db33164779cd57180e333f5914"
         ),
         .binaryTarget(
             name: "RazorpayStandard",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayStandard.xcframework.zip",
-            checksum: "4bf49fff33bee0debdf4d64298b90bb7ee5bb90667b692117454dd92e3276174"
+            checksum: "093f7c2be1307ebf5a0602f8b48babfe30deff5cb6f1a7aa1efee2072147f99d"
         ),
         .binaryTarget(
             name: "RazorpayCustom",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(binaryVersion)/RazorpayCustom.xcframework.zip",
-            checksum: "9ffa3fd413b81014af9d0ca896285901a0d3562c33e5a34fef4ed935a54e9b51"
+            checksum: "64366fae325629030a8914c79b4a205208f95783169d1d76edd5c42f25ee044f"
         ),
         .testTarget(
             name: "RazorpayCheckoutTests",
