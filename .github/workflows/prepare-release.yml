@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: prepare-release-${{ github.head_ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   prepare:
