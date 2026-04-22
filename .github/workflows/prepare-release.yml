@@ -20,10 +20,6 @@ jobs:
   prepare:
     if: startsWith(github.head_ref, 'release/')
     runs-on: macos-latest
-    outputs:
-      version:              ${{ steps.version.outputs.value }}
-      xcframeworks_present: ${{ steps.check.outputs.xcframeworks_present }}
-      sha:                  ${{ steps.commit.outputs.sha }}
 
     steps:
       - name: Checkout PR branch
@@ -124,16 +120,7 @@ jobs:
           rm -rf Pod/RazorpayCustom.xcframework
           echo "xcframeworks deleted."
 
-      # ── Step 6: Upload zips as artifacts ─────────────────────────────────
-      - name: Upload xcframework zips
-        if: steps.check.outputs.xcframeworks_present == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: xcframework-zips-${{ steps.version.outputs.value }}
-          path: "*.xcframework.zip"
-          retention-days: 7
-
-      # ── Step 7: Commit ────────────────────────────────────────────────────
+      # ── Step 6: Commit ────────────────────────────────────────────────────
       - name: Commit release preparation
         if: steps.check.outputs.xcframeworks_present == 'true'
         id: commit
@@ -154,42 +141,13 @@ jobs:
 
           echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
-  # ── Job 2: Create pre-release ────────────────────────────────────────────
-  # Runs only when the prepare job actually processed xcframeworks.
-  # Downloads the zips from the same workflow run and attaches them to the release.
-  publish:
-    needs: prepare
-    if: needs.prepare.outputs.xcframeworks_present == 'true'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download xcframework zips
-        uses: actions/download-artifact@v4
-        with:
-          name: xcframework-zips-${{ needs.prepare.outputs.version }}
-
-      - name: Verify all four zips present
-        run: |
-          MISSING=()
-          for ZIP in \
-            Razorpay.xcframework.zip \
-            RazorpayCore.xcframework.zip \
-            RazorpayStandard.xcframework.zip \
-            RazorpayCustom.xcframework.zip; do
-            [ -f "$ZIP" ] || MISSING+=("$ZIP")
-          done
-          if [ ${#MISSING[@]} -gt 0 ]; then
-            echo "❌ Missing zips: ${MISSING[*]}"
-            exit 1
-          fi
-          echo "✅ All four zips present:"
-          ls -lh *.xcframework.zip
-
+      # ── Step 7: Create GitHub pre-release ────────────────────────────────
       - name: Create GitHub pre-release and upload assets
+        if: steps.check.outputs.xcframeworks_present == 'true'
         env:
           GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
-          VERSION: ${{ needs.prepare.outputs.version }}
-          SHA: ${{ needs.prepare.outputs.sha }}
+          VERSION: ${{ steps.version.outputs.value }}
+          SHA: ${{ steps.commit.outputs.sha }}
         run: |
           gh release create "$VERSION" \
             --repo "${{ github.repository }}" \
@@ -205,11 +163,13 @@ jobs:
           echo "✅ Pre-release v${VERSION} created."
 
       - name: Print release URL
+        if: steps.check.outputs.xcframeworks_present == 'true'
         env:
           GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
-          VERSION: ${{ needs.prepare.outputs.version }}
+          VERSION: ${{ steps.version.outputs.value }}
         run: |
           URL=$(gh release view "$VERSION" \
             --repo "${{ github.repository }}" \
             --json url --jq '.url')
           echo "Release URL: $URL"
+
