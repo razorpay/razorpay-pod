@@ -32,8 +32,7 @@ jobs:
       - name: Extract version from branch name
         id: version
         run: |
-          BRANCH="${{ github.head_ref }}"
-          VERSION="${BRANCH#release/}"
+          VERSION="${GITHUB_HEAD_REF#release/}"
           echo "value=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
@@ -137,7 +136,7 @@ jobs:
             Pod/RazorpayCustom.xcframework 2>/dev/null || true
 
           git commit -m "chore: prepare release ${{ steps.version.outputs.value }}"
-          git push origin "${{ github.head_ref }}"
+          git push origin "$GITHUB_HEAD_REF"
 
           echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 

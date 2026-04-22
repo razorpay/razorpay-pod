@@ -43,8 +43,7 @@ jobs:
 
       - name: Verify Package.swift binaryVersion matches branch version
         run: |
-          BRANCH="${{ github.head_ref }}"
-          EXPECTED_VERSION="${BRANCH#release/}"
+          EXPECTED_VERSION="${GITHUB_HEAD_REF#release/}"
           ACTUAL_VERSION=$(grep '^let binaryVersion' Package.swift \
             | sed 's/.*"\(.*\)".*/\1/')
 
