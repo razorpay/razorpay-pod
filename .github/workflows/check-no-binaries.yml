@@ -25,7 +25,10 @@ jobs:
         run: |
           FOUND=$(find . \
             \( -name "*.xcframework" -o -name "*.xcframework.zip" \) \
-            -not -path "./.git/*" 2>/dev/null)
+            -not -path "./.git/*" \
+            -not -path "./Pods/*" \
+            -not -path "./.build/*" \
+            2>/dev/null)
 
           if [ -n "$FOUND" ]; then
             echo "❌ Binary files found on branch — prepare-release.yml has not completed yet."
