@@ -1,0 +1,199 @@
+name: Prepare Release
+
+# Triggers on every PR push from a release/* branch to master (or the
+# test base branch chore/spm-optimisation).
+# Idempotent: skips all processing if xcframeworks are already gone
+# (i.e. a previous run already handled them).
+on:
+  pull_request:
+    branches: [master, chore/spm-optimisation]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prepare-release-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    if: startsWith(github.head_ref, 'release/')
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.CI_BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Extract version from branch name
+        id: version
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          VERSION="${BRANCH#release/}"
+          echo "value=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      # All subsequent steps are gated on xcframeworks being present.
+      # Once Workflow 1 has run and deleted them, the next synchronize
+      # event re-runs this workflow but exits here — no double processing.
+      - name: Check xcframeworks present
+        id: check
+        run: |
+          MISSING=()
+          for FW in \
+            "Pod/core/Razorpay.xcframework" \
+            "Pod/core/RazorpayCore.xcframework" \
+            "Pod/RazorpayStandard.xcframework" \
+            "Pod/RazorpayCustom.xcframework"; do
+            [ -d "$FW" ] || MISSING+=("$FW")
+          done
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "xcframeworks_present=false" >> $GITHUB_OUTPUT
+            echo "Already processed (or not yet committed): ${MISSING[*]}"
+          else
+            echo "xcframeworks_present=true" >> $GITHUB_OUTPUT
+            echo "All four xcframeworks found — proceeding."
+          fi
+
+      # ── Step 1: Zip ───────────────────────────────────────────────────────
+      # -X excludes extra file attributes (extended attrs, ACLs) so the zip
+      # is as portable and deterministic as possible.
+      - name: Create xcframework zips
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        run: |
+          (cd Pod/core  && zip -rX "$OLDPWD/Razorpay.xcframework.zip"      Razorpay.xcframework)
+          (cd Pod/core  && zip -rX "$OLDPWD/RazorpayCore.xcframework.zip"  RazorpayCore.xcframework)
+          (cd Pod       && zip -rX "$OLDPWD/RazorpayStandard.xcframework.zip" RazorpayStandard.xcframework)
+          (cd Pod       && zip -rX "$OLDPWD/RazorpayCustom.xcframework.zip"   RazorpayCustom.xcframework)
+          echo "Zips created:"
+          ls -lh *.xcframework.zip
+
+      # ── Step 2: Checksums ─────────────────────────────────────────────────
+      - name: Compute checksums
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        id: checksums
+        run: |
+          CS_RAZORPAY=$(swift package compute-checksum Razorpay.xcframework.zip)
+          CS_CORE=$(swift package compute-checksum RazorpayCore.xcframework.zip)
+          CS_STANDARD=$(swift package compute-checksum RazorpayStandard.xcframework.zip)
+          CS_CUSTOM=$(swift package compute-checksum RazorpayCustom.xcframework.zip)
+
+          echo "razorpay=$CS_RAZORPAY"   >> $GITHUB_OUTPUT
+          echo "core=$CS_CORE"           >> $GITHUB_OUTPUT
+          echo "standard=$CS_STANDARD"   >> $GITHUB_OUTPUT
+          echo "custom=$CS_CUSTOM"       >> $GITHUB_OUTPUT
+
+          echo "Checksums:"
+          echo "  Razorpay:        $CS_RAZORPAY"
+          echo "  RazorpayCore:    $CS_CORE"
+          echo "  RazorpayStandard:$CS_STANDARD"
+          echo "  RazorpayCustom:  $CS_CUSTOM"
+
+      # ── Step 3: Package.swift ─────────────────────────────────────────────
+      - name: Update Package.swift
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        run: |
+          VERSION="${{ steps.version.outputs.value }}"
+
+          # Bump both version variables
+          sed -i.bak "s/^let binaryVersion  = \".*\"/let binaryVersion  = \"$VERSION\"/" Package.swift
+          sed -i.bak "s/^let binaryVersion = \".*\"/let binaryVersion = \"$VERSION\"/"   Package.swift
+          sed -i.bak "s/^let packageVersion = \".*\"/let packageVersion = \"$VERSION\"/" Package.swift
+          rm -f Package.swift.bak
+
+          # Patch each binary target's checksum.
+          # The sed expression matches the target by name, skips two lines
+          # (url line), then replaces the checksum line.
+          patch_checksum() {
+            local target=$1 checksum=$2
+            sed -i.bak -E \
+              "/name: \"$target\"/{n;n;s|checksum: \".*\"|checksum: \"$checksum\"|}" \
+              Package.swift
+            rm -f Package.swift.bak
+          }
+
+          patch_checksum "RazorpayBinary"   "${{ steps.checksums.outputs.razorpay }}"
+          patch_checksum "RazorpayCore"     "${{ steps.checksums.outputs.core }}"
+          patch_checksum "RazorpayStandard" "${{ steps.checksums.outputs.standard }}"
+          patch_checksum "RazorpayCustom"   "${{ steps.checksums.outputs.custom }}"
+
+          echo "Package.swift updated."
+          grep -E 'binaryVersion|packageVersion|checksum' Package.swift
+
+      # ── Step 4: collection.json ───────────────────────────────────────────
+      - name: Update collection.json
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          python3 .github/scripts/update_collection.py "$VERSION"
+          echo "collection.json updated."
+
+      # ── Step 5: Delete xcframeworks ───────────────────────────────────────
+      # They have served their purpose. Zips are in the runner's workspace
+      # and will be uploaded as artifacts — never committed to the branch.
+      - name: Delete xcframework directories
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        run: |
+          rm -rf Pod/core/Razorpay.xcframework
+          rm -rf Pod/core/RazorpayCore.xcframework
+          rm -rf Pod/RazorpayStandard.xcframework
+          rm -rf Pod/RazorpayCustom.xcframework
+          echo "xcframeworks deleted."
+
+      # ── Step 7: Upload zips as artifacts ─────────────────────────────────
+      # publish-release.yml downloads these to attach to the GitHub release.
+      - name: Upload xcframework zips
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcframework-zips-${{ steps.version.outputs.value }}
+          path: "*.xcframework.zip"
+          retention-days: 7
+
+      # ── Step 8: Single commit ─────────────────────────────────────────────
+      # Package.swift + collection.json updates and xcframework deletions
+      # land in one clean commit. Zip files are never staged.
+      - name: Commit release preparation
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage file updates
+          git add Package.swift collection.json
+
+          # Stage xcframework deletions (git rm --cached removes from index)
+          git rm -rf --cached \
+            Pod/core/Razorpay.xcframework \
+            Pod/core/RazorpayCore.xcframework \
+            Pod/RazorpayStandard.xcframework \
+            Pod/RazorpayCustom.xcframework 2>/dev/null || true
+
+          git commit -m "chore: prepare release ${{ steps.version.outputs.value }}"
+          git push origin "${{ github.head_ref }}"
+
+      # ── Step 9: Trigger publish-release.yml ──────────────────────────────
+      # Only dispatched when xcframeworks were actually processed.
+      # publish-release.yml uses the run_id to download the zips artifact.
+      - name: Dispatch publish event
+        if: steps.check.outputs.xcframeworks_present == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.CI_BOT_TOKEN }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              event_type: 'release-ready',
+              client_payload: {
+                version: '${{ steps.version.outputs.value }}',
+                sha:     '${{ github.event.pull_request.head.sha }}',
+                run_id:  '${{ github.run_id }}'
+              }
+            })
+            console.log('Dispatched release-ready for v${{ steps.version.outputs.value }}')

@@ -1,0 +1,85 @@
+name: Publish Release
+
+# Triggered exclusively by prepare-release.yml via repository_dispatch.
+# Only fires when xcframeworks were actually processed — no spurious runs.
+on:
+  repository_dispatch:
+    types: [release-ready]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print release metadata
+        run: |
+          echo "Version : ${{ github.event.client_payload.version }}"
+          echo "SHA     : ${{ github.event.client_payload.sha }}"
+          echo "Run ID  : ${{ github.event.client_payload.run_id }}"
+
+      # ── Download zips produced by prepare-release.yml ────────────────────
+      # The run_id passed in the payload lets us fetch artifacts from the
+      # exact Workflow 1 run that built these zips — no guessing.
+      - name: Download xcframework zips
+        uses: actions/download-artifact@v4
+        with:
+          name: xcframework-zips-${{ github.event.client_payload.version }}
+          run-id: ${{ github.event.client_payload.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify all four zips present
+        run: |
+          MISSING=()
+          for ZIP in \
+            Razorpay.xcframework.zip \
+            RazorpayCore.xcframework.zip \
+            RazorpayStandard.xcframework.zip \
+            RazorpayCustom.xcframework.zip; do
+            [ -f "$ZIP" ] || MISSING+=("$ZIP")
+          done
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "❌ Missing zips: ${MISSING[*]}"
+            exit 1
+          fi
+          echo "✅ All four zips present:"
+          ls -lh *.xcframework.zip
+
+      # ── Create pre-release and upload all four zips in one command ────────
+      # Created as a pre-release so you can review assets and release notes
+      # before making it public. Publish it manually in the GitHub UI when
+      # ready — SPM resolves by git tag, so the pre-release flag is invisible
+      # to consumers and does not affect resolution.
+      #
+      # --target pins the tag to the exact commit that has the correct
+      # Package.swift — the commit prepare-release.yml pushed to the branch.
+      - name: Create GitHub pre-release and upload assets
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION: ${{ github.event.client_payload.version }}
+          SHA: ${{ github.event.client_payload.sha }}
+        run: |
+          gh release create "$VERSION" \
+            --repo "${{ github.repository }}" \
+            --title "v${VERSION}" \
+            --target "$SHA" \
+            --prerelease \
+            --generate-notes \
+            Razorpay.xcframework.zip \
+            RazorpayCore.xcframework.zip \
+            RazorpayStandard.xcframework.zip \
+            RazorpayCustom.xcframework.zip
+
+          echo "✅ Pre-release v${VERSION} created — review and publish manually in GitHub."
+
+      - name: Print release URL
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION: ${{ github.event.client_payload.version }}
+        run: |
+          URL=$(gh release view "$VERSION" \
+            --repo "${{ github.repository }}" \
+            --json url --jq '.url')
+          echo "Release URL: $URL"

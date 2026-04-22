@@ -1,0 +1,57 @@
+name: Check No Binaries
+
+# Branch protection check. This workflow FAILS while xcframeworks are still
+# present on the branch (before prepare-release.yml has run), and PASSES
+# once they have been removed. Since branch protection requires this check
+# to pass before merge, the PR is effectively blocked until Workflow 1
+# completes successfully.
+on:
+  pull_request:
+    branches: [master, chore/spm-optimisation]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check:
+    if: startsWith(github.head_ref, 'release/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Verify no xcframework or zip files committed
+        run: |
+          FOUND=$(find . \
+            \( -name "*.xcframework" -o -name "*.xcframework.zip" \) \
+            -not -path "./.git/*" 2>/dev/null)
+
+          if [ -n "$FOUND" ]; then
+            echo "❌ Binary files found on branch — prepare-release.yml has not completed yet."
+            echo ""
+            echo "$FOUND"
+            echo ""
+            echo "Wait for the 'Prepare Release' workflow to finish, then re-run this check."
+            exit 1
+          fi
+
+          echo "✅ No xcframework or zip files present. Branch is clean."
+
+      - name: Verify Package.swift binaryVersion matches branch version
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          EXPECTED_VERSION="${BRANCH#release/}"
+          ACTUAL_VERSION=$(grep '^let binaryVersion' Package.swift \
+            | sed 's/.*"\(.*\)".*/\1/')
+
+          if [ "$ACTUAL_VERSION" != "$EXPECTED_VERSION" ]; then
+            echo "❌ binaryVersion mismatch."
+            echo "   Expected : $EXPECTED_VERSION (from branch name)"
+            echo "   Actual   : $ACTUAL_VERSION (in Package.swift)"
+            echo ""
+            echo "Ensure prepare-release.yml has committed the correct Package.swift."
+            exit 1
+          fi
+
+          echo "✅ binaryVersion matches branch version: $ACTUAL_VERSION"
