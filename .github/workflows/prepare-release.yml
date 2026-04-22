@@ -97,31 +97,12 @@ jobs:
       - name: Update Package.swift
         if: steps.check.outputs.xcframeworks_present == 'true'
         run: |
-          VERSION="${{ steps.version.outputs.value }}"
-
-          # Bump both version variables
-          sed -i.bak "s/^let binaryVersion  = \".*\"/let binaryVersion  = \"$VERSION\"/" Package.swift
-          sed -i.bak "s/^let binaryVersion = \".*\"/let binaryVersion = \"$VERSION\"/"   Package.swift
-          sed -i.bak "s/^let packageVersion = \".*\"/let packageVersion = \"$VERSION\"/" Package.swift
-          rm -f Package.swift.bak
-
-          # Patch each binary target's checksum.
-          # The sed expression matches the target by name, skips two lines
-          # (url line), then replaces the checksum line.
-          patch_checksum() {
-            local target=$1 checksum=$2
-            sed -i.bak -E \
-              "/name: \"$target\"/{n;n;s|checksum: \".*\"|checksum: \"$checksum\"|}" \
-              Package.swift
-            rm -f Package.swift.bak
-          }
-
-          patch_checksum "RazorpayBinary"   "${{ steps.checksums.outputs.razorpay }}"
-          patch_checksum "RazorpayCore"     "${{ steps.checksums.outputs.core }}"
-          patch_checksum "RazorpayStandard" "${{ steps.checksums.outputs.standard }}"
-          patch_checksum "RazorpayCustom"   "${{ steps.checksums.outputs.custom }}"
-
-          echo "Package.swift updated."
+          python3 .github/scripts/update_package_swift.py \
+            "${{ steps.version.outputs.value }}" \
+            "${{ steps.checksums.outputs.razorpay }}" \
+            "${{ steps.checksums.outputs.core }}" \
+            "${{ steps.checksums.outputs.standard }}" \
+            "${{ steps.checksums.outputs.custom }}"
           grep -E 'binaryVersion|packageVersion|checksum' Package.swift
 
       # ── Step 4: collection.json ───────────────────────────────────────────
