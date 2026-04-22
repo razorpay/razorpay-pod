@@ -20,6 +20,10 @@ jobs:
   prepare:
     if: startsWith(github.head_ref, 'release/')
     runs-on: macos-latest
+    outputs:
+      version:              ${{ steps.version.outputs.value }}
+      xcframeworks_present: ${{ steps.check.outputs.xcframeworks_present }}
+      sha:                  ${{ steps.commit.outputs.sha }}
 
     steps:
       - name: Checkout PR branch
@@ -38,7 +42,7 @@ jobs:
           echo "Version: $VERSION"
 
       # All subsequent steps are gated on xcframeworks being present.
-      # Once Workflow 1 has run and deleted them, the next synchronize
+      # Once this job has run and deleted them, the next synchronize
       # event re-runs this workflow but exits here — no double processing.
       - name: Check xcframeworks present
         id: check
@@ -60,13 +64,11 @@ jobs:
           fi
 
       # ── Step 1: Zip ───────────────────────────────────────────────────────
-      # -X excludes extra file attributes (extended attrs, ACLs) so the zip
-      # is as portable and deterministic as possible.
       - name: Create xcframework zips
         if: steps.check.outputs.xcframeworks_present == 'true'
         run: |
-          (cd Pod/core  && zip -rX "$OLDPWD/Razorpay.xcframework.zip"      Razorpay.xcframework)
-          (cd Pod/core  && zip -rX "$OLDPWD/RazorpayCore.xcframework.zip"  RazorpayCore.xcframework)
+          (cd Pod/core  && zip -rX "$OLDPWD/Razorpay.xcframework.zip"         Razorpay.xcframework)
+          (cd Pod/core  && zip -rX "$OLDPWD/RazorpayCore.xcframework.zip"     RazorpayCore.xcframework)
           (cd Pod       && zip -rX "$OLDPWD/RazorpayStandard.xcframework.zip" RazorpayStandard.xcframework)
           (cd Pod       && zip -rX "$OLDPWD/RazorpayCustom.xcframework.zip"   RazorpayCustom.xcframework)
           echo "Zips created:"
@@ -88,10 +90,10 @@ jobs:
           echo "custom=$CS_CUSTOM"       >> $GITHUB_OUTPUT
 
           echo "Checksums:"
-          echo "  Razorpay:        $CS_RAZORPAY"
-          echo "  RazorpayCore:    $CS_CORE"
-          echo "  RazorpayStandard:$CS_STANDARD"
-          echo "  RazorpayCustom:  $CS_CUSTOM"
+          echo "  Razorpay:         $CS_RAZORPAY"
+          echo "  RazorpayCore:     $CS_CORE"
+          echo "  RazorpayStandard: $CS_STANDARD"
+          echo "  RazorpayCustom:   $CS_CUSTOM"
 
       # ── Step 3: Package.swift ─────────────────────────────────────────────
       - name: Update Package.swift
@@ -108,15 +110,11 @@ jobs:
       # ── Step 4: collection.json ───────────────────────────────────────────
       - name: Update collection.json
         if: steps.check.outputs.xcframeworks_present == 'true'
-        env:
-          VERSION: ${{ steps.version.outputs.value }}
         run: |
-          python3 .github/scripts/update_collection.py "$VERSION"
+          python3 .github/scripts/update_collection.py "${{ steps.version.outputs.value }}"
           echo "collection.json updated."
 
       # ── Step 5: Delete xcframeworks ───────────────────────────────────────
-      # They have served their purpose. Zips are in the runner's workspace
-      # and will be uploaded as artifacts — never committed to the branch.
       - name: Delete xcframework directories
         if: steps.check.outputs.xcframeworks_present == 'true'
         run: |
@@ -126,8 +124,7 @@ jobs:
           rm -rf Pod/RazorpayCustom.xcframework
           echo "xcframeworks deleted."
 
-      # ── Step 7: Upload zips as artifacts ─────────────────────────────────
-      # publish-release.yml downloads these to attach to the GitHub release.
+      # ── Step 6: Upload zips as artifacts ─────────────────────────────────
       - name: Upload xcframework zips
         if: steps.check.outputs.xcframeworks_present == 'true'
         uses: actions/upload-artifact@v4
@@ -136,19 +133,16 @@ jobs:
           path: "*.xcframework.zip"
           retention-days: 7
 
-      # ── Step 8: Single commit ─────────────────────────────────────────────
-      # Package.swift + collection.json updates and xcframework deletions
-      # land in one clean commit. Zip files are never staged.
+      # ── Step 7: Commit ────────────────────────────────────────────────────
       - name: Commit release preparation
         if: steps.check.outputs.xcframeworks_present == 'true'
+        id: commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Stage file updates
           git add Package.swift collection.json
 
-          # Stage xcframework deletions (git rm --cached removes from index)
           git rm -rf --cached \
             Pod/core/Razorpay.xcframework \
             Pod/core/RazorpayCore.xcframework \
@@ -158,23 +152,64 @@ jobs:
           git commit -m "chore: prepare release ${{ steps.version.outputs.value }}"
           git push origin "${{ github.head_ref }}"
 
-      # ── Step 9: Trigger publish-release.yml ──────────────────────────────
-      # Only dispatched when xcframeworks were actually processed.
-      # publish-release.yml uses the run_id to download the zips artifact.
-      - name: Dispatch publish event
-        if: steps.check.outputs.xcframeworks_present == 'true'
-        uses: actions/github-script@v7
+          echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+  # ── Job 2: Create pre-release ────────────────────────────────────────────
+  # Runs only when the prepare job actually processed xcframeworks.
+  # Downloads the zips from the same workflow run and attaches them to the release.
+  publish:
+    needs: prepare
+    if: needs.prepare.outputs.xcframeworks_present == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download xcframework zips
+        uses: actions/download-artifact@v4
         with:
-          github-token: ${{ secrets.CI_BOT_TOKEN }}
-          script: |
-            await github.rest.repos.createDispatchEvent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              event_type: 'release-ready',
-              client_payload: {
-                version: '${{ steps.version.outputs.value }}',
-                sha:     '${{ github.event.pull_request.head.sha }}',
-                run_id:  '${{ github.run_id }}'
-              }
-            })
-            console.log('Dispatched release-ready for v${{ steps.version.outputs.value }}')
+          name: xcframework-zips-${{ needs.prepare.outputs.version }}
+
+      - name: Verify all four zips present
+        run: |
+          MISSING=()
+          for ZIP in \
+            Razorpay.xcframework.zip \
+            RazorpayCore.xcframework.zip \
+            RazorpayStandard.xcframework.zip \
+            RazorpayCustom.xcframework.zip; do
+            [ -f "$ZIP" ] || MISSING+=("$ZIP")
+          done
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "❌ Missing zips: ${MISSING[*]}"
+            exit 1
+          fi
+          echo "✅ All four zips present:"
+          ls -lh *.xcframework.zip
+
+      - name: Create GitHub pre-release and upload assets
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION: ${{ needs.prepare.outputs.version }}
+          SHA: ${{ needs.prepare.outputs.sha }}
+        run: |
+          gh release create "$VERSION" \
+            --repo "${{ github.repository }}" \
+            --title "v${VERSION}" \
+            --target "$SHA" \
+            --prerelease \
+            --generate-notes \
+            Razorpay.xcframework.zip \
+            RazorpayCore.xcframework.zip \
+            RazorpayStandard.xcframework.zip \
+            RazorpayCustom.xcframework.zip
+
+          echo "✅ Pre-release v${VERSION} created."
+
+      - name: Print release URL
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION: ${{ needs.prepare.outputs.version }}
+        run: |
+          URL=$(gh release view "$VERSION" \
+            --repo "${{ github.repository }}" \
+            --json url --jq '.url')
+          echo "Release URL: $URL"
