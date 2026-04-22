@@ -9,6 +9,7 @@ Idempotent: skips if the version is already present.
 import json
 import sys
 import os
+from datetime import datetime, timezone
 
 def main():
     if len(sys.argv) != 2:
@@ -21,6 +22,8 @@ def main():
 
     with open(collection_path) as f:
         col = json.load(f)
+
+    col["generatedAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     versions = col["packages"][0]["versions"]
 
