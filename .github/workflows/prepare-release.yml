@@ -6,7 +6,7 @@ name: Prepare Release
 # (i.e. a previous run already handled them).
 on:
   pull_request:
-    branches: [master, chore/spm-optimisation]
+    branches: [master]
     types: [opened, synchronize, reopened]
 
 permissions:
