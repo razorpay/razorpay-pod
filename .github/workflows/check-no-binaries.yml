@@ -7,7 +7,7 @@ name: Check No Binaries
 # completes successfully.
 on:
   pull_request:
-    branches: [master]
+    branches: [master, chore/spm-optimisation]
     types: [opened, synchronize, reopened]
 
 jobs:

@@ -1,11 +1,12 @@
 name: Prepare Release
 
-# Triggers on every PR push from a release/* branch to master.
+# Triggers on every PR push from a release/* branch to master (or the
+# test base branch chore/spm-optimisation).
 # Idempotent: skips all processing if xcframeworks are already gone
 # (i.e. a previous run already handled them).
 on:
   pull_request:
-    branches: [master]
+    branches: [master, chore/spm-optimisation]
     types: [opened, synchronize, reopened]
 
 permissions:
