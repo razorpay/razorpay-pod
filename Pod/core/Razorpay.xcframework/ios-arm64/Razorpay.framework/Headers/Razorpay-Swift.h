@@ -283,6 +283,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import Foundation;
 @import ObjectiveC;
+@import WebKit;
 #endif
 
 #endif
@@ -357,6 +358,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 @protocol RazorpayPaymentCompletionProtocol;
 @class WKWebView;
 @class WKNavigation;
+@class WKNavigationAction;
 @class NSURL;
 @interface RazorpayCheckout (SWIFT_EXTENSION(Razorpay))
 /// Retains the original <code>initWithKey</code> method (non-throwing) to ensure backward compatibility
@@ -392,12 +394,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 + (void)getSubscriptionAmountWithOptions:(NSDictionary * _Nonnull)options withSuccessCallback:(void (^ _Nonnull)(uint64_t))success andFailureCallback:(void (^ _Nonnull)(NSString * _Nonnull))failure;
 - (void)authorize:(NSDictionary * _Nonnull)options;
 + (void)openCheckoutWithDict:(NSDictionary * _Nonnull)dict;
-+ (void)userCancelledPayment;
+- (void)userCancelledPayment;
 - (void)decodeURIFrom:(NSString * _Nonnull)data;
 - (void)webView:(WKWebView * _Nonnull)webView didCommit:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation error:(NSError * _Nullable * _Nullable)error;
+- (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er;
+- (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyFor:(WKNavigationAction * _Nonnull)navigationAction handler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 - (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber SWIFT_WARN_UNUSED_RESULT;
 + (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
 + (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
@@ -410,6 +413,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RazorpayChec
 + (void)payWithExternalPaymentEntityWithOptions:(NSDictionary * _Nonnull)options arrExternalPaymentEntities:(NSArray<id <PluginPaymentDelegate>> * _Nonnull)arrExternalPaymentEntities;
 - (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
++ (BOOL)handleRedirection:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #endif
