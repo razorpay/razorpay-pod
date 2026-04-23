@@ -94,7 +94,7 @@ jobs:
       - name: Update Package.swift
         if: steps.check.outputs.xcframeworks_present == 'true'
         run: |
-          python3 .github/scripts/update_package_swift.py \
+          bash .github/scripts/update_package_swift.sh \
             "${{ steps.version.outputs.value }}" \
             "${{ steps.checksums.outputs.razorpay }}" \
             "${{ steps.checksums.outputs.core }}" \
@@ -106,7 +106,7 @@ jobs:
       - name: Update collection.json
         if: steps.check.outputs.xcframeworks_present == 'true'
         run: |
-          python3 .github/scripts/update_collection.py "${{ steps.version.outputs.value }}"
+          bash .github/scripts/update_collection.sh "${{ steps.version.outputs.value }}"
           echo "collection.json updated."
 
       # ── Step 5: Delete xcframeworks ───────────────────────────────────────
