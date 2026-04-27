@@ -58,12 +58,13 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func getSubscriptionAmount(options: [Swift.AnyHashable : Any], withSuccessCallback success: @escaping (Swift.UInt64) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
   @objc final public func authorize(_ options: [Swift.AnyHashable : Any])
   @objc public static func openCheckout(dict: [Swift.AnyHashable : Any])
-  @objc public static func userCancelledPayment()
+  @objc final public func userCancelledPayment()
   @objc final public func decodeURI(from data: Swift.String)
   @objc final public func webView(_ webView: WebKit.WKWebView, didCommit navigation: WebKit.WKNavigation!)
   @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError er: any Swift.Error)
-  @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: any Swift.Error) throws
-  @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!) throws
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: any Swift.Error)
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, handler decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
   @objc final public func getCardNetwork(fromCardNumber cardNumber: Swift.String) -> Swift.String
   @objc public static func getAppsWhichSupportUpi(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
   @objc public static func getAppsWhichSupportUpiRecurring(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
@@ -76,4 +77,5 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func payWithExternalPaymentEntity(options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
   @objc final public func setWebView(_ webView: WebKit.WKWebView) throws
   @objc final public func setDelegate(_ delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol) throws
+  @objc public static func handleRedirection(_ url: Swift.String) -> Swift.Bool
 }

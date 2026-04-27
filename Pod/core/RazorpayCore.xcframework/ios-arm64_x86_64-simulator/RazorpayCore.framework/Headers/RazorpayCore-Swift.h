@@ -283,6 +283,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import Foundation;
 @import ObjectiveC;
+@import WebKit;
 #endif
 
 #endif
@@ -339,6 +340,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CheckoutRegi
 @protocol RazorpayPaymentCompletionProtocol;
 @class WKWebView;
 @class WKNavigation;
+@class WKNavigationAction;
 @class NSURL;
 @protocol PluginPaymentDelegate;
 SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
@@ -368,6 +370,7 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
 - (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyFor:(WKNavigationAction * _Nonnull)navigationAction checkoutInstance:(id _Nullable)checkoutInstance handler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 - (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber checkoutInstance:(id _Nullable)checkoutInstance SWIFT_WARN_UNUSED_RESULT;
 - (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
 - (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
@@ -381,6 +384,7 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
 - (void)publishUriWith:(NSString * _Nonnull)data checkoutInstance:(id _Nullable)checkoutInstance;
 - (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)handleRedirection:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_PROTOCOL("_TtP12RazorpayCore31ExternalWalletSelectionProtocol_")
@@ -417,9 +421,11 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore16RazorpayProtocol_")
 
 SWIFT_PROTOCOL("_TtP12RazorpayCore33RazorpayPaymentCompletionProtocol_")
 @protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@optional
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will be removed in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id SWIFT_DEPRECATED_MSG("this function will be removed in future releases");
+@required
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
 - (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
 @end
 
@@ -846,6 +852,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import Foundation;
 @import ObjectiveC;
+@import WebKit;
 #endif
 
 #endif
@@ -902,6 +909,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CheckoutRegi
 @protocol RazorpayPaymentCompletionProtocol;
 @class WKWebView;
 @class WKNavigation;
+@class WKNavigationAction;
 @class NSURL;
 @protocol PluginPaymentDelegate;
 SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
@@ -931,6 +939,7 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
 - (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)webView:(WKWebView * _Nonnull)webView didFail:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)er checkoutInstance:(id _Nullable)checkoutInstance;
 - (void)webView:(WKWebView * _Nonnull)webView didFinish:(WKNavigation * _Null_unspecified)navigation checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyFor:(WKNavigationAction * _Nonnull)navigationAction checkoutInstance:(id _Nullable)checkoutInstance handler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 - (NSString * _Nonnull)getCardNetworkFromCardNumber:(NSString * _Nonnull)cardNumber checkoutInstance:(id _Nullable)checkoutInstance SWIFT_WARN_UNUSED_RESULT;
 - (void)getAppsWhichSupportUpiWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
 - (void)getAppsWhichSupportUpiRecurringWithHandler:(void (^ _Nonnull)(NSArray<NSDictionary *> * _Nonnull))handler;
@@ -944,6 +953,7 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore36CustomCheckoutImplementationProtocol_")
 - (void)publishUriWith:(NSString * _Nonnull)data checkoutInstance:(id _Nullable)checkoutInstance;
 - (BOOL)setWebView:(WKWebView * _Nonnull)webView error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)setDelegate:(id <RazorpayPaymentCompletionProtocol> _Nonnull)delegate error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)handleRedirection:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_PROTOCOL("_TtP12RazorpayCore31ExternalWalletSelectionProtocol_")
@@ -980,9 +990,11 @@ SWIFT_PROTOCOL("_TtP12RazorpayCore16RazorpayProtocol_")
 
 SWIFT_PROTOCOL("_TtP12RazorpayCore33RazorpayPaymentCompletionProtocol_")
 @protocol RazorpayPaymentCompletionProtocol <RazorpayProtocol>
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
-- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response;
-- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id;
+@optional
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str SWIFT_DEPRECATED_MSG("this function will be removed in future releases");
+- (void)onPaymentSuccess:(NSString * _Nonnull)payment_id SWIFT_DEPRECATED_MSG("this function will be removed in future releases");
+@required
+- (void)onPaymentError:(int32_t)code description:(NSString * _Nonnull)str andData:(NSDictionary * _Nonnull)response SWIFT_DEPRECATED_MSG("this function will accept a code of Type Int and not Int32 in future releases");
 - (void)onPaymentSuccess:(NSString * _Nonnull)payment_id andData:(NSDictionary * _Nonnull)response;
 @end
 
