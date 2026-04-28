@@ -6,12 +6,12 @@ let packageVersion = "1.5.4-rc.2"
 let binaryVersion = "1.5.4-rc.2"
 
 let package = Package(
-    name: "Razorpay",
+    name: "RazorpayCheckout",
     platforms: [
         .iOS(.v13)
     ],
     products: [
-        .library(name: "RazorpayCheckout", targets: ["RazorpayCheckout"]),
+        .library(name: "RazorpayCheckout", targets: ["RazorpayCheckout", "RazorpayBinary", "RazorpayCore", "RazorpayStandard"]),
         .library(name: "RazorpayCustomUI",  targets: ["RazorpayCustomUI"]),
     ],
     targets: [
