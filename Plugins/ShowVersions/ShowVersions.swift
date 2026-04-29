@@ -11,7 +11,7 @@ struct ShowVersions: CommandPlugin {
     func performCommand(context: PluginContext, arguments: [String]) throws {
        print("=== Razorpay SDK — Dependency Versions ===")
        print("razorpay-pod:                      \(Self.razorpayPodVersion)")
-       print("Razorpay.xcframework:              \(Self.razorpayVersion)")
+       print("RazorpayWrapper.xcframework:       \(Self.razorpayVersion)")
        print("RazorpayCore.xcframework:          \(Self.razorpayCoreVersion)")
        print("RazorpayStandard.xcframework:      \(Self.razorpayStandardVersion)")
        print("RazorpayCustom.xcframework:        \(Self.razorpayCustomVersion)")
