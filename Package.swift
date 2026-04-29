@@ -50,6 +50,13 @@ let package = Package(
             dependencies: ["RazorpayCheckout"],
             path: "RazorpayCheckout/Tests/RazorpayCheckoutTests"
         ),
+        .plugin(
+            name: "ShowVersions",
+            capability: .command(
+                intent: .custom(verb: "show-versions", description: "Print versions of all downstream xcframeworks bundled in this SDK"),
+                permissions: []
+            )
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
