@@ -2,7 +2,7 @@ import PackagePlugin
 
 @main
 struct ShowVersions: CommandPlugin {
-    static let razorpayPodVersion          = "1.5.2"
+    static let razorpayPodVersion          = "1.5.4-rc.3"
     static let razorpayVersion             = "1.0.0"
     static let razorpayCoreVersion         = "1.0.4"
     static let razorpayStandardVersion     = "1.5.2"

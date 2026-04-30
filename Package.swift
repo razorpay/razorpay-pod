@@ -1,9 +1,9 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let packageVersion = "1.5.4-rc.2"
+let packageVersion = "1.5.4-rc.3"
 
-let binaryVersion = "1.5.4-rc.2"
+let binaryVersion = "1.5.4-rc.3"
 
 let package = Package(
     name: "RazorpayCheckout",
