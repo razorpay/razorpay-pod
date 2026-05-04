@@ -1,0 +1,32 @@
+{
+  "formatVersion" : "1.0",
+  "generatedAt" : "2026-04-22T00:00:00Z",
+  "generatedBy" : {
+    "name" : "Razorpay"
+  },
+  "keywords" : [
+    "razorpay",
+    "payments",
+    "ios",
+    "checkout"
+  ],
+  "name" : "Razorpay iOS SDKs",
+  "overview" : "All iOS SDKs provided by Razorpay for payment integration.",
+  "packages" : [
+    {
+      "keywords" : [
+        "checkout",
+        "payments",
+        "razorpay"
+      ],
+      "license" : {
+        "name" : "MIT",
+        "url" : "https://raw.githubusercontent.com/razorpay/razorpay-pod/master/LICENSE"
+      },
+      "readmeURL" : "https://raw.githubusercontent.com/razorpay/razorpay-pod/master/README.md",
+      "summary" : "Razorpay checkout SDK for iOS. Includes RazorpayCheckout and RazorpayCustomUI.",
+      "url" : "https://github.com/razorpay/razorpay-pod.git",
+      "versions" : []
+    }
+  ]
+}
