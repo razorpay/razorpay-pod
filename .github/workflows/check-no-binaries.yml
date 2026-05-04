@@ -28,6 +28,7 @@ jobs:
             -not -path "./.git/*" \
             -not -path "./Pods/*" \
             -not -path "./.build/*" \
+            -not -path "./Pod/RazorpayStandard.xcframework*" \
             2>/dev/null)
 
           if [ -n "$FOUND" ]; then

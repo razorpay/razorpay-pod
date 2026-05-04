@@ -115,7 +115,6 @@ jobs:
         run: |
           rm -rf Pod/core/Razorpay.xcframework
           rm -rf Pod/core/RazorpayCore.xcframework
-          rm -rf Pod/RazorpayStandard.xcframework
           rm -rf Pod/RazorpayCustom.xcframework
           echo "xcframeworks deleted."
 
@@ -132,7 +131,6 @@ jobs:
           git rm -rf --cached \
             Pod/core/Razorpay.xcframework \
             Pod/core/RazorpayCore.xcframework \
-            Pod/RazorpayStandard.xcframework \
             Pod/RazorpayCustom.xcframework 2>/dev/null || true
 
           git commit -m "chore: prepare release ${{ steps.version.outputs.value }}"
