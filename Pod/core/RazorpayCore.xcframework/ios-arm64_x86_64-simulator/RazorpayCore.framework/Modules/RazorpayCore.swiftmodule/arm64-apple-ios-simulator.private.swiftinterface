@@ -36,6 +36,7 @@ import _SwiftConcurrencyShims
   @objc func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError er: any Swift.Error, checkoutInstance: Any?)
   @objc func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: any Swift.Error, checkoutInstance: Any?)
   @objc func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!, checkoutInstance: Any?)
+  @objc func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, checkoutInstance: Any?, handler decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
   @objc func getCardNetwork(fromCardNumber cardNumber: Swift.String, checkoutInstance: Any?) -> Swift.String
   @objc func getAppsWhichSupportUpi(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
   @objc func getAppsWhichSupportUpiRecurring(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
@@ -49,6 +50,7 @@ import _SwiftConcurrencyShims
   @objc func publishUri(with data: Swift.String, checkoutInstance: Any?)
   @objc func setWebView(_ webView: WebKit.WKWebView) throws
   @objc func setDelegate(_ delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol) throws
+  @objc func handleRedirection(_ url: Swift.String) -> Swift.Bool
 }
 @objc public class PluginPaymentModel : ObjectiveC.NSObject {
   final public let merchantKey: Swift.String
@@ -85,11 +87,17 @@ import _SwiftConcurrencyShims
   @objc func onComplete(response: [Swift.AnyHashable : Any])
 }
 @objc public protocol RazorpayPaymentCompletionProtocol : RazorpayCore.RazorpayProtocol {
+  @available(*, deprecated, message: "this function will be removed in future releases")
+  @objc optional func onPaymentError(_ code: Swift.Int32, description str: Swift.String)
+  @available(*, deprecated, message: "this function will be removed in future releases")
+  @objc optional func onPaymentSuccess(_ payment_id: Swift.String)
   @objc @available(*, deprecated, message: "this function will accept a code of Type Int and not Int32 in future releases")
-  func onPaymentError(_ code: Swift.Int32, description str: Swift.String)
-  @objc func onPaymentError(_ code: Swift.Int32, description str: Swift.String, andData response: [Swift.AnyHashable : Any])
-  @objc func onPaymentSuccess(_ payment_id: Swift.String)
+  func onPaymentError(_ code: Swift.Int32, description str: Swift.String, andData response: [Swift.AnyHashable : Any])
   @objc func onPaymentSuccess(_ payment_id: Swift.String, andData response: [Swift.AnyHashable : Any])
+}
+extension RazorpayCore.RazorpayPaymentCompletionProtocol {
+  public func onPaymentError(_ code: Swift.Int32, description str: Swift.String)
+  public func onPaymentSuccess(_ payment_id: Swift.String)
 }
 @objc public protocol RazorpayPaymentCompletionProtocolWithData : RazorpayCore.RazorpayProtocol {
   @objc @available(*, deprecated, message: "this function will accept a code of Type Int and not Int32 in future releases")
