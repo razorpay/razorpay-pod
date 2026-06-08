@@ -337,6 +337,7 @@ SWIFT_CLASS("_TtC16RazorpayStandard14PreloadManager")
 @protocol RazorpayEventCallback;
 @protocol PluginPaymentDelegate;
 @protocol MagicXResultProtocol;
+@protocol AddressWalletUpdateDelegate;
 SWIFT_CLASS("_TtC16RazorpayStandard16RazorpayCheckout")
 @interface RazorpayCheckout : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -358,6 +359,7 @@ SWIFT_CLASS("_TtC16RazorpayStandard16RazorpayCheckout")
 - (void)openMagicXWithStorefrontUrl:(NSString * _Nonnull)storefrontUrl itemsData:(NSString * _Nonnull)itemsData withDelegate:(id <MagicXResultProtocol> _Nonnull)magicXProtocol;
 - (void)close;
 - (void)clearUserData;
++ (void)setAddressWalletUpdateDelegate:(id <AddressWalletUpdateDelegate> _Nullable)delegate;
 @end
 
 SWIFT_CLASS("_TtC16RazorpayStandard30StandardCheckoutImplementation")
@@ -378,6 +380,7 @@ SWIFT_CLASS("_TtC16RazorpayStandard30StandardCheckoutImplementation")
 - (void)clearUserDataWithCheckoutInstance:(id _Nullable)checkoutInstance;
 - (void)checkIntegrationWithMerchantKey:(NSString * _Nonnull)key;
 - (void)subscribeToAnalyticsEvents:(NSArray<NSString *> * _Nonnull)events callback:(id <RazorpayEventCallback> _Nullable)callback checkoutInstance:(id _Nullable)checkoutInstance;
+- (void)setAddressWalletUpdateDelegate:(id <AddressWalletUpdateDelegate> _Nullable)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

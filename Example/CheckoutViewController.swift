@@ -15,7 +15,7 @@ class CheckoutViewController: UIViewController,RazorpayPaymentCompletionProtocol
     var razorpayObj : RazorpayCheckout? = nil
     var merchantDetails : MerchantsDetails = MerchantsDetails.getDefaultData()
     
-    let razorpayKey = "rzp_test_1DP5mmOlF5G5ag" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
+    let razorpayKey = "rzp_test_1sjnKZ3EsBduvp" // Sign up for a Razorpay Account(https://dashboard.razorpay.com/#/access/signin) and generate the API Keys(https://razorpay.com/docs/payment-gateway/dashboard-guide/settings/#api-keys/) from the Razorpay Dashboard.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class CheckoutViewController: UIViewController,RazorpayPaymentCompletionProtocol
     
     private func openRazorpayCheckout() {
         // 1. Initialize razorpay object with provided key. Also depending on your requirement you can assign delegate to self. It can be one of the protocol from RazorpayPaymentCompletionProtocolWithData, RazorpayPaymentCompletionProtocol.
-        razorpayObj = RazorpayCheckout.initWithKey("rzp_live_ILgsfZCZoFIKMb", andDelegateWithData: self)
+        razorpayObj = RazorpayCheckout.initWithKey("rzp_test_1sjnKZ3EsBduvp", andDelegateWithData: self)
         let options: [AnyHashable:Any] = [
             "amount":100,
             "currency":"INR",
@@ -149,3 +149,4 @@ extension CheckoutViewController : SFSafariViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
 }
+

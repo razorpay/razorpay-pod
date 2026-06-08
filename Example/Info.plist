@@ -21,6 +21,10 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>phonepe</string>
+		<string>whatsapp-consumer</string>
+		<string>tez</string>
+		<string>credpay</string>
+		<string>super</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

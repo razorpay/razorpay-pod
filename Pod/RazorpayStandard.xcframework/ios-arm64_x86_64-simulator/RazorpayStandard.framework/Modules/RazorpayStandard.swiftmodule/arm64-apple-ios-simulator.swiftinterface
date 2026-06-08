@@ -60,6 +60,9 @@ import _SwiftConcurrencyShims
   #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func subscribeToAnalyticsEvents(_ events: [Swift.String], callback: (any RazorpayCore.RazorpayEventCallback)?, checkoutInstance: Any?)
   #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc final public func setAddressWalletUpdateDelegate(_ delegate: (any RazorpayCore.AddressWalletUpdateDelegate)?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -134,6 +137,9 @@ public class TurboPluginManager {
   @objc final public func openMagicX(storefrontUrl: Swift.String, itemsData: Swift.String, withDelegate magicXProtocol: any RazorpayCore.MagicXResultProtocol)
   @objc final public func close()
   @objc final public func clearUserData()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public static func setAddressWalletUpdateDelegate(_ delegate: (any RazorpayCore.AddressWalletUpdateDelegate)?)
+  #endif
   @objc deinit
 }
 extension RazorpayStandard.PreloadManager : Swift.Sendable {}

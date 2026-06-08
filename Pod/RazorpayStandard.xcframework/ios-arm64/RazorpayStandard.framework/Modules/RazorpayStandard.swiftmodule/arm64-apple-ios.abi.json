@@ -1153,6 +1153,43 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Function",
+            "name": "setAddressWalletUpdateDelegate",
+            "printedName": "setAddressWalletUpdateDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.AddressWalletUpdateDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AddressWalletUpdateDelegate",
+                    "printedName": "any RazorpayCore.AddressWalletUpdateDelegate",
+                    "usr": "c:@M@RazorpayCore@objc(pl)AddressWalletUpdateDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RazorpayStandard@objc(cs)StandardCheckoutImplementation(im)setAddressWalletUpdateDelegate:",
+            "mangledName": "$s16RazorpayStandard0B22CheckoutImplementationC30setAddressWalletUpdateDelegateyy0A4Core0fghI0_pSgF",
+            "moduleName": "RazorpayStandard",
+            "objc_name": "setAddressWalletUpdateDelegate:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -3211,6 +3248,43 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAddressWalletUpdateDelegate",
+            "printedName": "setAddressWalletUpdateDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.AddressWalletUpdateDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AddressWalletUpdateDelegate",
+                    "printedName": "any RazorpayCore.AddressWalletUpdateDelegate",
+                    "usr": "c:@M@RazorpayCore@objc(pl)AddressWalletUpdateDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RazorpayStandard@objc(cs)RazorpayCheckout(cm)setAddressWalletUpdateDelegate:",
+            "mangledName": "$s16RazorpayStandard0A8CheckoutC30setAddressWalletUpdateDelegateyy0A4Core0efgH0_pSgFZ",
+            "moduleName": "RazorpayStandard",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -3553,28 +3627,28 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RemoteConfigHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 6044,
+      "offset": 6523,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RemoteConfigHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 6090,
+      "offset": 6569,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RemoteConfigHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 7148,
+      "offset": 7627,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RemoteConfigHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 7194,
+      "offset": 7673,
       "length": 4,
       "value": "true"
     },
@@ -3756,63 +3830,63 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2495,
+      "offset": 2736,
       "length": 19,
       "value": "\"rzp_remote_config\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2600,
+      "offset": 2841,
       "length": 35,
       "value": "\"RzpUnhandledExceptionsDetails.txt\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2704,
+      "offset": 2945,
       "length": 20,
       "value": "\"RZP_OTPELF_JS_FILE\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2758,
+      "offset": 2999,
       "length": 17,
       "value": "\"RZP_OTPELF_HASH\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2841,
+      "offset": 3082,
       "length": 47,
       "value": "\"https:\/\/beta-lumberjack.razorpay.com\/v1\/track\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2926,
+      "offset": 3167,
       "length": 42,
       "value": "\"https:\/\/lumberjack.razorpay.com\/v1\/track\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 3006,
+      "offset": 3247,
       "length": 46,
       "value": "\"mqrkrLdcszc2MZR\/PXN1QWHVui8WnkP7c0BrYBDcicA=\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 3174,
+      "offset": 3415,
       "length": 61,
       "value": "\"https:\/\/lumberjack-metrics.razorpay.com\/v1\/frontend-metrics\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/RazorpayConstants.swift",
       "kind": "StringLiteral",
-      "offset": 3278,
+      "offset": 3519,
       "length": 18984,
       "value": "\"<html><head><title>Processing, Please Wait...<\/title><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\/><meta http-equiv=\"pragma\" content=\"no-cache\"><meta http-equiv=\"cache-control\" content=\"no-cache\"><style><style> html, body { width: 100%; } #content { width: 88%; max-width: 520px; text-align: center; position: absolute; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); top: 50%; left: 50%; } #title { color: #528ff0; font-size: 22px; } #ldr { width: 100%; height: 1px; position: relative; background: #e1e1e1; } #lding { width: 0; height: 3px; top: -1px; background: #528ff0; position: absolute; animation: spin 20s cubic-bezier(0,0.1,0,1) forwards; -webkit-animation: spin 20s cubic-bezier(0,0.1,0,1) forwards; } @-webkit-keyframes spin { 0% { width: 0; } 100% { width: 90%; } } @keyframes spin { 0% { width: 0; } 100% { width: 90%; } } #desc { font-size: 16px; color: #8a8a8a; } #content > div { margin-bottom: 20px; } form { display: none; } .hide { display: none; }<\/style><\/head><body><div id=\"content\"> <div id=\"title\">Processing Payment<\/div> <div id=\"ldr\"> <div id=\"lding\"><\/div> <\/div> <div id=\"desc\">Please wait while we fetch your transaction details and process your payment<\/div> <img id=\"rzplogo\" style=\"width:160px;margin-top:80px\" src=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaAAAABICAYAAAHHURGUAAAABGdBTUEAALGPC\/xhBQAAMXNJREFUeAHtXQV8FUcTn4SEAsFdWygVWlqkuFMkWHBJgODuLgWKBnd39+AS3L1oS73lK7TFrbhDvv3vy1z27r0XYiQh7Px+793K7N7e7O3O7OzcrAsJyJGnbCCusQFcYtPDoENcY0OvqM8Q5Q+Uss0Oef96PtXUdkRa2OED\/XDSdlNHd4kTx1bE1dVclMvgGj9ePEdFaf+u1RT44ikBZ9mK9fJau2YleS2QP7e8Ig\/3UOvzqVOF0qZNZUpDvorDNzS3Kig1Z15PGeJCm9bNp\/ZtGssKTn+3jdKnS0OvXr2Sca6UK8T18ZMnalSGgVdl4jm6NbuyjCdPnpRwn6dPn9PQEZPpu+NnZDrS9mz3p7yFKhlxFxcXunr1hlEPtw8JqFeNO3wgILZqXl8iArly9SYECnLBFy9fAoV27Tkk0+bPGUf\/\/HtJpuF65vg2GeaH9SxTnOYvXEkvbvwp01HP7dt3ZLhQwa8oMPAVoaf8hk+UafMWrKDnz5\/LNCT07tGO+vbuaLQHaajj+YsXRpuQBtCznI0OMfffRXTdX4GBgVlibhND3zIXIn\/X2PIweGwh7tRxOimEni4xCzNKH0hlquAtbwLc1ErVOf299+IKHvFMzY5Q2C1NNqP8lavXae++IzLOUzv4Gpg1pmOk\/fHnX\/R+pgwUL957RjnkBaxfKPlcLZ9WMn3z+gXkVa2xgWN6IE5VHwxpiBctWZ0O7VsnUQ4eOk7FiuZndDtewI28fOUaVajcQJYHcum5RDWrV6Q167YYafwAufOXpwQJ4st0TkMZDuMKqFStkeSRCA8Z2MP0MEgzvXLMHFGYmSOkBMTvP3hIS5evo4JFq9DVa9eNh0De4gU2hogKP8zyvsxDOh4GAKbaql1vur20oegFMRcJABMFDgBXMNZKFUrJcOsWvvL6Tb8RRn6KFMlkeEC\/LnT7PxtTruJVVqapf5qxqtSIieFYxVhjIoEj2qZYJShElBgxsbxp0o6JDYxom9xSfUwJS3aJaDXRVt6hmMCtYXaPODjclm17OOuNXR2JKMx9Q3vTFM3WkUtcDwP95nRPOrJ\/PXl4JKCVqzdRrhyf06efZDW4uoEYAwOvHUED\/cbRvgNHabhfb\/rg\/QxSzoLQyp2nXnPlzC4fEWlfZP+UVi6dJuMnj22hLJkzyTKlShahnt3bUPcurSh5sqQ0f\/ZYqli+FH1\/YjslSZLIIYkmjhtEhQvmkeUbNahNzRr7GPexFhg\/ZgDtaeNB6BQAX9E5AO9alWXnlCxTm74uWdh4jtSpUxphiSj+8Bwj\/L6RUX5ORDiMK9rNgDjqASCcLdtHdPTgBgO\/fLmSRhj5eH78EHYGr+2gdeu3UaeuA+TbVqtGJVq0ZLVpRdGp2wA6eTRA5i+cO17eDG98x\/ZNafnKDfK+XboPlGX27T9Ke\/YdJp\/aVWjO\/OVSvhw7YZaUR2fOWUp379532E7c\/8ixUzJv4eJV1LxZXeM+agE8KF4AAC+7EEY65Gq0i0fjf3fu0oQxA5FNVSt70s4ty+iv8\/9QmdLFJH4VL0\/6duAYGjV2uowDD4sL1OXj244a+dZCEuXKV05emciZMqYz8H\/77RwliB+fWrTuKXFGDu1DeDEAt27\/R3t3+lPOnJ8bbZIZlr+3Ts7G1OS\/bHqID2V5xiiJooO48193wyKF89G0SUNDhf\/WddDrHj625WMh7B\/bHio2PY9L7vzlcr58+er72PRQseVZzp7a6aKnuBjem6+V4mJ4+2N983QHxfAu1h2kOyh6KaAuWKO3JeG7e4i6uPBVGTNKJak8gtwzfmU0RrWOunTpKu0\/eMzIi8kBp1McVsbqL6oeglUmfD9oDcIKctS4xZXF7qxuJ6+9urelzEIfmPXDD2jS+MGGOiasdUc1fogjiFUXdWp5EcwIVvhvJFh2CWOTULUTZnKOLMtQOFnSJAR9GAP2gG\/d+o+j4b66pcxKBf8eSTt\/e0Luab+QBl9p0qSS9Q0TVmsAbLy\/EIZbAH4hipeuSQd2r5HqF06TCOIPdDiwe7VQ5iaWSUwX4M2eu4xaNKsnN99hUQCDMHc3N6lrnDx1vsTn+n7\/439SUavWizDyuU7O46vTEQSE6tXKExSksExD56CiZMmS0ME9a2SH8Y3RaRw+dWyrrBtxdA6n47phzTypZEQYnaPmuYo6ThzZzO2SV9QL3ZtaP5eB1hhWCVY4tW06DR3cixKVG2Bk7QhYKsMoix\/qgzkhwiNGTw3qgDUGPog1coxNE48w8K5eu2EQEQYO0OwDoOQFDjoHkLdgRVq6Yh01b1JXxlH267J1JA6epc+3I6lHbz+Zhz\/kd1fiRkZQIMQRBE02YPXagCB0kmaHxUrVlBWjYQEbFlLGDOno1OmzEsfNLY6Bi5sDoFIHVK3ZVF67dm4py8tI0N+Nm7cpX2EvUzpG6vkL\/8gR6+3blrDtALtN2HJC+4z7M9SvW516dmsjozYbm8L05OfgDi9T3odwD7TpqNCMcztZ446CeQRxAdDOu7u7m+qvU89WN\/KHjZxMG9fOl+2CmSUDl8+XJ6dMmjdrjLyyVQgiAVt3y7TR4h+jErBz1wF5dfQX4ghyVABp2Ov59+JlmY3OATRt2V0+\/LiJs2UcfyAgfmoDOZPzOI6rV8XSalSGs2R+X16XzJ9IQ4ZNpJZte9HeHf520yx3DpA79xgsyzw4MEle8YfOYSgk9pYyZkwvo9ie4BcJ0x7Cz5+\/kFsN2HJgwEwCC2bAqjW2Fxa2SCrs27WKmjSqQ598\/KF87izCJIhhz46VHDSumDLVl8zIUAJORxDbLCm4sjJMQ1u37zUMnrbv3E+9+w6XaCiD\/RoAbozNrMNHT1K7jn0NA2HOAyHWb9xOAwaPlbiIo0wrYaOkws7dB6XB1zxh63RTITLvwzAubKEYPAo0ocdnbPGvcn9pGBYjn42ML1z4V3YC9m98G3ekbJ9mlcU5\/7333Lk62S5sWFar1czgm8BjXjx1om3KwgzRoF4NiY\/CmNratm5IuXN9QdNnLjLq48DrOgd4b50uDlMqmD7m+pgCeLkWLPKn8ZPmhKpJwG\/fuR\/BwvB18NZ10OseKLblh4sHxTYixOTn0R0Uk3tHtE13UAzvIL2jGsM7SDcv5lJAmIs8d9XmCDG3g3TLYjYFhELaXYsIMbuPdOtiOAX0AIrhHaSbF7MpoAdQzO6fULcuQd76ocbViJFHAadbQZF3C13TG6GAqxulaLqaXNwTyOpvzX4zXifeSNtjUaXhGkD8gZ9Kh+vXb6rRWBOG1QGgSo0mDp8J+bCYwPd\/bxrif1mVPIraDMjUe724eU64EbN55IKtUv++ndVsuzC2CLFVqCHiFAjXAIIpDUDdTC9Y4CuaOdXm5CRPwQrC4MzmsSziTYzeGtiuylkrkP\/EgTs5Z\/jhTYcVJgbJrdle4vrM9PHtnVVtjWp58FwVroPKeZkNOyZPGELFixYwefAxCupAuCgQrgHk6E7HvjtNs4TxXkvhBrCC+Jx+0+ad8qvpwQO6m9DZgifHl5\/RYmFCha+9u3QfZODAkAKgDk58to4vo\/sNHC3rbdrYmzq1b2aUQaBA0criRX5K+fPlotnTR1G\/AaPIb5Dtq+qzP\/1KDRp3ojkzRlO+vDZbNZR5KdwSflWgAoISZkwZTjDFYkDbQgvHD28muCVgaNKiG50+86NhyqU+D3AcPSeXtV5R77ZGsFSNR\/2ulKDDqVoYKA\/2jTfCcD3A0KFLf2n2BeNMuD7o+01HSpwoocyGSyzA3JljKG+eHDKMv0ePHktXVkaCCHC7ub1qHodhKQt7wc+yfUwrlkzlZLompJI0Qe4IkIgv+q1WtgZyUAD3g3VU0SL5TVnsN4wTuV2IW9uGfo0TJ9gu886de1SiTC2aOHYQlSxRSFahlm\/oW5O6dbb5GYMhq2rjyPdzdo3QALI2HBa+hYpXlR2xZ\/tKgpk1TMJUe0WUqValnOyYbTv2UXnPksKBWnphLndZWOraXng0FlbFMFwFYPD89vs5OXj4RVUJALHlu0ObZJ0XL16RZQZ829XofCRwW9VyqjsHWPHCsVv+Il4m9w9cTlbq5A+WvGq9Pbq2ln45YLuJdNSBH+Ps3Lpc1sRxR9XmzpWdFswJHhyMs+XAj5Ssvs1AF2lPfrVZWCPMriHgemFQ\/67SKPbjj7Igi67fuEXFvq4hw\/jj58LLws5UOZPz4AqDgdu6ZMEk+vKLbDK5bYc+0twRETWdcbks1wc3FBhA06cM4yyDJkaCCPDggb\/Vbj0HG1nwcwKzREDixIkonphYmJagNZtiIh9Gx7BrBWDwALr0GGS4o0NdcJjDbfvl1z+oboP2Ei8sfxEaQFZCqTdmP3Xq4FHzEe7VZxiVFf48Nq1bQJ6V6guD3zJUsUpDOeCOHdxIdYSzlr69O8hi3vVtYoo6y3N9cAyInwqHD59Qow7DjZoFu1ZiF8bh8cYIzqfC92d\/IV9hV5ohQ1qZDNtX2NbCrH63eClSp0ohHSOqZdQwTxJqGsLwI5is\/mIj+dasSkYYHogYSnl6c1Be8ZLgnriiz3gWRmbr9t\/Y4XICfL8AkiZNbBg7g0s56nceVD+IZ1dhy8ZFRrRM+boyXLhgXnmdMXuJkccBTIQM6uCJG9fdGDxnvv+J7t27TwfF8zCogwdpPHi2btvLKNKrM0cwEHkwwpKev3Hh\/NBeIzSAQroJiIwO4xGu4qodABEKOPguBIbely5flajTZiw0Bo+Kb633gXC8kzChhyyj4qn3Q7hIyWp0eJ\/NTzcMqYUFhvFZA8pZ67WWDynO389gNsenEIB79x8Qf4SE+1UVxtwbVs+lxg3rUBvx0sJhkCPIkD6tSRRkHAzsux94UfyghBfXfqPAl7bPKWD\/zB6iBg4Zx0WcXuEoCWtUfNYBMY5h5pzgFxpfJgCs\/cfeSrkM07x3v+HS21RO4T7MWqZy9cZSwkAZeNNisBqpZxTG8ezKFXnWeqzcsrxY423bbGuzigulDgPapQK4asMg50os2qv5YQ1re+ywUiyc+B3aNqHmTetKo3oY12uwp4A6CHhg2mOFP0Vd40aWouuNcaDwP2bsKolvuDp3aC4\/5HsTL0VsoZbqPR0vd2SCm\/hM+FQQ54P417h510irXnOgSCOlruhdpIDru\/jQ+pk1BSKLAnoARRYldT3vJAVcpRtM8WHQO\/n0+qE1BSJAARdybeOC8jnzlF0ZKA4Ui0BduqimwDtDAWHdcV6c41X9zPHtP7iIwfNMDB7b5sU7QwL9oJoCEaeAOOM3l6sePBEnpK7h3aTAq1eB67QS4d3se\/3UkUABYWGSRQ+gSCCkruLdpYAeQO9u3+snjwQK6AEUCUTUVby7FNAD6N3te\/3kkUABPYAigYi6ineXAnoAxYK+dxEnVrklzxwLnuTtewQ9gN6+PjO1OEm1cZSixWZ6cfuCKV1HooYC+nugqKFzpN8lfu465FGwuaw38OWzSK9fVxg6CugBFDo6xRgst+QfUFLv4IPm0LCHh6cb7cPRjzhf0wr4hPzUqbN0+co1a5aOR4ACYR5A+Paev7\/n+94X3\/8\/fmxz7MdpseFao1oF6cNg0tR5tEsclmeF1zldtOJHJO4iPAYlb+RPLvES21Xz5GfbqYbIGNjv9V9bwskJH7BnV5lOCBMFwjyAmginGDhZ1xHgpOBS5cweYRzhvS1pSZIkkgfWJgpyWmJt9+ucLlrxwxt3ET7OUrTcahS\/t20QJS4\/wIhzgM9+Rfy7E2fowt8XZVaK5MmoTKmijEaTxw\/RnkkNakQsEOYBxLdT\/XDh2O0xI7+VTvrgXQcuqjREHgU8CrWWlT06sZCenF5OCSv6GZU\/+TXYyw0clzC0bGPzqsNxXNlpx\/MX+vMvlS4RCYd7AKk3hVunZq1sB0HzufJqfmSdY6\/WiXBo6o0fP56deJlIeOiE2OkI4B8Ov\/D4CcNEAlpENril\/pRuTvckHCZdutwyipvJ5lcN93l4aJpxO7jMcgZZP\/zAyMKB2gyH960z3IIhbYc4Nbz010UMz55whAJOfGB38FHzXJavg4dOMPzy1fOpRr2623z4cT6umFSviePoAfDtB993gJ7fDKVhQ3qbXIzxQIeH0fkL\/aU3I4kc9Gd1zgLvqqp7LqDBoefenTbvR\/A\/B3dW7DtvgTgLe7xyYHnChAmkyzOUg69COPwMLUTKAHJ2s2OHNtotaNnzJxNJJQY6ea3\/bJo+azHNED8GKy57EeX8A4e+ow6dv5VRxp00ZR51bN9UpuEeeLlx0rkKA\/3G0br122QS1nVMYMbB2ic0AI+gqltdOP2DV1VOt3rYLFIoL02bPMzuOZ3dq0G6M9Q8yImg+PzEBPCTbQW42sVp7oDEiRMSvHDCeysAYt3t23dMLzHS2aedZ5niiEqA\/zhAj65t5NXZHzu1BH1BZ4DV9x4kE+7rLh2DXROPGt7XqPav8\/8YYQReCX96cAUGesITKcOq5TOodl0bV+7WuaXh5w358McHF8Y8eJCGd0ld8xUW7pvVAQR\/gYBffzsXpsGDMuEeQF9m\/5Sg8QGkTZOaWgmf2ACcTA+Ah0k4yVu8dA2NGT+TyggPpGOFmIeZB4QcPW6G6JjW0vuo\/2qbN8oZQc7p27RsYAyg5Mlsbmz9V9tmrNPfbZUcwqtaY\/r34mW5yO\/Ssblcq\/z9zyV5b\/xh8EycMpcePnws03jwsO9jzFhYcPMA4sED\/95ThVNHuFn6pmfoXL1i8FQRp9xjht24Zp486H3WtJHEzgnV9QcaAyfvAHWSkAmWP3BzvHgMcG+coECwmPbixh+cZfL5DVfDeMmssO\/AUeMUCeYAwOEXG2GegBAeMdrm5xp+xvFjQB+w72lMiIDZM0YZg6dg0SoEN8+APr3ak3dt29Er4gM06dCyrndVmYc\/dSmAOCYXhv\/+u0tlK9i8mSKN28aTQ7q0qY3Bc+5\/F6imd0suauAiQR08iHN5hNk1MMI+vvacE+khgWtImSHllRUzFV5A\/Fq38CU4McfL172X7eXA4Hn27JkcPKgHWqzDR0\/KKuFYfsmytTLMrnsRgftZuI4FsIfPKcLROGDoiEnS8Tk67sixk3LwIJ2dFI4cFjyTIR1eK+ctWEkrV22k6lVtA\/2bfiMMx+EQOQH161Y3Oh5KEAwewAr\/jfTnufMy\/Lq\/+o060N9iZoeLX17\/FcifWxZbvdamIWOn9XiJ8AxwPB8SrF4x0zR4gItJJ0FuH6OY6li+d492Rjr8POP38OEjI234qCnG4EHfMUDUUUH1mHpFnPCgQqqUyeWLifZjpsfAY1fI+fPmkqgr\/DcYgwcJl68E1wFvsCqAU1pd8vZSnkMdPGo5DgdssPUV4urg4Xxcf\/r5dyPKbeWEdq0byXcOcat\/cMZ53TXcA4gdp4OI\/OOXjx2af3f8e9P9t2zdLeOFxFEogIuXbI7gEa7sVRYX6Zwe19FBrD3755\/IFxNpfLICfCtjNuIf8j7L9hEuBqidz87K4QuZy\/BsVljMeLlzfSHLQf5XYfMWW3vVNEdhtZOs+bzeYK4zdeJQidKsVQ8rqhFH25iGRqIInBT7OCq8uPk\/I\/pR1sxGGE7S8StcopqRpnLT4UOCFQxW3+WscXz02DaRcQU4EGDXthUyCtFOdVSPdQ\/D8FE2rsVxaG1VKFGsoBFt1ba3EeYAazax\/nEGK4MkFuaC4KzOgLko8rft2GugpU2bSp4kgoSuwuk8RNjwQLhFuJBudv3GTZmNRqqQVrBcAI69ADQRHiLBQnGmDfZcmNWi874uWdh4sduIUwAA9+8\/lNe167fSID\/7kwtkpoM\/VhjAIyU8U1oBgxSQSZwSoUL69GnUaLjDODECfp8B4ER4PhzX4QgcOc9nvLhZgzkHH6iFPFV9PXeB7SXnMn\/8+ZchsmCDFaIVc3fG4Su4McO4IMfyiKvHwuBl2733MKPJa5HC+UxxjmDdAsf0ACzcAb17BnNKq8IFDuQZbol1mgrLFk0xovA5rq6JcLSOCjwZI+3Hn34zsgK27hFH7pST8e2bl8orJj\/r8xgFQhEINwcKqe67d+\/LbOssympWnBEEwJEbACxwIQLyoGjfqZ9MnzbZNluzuMNXDDYV+GQFNU0NQ7QETBo\/WE2WWjwk\/PyLbS1R1PIieIvTIUIDUyfZ2glcHijqAPH2tS3CceQLwMc3+CWSCcqf9dwjzlq6fB0lKt6RoybtG9MVmVOnLzBwEFC5FnNwFWFQ\/24EkRpn8vTsFqwsWLUmQKJBEcTlsJb18PCgKl6exg9Ix08ESxpbNy2mXDmzy9kdR9QAIEryoj19OtukhDN7rNBZrGUZIM43qF+TsODHJMuT3ORp8yUKFAsM6vNXqlCa\/Ab2kFk8ITPed8fPcNC4QvyOCLwRDoQGDRg8VpxR002KTJA9eWa1slvMmM0a2+T6dRu2yWc5ddq2PkgQPz5Bg6XC\/IUrqUkjb1mvqp2B7G0VH7gczFcuXPiXMouDpiAe3bh5i1KlTCGz6zVsLwcQjsGoUP5rU3u5DNfj7Jor6EQCdBgmAkDZivUM9AcPHknuyke+YL3kDFQuoOJAIZKoaTCHePKrjVbAUdXX1nXGqdNniUUsHD4GjSXO9YEWEADRDD8MeOvBVHhpVbOg7l1ayTL8h7o3bt4h1zEd2jURB4C5EQYIzl1iwEvLyhSc7MAwaux0DhrX+j7Bz4dE6\/2gFZ07P5jD3rx5m1KKdRk0qCyS48wfhplBEyfHrdfI8MEd5gF05+49cVTFJbGIDJ4BrA1DHFzmyLFTBI\/4UE\/jpe3ey4++\/+FnEzrUzTgjiMUzzoQu\/vPPPjaUEpw+YfJcWiUW5lMm+NGHWd6XsxvOsWFVKtrmCHC8CI43HDywuxw8OEblW3HiHXMfHIOxa89B8hOHfLm7uUut0\/PnL6hdm0ZOjyLhe1Wu3kSehle5Uhlpa1ZPrD+s4gk6E8oWv+ETHTXPSMME4QieiSXB4zOO87hO6zlFqOfwkZPGPW\/dsolFUOZAewZtZwLx8q1YuYGgQq5ds5K8NeMlTZLYKOuoTfsPHDOS84ozdrKJdaiX4ABQIOGcoE0Bu4x8BNBf3NaAoPWwCSEosnvvIbEuGSwVPBjEmFC5f1X80uV9ZJ9CKYL+nCn2e9IKzSVLKqvXblHRjYPBkNixa\/9IOYZUO5c3kfjNRXiGVFXGb+5ub1\/NvDeGloN7R\/ah1ZAMcMgZAIO7YdPOMhzRvzeyBopoo2JTedgN8uBp29Gsao9NzxnRZ1HV15E9eNA2bL4DIGZH1uBBfWEW4VBIQ+gp0L5NY4lct0E7sTfzZ+gLvmOYrL5W964iiwRLF0421qaRse5R26VFOJUaOqwpEEYKaBEujATT6JoCKgX0AFKpocOaAmGkgB5AYSSYRtcUUCmgB5BKDR3WFAgjBfQACiPBNLqmgEoBPYBUauiwpkAYKCCMtvxdcc5jGMpoVE0BTQFBATF4nv9waqe3tHzMmadca\/EB7STxubC7po6mgKaApoCmgKbAm6IAmA+Ra8cfTm2fgTOG\/QXjqf2mbqbr1RTQFNAU0BTQFLBSACoEbQlnpYqOawpoCmgKaApECQX0JlCUkFnfRFNAU0BTQFPASgHNgKwU0XFNAU0BTQFNgSihgGZAUUJmfRNNAU0BTQFNASsFNAOyUkTHNQU0BTQFNAWihAKaAUUJmfVNNAU0BTQFNAWsFNAMyEoRHdcU0BTQFNAUiBIKaI++UUJmfRNNgZAp8N5HJcijUAtycXWnWwu9Q0bWuZoCsYQCmgHFko7Uj\/F2UcAlQVLyKNCU4n3qKfySBCsi7m0b8HY9iG6tpkAEKKAZUASIp4tqCoSFAnEzFySPIq0pTmLzCdZcx7O\/j9Oz886PGWc8fdUUiC0U0AwotvSkfo4YRwGXeInII19DipfdS6xy4ry2fQ8OTLDDSSPOed0RYDtZ3i4zFAkXL16hZSvX07IV6+WJfKEoolE0BaKMAlHiigcnG+J40NDArVv\/0cVLV8SB0ido0dI19Pjxk9AU0zjRQIEmjepQ5w7NjTsPHDKO1m2wHT9qJIYQ4ONigfL7H\/+jOvXefsfS7hlyUcJi7ShOsg\/snzzwlWBE8P8rfQCb8h+dXEKPTiwypSEyfswAKlWyiF16eBIG+Y2nteu3hqeoLqMp8EYoEC0roJcvX9KrV2IwKuAi9OBubnEoRYpk8pczx+fUtnUjKbV16zmYdu89rGDroKZAzKOAe6avKInXCFPDXj24Tg+Pzqan5\/ZTvC+qCObU3pSPyKtHtxwyn3x5czpkPjW9W9K5\/12wq4cTcuf6gmZPH0nu7mbn9tWrltcMiImkrzGCAtHCgCZOmUcLF69ySgAwogVzxtOXX2ST55GPGz2AWrTuScdPfu+0jM7QFIhuCiQq2VU0IZCe\/rmHHh6bSx4uT6hju6a0Pu4V+sU9HiUs3NJhEx\/sn+gwvXePdnbpq9cGhMh8UODM9z\/Rr7+doxxffmYqv2efYyEufrx45Fm2uPiVoPczpae0Qu13\/\/5D+uv8P3JFG7B1t6ynaWNvSpkyuanOQ4eO05Fjp4y0Zk18pABpJIQh8ONPv9HWbXsdlnBzc6MC+XLR1yULU7ZPP6JUoh0QVh8+fEw3bt6i\/\/31N20K2ElHjp6yE27VCuvXrU4ZMqRVk+jEyR9o774jlCljeqpWpRwVLpSH0qVLQw8fPJIMe+6CFRK\/Q9smFD9BPFPZDRt3yNV7eoFfsUIpKlG8IGVIl5YSJfKgK1dv0B9iZb9wyWrCs4UGXF1dqVDBPFS5Uhn6+KMshHpfCIH90qWrtG3HPvJfvYkePXpMZcsUp9y5spuqvHDhX5G\/mVKnSkGNhXbCCrv3HKJTp3+0JpviuCcEFQlBC\/VHgsbTZi4Kka6mSsIQiRYG9Lr2vXjxkuYvXElgPAzZs39ix4DQOTWqVaByniVER6WVKyjg37lzTwyKk\/LlwculQu2alajU18EqjYWLV9Ox706rKKbwoP7dKHXqFDLNb\/gk+SKYEIIi770Xl8aN6k+ucWwWTT\/\/\/AdNmb7AhPrJxx9SXe+qVLJEIUqeLKnMw2rw7I+\/0qo1AcQDXS2U56svqXnTukYSmPdvYnJBHc0a+9Dnn30in\/vw0ZPUtkMfAy+OaEfZ0sWpTi0v+vzzTwiTDODe\/Qd06PBxmjNvuRy0RgFLAOUrVihN9UR7PxbtdhcTQGBgoBxsK1dtirAk7SJVUZabiuhHWTNT8yZ1qWTJQkabb968TVu27aHFy9bS9es3jUKtWzagnDmCJ9nZc5fT6TPOBxjuOXp4X\/JImEDWcevWHeo3YJRRX0QC2O+5vdiXsmTORCN6d6R8I5bJ6rZu30s\/\/\/IHJSrVjShOXLtbPLtwlJ5dOGaXXrN6RUkLNeP5ixc0dsIsNckujIl56qSh9OknWU156zduF2PK30hLkCA+jR31LRUumNdIUwMpUsSVEzxWYcOG9KL9B49RiWIFVRR69PgxjZsw20grX66kZLhGQhgDnpXqm0pkFrQcL+aAD7O8b0pXI0mTulPSpInlZF3es6TMAkOqUacl3bt3X0WlIoXzUc9uZjUv3un3M2agCWMGmnARSZY0iZz0Eca4Vcch0r7\/4WfKmuUDKljgK0Tt4IP3MxB+YBaAfgNH06bNO+3wkNC5QzNq3LCOFLgdISTO9hF9Jn5dOjZ32Bco49u4oyx6\/cYtKlm8EGVIb2a0ECxCYkDjRven0l8XNd0eDG3K9OmmtMiMRMse0LiJs0NcAX2R\/VOaM3O0MQHhgStUbkCXr1yTz16rRiX6tk8nOzr8d+cuJU6UkOLEMW\/4YsJt16mfgb\/WfzZl\/dCmo8egLl3Om+7eNb+sQMZL0aRR8DcZ2NCtVK2RUY8amDLBj4oVzS+THjx4SKXL+9CTJ09lHBNlG\/FjePbsmZRQ79y9JycZ9UVZunwdjRob3OGYSPyXBce379wvGEsxgqSkwg9nf6GGTTsTGOHyxVON5wMO9tV+\/f0cvRc3rmBYH5OHh20CxuCr26C9aMufalU0fcowhxPTw4ePjLIocE0wgzSpUxplI7IHhDbGi\/eeUf\/jJ08orlAhWfsSNK3l04r+vXhZ0iBgw0IpJaIREFw8K9WTz2s0SglMHDtIMm4kPX\/+XODWp9u37ygY4QsWL1qAevdsZzfgQV+8B3fd0lLSGo5WOYF0e2FdoYK7bboxNAAHdq8xaGHKDGMEzLtpq+70998XjZKjR\/Qjz6BJ0UgUgd17D9GMWUuEYHKBXr58JZnpcL\/eYuL7WEUzwn7DJ0rBiRMgPMSPbxN0OE295hcrGOwHW99drNY6dx9AV8WKAZA2bSpavWIWJUrooRanS5evCoY3S+wPnyS8H1AxgukN6NdFCkgq8rVrN2T\/qmmb1y+Qqxw1jcPAx0ru338vC6t4F8omxt1fF\/6haTMWUdy47nRwz1r5fjI+XyHQTRWC5o5dB+S7hOevWL4U9e3dwe7dRZnyXr5iZXSdi0vG5milC+Y5aeo82rf\/qFjh3Zb3LpAvNw0VwoCVLqgMAto3\/UYY9Trad8fKqVDxqgYOB7CSmjNjjCHAIx1zmI9vOznOGO9NXKOFAYXlQS6IgdO4WRcCcwH06NqafOvVMKpYJJa3jqRCMLGlCycbeDBsqFTVxjySJElEu7etMHTkWIE0aGJmaJBqZk4N7lCuaNWazYSVkAr1fKpRr+5tjSR0HE\/q6mDHpFe9dguHnTpt8jAqUsgmjW7cvIO+HThG1gd1wZYNi4y6EQBD7Sr2xZ4+fWZKx4u5Z8dKMWBskjZUllBdWgGWVQFiMPIeQfPWPaQaAnjzZ4+lr3J\/aRRxJixAqhsjJjIVIsKAUI9VUOC6IdVvEu3lVRzSvao1lnRMJASOnVuXGXlqP3N5XNu0akitW\/gaSd6+beVK0kgIQwCrQ9+6Nah1qwaUIH58pyXnLVhJE6fMpaTes8gteWY7vEcnFtKjk0vt0iHlQhoOD0CgwqS1dt0Wk2oMdUGNtWXjIpPQgHQYJsBAwRls37xEMIXUpmyo56rXbm5KcxTBO9a\/byeq4uVpysYeMFbzCxb5m9Ire5Ulv4E9TGkQfCB0sABqyhSRqpU9afCA7tZkKlyimlDRPZLpUL1ZVz\/IGD5qCq3w32hXVk3o2b0N1fepriZJYadx8y5OVWtlhJA4duS3pjKIYJ7BfAMYKzQmZUqZVxxgPHUbticIu44Aasc921easiDofF22jjFHIhOrxw2r55rwEFHvD40A5rgC+XOb8Fb4bxB0mWpKe1MRtzdVcUj1Ql8LScMKd+\/dE5PKFTmxnDx1liC9qQDGoTKfP8+dd8h8UOann3+XKjBIAoCMGdJJ3SastLDawYpo1rSRMg+68ratG0ppBwmQYiaMHSjz8Ne3\/0jyG9RTLo9r1\/Sio0JSYqOIDz7IaGI+Q0dMNpgPJEdV0oS0NHpEX6NeNZAgQQIjWqZUMYMBBb4KNNIRAO3U1ZyaCaMNZj5IT5kiOa1Y4vhFgjSUJIm7LI5BAFUl6KAyH6hdnO3V7RQS38pVG8m7dhW1CeEOY2Xj7LkgAfbpN1JahPENYIE3eOgEsVfxgOo37EBY1QLQz2PEwO\/eawijEqzIVOYDoxaoMcMCYO7durSSewTO1IdqfZj4ps4QTDNHNYfM59WDGw6ZD4QDR8xnwOCxBDWaCmAo3Tq3JAhADFCVYoW8x4HRzqTxg+2YDyTnkJgPmL+V+eBeI0Y7fq+4HXiXoD6z7hmBcXXq2p\/+cTD+oaK2Mh\/Uh5W9M+aD\/Lx5cuJiAoxRZj4QXKDNsIIjmlpxMmZMZ8d8gNO2Yx+nzAf5WEFZAassZj5Q51mZDwRKr+qNHWpjuC6oeK0wc85SE\/NBPvaDIARbV6+FhGCNNkAdOXWin0nld1+serzrt3G6zWC9b2TEo4UBbdi0w+nEFtJDpRKbayrwkl1NU8NXlaUu0tXy3x0\/Q5OnzSdsLAJaNfcVjOW03MCdOG6QIVFPnbGQNm\/ZLdQGcWjIQJuUNVLsI7DabrpYuTBsCtglNwk5niF9Gg7KKyRTqNBCA1j2P3v23A7VEeNmJOyJqYCNQ0hUr4N79x5IFOi8VVD3W9R0DquqBE4L79XaV9Z6rt8I3vtBXrJkwW0FU+4oJrVJ4wbLYpiAsWGOFQgmEOi2GaDC2SU2Y8MK6HNeoYam7PhJs+ml63uUpFBLh+iOvvkBYu8ewStpLggTdSvzQd4LsdoZOWaaWF2UpYQWdVX3rq2kWobr+OijzA7bj++DQoIZDrQA+w4cJYwfK2Bl2KNrG6lWUvMgoc+au9QQ8NQ8NYx9FiucOn02RKMLqLvw\/CpgbwoaAoYunVuYBDOkQ0B1RFMuw9dvHBiC\/PPvJYfPz2Vy5czu8LOTTt0GMgo1alDbCHMA6ndHWwGcD9XlsMG9OCqv2O+eMWuxKY0jAVv32DGg4mIfr5hQGcPAS4WlK4Tqf8x0NSlKwtHCgML7ZOfOXZCrIpaqCuTPJTfzb\/\/nWI9fvtzXpltBKlIBG\/GQ1HhzFRLicvHRHnStALz8s4R0AYBaLG+eL8Vyv5zUN2PP548\/\/zL0\/lAVWje0jx0\/LXTpLw1dMMxjIbW\/KYAhAowTGN4XVj1swcNpIV1PnTlLUOFAigaU8yxJ4yfNMSRJtSxWAVB9RBZAZQC1KSYGRwBjExUgLKiw\/8AxGjN+JnUXqxRAp\/bNCCvkIUKdwysWrNhgkRRWAOMJC\/OB9AmjkoSlxarZ1X6IPTt\/hJ79fcKuGc7MrkeMnmaHqyacFO8pNp1VSJE8mdwHBHMGsNGLioOwV8XSDiX5csIibtiQ3qZ9AS47wqKewcoFQptVAIIaqVO3ASEyEK4TV+veENK+yJ5NWrxhFawCtCFQb\/NY5bzzYt8G35Ox8AYDBu9alTnbuL5uBQdE9HnRIvmNMhx4P1MGOW\/waobTYdgBoyVV64E8jCmf+m0NOmCPD3vVVkiZMpk1yYhDgFg8f6Kdynf0uOlOPzAOEIIzjweuCGNMBWhlvAW9QlphqviRHY6WPSBn+wqheThItKuWzzB1xPKVG4SF1Bq5dMSLWUy8NL17tjdt1lk3TPlekNp2BCyzUxVAJVRKGCfwMp7xA9YvlFI1x3HFC+ZZoR45YoSYVObMGG2gYx9ozvwVtFLonXlfC2qXXDk+p1ZijwLGEdCtQ1UBwKDeuilYwsEqCoPaGQwe0E0ySc7HJDB89BSpYsMSH2qbzJkzSgu5hr416a+\/\/qH6jTowulyaTxNWVCpgnw16cmwCQyUD6ziYF2MgqRDRPSDUdVCY9U6YMofOi+ePJ1Qn2LiGwQkmVAZs+Pbo7cdR07VPr\/YO1YLO9pdMhZ1ENqyZR5mFqjW0AGvE4xeEirPaeAdFAqWz0cBH9kLT6hUzpTWXWmjn7oMmdaKax+EG9WvaTTTIwySLscEAdaxVJcN5jq5YuTDz5nzrnuvenf5OmRuXcXaF0UiJMjXFhrdtnwZqzq1iv8nRJruzOjgdY6lN+z6G+pvTZ4nvoaxMyrphz7jW68a186UVm5ruiCZqvjW8RFhujh43w5os96OwL2UFzCUw2YawnUxY9336aVZhGp9BMhlrX0BYU8eutS7EscfjzEpvsfjQH0JbdIK9eBadrQnFvTGhFipWVVqaYGKC1IGlu6PlO6rDdxNQU7BEZL0FrH0aN+9Km9bNNw22rj0G2TEflMWGPRiC+jJ06jrAIfMBPvZWcub1JHwf0U7s0WBTFhZxqlUc8BgwkGBNxAyI00N77T9oLE2YNJdGCZURmB8Y9tSJZoai1vX06VO5igNzAcADRb7ClWioWOqzJNfQtxbhpwJUiSdP\/SCsfTqqyeEOn\/3pV5orGPPIoX1ojbCAcgQwr23XsZ80BXeUj7RhI6dQJvEti2peDFo6219yVg+nw4w9LMwH5v9YiSbzmcNVmK6Pji8kR8wHZtf4BsMKI1+z1wJ87Jc6AjBvlQHBOAbGI2DSzlZEsKaEUQ+sG7HCUAGqLRgOMLRqXt9pPYwT0hV7ZMx8gIc9iKIlqwtNQw65r4qVlTOAEQPMoLGihVDmCLD3Z2U+KBcaVRPmE5hQqwBhtHjpmgQrXKgarQIYcKHxwLdIUMHy6lOtg8OwdF27YSuNGtbXZLEK7cNXQlOCH1Ylk6fOl+Ns59blXNS4hmYVByZlZUBQy2OVGJkqdKNRYQxEyQoojG0KN3rixInER1qPpIVKuCuJooJQN+BjNTDGqHA3hD0lD2HocP\/Bg3DRB7SFaabVg8WbJFdC8b3O06fPpcl0aO8DM\/SNYsXCG+cYbGUr1jNM4kNbj8Z7dyngzOz6bXJlhG+j\/JdOJ2hXVADDxj5oTIG3bgUUEuFCs+EeUvmozMNEHtKGY2S3BYzu2bO74a42OmirSsevazhUqfhmi41KgI9VXdWazcLEwF53H50f+ynQWZjB45s0FbCf+Lb40YNFL4yqVLgrvjmsIyzcXme4pZaJinCsYkBRQTB9j5hFgXmzxlCer3KYGgU9es\/eQ8mZ6xkTso5oCigUcGZ2HRp1l1JNtATTiW+1Vi6dJj6vSGy6P7zKTJhs\/02QCSmaIrFKBRdNNNS3jUYKwGijT68OYq\/tezok9q+cWdFFYxP1rd8iCvjUqWJnooy9HJj0x2TAdz2VhC86FWAwgT27131OoZaJ6rBmQFFNcX0\/TQFNAU0BTQFJAVdNB00BTQFNAU0BTYHooIBmQNFBdX1PTQFNAU0BTQHSDEi\/BJoCmgKaApoC0UIBzYCihez6ppoCmgKaApoCruKL\/vOaDJoCmgKaApoCmgJRSQHwHvFBvkt1F+HOLCpvrO+lKaApoCmgKfDuUgA8J4j32IiQO3+5nK9evuojnJzlE\/bj9k6p3l1a6SfXFNAU0BTQFIggBaS2LTDwhGsc12Fnjm\/\/AdX9H3a+dGVZaeJ4AAAAAElFTkSuQmCC\"\/><\/div><\/body> <script> function post(path, params) { var method = \"post\"; var form = document.createElement(\"form\"); form.setAttribute(\"method\", method); form.setAttribute(\"action\", path); for(var key in params) { if(params.hasOwnProperty(key)) { var hiddenField = document.createElement(\"input\"); hiddenField.setAttribute(\"type\", \"hidden\"); hiddenField.setAttribute(\"name\", key); hiddenField.setAttribute(\"value\", params[key]); form.appendChild(hiddenField);}} document.body.appendChild(form); form.submit(); } function hideRzpLogo(){ document.getElementById('rzplogo').className = 'hide'; }<\/script> <\/html>\""
     },
@@ -3945,231 +4019,231 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 16742,
+      "offset": 22207,
       "length": 20,
       "value": "\"RazorpayCheckoutVC\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 16764,
+      "offset": 22229,
       "length": 8,
       "value": "\"onLoad\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 16812,
+      "offset": 22277,
       "length": 20,
       "value": "\"RazorpayCheckoutVC\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 16834,
+      "offset": 22299,
       "length": 8,
       "value": "\"onLoad\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "BooleanLiteral",
-      "offset": 16875,
+      "offset": 22340,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 16971,
+      "offset": 22436,
       "length": 27,
       "value": "\"could not get data source\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17158,
+      "offset": 22623,
       "length": 3,
       "value": "7.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17162,
+      "offset": 22627,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17176,
+      "offset": 22641,
       "length": 4,
       "value": "39.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17181,
+      "offset": 22646,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17194,
+      "offset": 22659,
       "length": 4,
       "value": "83.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "FloatLiteral",
-      "offset": 17199,
+      "offset": 22664,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 17213,
+      "offset": 22678,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17338,
+      "offset": 22803,
       "length": 13,
       "value": "\"theme_color\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17438,
+      "offset": 22903,
       "length": 7,
       "value": "\"alpha\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17494,
+      "offset": 22959,
       "length": 5,
       "value": "\"red\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17550,
+      "offset": 23015,
       "length": 7,
       "value": "\"green\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17607,
+      "offset": 23072,
       "length": 6,
       "value": "\"blue\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17814,
+      "offset": 23279,
       "length": 99,
       "value": "\"body in onLoad has a missing value of one or more colors. Filling default color -> body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 17912,
+      "offset": 23377,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 18230,
+      "offset": 23695,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 18250,
+      "offset": 23715,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 18267,
+      "offset": 23732,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "IntegerLiteral",
-      "offset": 18286,
+      "offset": 23751,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 18476,
+      "offset": 23941,
       "length": 7,
       "value": "\"theme\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 18535,
+      "offset": 24000,
       "length": 7,
       "value": "\"color\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 18664,
+      "offset": 24129,
       "length": 58,
       "value": "\"body in onLoad doesn't have theme_color - body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 18721,
+      "offset": 24186,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 19152,
+      "offset": 24617,
       "length": 84,
       "value": "\"invalid hex passed in the theme color initOptions -> hexString = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 19235,
+      "offset": 24700,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 19550,
+      "offset": 25015,
       "length": 58,
       "value": "\"body in onLoad doesn't have theme_color - body = \""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "StringLiteral",
-      "offset": 19607,
+      "offset": 25072,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout+JSBridge.swift",
       "kind": "BooleanLiteral",
-      "offset": 19856,
+      "offset": 25321,
       "length": 5,
       "value": "false"
     },
@@ -4303,50 +4377,71 @@
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
       "offset": 836,
+      "length": 76,
+      "value": "\"https:\/\/api.razorpay.com\/v2\/settings\/sdk?tenant=ios_checkout&version=3.0.*\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 950,
+      "length": 34,
+      "value": "\"DZnPExGy8zBo2BFYUCSAii0dI9dErTza\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1028,
       "length": 79,
       "value": "\"https:\/\/butler.razorpay.com\/v1\/settings?tenant=android_customui&version=3.0.*\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 960,
+      "offset": 1150,
+      "length": 34,
+      "value": "\"EPl0bxz9OvsD5IylM1M28Mv2n3v9XBsr\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 1229,
       "length": 34,
       "value": "\"qGcvFap9keVGEN78OyRbSbYQYvlM6N56\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1040,
+      "offset": 1309,
       "length": 75,
       "value": "\"https:\/\/butler.razorpay.com\/v1\/settings?tenant=ios_customui&version=1.0.*\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1158,
+      "offset": 1427,
       "length": 34,
       "value": "\"ZDRhODRiMWM4NTc1MjI5MWViN2M4MWI0\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1225,
+      "offset": 1494,
       "length": 14,
       "value": "\"standard_ios\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1272,
+      "offset": 1541,
       "length": 10,
       "value": "\"standard\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/CheckoutConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1317,
+      "offset": 1586,
       "length": 7,
-      "value": "\"1.5.3\""
+      "value": "\"1.5.4\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
@@ -4392,64 +4487,78 @@
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
-      "kind": "BooleanLiteral",
-      "offset": 964,
-      "length": 5,
-      "value": "false"
+      "kind": "Array",
+      "offset": 957,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 1207,
+      "offset": 1046,
+      "length": 9,
+      "value": "\"default\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
+      "kind": "StringLiteral",
+      "offset": 2805,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 1248,
+      "offset": 2842,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 1282,
+      "offset": 2876,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 1313,
+      "offset": 2907,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 1359,
+      "offset": 2953,
       "length": 26,
       "value": "\"com.razorpay.serialQueue\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "BooleanLiteral",
-      "offset": 1533,
+      "offset": 3123,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
+      "kind": "Dictionary",
+      "offset": 3213,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "StringLiteral",
-      "offset": 20475,
+      "offset": 27318,
       "length": 64,
       "value": "\"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Lumberjack.swift",
       "kind": "IntegerLiteral",
-      "offset": 20588,
+      "offset": 27426,
       "length": 2,
       "value": "62"
     },
@@ -4778,1052 +4887,1115 @@
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1201,
+      "offset": 1079,
+      "length": 42,
+      "value": "\"analytics.lumberjack.isLumberjackEnabled\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1168,
+      "length": 35,
+      "value": "\"analytics.lumberjack.use_v2_table\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1258,
+      "length": 43,
+      "value": "\"analytics.lumberjack.allowed_events_regex\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1352,
+      "length": 39,
+      "value": "\"analytics.lumberjack.blocked_versions\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 1567,
       "length": 23,
       "value": "\"CurrentSettingVersion\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1259,
+      "offset": 1625,
       "length": 9,
       "value": "\"AuthKey\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1307,
+      "offset": 1673,
       "length": 14,
       "value": "\"Content-Type\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1381,
+      "offset": 1747,
       "length": 16,
       "value": "\"Settingversion\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1456,
+      "offset": 1822,
       "length": 18,
       "value": "\"config_end_point\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1476,
-      "length": 41,
-      "value": "\"https:\/\/butler.razorpay.com\/v1\/settings\""
+      "offset": 1842,
+      "length": 42,
+      "value": "\"https:\/\/api.razorpay.com\/v2\/settings\/sdk\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1527,
+      "offset": 1894,
       "length": 8,
       "value": "\"enable\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1537,
+      "offset": 1904,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1551,
+      "offset": 1918,
       "length": 10,
       "value": "\"checkout\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 1563,
+      "offset": 1930,
       "length": 51,
       "value": "[(\"end_point\", \"\/v1\/checkout\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1624,
+      "offset": 1991,
       "length": 13,
       "value": "\"permissions\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1653,
+      "offset": 2020,
       "length": 16,
       "value": "\"custom_message\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1671,
+      "offset": 2038,
       "length": 46,
       "value": "\"We need SMS permission to auto fill bank OTP\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1731,
+      "offset": 2098,
       "length": 23,
       "value": "\"enable_custom_message\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1756,
+      "offset": 2123,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1775,
+      "offset": 2142,
       "length": 15,
       "value": "\"max_ask_count\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1792,
+      "offset": 2159,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1813,
+      "offset": 2180,
       "length": 8,
       "value": "\"otpelf\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1837,
+      "offset": 2204,
       "length": 8,
       "value": "\"enable\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1847,
+      "offset": 2214,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1865,
+      "offset": 2232,
       "length": 10,
       "value": "\"settings\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 1877,
+      "offset": 2244,
       "length": 23,
       "value": "[(\"platform\", \"android\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1914,
+      "offset": 2281,
       "length": 10,
       "value": "\"endpoint\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1926,
+      "offset": 2293,
       "length": 41,
       "value": "\"https:\/\/cdn.razorpay.com\/static\/otpelf\/\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1981,
+      "offset": 2348,
       "length": 14,
       "value": "\"js_file_name\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1997,
+      "offset": 2364,
       "length": 11,
       "value": "\"otpelf.js\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2022,
+      "offset": 2389,
       "length": 19,
       "value": "\"version_file_name\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2043,
+      "offset": 2410,
       "length": 14,
       "value": "\"version.json\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2077,
+      "offset": 2444,
       "length": 7,
       "value": "\"retry\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2100,
+      "offset": 2467,
       "length": 9,
       "value": "\"enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2111,
+      "offset": 2478,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2129,
+      "offset": 2496,
       "length": 11,
       "value": "\"max_count\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2142,
+      "offset": 2509,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2164,
+      "offset": 2531,
       "length": 11,
       "value": "\"analytics\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2191,
+      "offset": 2558,
       "length": 12,
       "value": "\"lumberjack\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2223,
+      "offset": 2590,
       "length": 5,
       "value": "\"key\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2230,
+      "offset": 2597,
       "length": 34,
       "value": "\"NmFhYWUwMDQ2NmMyOGUyNmFhNzQ0ODk2\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2282,
+      "offset": 2649,
       "length": 16,
       "value": "\"sdk_identifier\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2300,
+      "offset": 2667,
       "length": 17,
       "value": "\"customuiandroid\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2335,
+      "offset": 2702,
       "length": 11,
       "value": "\"end_point\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2348,
+      "offset": 2715,
       "length": 42,
       "value": "\"https:\/\/lumberjack.razorpay.com\/v1\/track\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2408,
-      "length": 8,
-      "value": "\"enable\""
+      "offset": 2775,
+      "length": 21,
+      "value": "\"isLumberjackEnabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2418,
+      "offset": 2798,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2456,
+      "offset": 2820,
+      "length": 14,
+      "value": "\"use_v2_table\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2836,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2859,
+      "length": 18,
+      "value": "\"blocked_versions\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "Array",
+      "offset": 2879,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2899,
+      "length": 22,
+      "value": "\"allowed_events_regex\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2923,
+      "length": 9,
+      "value": "\"default\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 2966,
       "length": 19,
       "value": "\"update_sdk_config\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2491,
+      "offset": 3001,
       "length": 16,
       "value": "\"latest_version\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2509,
+      "offset": 3019,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2525,
+      "offset": 3035,
       "length": 5,
       "value": "\"msg\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2532,
+      "offset": 3042,
       "length": 65,
       "value": "\"Razorpay: A new version of the sdk is available. Please update.\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2611,
+      "offset": 3121,
       "length": 14,
       "value": "\"enable_alert\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2627,
+      "offset": 3137,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2651,
+      "offset": 3161,
       "length": 5,
       "value": "\"upi\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2672,
+      "offset": 3182,
       "length": 31,
       "value": "\"recurringAutoPaySupportedApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Array",
-      "offset": 2705,
+      "offset": 3215,
       "length": 138,
       "value": "[\"in.org.npci.upiapp\", \"com.phonepe.app\", \"net.one97.paytm\", \"in.amazon.mShop.android.shopping\", \"com.google.android.apps.nbu.paisa.user\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2857,
+      "offset": 3367,
       "length": 23,
       "value": "\"isWhiteListingEnabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2882,
+      "offset": 3392,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2900,
+      "offset": 3410,
       "length": 17,
       "value": "\"blackListedApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Array",
-      "offset": 2919,
+      "offset": 3429,
       "length": 19,
       "value": "[\"com.myairtelapp\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2952,
+      "offset": 3462,
       "length": 17,
       "value": "\"whiteListedApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Array",
-      "offset": 2971,
+      "offset": 3481,
       "length": 1499,
       "value": "[\"com.google.android.apps.nbu.paisa.user\", \"in.org.npci.upiapp\", \"com.phonepe.app\", \"com.csam.icici.bank.imobile\", \"net.one97.paytm\", \"com.sbi.upi\", \"com.upi.axispay\", \"com.samsung.android.spay\", \"com.snapwork.hdfc\", \"com.icicibank.pockets\", \"com.bankofbaroda.upi\", \"com.freecharge.android\", \"com.axis.mobile\", \"com.mycompany.kvb\", \"com.fss.jnkpsp\", \"com.fss.idfcpsp\", \"com.YesBank\", \"com.microsoft.mobile.polymer\", \"com.upi.federalbank.org.lotza\", \"com.mgs.induspsp\", \"ai.wizely.android\", \"in.amazon.mShop.android.shopping\", \"com.rblbank.mobank\", \"money.bullet\", \"com.dreamplug.androidapp\", \"in.bajajfinservmarkets.app\", \"com.fampay.in\", \"com.mobikwik_new\", \"money.jupiter\", \"com.naviapp\", \"indwin.c3.shareapp\", \"com.tatadigital.tcp\", \"com.nextbillion.groww\", \"com.shriram.one\", \"com.pinelabs.fave\", \"com.ultracash.payment.customer\", \"com.npst.timepay.society\", \"com.goibibo\", \"com.msf.kbank.mobile\", \"com.kotak811mobilebankingapp.instantsavingsupiscanandpayrecharge\", \"com.hdfcbank.payzapp\", \"com.fss.ippbpsp\", \"com.canarabank.mobility\", \"com.jio.myjio\", \"com.IndianBank.IndOASIS\", \"com.lcode.ucoupi\", \"com.euronet.iobupi\", \"com.lcode.csbupi\", \"com.atyati.tvamapp\", \"com.popclub.android\", \"com.idfcfirstbank.optimus\", \"com.Version1\", \"com.fedmobile\", \"com.iexceed.appzillon.ippbMB\", \"com.infrasoft.uboi\", \"money.super.payments\", \"com.eroute.omnicard\", \"com.ausmallfinancebank.amb\", \"com.infrasofttech.CentralBank\", \"in.gokiwi.kiwitpap\", \"com.fss.indus\", \"com.paypointz.wallet\", \"in.irisbyyes.app\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4484,
+      "offset": 4994,
       "length": 23,
       "value": "\"upiAppsPreferredOrder\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Array",
-      "offset": 4509,
+      "offset": 5019,
       "length": 102,
       "value": "[\"com.google.android.apps.nbu.paisa.user\", \"in.org.npci.upiapp\", \"com.phonepe.app\", \"net.one97.paytm\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4625,
+      "offset": 5135,
       "length": 12,
       "value": "\"shortcodes\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 4639,
+      "offset": 5149,
       "length": 2322,
       "value": "[(\"com.google.android.apps.nbu.paisa.user\", \"google_pay\"), (\"in.org.npci.upiapp\", \"bhim\"), (\"com.phonepe.app\", \"phonepe\"), (\"com.csam.icici.bank.imobile\", \"imobile\"), (\"net.one97.paytm\", \"paytm\"), (\"com.sbi.upi\", \"sbi\"), (\"com.upi.axispay\", \"axispay\"), (\"com.samsung.android.spay\", \"samsung\"), (\"com.snapwork.hdfc\", \"hdfc-bank\"), (\"com.icicibank.pockets\", \"icici-pocket\"), (\"com.bankofbaroda.upi\", \"bank-of-baroda\"), (\"com.freecharge.android\", \"freecharge\"), (\"com.axis.mobile\", \"axis\"), (\"com.mycompany.kvb\", \"kvb\"), (\"com.fss.jnkpsp\", \"jk-upi\"), (\"com.fss.idfcpsp\", \"idfc\"), (\"com.YesBank\", \"yes-bank\"), (\"com.microsoft.mobile.polymer\", \"microsoft-kaizala\"), (\"com.upi.federalbank.org.lotza\", \"lotza\"), (\"com.mgs.induspsp\", \"induspay\"), (\"ai.wizely.android\", \"wizely\"), (\"in.amazon.mShop.android.shopping\", \"amazon\"), (\"com.rblbank.mobank\", \"rbl-mobank\"), (\"money.bullet\", \"jupiter\"), (\"com.dreamplug.androidapp\", \"cred\"), (\"in.bajajfinservmarkets.app\", \"finserve\"), (\"com.fampay.in\", \"fampay\"), (\"com.mobikwik_new\", \"mobikwik\"), (\"com.mgs.pnbupi\", \"pnb-bank\"), (\"com.dbs.in.digitalbank\", \"digibank\"), (\"money.jupiter\", \"jupiter\"), (\"com.naviapp\", \"navi\"), (\"indwin.c3.shareapp\", \"slice\"), (\"com.tatadigital.tcp\", \"tataneu\"), (\"com.nextbillion.groww\", \"groww\"), (\"com.shriram.one\", \"shriramone\"), (\"com.pinelabs.fave\", \"fave\"), (\"com.ultracash.payment.customer\", \"ultracash\"), (\"com.npst.timepay.society\", \"timepay\"), (\"com.goibibo\", \"goibibo\"), (\"com.msf.kbank.mobile\", \"kotak\"), (\"com.kotak811mobilebankingapp.instantsavingsupiscanandpayrecharge\", \"kotak811\"), (\"com.hdfcbank.payzapp\", \"payzapp\"), (\"com.fss.ippbpsp\", \"dakpay\"), (\"com.canarabank.mobility\", \"canara\"), (\"com.jio.myjio\", \"myjio\"), (\"com.IndianBank.IndOASIS\", \"indoasis\"), (\"com.lcode.ucoupi\", \"bhim-uco\"), (\"com.euronet.iobupi\", \"bhim-iob\"), (\"com.lcode.csbupi\", \"bhim-csb\"), (\"com.atyati.tvamapp\", \"tvam\"), (\"com.popclub.android\", \"popclubapp\"), (\"com.idfcfirstbank.optimus\", \"idfc-first\"), (\"com.Version1\", \"pnb-one\"), (\"com.fedmobile\", \"fedmobile\"), (\"com.iexceed.appzillon.ippbMB\", \"india-post\"), (\"com.infrasoft.uboi\", \"vyom\"), (\"money.super.payments\", \"super-money\"), (\"com.eroute.omnicard\", \"omnicard\"), (\"com.ausmallfinancebank.amb\", \"au0101\"), (\"com.infrasofttech.CentralBank\", \"cent-mobile\"), (\"in.gokiwi.kiwitpap\", \"kiwi\"), (\"com.fss.indus\", \"indusmobile\"), (\"com.indusind.indie\", \"indus-indie\"), (\"com.paypointz.wallet\", \"digi-khata\"), (\"in.irisbyyes.app\", \"yesbank-iris\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 6975,
+      "offset": 7485,
       "length": 16,
       "value": "\"intentAppCodes\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 6993,
+      "offset": 7503,
       "length": 1116,
       "value": "[(\"com.google.android.apps.nbu.paisa.user\", \"google_pay\"), (\"in.org.npci.upiapp\", \"bhim\"), (\"com.phonepe.app\", \"phonepe\"), (\"com.csam.icici.bank.imobile\", \"icici\"), (\"net.one97.paytm\", \"paytm\"), (\"com.sbi.upi\", \"sbi\"), (\"com.upi.axispay\", \"axispay\"), (\"com.samsung.android.spay\", \"samsung_pay\"), (\"com.snapwork.hdfc\", \"hdfc-bank\"), (\"com.icicibank.pockets\", \"icici-pocket\"), (\"com.bankofbaroda.upi\", \"bobupi\"), (\"com.freecharge.android\", \"freecharge\"), (\"com.axis.mobile\", \"axis\"), (\"com.mycompany.kvb\", \"kvb\"), (\"com.fss.jnkpsp\", \"jk-upi\"), (\"com.enstage.wibmo.hdfc\", \"payzapp\"), (\"com.fss.idfcpsp\", \"idfc\"), (\"com.yesbank.yespaynext\", \"yes-bank\"), (\"com.microsoft.mobile.polymer\", \"microsoft-kaizala\"), (\"com.upi.federalbank.org.lotza\", \"lotza\"), (\"com.mgs.induspsp\", \"induspay\"), (\"ai.wizely.android\", \"wizely\"), (\"in.amazon.mShop.android.shopping\", \"amazon_pay\"), (\"com.rblbank.mobank\", \"rbl-mobank\"), (\"money.bullet\", \"jupiter\"), (\"com.dreamplug.androidapp\", \"cred\"), (\"in.bajajfinservmarkets.app\", \"finserv\"), (\"com.fampay.in\", \"fampay\"), (\"com.mobikwik_new\", \"mobikwik\"), (\"com.mgs.pnbupi\", \"pnb-bank\"), (\"com.dbs.in.digitalbank\", \"digibank\"), (\"money.jupiter\", \"jupiter\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8129,
+      "offset": 8639,
       "length": 14,
       "value": "\"static_rules\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8159,
+      "offset": 8669,
       "length": 18,
       "value": "\"identify_network\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8197,
+      "offset": 8707,
       "length": 6,
       "value": "\"visa\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8205,
+      "offset": 8715,
       "length": 4,
       "value": "\"^4\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8227,
+      "offset": 8737,
       "length": 12,
       "value": "\"mastercard\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8241,
+      "offset": 8751,
       "length": 18,
       "value": "\"^(5[1-5]|2[2-7])\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8277,
+      "offset": 8787,
       "length": 11,
       "value": "\"maestro16\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8290,
+      "offset": 8800,
       "length": 38,
       "value": "\"^50(81(25|26|59|92)|8227)|4(437|681)\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8346,
+      "offset": 8856,
       "length": 6,
       "value": "\"amex\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8354,
+      "offset": 8864,
       "length": 8,
       "value": "\"^3[47]\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8380,
+      "offset": 8890,
       "length": 7,
       "value": "\"rupay\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8389,
+      "offset": 8899,
       "length": 131,
       "value": "\"^(508[5-9]|60(80(0|)[^0]|8[1-4]|8500|698[5-9]|699|7[^9]|79[0-7]|798[0-4])|65(2(1[5-9]|[2-9])|30|31[0-4])|817[2-9]|81[89]|820[01])\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8538,
+      "offset": 9048,
       "length": 10,
       "value": "\"discover\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8550,
+      "offset": 9060,
       "length": 19,
       "value": "\"^(65[1,3-9]|6011)\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8587,
+      "offset": 9097,
       "length": 9,
       "value": "\"maestro\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8598,
+      "offset": 9108,
       "length": 21,
       "value": "\"^(6|5(0|[6-9])).{5}\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8637,
+      "offset": 9147,
       "length": 8,
       "value": "\"diners\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8647,
+      "offset": 9157,
       "length": 10,
       "value": "\"^3[0689]\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8675,
+      "offset": 9185,
       "length": 5,
       "value": "\"jcb\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8682,
+      "offset": 9192,
       "length": 5,
       "value": "\"^35\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8715,
+      "offset": 9225,
       "length": 21,
       "value": "\"network_card_length\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8756,
+      "offset": 9266,
       "length": 5,
       "value": "\"jcb\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8763,
+      "offset": 9273,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8783,
+      "offset": 9293,
       "length": 10,
       "value": "\"discover\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8795,
+      "offset": 9305,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8815,
+      "offset": 9325,
       "length": 6,
       "value": "\"visa\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8823,
+      "offset": 9333,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8843,
+      "offset": 9353,
       "length": 12,
       "value": "\"mastercard\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8857,
+      "offset": 9367,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8877,
+      "offset": 9387,
       "length": 6,
       "value": "\"amex\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8885,
+      "offset": 9395,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8905,
+      "offset": 9415,
       "length": 8,
       "value": "\"diners\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8915,
+      "offset": 9425,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8935,
+      "offset": 9445,
       "length": 9,
       "value": "\"maestro\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8946,
+      "offset": 9456,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8966,
+      "offset": 9476,
       "length": 11,
       "value": "\"maestro16\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 8979,
+      "offset": 9489,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 8999,
+      "offset": 9509,
       "length": 9,
       "value": "\"default\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 9010,
+      "offset": 9520,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9030,
+      "offset": 9540,
       "length": 7,
       "value": "\"rupay\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 9039,
+      "offset": 9549,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9069,
+      "offset": 9579,
       "length": 7,
       "value": "\"logos\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9096,
+      "offset": 9606,
       "length": 8,
       "value": "\"wallet\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 9106,
+      "offset": 9616,
       "length": 126,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/wallet\/\"), (\"extension\", \"png\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9250,
+      "offset": 9760,
       "length": 11,
       "value": "\"wallet_sq\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 9263,
+      "offset": 9773,
       "length": 129,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/wallet-sq\/\"), (\"extension\", \"png\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9410,
+      "offset": 9920,
       "length": 6,
       "value": "\"bank\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 9418,
+      "offset": 9928,
       "length": 124,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/bank\/\"), (\"extension\", \"gif\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9560,
+      "offset": 10070,
       "length": 5,
       "value": "\"upi\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 9567,
+      "offset": 10077,
       "length": 123,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/app\/\"), (\"extension\", \"png\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9724,
+      "offset": 10234,
       "length": 14,
       "value": "\"one_time_otp\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 9740,
+      "offset": 10250,
       "length": 18,
       "value": "[(\"enabled\", false)]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9768,
+      "offset": 10278,
       "length": 5,
       "value": "\"ios\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9789,
+      "offset": 10299,
       "length": 20,
       "value": "\"unhand_exc_enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 9811,
+      "offset": 10321,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9829,
+      "offset": 10339,
       "length": 33,
       "value": "\"unhand_exc_sleep_time_milli_sec\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 9864,
+      "offset": 10374,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9880,
+      "offset": 10390,
       "length": 16,
       "value": "\"ns_exc_enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 9898,
+      "offset": 10408,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9916,
+      "offset": 10426,
       "length": 16,
       "value": "\"update_sdk_msg\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 9934,
+      "offset": 10444,
       "length": 85,
       "value": "\"A new version of the sdk is available (shown only when using test key or simulator)\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 10033,
+      "offset": 10543,
       "length": 23,
       "value": "\"show_sdk_update_alert\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 10058,
+      "offset": 10568,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 10076,
+      "offset": 10586,
       "length": 20,
       "value": "\"latest_sdk_version\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 10098,
+      "offset": 10608,
       "length": 7,
       "value": "\"1.0.9\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 10119,
+      "offset": 10629,
       "length": 15,
       "value": "\"availableApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Array",
-      "offset": 10136,
+      "offset": 10646,
       "length": 2516,
       "value": "[[(\"uriScheme\", \"tez:\/\/upi\/pay\"), (\"mandateUriScheme\", \"tez:\/\/upi\/mandate\"), (\"appName\", \"Google Pay\"), (\"shortcode\", \"google_pay\")], [(\"uriScheme\", \"phonepe:\/\/pay\"), (\"mandateUriScheme\", \"phonepe:\/\/mandate\"), (\"appName\", \"PhonePe\"), (\"shortcode\", \"phonepe\")], [(\"uriScheme\", \"paytmmp:\/\/upi\/pay\"), (\"mandateUriScheme\", \"paytmmp:\/\/upi\/mandate\"), (\"appName\", \"Paytm\"), (\"shortcode\", \"paytm\")], [(\"uriScheme\", \"credpay:\/\/upi\/pay\"), (\"appName\", \"CRED\"), (\"shortcode\", \"cred\")], [(\"uriScheme\", \"mobikwik:\/\/upi\/pay\"), (\"appName\", \"Mobikwik\"), (\"shortcode\", \"mobikwik\")], [(\"uriScheme\", \"freecharge:\/\/upi\/pay\"), (\"appName\", \"Freecharge\"), (\"shortcode\", \"freecharge\")], [(\"uriScheme\", \"amazonpay:\/\/upi\/pay\"), (\"appName\", \"AmazonPay\"), (\"shortcode\", \"amazonpay\")], [(\"uriScheme\", \"navi:\/\/upi\/pay\"), (\"appName\", \"Navi\"), (\"shortcode\", \"navi\")], [(\"uriScheme\", \"kiwi:\/\/upi\/pay\"), (\"appName\", \"Kiwi\"), (\"shortcode\", \"kiwi\")], [(\"uriScheme\", \"payzapp:\/\/upi\/pay\"), (\"appName\", \"PayZapp\"), (\"shortcode\", \"payzapp\")], [(\"uriScheme\", \"jupiter:\/\/upi\/pay\"), (\"appName\", \"Jupiter\"), (\"shortcode\", \"jupiter\")], [(\"uriScheme\", \"sbiyono:\/\/upi\/pay\"), (\"appName\", \"SBI Yono\"), (\"shortcode\", \"sbiyono\")], [(\"uriScheme\", \"whatsapp:\/\/upi\/pay\"), (\"appName\", \"Whatsapp\"), (\"shortcode\", \"whatsapp\")], [(\"uriScheme\", \"slice-upi:\/\/upi:\/\/pay\"), (\"appName\", \"Slice\"), (\"shortcode\", \"slice\")], [(\"uriScheme\", \"bobupi:\/\/upi\/pay\"), (\"appName\", \"BoB World UPI\"), (\"shortcode\", \"bobupi\")], [(\"uriScheme\", \"myjio:\/\/upi\/pay\"), (\"appName\", \"MyJio\"), (\"shortcode\", \"myjio\")], [(\"uriScheme\", \"freecharge:\/\/upi\/pay\"), (\"appName\", \"Freecharge\"), (\"shortcode\", \"freecharge\")], [(\"uriScheme\", \"omnicard:\/\/upi\/pay\"), (\"appName\", \"Omnicard\"), (\"shortcode\", \"omnicard\")], [(\"uriScheme\", \"shriramone:\/\/upi\/pay\"), (\"appName\", \"Shriram One\"), (\"shortcode\", \"shriramone\")], [(\"uriScheme\", \"indusmobile:\/\/upi\/pay\"), (\"appName\", \"IndusInd\"), (\"shortcode\", \"indusmobile\")], [(\"uriScheme\", \"bhim:\/\/upi\/pay\"), (\"appName\", \"Bhim\"), (\"shortcode\", \"bhim\")], [(\"uriScheme\", \"popclubapp:\/\/upi\/pay\"), (\"appName\", \"PopClub\"), (\"shortcode\", \"popclubapp\")], [(\"uriScheme\", \"in.fampay.app:\/\/upi\/pay\"), (\"appName\", \"Fampay\"), (\"shortcode\", \"fampay\")], [(\"uriScheme\", \"kotakbank:\/\/pay\"), (\"appName\", \"Kotak811\"), (\"shortcode\", \"kotakbank\")]]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12672,
+      "offset": 13182,
       "length": 10,
       "value": "\"features\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 12684,
+      "offset": 13194,
       "length": 52,
       "value": "[(\"block_rooted_devices\", true)]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12746,
+      "offset": 13256,
       "length": 15,
       "value": "\"feature_flags\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12777,
+      "offset": 13287,
       "length": 16,
       "value": "\"enable_preload\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12813,
+      "offset": 13323,
       "length": 9,
       "value": "\"enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 12824,
+      "offset": 13334,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12846,
+      "offset": 13356,
       "length": 14,
       "value": "\"rollout_type\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12862,
+      "offset": 13372,
       "length": 8,
       "value": "\"canary\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12888,
+      "offset": 13398,
       "length": 15,
       "value": "\"canary_config\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 12904,
+      "offset": 13414,
       "length": 63,
       "value": "[(\"rollout_percentage\", 1)]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 12985,
+      "offset": 13495,
       "length": 25,
       "value": "\"preload_frequency_hours\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 13012,
+      "offset": 13522,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 13042,
+      "offset": 13552,
       "length": 17,
       "value": "\"verbose_logging\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 13079,
+      "offset": 13589,
       "length": 9,
       "value": "\"enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 13090,
+      "offset": 13600,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 13113,
+      "offset": 13623,
       "length": 14,
       "value": "\"rollout_type\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 13129,
+      "offset": 13639,
       "length": 5,
       "value": "\"all\""
-    },
-    {
-      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/BaseRemoteConfig.swift",
-      "kind": "BooleanLiteral",
-      "offset": 13351,
-      "length": 5,
-      "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Otpelf\/OtpelfConstants.swift",
@@ -5955,741 +6127,741 @@
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
       "offset": 1318,
-      "length": 41,
-      "value": "\"https:\/\/butler.razorpay.com\/v1\/settings\""
+      "length": 42,
+      "value": "\"https:\/\/api.razorpay.com\/v2\/settings\/sdk\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1369,
+      "offset": 1370,
       "length": 8,
       "value": "\"enable\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1379,
+      "offset": 1380,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1393,
+      "offset": 1394,
       "length": 10,
       "value": "\"checkout\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 1405,
+      "offset": 1406,
       "length": 51,
       "value": "[(\"end_point\", \"\/v1\/checkout\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1466,
+      "offset": 1467,
       "length": 13,
       "value": "\"permissions\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1495,
+      "offset": 1496,
       "length": 16,
       "value": "\"custom_message\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1513,
+      "offset": 1514,
       "length": 46,
       "value": "\"We need SMS permission to auto fill bank OTP\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1573,
+      "offset": 1574,
       "length": 23,
       "value": "\"enable_custom_message\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1598,
+      "offset": 1599,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1617,
+      "offset": 1618,
       "length": 15,
       "value": "\"max_ask_count\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1634,
+      "offset": 1635,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1655,
+      "offset": 1656,
       "length": 8,
       "value": "\"otpelf\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1679,
+      "offset": 1680,
       "length": 8,
       "value": "\"enable\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1689,
+      "offset": 1690,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1707,
+      "offset": 1708,
       "length": 10,
       "value": "\"settings\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 1719,
+      "offset": 1720,
       "length": 53,
       "value": "[(\"platform\", \"android\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1786,
+      "offset": 1787,
       "length": 10,
       "value": "\"endpoint\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1798,
+      "offset": 1799,
       "length": 41,
       "value": "\"https:\/\/cdn.razorpay.com\/static\/otpelf\/\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1853,
+      "offset": 1854,
       "length": 14,
       "value": "\"js_file_name\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1869,
+      "offset": 1870,
       "length": 11,
       "value": "\"otpelf.js\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1894,
+      "offset": 1895,
       "length": 19,
       "value": "\"version_file_name\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1915,
+      "offset": 1916,
       "length": 14,
       "value": "\"version.json\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1949,
+      "offset": 1950,
       "length": 7,
       "value": "\"retry\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1972,
+      "offset": 1973,
       "length": 9,
       "value": "\"enabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1983,
+      "offset": 1984,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2001,
+      "offset": 2002,
       "length": 11,
       "value": "\"max_count\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2014,
+      "offset": 2015,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2036,
+      "offset": 2037,
       "length": 14,
       "value": "\"one_time_otp\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 2052,
+      "offset": 2053,
       "length": 40,
       "value": "[(\"enabled\", false)]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2102,
+      "offset": 2103,
       "length": 11,
       "value": "\"analytics\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2129,
+      "offset": 2130,
       "length": 12,
       "value": "\"lumberjack\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2161,
+      "offset": 2162,
       "length": 5,
       "value": "\"key\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2168,
+      "offset": 2169,
       "length": 34,
       "value": "\"NmFhYWUwMDQ2NmMyOGUyNmFhNzQ0ODk2\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2220,
+      "offset": 2221,
       "length": 16,
       "value": "\"sdk_identifier\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2238,
+      "offset": 2239,
       "length": 17,
       "value": "\"customuiandroid\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2273,
+      "offset": 2274,
       "length": 11,
       "value": "\"end_point\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2286,
+      "offset": 2287,
       "length": 42,
       "value": "\"https:\/\/lumberjack.razorpay.com\/v1\/track\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2346,
+      "offset": 2347,
       "length": 8,
       "value": "\"enable\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2356,
+      "offset": 2357,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2394,
+      "offset": 2395,
       "length": 19,
       "value": "\"update_sdk_config\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2429,
+      "offset": 2430,
       "length": 16,
       "value": "\"latest_version\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2447,
+      "offset": 2448,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2463,
+      "offset": 2464,
       "length": 5,
       "value": "\"msg\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2470,
+      "offset": 2471,
       "length": 65,
       "value": "\"Razorpay: A new version of the sdk is available. Please update.\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2549,
+      "offset": 2550,
       "length": 14,
       "value": "\"enable_alert\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2565,
+      "offset": 2566,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2589,
+      "offset": 2590,
       "length": 5,
       "value": "\"upi\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2610,
+      "offset": 2611,
       "length": 23,
       "value": "\"isWhiteListingEnabled\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 2635,
+      "offset": 2636,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2653,
+      "offset": 2654,
       "length": 17,
       "value": "\"blackListedApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Array",
-      "offset": 2672,
+      "offset": 2673,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2688,
+      "offset": 2689,
       "length": 17,
       "value": "\"whiteListedApps\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Array",
-      "offset": 2707,
+      "offset": 2708,
       "length": 1560,
       "value": "[\"com.google.android.apps.nbu.paisa.user\", \"in.org.npci.upiapp\", \"com.phonepe.app\", \"com.myairtelapp\", \"com.myairtelapp.debug\", \"com.csam.icici.bank.imobile\", \"net.one97.paytm\", \"com.sbi.upi\", \"com.upi.axispay\", \"com.samsung.android.spaymini\", \"com.samsung.android.spay\", \"com.snapwork.hdfc\", \"com.fss.pnbpsp\", \"com.icicibank.pockets\", \"com.bankofbaroda.upi\", \"com.freecharge.android\", \"com.fss.unbipsp\", \"com.axis.mobile\", \"com.mycompany.kvb\", \"com.fss.vijayapsp\", \"com.dena.upi.gui\", \"com.fss.jnkpsp\", \"com.olive.kotak.upi\", \"com.enstage.wibmo.hdfc\", \"com.bsb.hike\", \"com.fss.idfcpsp\", \"com.abipbl.upi\", \"com.microsoft.mobile.polymer\", \"com.finopaytech.bpayfino\", \"com.mgs.obcbank\", \"com.upi.federalbank.org.lotza\", \"com.mgs.induspsp\", \"ai.wizely.android\", \"com.olive.dcb.upi\", \"com.mgs.yesmerchantnative.prod\", \"com.example.demo\", \"in.amazon.mShop.android.shopping\", \"com.mipay.wallet.in\", \"in.bajajfinservmarkets.app\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4281,
+      "offset": 4282,
       "length": 23,
       "value": "\"upiAppsPreferredOrder\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Array",
-      "offset": 4306,
+      "offset": 4307,
       "length": 226,
       "value": "[\"in.bajajfinservmarkets.app\", \"com.google.android.apps.nbu.paisa.user\", \"in.org.npci.upiapp\", \"com.phonepe.app\", \"net.one97.paytm\"]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4552,
+      "offset": 4553,
       "length": 14,
       "value": "\"static_rules\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4582,
+      "offset": 4583,
       "length": 18,
       "value": "\"identify_network\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4620,
+      "offset": 4621,
       "length": 6,
       "value": "\"visa\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4628,
+      "offset": 4629,
       "length": 4,
       "value": "\"^4\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4650,
+      "offset": 4651,
       "length": 12,
       "value": "\"mastercard\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4664,
+      "offset": 4665,
       "length": 18,
       "value": "\"^(5[1-5]|2[2-7])\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4700,
+      "offset": 4701,
       "length": 11,
       "value": "\"maestro16\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4713,
+      "offset": 4714,
       "length": 38,
       "value": "\"^50(81(25|26|59|92)|8227)|4(437|681)\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4769,
+      "offset": 4770,
       "length": 6,
       "value": "\"amex\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4777,
+      "offset": 4778,
       "length": 8,
       "value": "\"^3[47]\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4803,
+      "offset": 4804,
       "length": 7,
       "value": "\"rupay\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4812,
+      "offset": 4813,
       "length": 131,
       "value": "\"^(508[5-9]|60(80(0|)[^0]|8[1-4]|8500|698[5-9]|699|7[^9]|79[0-7]|798[0-4])|65(2(1[5-9]|[2-9])|30|31[0-4])|817[2-9]|81[89]|820[01])\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4961,
+      "offset": 4962,
       "length": 10,
       "value": "\"discover\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 4973,
+      "offset": 4974,
       "length": 19,
       "value": "\"^(65[1,3-9]|6011)\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5010,
+      "offset": 5011,
       "length": 9,
       "value": "\"maestro\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5021,
+      "offset": 5022,
       "length": 21,
       "value": "\"^(6|5(0|[6-9])).{5}\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5060,
+      "offset": 5061,
       "length": 8,
       "value": "\"diners\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5070,
+      "offset": 5071,
       "length": 10,
       "value": "\"^3[0689]\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5098,
+      "offset": 5099,
       "length": 5,
       "value": "\"jcb\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5105,
+      "offset": 5106,
       "length": 5,
       "value": "\"^35\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5138,
+      "offset": 5139,
       "length": 21,
       "value": "\"network_card_length\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5179,
+      "offset": 5180,
       "length": 5,
       "value": "\"jcb\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5186,
+      "offset": 5187,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5206,
+      "offset": 5207,
       "length": 10,
       "value": "\"discover\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5218,
+      "offset": 5219,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5238,
+      "offset": 5239,
       "length": 6,
       "value": "\"visa\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5246,
+      "offset": 5247,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5266,
+      "offset": 5267,
       "length": 12,
       "value": "\"mastercard\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5280,
+      "offset": 5281,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5300,
+      "offset": 5301,
       "length": 6,
       "value": "\"amex\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5308,
+      "offset": 5309,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5328,
+      "offset": 5329,
       "length": 8,
       "value": "\"diners\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5338,
+      "offset": 5339,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5358,
+      "offset": 5359,
       "length": 9,
       "value": "\"maestro\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5369,
+      "offset": 5370,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5389,
+      "offset": 5390,
       "length": 11,
       "value": "\"maestro16\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5402,
+      "offset": 5403,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5422,
+      "offset": 5423,
       "length": 9,
       "value": "\"default\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5433,
+      "offset": 5434,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5453,
+      "offset": 5454,
       "length": 7,
       "value": "\"rupay\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 5462,
+      "offset": 5463,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5492,
+      "offset": 5493,
       "length": 7,
       "value": "\"logos\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5519,
+      "offset": 5520,
       "length": 8,
       "value": "\"wallet\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 5529,
+      "offset": 5530,
       "length": 126,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/wallet\/\"), (\"extension\", \"png\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5673,
+      "offset": 5674,
       "length": 11,
       "value": "\"wallet_sq\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 5686,
+      "offset": 5687,
       "length": 129,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/wallet-sq\/\"), (\"extension\", \"png\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5833,
+      "offset": 5834,
       "length": 6,
       "value": "\"bank\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 5841,
+      "offset": 5842,
       "length": 124,
       "value": "[(\"base_url\", \"https:\/\/cdn.razorpay.com\/bank\/\"), (\"extension\", \"gif\")]"
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "StringLiteral",
-      "offset": 5999,
+      "offset": 6000,
       "length": 5,
       "value": "\"ios\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CustomuiOtpelf\/RemoteConfig.swift",
       "kind": "Dictionary",
-      "offset": 6006,
+      "offset": 6007,
       "length": 747,
       "value": "[(\"availableApps\", [[(\"uriScheme\", \"tez:\/\/upi\/pay\"), (\"appName\", \"GooglePay\"), (\"shortcode\", \"google_pay\")], [(\"uriScheme\", \"phonepe:\/\/pay\"), (\"appName\", \"PhonePe\"), (\"shortcode\", \"phonepe\")], [(\"uriScheme\", \"paytmmp:\/\/upi\/pay\"), (\"appName\", \"Paytm\"), (\"shortcode\", \"paytm\")], [(\"uriScheme\", \"credpay:\/\/checkout\"), (\"appName\", \"Cred\"), (\"shortcode\", \"cred\")]])]"
     },
@@ -6699,6 +6871,13 @@
       "offset": 397,
       "length": 2,
       "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/CheckoutOtpelf\/Classes\/RazorpayCheckout.swift",
+      "kind": "StringLiteral",
+      "offset": 10382,
+      "length": 35,
+      "value": "\"com.razorpay.addressWalletHandler\""
     },
     {
       "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/Main\/Toast.swift",
