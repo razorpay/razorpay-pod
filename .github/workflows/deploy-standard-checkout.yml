@@ -11,8 +11,10 @@ env:
   DEPLOYMENT_VERSION: ${{ github.event.client_payload.version || '' }}
   IS_RC: ${{ github.event.client_payload.is_rc || '' }}
   CORE_CHANGED: ${{ github.event.client_payload.core_changed || 'false' }}
-  WRAPPER_CHANGED: ${{ github.event.client_payload.wrapper_changed || 'false' }}
-  RUN_ID: ${{ github.event.client_payload.run_id || '' }}
+  TAG_NAME: ${{ github.event.client_payload.tag_name || '' }}
+  CHECKSUM_SDK: ${{ github.event.client_payload.checksums.sdk || '' }}
+  CHECKSUM_WRAPPER: ${{ github.event.client_payload.checksums.wrapper || '' }}
+  CHECKSUM_CORE: ${{ github.event.client_payload.checksums.core || '' }}
 
 jobs:
 # ─────────────────────────────────────────────────────────────────────────────
@@ -36,66 +38,92 @@ jobs:
         run: |
           git checkout -b "release/${{ env.DEPLOYMENT_VERSION }}"
 
-      - name: Download XCFramework artifacts
+      - name: Download XCFramework artifacts from release
         env:
-          CI_BOT_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         run: |
-          echo "── Downloading xcframework artifacts from run #${RUN_ID} ──"
+          echo "── Downloading artifacts from release ${TAG_NAME} ──"
 
-          ARTIFACTS_JSON=$(curl --silent \
-            -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
+          RELEASE_JSON=$(curl --silent \
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/razorpay/razorpay-ios/actions/runs/${RUN_ID}/artifacts")
+            "https://api.github.com/repos/razorpay/razorpay-ios/releases/tags/${TAG_NAME}")
 
-          # Download SDK xcframework artifact (always available)
-          SDK_ARTIFACT_URL=$(echo "$ARTIFACTS_JSON" | jq -r '.artifacts[] | select(.name | startswith("xcframework-standard-")) | .archive_download_url' | head -1)
-          if [ -z "$SDK_ARTIFACT_URL" ] || [ "$SDK_ARTIFACT_URL" = "null" ]; then
-            echo "❌ SDK xcframework artifact not found in run #${RUN_ID}"
-            echo "Available artifacts:"
-            echo "$ARTIFACTS_JSON" | jq '.artifacts[].name'
+          RELEASE_ID=$(echo "$RELEASE_JSON" | jq -r '.id // empty')
+          if [ -z "$RELEASE_ID" ]; then
+            echo "❌ Release not found for tag: ${TAG_NAME}"
             exit 1
           fi
 
+          # Download SDK xcframework
+          SDK_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "sdk-xcframework.zip") | .url')
+          if [ -z "$SDK_URL" ] || [ "$SDK_URL" = "null" ]; then
+            echo "❌ sdk-xcframework.zip not found in release assets"
+            exit 1
+          fi
           curl -L --silent \
-            -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -o /tmp/sdk-xcframework.zip "$SDK_ARTIFACT_URL"
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+            -H "Accept: application/octet-stream" \
+            -o /tmp/sdk-xcframework.zip "$SDK_URL"
+
+          # Verify SDK checksum
+          ACTUAL_SDK_SHA=$(sha256sum /tmp/sdk-xcframework.zip | awk '{print $1}')
+          if [ "$ACTUAL_SDK_SHA" != "${CHECKSUM_SDK}" ]; then
+            echo "❌ CHECKSUM MISMATCH for SDK"
+            echo "   Expected: ${CHECKSUM_SDK}"
+            echo "   Actual:   ${ACTUAL_SDK_SHA}"
+            exit 1
+          fi
           mkdir -p /tmp/sdk-artifact
           unzip -q /tmp/sdk-xcframework.zip -d /tmp/sdk-artifact
-          echo "✅ SDK xcframework artifact downloaded"
+          echo "✅ SDK xcframework downloaded and verified"
 
-          # Download RazorpayWrapper artifact (when wrapper or core changed)
-          if [ "${WRAPPER_CHANGED}" = "true" ] || [ "${CORE_CHANGED}" = "true" ]; then
-            WRAPPER_ARTIFACT_URL=$(echo "$ARTIFACTS_JSON" | jq -r '.artifacts[] | select(.name | startswith("xcframework-razorpaywrapper-")) | .archive_download_url' | head -1)
-            if [ -z "$WRAPPER_ARTIFACT_URL" ] || [ "$WRAPPER_ARTIFACT_URL" = "null" ]; then
-              echo "❌ RazorpayWrapper xcframework artifact not found"
-              exit 1
-            fi
-
-            curl -L --silent \
-              -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -o /tmp/wrapper-xcframework.zip "$WRAPPER_ARTIFACT_URL"
-            mkdir -p /tmp/wrapper-artifact
-            unzip -q /tmp/wrapper-xcframework.zip -d /tmp/wrapper-artifact
-            echo "✅ RazorpayWrapper xcframework artifact downloaded"
+          # Download Wrapper xcframework
+          WRAPPER_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "wrapper-xcframework.zip") | .url')
+          if [ -z "$WRAPPER_URL" ] || [ "$WRAPPER_URL" = "null" ]; then
+            echo "❌ wrapper-xcframework.zip not found in release assets"
+            exit 1
           fi
+          curl -L --silent \
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+            -H "Accept: application/octet-stream" \
+            -o /tmp/wrapper-xcframework.zip "$WRAPPER_URL"
 
-          # Download RazorpayCore artifact (only when core changed)
+          # Verify Wrapper checksum
+          ACTUAL_WRAPPER_SHA=$(sha256sum /tmp/wrapper-xcframework.zip | awk '{print $1}')
+          if [ "$ACTUAL_WRAPPER_SHA" != "${CHECKSUM_WRAPPER}" ]; then
+            echo "❌ CHECKSUM MISMATCH for Wrapper"
+            echo "   Expected: ${CHECKSUM_WRAPPER}"
+            echo "   Actual:   ${ACTUAL_WRAPPER_SHA}"
+            exit 1
+          fi
+          mkdir -p /tmp/wrapper-artifact
+          unzip -q /tmp/wrapper-xcframework.zip -d /tmp/wrapper-artifact
+          echo "✅ Wrapper xcframework downloaded and verified"
+
+          # Download Core xcframework (only when core changed)
           if [ "${CORE_CHANGED}" = "true" ]; then
-            CORE_ARTIFACT_URL=$(echo "$ARTIFACTS_JSON" | jq -r '.artifacts[] | select(.name | startswith("xcframework-razorpaycore-")) | .archive_download_url' | head -1)
-            if [ -z "$CORE_ARTIFACT_URL" ] || [ "$CORE_ARTIFACT_URL" = "null" ]; then
-              echo "❌ RazorpayCore xcframework artifact not found"
+            CORE_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "core-xcframework.zip") | .url')
+            if [ -z "$CORE_URL" ] || [ "$CORE_URL" = "null" ]; then
+              echo "❌ core-xcframework.zip not found in release assets"
               exit 1
             fi
-
             curl -L --silent \
-              -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -o /tmp/core-xcframework.zip "$CORE_ARTIFACT_URL"
+              -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+              -H "Accept: application/octet-stream" \
+              -o /tmp/core-xcframework.zip "$CORE_URL"
+
+            # Verify Core checksum
+            ACTUAL_CORE_SHA=$(sha256sum /tmp/core-xcframework.zip | awk '{print $1}')
+            if [ "$ACTUAL_CORE_SHA" != "${CHECKSUM_CORE}" ]; then
+              echo "❌ CHECKSUM MISMATCH for Core"
+              echo "   Expected: ${CHECKSUM_CORE}"
+              echo "   Actual:   ${ACTUAL_CORE_SHA}"
+              exit 1
+            fi
             mkdir -p /tmp/core-artifact
             unzip -q /tmp/core-xcframework.zip -d /tmp/core-artifact
-            echo "✅ RazorpayCore xcframework artifact downloaded"
+            echo "✅ Core xcframework downloaded and verified"
           fi
 
       - name: Replace xcframeworks
@@ -116,21 +144,17 @@ jobs:
           cp -R "$SDK_XCFW" Pod/RazorpayStandard.xcframework
           echo "✅ Pod/RazorpayStandard.xcframework → replaced"
 
-          # ── 2. Razorpay.xcframework (RazorpayWrapper) ──
-          if [ "${WRAPPER_CHANGED}" = "true" ] || [ "${CORE_CHANGED}" = "true" ]; then
-            mkdir -p Pod/core
-            rm -rf Pod/core/Razorpay.xcframework
+          # ── 2. Razorpay.xcframework (RazorpayWrapper — always replaced) ──
+          mkdir -p Pod/core
+          rm -rf Pod/core/Razorpay.xcframework
 
-            WRAPPER_XCFW=$(find /tmp/wrapper-artifact -name "Razorpay.xcframework" -type d | head -1)
-            if [ -z "$WRAPPER_XCFW" ]; then
-              echo "❌ Razorpay.xcframework not found in wrapper artifact"
-              exit 1
-            fi
-            cp -R "$WRAPPER_XCFW" Pod/core/Razorpay.xcframework
-            echo "✅ Pod/core/Razorpay.xcframework → replaced"
-          else
-            echo "ℹ️  Pod/core/Razorpay.xcframework → unchanged"
+          WRAPPER_XCFW=$(find /tmp/wrapper-artifact -name "Razorpay.xcframework" -type d | head -1)
+          if [ -z "$WRAPPER_XCFW" ]; then
+            echo "❌ Razorpay.xcframework not found in wrapper artifact"
+            exit 1
           fi
+          cp -R "$WRAPPER_XCFW" Pod/core/Razorpay.xcframework
+          echo "✅ Pod/core/Razorpay.xcframework → replaced"
 
           # ── 3. RazorpayCore.xcframework ──
           if [ "${CORE_CHANGED}" = "true" ]; then
@@ -177,16 +201,23 @@ jobs:
         run: |
           RELEASE_BRANCH="release/${{ env.DEPLOYMENT_VERSION }}"
 
-          PR_BODY=$(cat <<'PREOF'
-          ## Standard Checkout v${{ env.DEPLOYMENT_VERSION }}
+          CORE_LINE=""
+          if [ "${CORE_CHANGED}" = "true" ]; then
+            CORE_LINE="- Updated \`Pod/core/RazorpayCore.xcframework\`"
+          fi
 
-          ### What's in this PR
-          - Updated `Pod/RazorpayStandard.xcframework`
-          - Podspec version bumped to `${{ env.DEPLOYMENT_VERSION }}`
+          PR_BODY=$(cat <<EOF
+          ## Standard Checkout v${DEPLOYMENT_VERSION}
+
+          ### Updated frameworks
+          - Updated \`Pod/RazorpayStandard.xcframework\`
+          - Updated \`Pod/core/Razorpay.xcframework\` (Wrapper)
+          ${CORE_LINE}
+          - Podspec version bumped to \`${DEPLOYMENT_VERSION}\`
 
           ---
           Opened automatically by CI.
-          PREOF
+          EOF
           )
 
           HTTP_STATUS=$(curl --silent --output /tmp/pr_response.json --write-out "%{http_code}" \
@@ -195,7 +226,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/razorpay/razorpay-pod/pulls" \
             -d "$(jq -n \
-              --arg title "release: standard checkout v${{ env.DEPLOYMENT_VERSION }}" \
+              --arg title "release: v${DEPLOYMENT_VERSION}" \
               --arg body "$PR_BODY" \
               --arg head "$RELEASE_BRANCH" \
               --arg base "master" \
@@ -223,15 +254,11 @@ jobs:
           echo "| Version | \`${{ env.DEPLOYMENT_VERSION }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| RC | ${{ env.IS_RC }} |" >> $GITHUB_STEP_SUMMARY
           echo "| RazorpayStandard.xcframework | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
+          echo "| Razorpay.xcframework (Wrapper) | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
           if [ "${{ env.CORE_CHANGED }}" = "true" ]; then
             echo "| RazorpayCore.xcframework | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
-            echo "| Razorpay.xcframework (Wrapper) | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ env.WRAPPER_CHANGED }}" = "true" ]; then
-            echo "| RazorpayCore.xcframework | previous version |" >> $GITHUB_STEP_SUMMARY
-            echo "| Razorpay.xcframework (Wrapper) | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
           else
-            echo "| RazorpayCore.xcframework | previous version |" >> $GITHUB_STEP_SUMMARY
-            echo "| Razorpay.xcframework (Wrapper) | previous version |" >> $GITHUB_STEP_SUMMARY
+            echo "| RazorpayCore.xcframework | — unchanged |" >> $GITHUB_STEP_SUMMARY
           fi
           echo "| PR | opened to master |" >> $GITHUB_STEP_SUMMARY
 
