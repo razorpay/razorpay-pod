@@ -94,7 +94,7 @@ jobs:
             git checkout -b "${RELEASE_BRANCH}"
           fi
 
-      - name: Download SDK XCFramework artifact
+      - name: Download SDK XCFramework zip artifact
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           github-token: ${{ secrets.CI_BOT_TOKEN }}
@@ -103,7 +103,7 @@ jobs:
           name: ${{ env.SDK_ARTIFACT }}
           path: /tmp/artifacts/sdk
 
-      - name: Download Wrapper XCFramework artifact
+      - name: Download Wrapper XCFramework zip artifact
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           github-token: ${{ secrets.CI_BOT_TOKEN }}
@@ -112,7 +112,7 @@ jobs:
           name: ${{ env.WRAPPER_ARTIFACT }}
           path: /tmp/artifacts/wrapper
 
-      - name: Download Core XCFramework artifact
+      - name: Download Core XCFramework zip artifact
         if: env.CORE_CHANGED == 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
@@ -126,52 +126,63 @@ jobs:
         run: |
           set -eo pipefail
 
-          normalize_xcframework() {
+          find_archive() {
             local input_dir="$1"
-            local expected_name="$2"
-            local staging_root="$3"
+            local archive_name="$2"
             local discovered
 
-            discovered=$(find "$input_dir" -name "$expected_name" -type d | head -1)
-            if [ -n "$discovered" ]; then
-              printf '%s\n' "$discovered"
-              return 0
+            discovered=$(find "$input_dir" -name "$archive_name" -type f | head -1)
+            if [ -z "$discovered" ]; then
+              echo "❌ ${archive_name} not found in ${input_dir}"
+              find "$input_dir" -maxdepth 3 -type f
+              exit 1
             fi
-
-            mkdir -p "$staging_root/$expected_name"
-            shopt -s dotglob nullglob
-            cp -R "$input_dir"/* "$staging_root/$expected_name"/
-            shopt -u dotglob nullglob
-            printf '%s\n' "$staging_root/$expected_name"
+            printf '%s\n' "$discovered"
           }
 
-          verify_sha() {
-            local xcframework_path="$1"
-            local output_zip="$2"
+          verify_archive_sha() {
+            local archive_path="$1"
             local expected_sha="$3"
-            local parent_dir
-            local xcframework_name
+            local label="$2"
             local actual_sha
 
-            parent_dir=$(dirname "$xcframework_path")
-            xcframework_name=$(basename "$xcframework_path")
-            rm -f "$output_zip"
-            (cd "$parent_dir" && zip -qr "$output_zip" "$xcframework_name")
-            actual_sha=$(sha256sum "$output_zip" | awk '{print $1}')
+            actual_sha=$(sha256sum "$archive_path" | awk '{print $1}')
 
             if [ "$actual_sha" != "$expected_sha" ]; then
-              echo "❌ Checksum mismatch for ${xcframework_name}"
+              echo "❌ Checksum mismatch for ${label}"
               echo "   Expected: ${expected_sha}"
               echo "   Actual:   ${actual_sha}"
               exit 1
             fi
           }
 
-          SDK_XCFW=$(normalize_xcframework /tmp/artifacts/sdk RazorpayStandard.xcframework /tmp/sdk-structured)
-          WRAPPER_XCFW=$(normalize_xcframework /tmp/artifacts/wrapper Razorpay.xcframework /tmp/wrapper-structured)
+          require_xcframework() {
+            local input_dir="$1"
+            local expected_name="$2"
+            local discovered
 
-          verify_sha "$SDK_XCFW" /tmp/sdk-xcframework.zip "$CHECKSUM_SDK"
-          verify_sha "$WRAPPER_XCFW" /tmp/wrapper-xcframework.zip "$CHECKSUM_WRAPPER"
+            discovered=$(find "$input_dir" -name "$expected_name" -type d | head -1)
+            if [ -z "$discovered" ]; then
+              echo "❌ ${expected_name} not found after unzip"
+              find "$input_dir" -maxdepth 4 \( -type d -o -type f \)
+              exit 1
+            fi
+            printf '%s\n' "$discovered"
+          }
+
+          SDK_ARCHIVE=$(find_archive /tmp/artifacts/sdk sdk-xcframework.zip)
+          WRAPPER_ARCHIVE=$(find_archive /tmp/artifacts/wrapper wrapper-xcframework.zip)
+
+          verify_archive_sha "$SDK_ARCHIVE" "RazorpayStandard.xcframework" "$CHECKSUM_SDK"
+          verify_archive_sha "$WRAPPER_ARCHIVE" "Razorpay.xcframework" "$CHECKSUM_WRAPPER"
+
+          rm -rf /tmp/sdk-artifact /tmp/wrapper-artifact /tmp/core-artifact
+          mkdir -p /tmp/sdk-artifact /tmp/wrapper-artifact
+          unzip -q "$SDK_ARCHIVE" -d /tmp/sdk-artifact
+          unzip -q "$WRAPPER_ARCHIVE" -d /tmp/wrapper-artifact
+
+          SDK_XCFW=$(require_xcframework /tmp/sdk-artifact RazorpayStandard.xcframework)
+          WRAPPER_XCFW=$(require_xcframework /tmp/wrapper-artifact Razorpay.xcframework)
 
           rm -rf Pod/RazorpayStandard.xcframework
           mkdir -p Pod/core
@@ -181,8 +192,11 @@ jobs:
           cp -R "$WRAPPER_XCFW" Pod/core/Razorpay.xcframework
 
           if [ "${CORE_CHANGED}" = "true" ]; then
-            CORE_XCFW=$(normalize_xcframework /tmp/artifacts/core RazorpayCore.xcframework /tmp/core-structured)
-            verify_sha "$CORE_XCFW" /tmp/core-xcframework.zip "$CHECKSUM_CORE"
+            CORE_ARCHIVE=$(find_archive /tmp/artifacts/core core-xcframework.zip)
+            verify_archive_sha "$CORE_ARCHIVE" "RazorpayCore.xcframework" "$CHECKSUM_CORE"
+            mkdir -p /tmp/core-artifact
+            unzip -q "$CORE_ARCHIVE" -d /tmp/core-artifact
+            CORE_XCFW=$(require_xcframework /tmp/core-artifact RazorpayCore.xcframework)
             rm -rf Pod/core/RazorpayCore.xcframework
             cp -R "$CORE_XCFW" Pod/core/RazorpayCore.xcframework
           fi
