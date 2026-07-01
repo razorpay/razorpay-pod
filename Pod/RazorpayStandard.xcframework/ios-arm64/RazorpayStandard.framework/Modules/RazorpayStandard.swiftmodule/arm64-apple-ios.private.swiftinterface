@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
-// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name RazorpayStandard
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios12 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name RazorpayStandard
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import CommonCrypto
 import CoreLocation
 import CoreTelephony
@@ -33,6 +33,8 @@ import _SwiftConcurrencyShims
   @objc final public func close(checkoutInstance: Any?)
   @objc final public func clearUserData(checkoutInstance: Any?)
   @objc final public func checkIntegration(withMerchantKey key: Swift.String)
+  @objc final public func subscribeToAnalyticsEvents(_ events: [Swift.String], callback: (any RazorpayCore.RazorpayEventCallback)?, checkoutInstance: Any?)
+  @objc final public func setAddressWalletUpdateDelegate(_ delegate: (any RazorpayCore.AddressWalletUpdateDelegate)?)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -78,6 +80,7 @@ public class TurboPluginManager {
   @objc public static func initWithKey(_ key: Swift.String, andDelegateWithData delegate: any RazorpayCore.RazorpayPaymentCompletionProtocolWithData, plugin: (any RazorpayCore.UPITurboUIPlugin)?) -> RazorpayStandard.RazorpayCheckout
   @objc public static func publishUri(with data: Swift.String)
   @objc final public func setExternalWalletSelectionDelegate(_ walletDelegate: any RazorpayCore.ExternalWalletSelectionProtocol)
+  @objc final public func subscribeToAnalyticsEvents(_ events: [Swift.String], callback: (any RazorpayCore.RazorpayEventCallback)?)
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController)
   @objc final public func open(_ options: [Swift.AnyHashable : Any])
   @objc final public func open(_ options: [Swift.AnyHashable : Any], displayController: UIKit.UIViewController, arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
@@ -86,6 +89,7 @@ public class TurboPluginManager {
   @objc final public func openMagicX(storefrontUrl: Swift.String, itemsData: Swift.String, withDelegate magicXProtocol: any RazorpayCore.MagicXResultProtocol)
   @objc final public func close()
   @objc final public func clearUserData()
+  @objc public static func setAddressWalletUpdateDelegate(_ delegate: (any RazorpayCore.AddressWalletUpdateDelegate)?)
   @objc deinit
 }
 extension RazorpayStandard.PreloadManager : Swift.Sendable {}
