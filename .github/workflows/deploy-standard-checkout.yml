@@ -23,14 +23,15 @@ jobs:
   deploy-standard:
     name: Deploy standard checkout
     if: github.event_name == 'repository_dispatch'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: macos-latest
+    timeout-minutes: 30
 
     env:
       DEPLOYMENT_VERSION: ${{ github.event.client_payload.version }}
       IS_RC: ${{ github.event.client_payload.is_rc }}
       CORE_CHANGED: ${{ github.event.client_payload.core_changed }}
       CORE_VERSION: ${{ github.event.client_payload.core_version || '' }}
+      VENDOR_ALL_XCFRAMEWORKS_LOCALLY: ${{ github.event.client_payload.vendor_all_xcframeworks_locally || false }}
       SOURCE_REPO: ${{ github.event.client_payload.source_repo }}
       SOURCE_RUN_ID: ${{ github.event.client_payload.run_id }}
       SDK_ARTIFACT: ${{ github.event.client_payload.artifacts.sdk }}
@@ -69,8 +70,13 @@ jobs:
             fi
           done
 
+          if [ "${CORE_CHANGED}" = "true" ] && [ -z "${CORE_VERSION}" ]; then
+            echo "❌ Missing required payload field: CORE_VERSION"
+            exit 1
+          fi
+
           if [ "${CORE_CHANGED}" = "true" ]; then
-            for var_name in CORE_ARTIFACT CHECKSUM_CORE CORE_VERSION; do
+            for var_name in CORE_ARTIFACT CHECKSUM_CORE; do
               if [ -z "${!var_name}" ]; then
                 echo "❌ Missing required core payload field: ${var_name}"
                 exit 1
@@ -201,17 +207,83 @@ jobs:
             cp -R "$CORE_XCFW" Pod/core/RazorpayCore.xcframework
           fi
 
-      - name: Update podspec versions
+      - name: Refresh local Podfile and install pods
         run: |
           set -eo pipefail
 
-          chmod +x .github/scripts/update_podspec_version.sh
-          ./.github/scripts/update_podspec_version.sh "${DEPLOYMENT_VERSION}"
+          cat > Podfile <<'EOF'
+          # Uncomment the next line to define a global platform for your project
+          # platform :ios, '10.0'
+
+          target 'Example' do
+            # Comment the next line if you don't want to use dynamic frameworks
+            use_frameworks!
+
+          #    pod 'razorpay-pod', '1.5.3'
+              pod 'razorpay-pod', :path => '.'
+            # Pods for Example
+
+          end
+          EOF
+
+          rm -rf Pods Podfile.lock
+          pod install --no-repo-update
+          echo "✅ Podfile, Podfile.lock, Example.xcodeproj and Pods refreshed for local razorpay-pod usage"
+
+      - name: Resolve razorpay-core-pod version
+        if: env.VENDOR_ALL_XCFRAMEWORKS_LOCALLY != 'true'
+        env:
+          CI_BOT_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+        run: |
+          set -eo pipefail
+
+          RESOLVED_CORE_VERSION="${CORE_VERSION}"
+
+          if [ "${CORE_CHANGED}" = "false" ]; then
+            RELEASES_RESPONSE=$(curl --silent --show-error --fail \
+              -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/razorpay/razorpay-customui-pod/releases?per_page=100")
+
+            LATEST_CORE_TAG=$(printf '%s\n' "${RELEASES_RESPONSE}" | jq -r 'map(select(.tag_name | startswith("core-"))) | .[0].tag_name // empty')
+            if [ -z "${LATEST_CORE_TAG}" ]; then
+              echo "❌ Failed to resolve latest core release tag from razorpay-customui-pod releases"
+              exit 1
+            fi
+
+            RESOLVED_CORE_VERSION="${LATEST_CORE_TAG#core-}"
+            echo "✅ CORE_CHANGED=false, using latest released core pod version ${RESOLVED_CORE_VERSION} from tag ${LATEST_CORE_TAG}"
+          else
+            if [ -z "${RESOLVED_CORE_VERSION}" ]; then
+              echo "❌ Missing CORE_VERSION for core-changed standard release"
+              exit 1
+            fi
+            echo "✅ CORE_CHANGED=true, using dispatched core pod version ${RESOLVED_CORE_VERSION}"
+          fi
+
+          echo "RESOLVED_CORE_VERSION=${RESOLVED_CORE_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Update podspec version
+        run: |
+          set -eo pipefail
+
+          sed -Ei "" "s/s\.version[[:space:]]*=.*/s.version          = '${DEPLOYMENT_VERSION}'/" razorpay-pod.podspec
           echo "✅ razorpay-pod.podspec → v${DEPLOYMENT_VERSION}"
 
-          if [ "${CORE_CHANGED}" = "true" ]; then
-            sed -Ei "s/(s\\.dependency 'razorpay-core-pod'[[:space:]]*,[[:space:]]*')[^']*'/\\1${CORE_VERSION}'/" razorpay-pod.podspec
-            echo "✅ razorpay-core-pod dependency → ${CORE_VERSION}"
+          if [ "${VENDOR_ALL_XCFRAMEWORKS_LOCALLY}" = "true" ]; then
+            sed -Ei "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = ['Pod/RazorpayStandard.xcframework', 'Pod/core/RazorpayCore.xcframework', 'Pod/core/Razorpay.xcframework']|" razorpay-pod.podspec
+            sed -Ei "/s\\.dependency 'razorpay-core-pod'/d" razorpay-pod.podspec
+            echo "✅ razorpay-pod configured to vendor standard + core + wrapper frameworks locally"
+          else
+            sed -Ei "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'|" razorpay-pod.podspec
+
+            if grep -q "s\\.dependency 'razorpay-core-pod'" razorpay-pod.podspec; then
+              sed -Ei "s|(s\\.dependency 'razorpay-core-pod'[[:space:]]*,[[:space:]]*')[^']*'|\\1${RESOLVED_CORE_VERSION}'|" razorpay-pod.podspec
+            else
+              ruby -0pi -e "sub(/s\\.vendored_frameworks = 'Pod\\/RazorpayStandard\\.xcframework'\\n/, \"s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'\\n  s.dependency 'razorpay-core-pod' , '${RESOLVED_CORE_VERSION}'\\n\")" razorpay-pod.podspec
+            fi
+
+            echo "✅ razorpay-pod configured to depend on razorpay-core-pod ${RESOLVED_CORE_VERSION}"
           fi
 
       - name: Commit and push release branch
@@ -220,17 +292,31 @@ jobs:
 
           RELEASE_BRANCH="release/v${DEPLOYMENT_VERSION}"
 
-          git add Pod/RazorpayStandard.xcframework Pod/core/Razorpay.xcframework razorpay-pod.podspec
+          git add Pod/RazorpayStandard.xcframework Pod/core/Razorpay.xcframework
           if [ "${CORE_CHANGED}" = "true" ]; then
             git add Pod/core/RazorpayCore.xcframework
           fi
 
+          FRAMEWORK_COMMIT_CREATED="false"
           if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
+            echo "No XCFramework changes to commit"
+          else
+            git commit -m "release: Standard Checkout ${DEPLOYMENT_VERSION}"
+            FRAMEWORK_COMMIT_CREATED="true"
           fi
 
-          git commit -m "chore: update standard checkout to v${DEPLOYMENT_VERSION}"
+          git add razorpay-pod.podspec Podfile Podfile.lock Example.xcodeproj/project.pbxproj Pods
+
+          if git diff --cached --quiet; then
+            if [ "${FRAMEWORK_COMMIT_CREATED}" = "false" ]; then
+              echo "No changes to commit"
+              exit 0
+            fi
+            echo "No podspec/Podfile changes to commit"
+          else
+            git commit -m "release: version update ${DEPLOYMENT_VERSION}"
+          fi
+
           git push origin "${RELEASE_BRANCH}"
 
       - name: Create pull request
@@ -244,9 +330,13 @@ jobs:
           if [ "${CORE_CHANGED}" = "true" ]; then
             CORE_LINES=$(cat <<EOF
           - Updated \`Pod/core/RazorpayCore.xcframework\`
-          - Updated \`razorpay-core-pod\` dependency to \`${CORE_VERSION}\`
           EOF
           )
+          fi
+
+          PODSPEC_MODE_LINE="- \`razorpay-pod.podspec\` keeps \`razorpay-core-pod\` pinned to \`${RESOLVED_CORE_VERSION}\`"
+          if [ "${VENDOR_ALL_XCFRAMEWORKS_LOCALLY}" = "true" ]; then
+            PODSPEC_MODE_LINE="- \`razorpay-pod.podspec\` vendors \`RazorpayStandard\`, \`Razorpay\`, and \`RazorpayCore\` XCFrameworks locally"
           fi
 
           PR_BODY=$(cat <<EOF
@@ -256,7 +346,9 @@ jobs:
           - Updated \`Pod/RazorpayStandard.xcframework\`
           - Updated \`Pod/core/Razorpay.xcframework\` (Wrapper)
           ${CORE_LINES}
+          - Refreshed \`Podfile\`, \`Podfile.lock\`, and local CocoaPods integration files
           - Bumped \`razorpay-pod.podspec\` to v${DEPLOYMENT_VERSION}
+          ${PODSPEC_MODE_LINE}
 
           ---
           Opened automatically by CI.
@@ -298,11 +390,16 @@ jobs:
           echo "| RC | ${IS_RC} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| RazorpayStandard.xcframework | ✅ replaced |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Razorpay.xcframework (Wrapper) | ✅ replaced |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Podfile / Podfile.lock | ✅ refreshed |" >> "$GITHUB_STEP_SUMMARY"
           if [ "${CORE_CHANGED}" = "true" ]; then
             echo "| RazorpayCore.xcframework | ✅ replaced |" >> "$GITHUB_STEP_SUMMARY"
-            echo "| razorpay-core-pod dependency | \`${CORE_VERSION}\` |" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "| RazorpayCore.xcframework | — unchanged |" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "${VENDOR_ALL_XCFRAMEWORKS_LOCALLY}" = "true" ]; then
+            echo "| Podspec mode | vendored standard + wrapper + core |" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "| Podspec mode | standard vendored, core via dependency ${CORE_VERSION} |" >> "$GITHUB_STEP_SUMMARY"
           fi
           echo "| PR | opened to master |" >> "$GITHUB_STEP_SUMMARY"
 
@@ -456,10 +553,18 @@ jobs:
             echo "❌ COCOAPODS_TRUNK_TOKEN is not configured."
             exit 1
           fi
+
       - name: Publish to CocoaPods
         if: steps.state.outputs.pod_published != 'true'
         run: |
           set -eo pipefail
+          VERSION="${{ steps.version.outputs.version }}"
+          if [[ "$VERSION" == *"-rc"* ]]; then
+            echo "ℹ️ RC release — skipping CocoaPods trunk push for standard checkout."
+            echo "Test via Podfile:"
+            echo "  pod 'razorpay-pod', :git => 'https://github.com/razorpay/razorpay-pod.git', :tag => '${VERSION}'"
+            exit 0
+          fi
           pod lib lint razorpay-pod.podspec --allow-warnings
           pod trunk push razorpay-pod.podspec --allow-warnings
         env:
@@ -488,5 +593,9 @@ jobs:
           if [ "${{ steps.state.outputs.pod_published }}" = "true" ]; then
             echo "| CocoaPods | skipped (already published) |" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "| CocoaPods | published |" >> "$GITHUB_STEP_SUMMARY"
+            if [[ "${{ steps.version.outputs.version }}" == *"-rc"* ]]; then
+              echo "| CocoaPods | skipped (RC) |" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "| CocoaPods | published |" >> "$GITHUB_STEP_SUMMARY"
+            fi
           fi
