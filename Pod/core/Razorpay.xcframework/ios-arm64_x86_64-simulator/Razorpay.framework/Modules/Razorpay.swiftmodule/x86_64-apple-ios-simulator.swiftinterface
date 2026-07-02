@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-4.2 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
-// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Razorpay
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-compiler-version: Apple Swift version 6.1.2 effective-4.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Razorpay
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Foundation
 @_exported import Razorpay
 @_exported import RazorpayCore
@@ -15,6 +15,7 @@ import _SwiftConcurrencyShims
   @objc public static let shared: Razorpay.RazorpayCheckout
   @objc final public var upiTurbo: (any RazorpayCore.UPITurboPlugin)?
   @objc final public var upiTurboUI: (any RazorpayCore.UPITurboUIPlugin)?
+  @objc final public var amazonPlugin: (any RazorpayCore.AmazonWalletPaylaterProtocol)?
   @objc deinit
 }
 extension Razorpay.RazorpayCheckout {
@@ -34,12 +35,15 @@ extension Razorpay.RazorpayCheckout {
   @objc final public func openMagicX(storefrontUrl: Swift.String, itemsData: Swift.String, withDelegate magicXProtocol: any RazorpayCore.MagicXResultProtocol)
   @objc public static func clearUserData()
   @objc public static func checkIntegration(withMerchantKey key: Swift.String)
+  @objc final public func subscribeToAnalyticsEvents(_ events: [Swift.String], callback: (any RazorpayCore.RazorpayEventCallback)?)
+  @objc public static func setAddressWalletUpdateDelegate(_ delegate: (any RazorpayCore.AddressWalletUpdateDelegate)?)
 }
 extension Razorpay.RazorpayCheckout {
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, plugin: any RazorpayCore.UPITurboPlugin) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, UIPlugin: any RazorpayCore.UPITurboUIPlugin) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String) -> Razorpay.RazorpayCheckout
+  @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, amazonPlugin: any RazorpayCore.AmazonWalletPaylaterProtocol) -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, plugin: any RazorpayCore.UPITurboPlugin, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
   @objc public static func initWithKey(_ key: Swift.String, andDelegate delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol, withPaymentWebView merchantWebView: WebKit.WKWebView, UIPlugin: any RazorpayCore.UPITurboUIPlugin, _ unified: Swift.Bool = true) throws -> Razorpay.RazorpayCheckout
@@ -58,12 +62,13 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func getSubscriptionAmount(options: [Swift.AnyHashable : Any], withSuccessCallback success: @escaping (Swift.UInt64) -> Swift.Void, andFailureCallback failure: @escaping (Swift.String) -> Swift.Void)
   @objc final public func authorize(_ options: [Swift.AnyHashable : Any])
   @objc public static func openCheckout(dict: [Swift.AnyHashable : Any])
-  @objc public static func userCancelledPayment()
+  @objc final public func userCancelledPayment()
   @objc final public func decodeURI(from data: Swift.String)
   @objc final public func webView(_ webView: WebKit.WKWebView, didCommit navigation: WebKit.WKNavigation!)
   @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError er: any Swift.Error)
-  @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: any Swift.Error) throws
-  @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!) throws
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError er: any Swift.Error)
+  @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, checkoutInstance: Any?, handler decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
   @objc final public func getCardNetwork(fromCardNumber cardNumber: Swift.String) -> Swift.String
   @objc public static func getAppsWhichSupportUpi(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
   @objc public static func getAppsWhichSupportUpiRecurring(handler: @escaping ([[Swift.AnyHashable : Any]]) -> Swift.Void)
@@ -76,4 +81,5 @@ extension Razorpay.RazorpayCheckout {
   @objc public static func payWithExternalPaymentEntity(options: [Swift.AnyHashable : Any], arrExternalPaymentEntities: [any RazorpayCore.PluginPaymentDelegate])
   @objc final public func setWebView(_ webView: WebKit.WKWebView) throws
   @objc final public func setDelegate(_ delegate: any RazorpayCore.RazorpayPaymentCompletionProtocol) throws
+  @objc final public func handleRedirection(_ url: Swift.String) -> Swift.Bool
 }
