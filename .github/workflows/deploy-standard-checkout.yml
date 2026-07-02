@@ -265,22 +265,57 @@ jobs:
 
       - name: Update podspec version
         run: |
-          set -eo pipefail
+          set -euo pipefail
 
-          sed -Ei "" "s/s\.version[[:space:]]*=.*/s.version          = '${DEPLOYMENT_VERSION}'/" razorpay-pod.podspec
+          podspec_path="razorpay-pod.podspec"
+
+          sedi() {
+            local expression="$1"
+            local file_path="$2"
+            sed -E -i '' "$expression" "$file_path"
+          }
+
+          if ! grep -q "s\\.version" "${podspec_path}"; then
+            echo "❌ Failed to find s.version in ${podspec_path}"
+            exit 1
+          fi
+
+          if ! grep -q "s\\.vendored_frameworks" "${podspec_path}"; then
+            echo "❌ Failed to find s.vendored_frameworks in ${podspec_path}"
+            exit 1
+          fi
+
+          sedi "s/s\\.version[[:space:]]*=.*/s.version          = '${DEPLOYMENT_VERSION}'/" "${podspec_path}"
+
           echo "✅ razorpay-pod.podspec → v${DEPLOYMENT_VERSION}"
 
           if [ "${VENDOR_ALL_XCFRAMEWORKS_LOCALLY}" = "true" ]; then
-            sed -Ei "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = ['Pod/RazorpayStandard.xcframework', 'Pod/core/RazorpayCore.xcframework', 'Pod/core/Razorpay.xcframework']|" razorpay-pod.podspec
-            sed -Ei "/s\\.dependency 'razorpay-core-pod'/d" razorpay-pod.podspec
+            sedi "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = ['Pod/RazorpayStandard.xcframework', 'Pod/core/RazorpayCore.xcframework', 'Pod/core/Razorpay.xcframework']|" "${podspec_path}"
+            sedi "/s\\.dependency 'razorpay-core-pod'/d" "${podspec_path}"
             echo "✅ razorpay-pod configured to vendor standard + core + wrapper frameworks locally"
           else
-            sed -Ei "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'|" razorpay-pod.podspec
+            sedi "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'|" "${podspec_path}"
 
-            if grep -q "s\\.dependency 'razorpay-core-pod'" razorpay-pod.podspec; then
-              sed -Ei "s|(s\\.dependency 'razorpay-core-pod'[[:space:]]*,[[:space:]]*')[^']*'|\\1${RESOLVED_CORE_VERSION}'|" razorpay-pod.podspec
+            if grep -q "s\\.dependency 'razorpay-core-pod'" "${podspec_path}"; then
+              sedi "s|(s\\.dependency 'razorpay-core-pod'[[:space:]]*,[[:space:]]*')[^']*'|\\1${RESOLVED_CORE_VERSION}'|" "${podspec_path}"
             else
-              ruby -0pi -e "sub(/s\\.vendored_frameworks = 'Pod\\/RazorpayStandard\\.xcframework'\\n/, \"s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'\\n  s.dependency 'razorpay-core-pod' , '${RESOLVED_CORE_VERSION}'\\n\")" razorpay-pod.podspec
+              temp_podspec="$(mktemp)"
+              awk -v dependency_line="  s.dependency 'razorpay-core-pod' , '${RESOLVED_CORE_VERSION}'" '
+                BEGIN { inserted = 0 }
+                /^[[:space:]]*s\.vendored_frameworks[[:space:]]*=/ {
+                  print
+                  print dependency_line
+                  inserted = 1
+                  next
+                }
+                { print }
+                END {
+                  if (!inserted) {
+                    exit 1
+                  }
+                }
+              ' "${podspec_path}" > "${temp_podspec}"
+              mv "${temp_podspec}" "${podspec_path}"
             fi
 
             echo "✅ razorpay-pod configured to depend on razorpay-core-pod ${RESOLVED_CORE_VERSION}"
