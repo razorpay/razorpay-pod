@@ -5,7 +5,8 @@ target 'Example' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-	pod 'razorpay-pod', :path => '.'
+#    pod 'razorpay-pod', '1.5.3'
+    pod 'razorpay-pod', :path => '.'
   # Pods for Example
 
 end
