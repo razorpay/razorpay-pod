@@ -207,29 +207,6 @@ jobs:
             cp -R "$CORE_XCFW" Pod/core/RazorpayCore.xcframework
           fi
 
-      - name: Refresh local Podfile and install pods
-        run: |
-          set -eo pipefail
-
-          cat > Podfile <<'EOF'
-          # Uncomment the next line to define a global platform for your project
-          # platform :ios, '10.0'
-
-          target 'Example' do
-            # Comment the next line if you don't want to use dynamic frameworks
-            use_frameworks!
-
-          #    pod 'razorpay-pod', '1.5.3'
-              pod 'razorpay-pod', :path => '.'
-            # Pods for Example
-
-          end
-          EOF
-
-          rm -rf Pods Podfile.lock
-          pod install --no-repo-update
-          echo "✅ Podfile, Podfile.lock, Example.xcodeproj and Pods refreshed for local razorpay-pod usage"
-
       - name: Resolve razorpay-core-pod version
         if: env.VENDOR_ALL_XCFRAMEWORKS_LOCALLY != 'true'
         env:
@@ -593,13 +570,6 @@ jobs:
         if: steps.state.outputs.pod_published != 'true'
         run: |
           set -eo pipefail
-          VERSION="${{ steps.version.outputs.version }}"
-          if [[ "$VERSION" == *"-rc"* ]]; then
-            echo "ℹ️ RC release — skipping CocoaPods trunk push for standard checkout."
-            echo "Test via Podfile:"
-            echo "  pod 'razorpay-pod', :git => 'https://github.com/razorpay/razorpay-pod.git', :tag => '${VERSION}'"
-            exit 0
-          fi
           pod lib lint razorpay-pod.podspec --allow-warnings
           pod trunk push razorpay-pod.podspec --allow-warnings
         env:
