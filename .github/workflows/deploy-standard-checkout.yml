@@ -11,20 +11,17 @@ env:
   DEPLOYMENT_VERSION: ${{ github.event.client_payload.version || '' }}
   IS_RC: ${{ github.event.client_payload.is_rc || '' }}
   CORE_CHANGED: ${{ github.event.client_payload.core_changed || 'false' }}
-  TAG_NAME: ${{ github.event.client_payload.tag_name || '' }}
+  ARTIFACT_REPOSITORY: ${{ github.event.client_payload.source_repo || '' }}
+  ARTIFACT_RUN_ID: ${{ github.event.client_payload.run_id || '' }}
+  SDK_ARTIFACT: ${{ github.event.client_payload.artifacts.sdk || '' }}
   CHECKSUM_SDK: ${{ github.event.client_payload.checksums.sdk || '' }}
-  CHECKSUM_WRAPPER: ${{ github.event.client_payload.checksums.wrapper || '' }}
-  CHECKSUM_CORE: ${{ github.event.client_payload.checksums.core || '' }}
 
 jobs:
-# ─────────────────────────────────────────────────────────────────────────────
-# JOB 1 — Download artifacts, update podspec, open PR to master
-# ─────────────────────────────────────────────────────────────────────────────
   deploy:
     name: Deploy and open PR
     if: github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout master
@@ -34,186 +31,152 @@ jobs:
           token: ${{ secrets.CI_BOT_TOKEN }}
           fetch-depth: 1
 
+      - name: Validate dispatch payload
+        run: |
+          set -euo pipefail
+
+          REQUIRED_VARS=(
+            DEPLOYMENT_VERSION
+            ARTIFACT_REPOSITORY
+            ARTIFACT_RUN_ID
+            SDK_ARTIFACT
+            CHECKSUM_SDK
+          )
+
+          for var_name in "${REQUIRED_VARS[@]}"; do
+            if [ -z "${!var_name}" ]; then
+              echo "❌ Missing required payload value: ${var_name}"
+              exit 1
+            fi
+          done
+
       - name: Create release branch
         run: |
-          git checkout -b "release/${{ env.DEPLOYMENT_VERSION }}"
+          set -euo pipefail
 
-      - name: Download XCFramework artifacts from release
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: |
-          echo "── Downloading artifacts from release ${TAG_NAME} ──"
+          RELEASE_BRANCH="release/v${DEPLOYMENT_VERSION}"
 
-          RELEASE_JSON=$(curl --silent \
-            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/razorpay/razorpay-ios/releases/tags/${TAG_NAME}")
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin "${RELEASE_BRANCH}:${RELEASE_BRANCH}" 2>/dev/null || true
 
-          RELEASE_ID=$(echo "$RELEASE_JSON" | jq -r '.id // empty')
-          if [ -z "$RELEASE_ID" ]; then
-            echo "❌ Release not found for tag: ${TAG_NAME}"
-            exit 1
-          fi
-
-          # Download SDK xcframework
-          SDK_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "sdk-xcframework.zip") | .url')
-          if [ -z "$SDK_URL" ] || [ "$SDK_URL" = "null" ]; then
-            echo "❌ sdk-xcframework.zip not found in release assets"
-            exit 1
-          fi
-          curl -L --silent \
-            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
-            -H "Accept: application/octet-stream" \
-            -o /tmp/sdk-xcframework.zip "$SDK_URL"
-
-          # Verify SDK checksum
-          ACTUAL_SDK_SHA=$(sha256sum /tmp/sdk-xcframework.zip | awk '{print $1}')
-          if [ "$ACTUAL_SDK_SHA" != "${CHECKSUM_SDK}" ]; then
-            echo "❌ CHECKSUM MISMATCH for SDK"
-            echo "   Expected: ${CHECKSUM_SDK}"
-            echo "   Actual:   ${ACTUAL_SDK_SHA}"
-            exit 1
-          fi
-          mkdir -p /tmp/sdk-artifact
-          unzip -q /tmp/sdk-xcframework.zip -d /tmp/sdk-artifact
-          echo "✅ SDK xcframework downloaded and verified"
-
-          # Download Wrapper xcframework
-          WRAPPER_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "wrapper-xcframework.zip") | .url')
-          if [ -z "$WRAPPER_URL" ] || [ "$WRAPPER_URL" = "null" ]; then
-            echo "❌ wrapper-xcframework.zip not found in release assets"
-            exit 1
-          fi
-          curl -L --silent \
-            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
-            -H "Accept: application/octet-stream" \
-            -o /tmp/wrapper-xcframework.zip "$WRAPPER_URL"
-
-          # Verify Wrapper checksum
-          ACTUAL_WRAPPER_SHA=$(sha256sum /tmp/wrapper-xcframework.zip | awk '{print $1}')
-          if [ "$ACTUAL_WRAPPER_SHA" != "${CHECKSUM_WRAPPER}" ]; then
-            echo "❌ CHECKSUM MISMATCH for Wrapper"
-            echo "   Expected: ${CHECKSUM_WRAPPER}"
-            echo "   Actual:   ${ACTUAL_WRAPPER_SHA}"
-            exit 1
-          fi
-          mkdir -p /tmp/wrapper-artifact
-          unzip -q /tmp/wrapper-xcframework.zip -d /tmp/wrapper-artifact
-          echo "✅ Wrapper xcframework downloaded and verified"
-
-          # Download Core xcframework (only when core changed)
-          if [ "${CORE_CHANGED}" = "true" ]; then
-            CORE_URL=$(echo "$RELEASE_JSON" | jq -r '.assets[] | select(.name == "core-xcframework.zip") | .url')
-            if [ -z "$CORE_URL" ] || [ "$CORE_URL" = "null" ]; then
-              echo "❌ core-xcframework.zip not found in release assets"
-              exit 1
-            fi
-            curl -L --silent \
-              -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
-              -H "Accept: application/octet-stream" \
-              -o /tmp/core-xcframework.zip "$CORE_URL"
-
-            # Verify Core checksum
-            ACTUAL_CORE_SHA=$(sha256sum /tmp/core-xcframework.zip | awk '{print $1}')
-            if [ "$ACTUAL_CORE_SHA" != "${CHECKSUM_CORE}" ]; then
-              echo "❌ CHECKSUM MISMATCH for Core"
-              echo "   Expected: ${CHECKSUM_CORE}"
-              echo "   Actual:   ${ACTUAL_CORE_SHA}"
-              exit 1
-            fi
-            mkdir -p /tmp/core-artifact
-            unzip -q /tmp/core-xcframework.zip -d /tmp/core-artifact
-            echo "✅ Core xcframework downloaded and verified"
-          fi
-
-      - name: Replace xcframeworks
-        run: |
-          echo "── Replacing xcframeworks ──"
-
-          # ── 1. RazorpayStandard.xcframework (always replaced) ──
-          rm -rf Pod/RazorpayStandard.xcframework
-          rm -rf Pod/RazorpayStandard.framework.dSYM
-          rm -rf Pod/Razorpay.framework
-
-          SDK_XCFW=$(find /tmp/sdk-artifact -name "*.xcframework" -type d | head -1)
-          if [ -z "$SDK_XCFW" ]; then
-            echo "❌ No .xcframework found in downloaded SDK artifact"
-            ls -R /tmp/sdk-artifact
-            exit 1
-          fi
-          cp -R "$SDK_XCFW" Pod/RazorpayStandard.xcframework
-          echo "✅ Pod/RazorpayStandard.xcframework → replaced"
-
-          # ── 2. Razorpay.xcframework (RazorpayWrapper — always replaced) ──
-          mkdir -p Pod/core
-          rm -rf Pod/core/Razorpay.xcframework
-
-          WRAPPER_XCFW=$(find /tmp/wrapper-artifact -name "Razorpay.xcframework" -type d | head -1)
-          if [ -z "$WRAPPER_XCFW" ]; then
-            echo "❌ Razorpay.xcframework not found in wrapper artifact"
-            exit 1
-          fi
-          cp -R "$WRAPPER_XCFW" Pod/core/Razorpay.xcframework
-          echo "✅ Pod/core/Razorpay.xcframework → replaced"
-
-          # ── 3. RazorpayCore.xcframework ──
-          if [ "${CORE_CHANGED}" = "true" ]; then
-            mkdir -p Pod/core
-            rm -rf Pod/core/RazorpayCore.xcframework
-
-            CORE_XCFW=$(find /tmp/core-artifact -name "RazorpayCore.xcframework" -type d | head -1)
-            if [ -z "$CORE_XCFW" ]; then
-              echo "❌ RazorpayCore.xcframework not found in core artifact"
-              exit 1
-            fi
-            cp -R "$CORE_XCFW" Pod/core/RazorpayCore.xcframework
-            echo "✅ Pod/core/RazorpayCore.xcframework → replaced"
+          if git show-ref --verify --quiet "refs/heads/${RELEASE_BRANCH}"; then
+            git checkout "${RELEASE_BRANCH}"
           else
-            echo "ℹ️  Pod/core/RazorpayCore.xcframework → unchanged"
+            git checkout -b "${RELEASE_BRANCH}"
           fi
 
-          echo ""
-          echo "── Final Pod/ contents ──"
-          find Pod/ -maxdepth 2 -type d
+      - name: Download SDK XCFramework zip artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          github-token: ${{ secrets.CI_BOT_TOKEN }}
+          repository: ${{ env.ARTIFACT_REPOSITORY }}
+          run-id: ${{ env.ARTIFACT_RUN_ID }}
+          name: ${{ env.SDK_ARTIFACT }}
+          path: /tmp/artifacts/sdk
+
+      - name: Verify artifact and replace vendored XCFramework
+        run: |
+          set -euo pipefail
+
+          find_archive() {
+            local input_dir="$1"
+            local archive_name="$2"
+            local discovered
+
+            discovered=$(find "$input_dir" -name "$archive_name" -type f | head -1)
+            if [ -z "$discovered" ]; then
+              echo "❌ ${archive_name} not found in ${input_dir}"
+              find "$input_dir" -maxdepth 3 -type f
+              exit 1
+            fi
+            printf '%s\n' "$discovered"
+          }
+
+          verify_archive_sha() {
+            local archive_path="$1"
+            local label="$2"
+            local expected_sha="$3"
+            local actual_sha
+
+            actual_sha=$(shasum -a 256 "$archive_path" | awk '{print $1}')
+
+            if [ "$actual_sha" != "$expected_sha" ]; then
+              echo "❌ Checksum mismatch for ${label}"
+              echo "   Expected: ${expected_sha}"
+              echo "   Actual:   ${actual_sha}"
+              exit 1
+            fi
+          }
+
+          require_xcframework() {
+            local input_dir="$1"
+            local expected_name="$2"
+            local discovered
+
+            discovered=$(find "$input_dir" -name "$expected_name" -type d | head -1)
+            if [ -z "$discovered" ]; then
+              echo "❌ ${expected_name} not found after unzip"
+              find "$input_dir" -maxdepth 4 \( -type d -o -type f \)
+              exit 1
+            fi
+            printf '%s\n' "$discovered"
+          }
+
+          SDK_ARCHIVE=$(find_archive /tmp/artifacts/sdk sdk-xcframework.zip)
+          verify_archive_sha "$SDK_ARCHIVE" "RazorpayStandard.xcframework" "$CHECKSUM_SDK"
+
+          rm -rf /tmp/sdk-artifact
+          mkdir -p /tmp/sdk-artifact
+          unzip -q "$SDK_ARCHIVE" -d /tmp/sdk-artifact
+
+          SDK_XCFW=$(require_xcframework /tmp/sdk-artifact RazorpayStandard.xcframework)
+
+          rm -rf Pod/RazorpayStandard.xcframework
+          cp -R "$SDK_XCFW" Pod/RazorpayStandard.xcframework
+
+          echo "✅ Replaced Pod/RazorpayStandard.xcframework"
 
       - name: Update podspec version
         run: |
+          set -euo pipefail
+
           chmod +x .github/scripts/update_podspec_version.sh
-          ./.github/scripts/update_podspec_version.sh "${{ env.DEPLOYMENT_VERSION }}"
-          echo "✅ Podspec updated to v${{ env.DEPLOYMENT_VERSION }}"
+          ./.github/scripts/update_podspec_version.sh "${DEPLOYMENT_VERSION}"
+
+          echo "✅ Podspec updated to v${DEPLOYMENT_VERSION}"
           grep "s.version" razorpay-pod.podspec
 
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+          set -euo pipefail
+
+          RELEASE_BRANCH="release/v${DEPLOYMENT_VERSION}"
+
+          git add Pod/RazorpayStandard.xcframework razorpay-pod.podspec
+
           if git diff --cached --quiet; then
-            echo "No changes to commit (repo already clean)"
-          else
-            git commit -m "chore: update podspec to v${{ env.DEPLOYMENT_VERSION }}"
-            git push origin "release/${{ env.DEPLOYMENT_VERSION }}"
+            echo "No changes to commit"
+            exit 0
           fi
+
+          git commit -m "chore: release standard checkout v${DEPLOYMENT_VERSION}"
+          git push origin "${RELEASE_BRANCH}"
 
       - name: Create pull request
         env:
           CI_BOT_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
         run: |
-          RELEASE_BRANCH="release/${{ env.DEPLOYMENT_VERSION }}"
+          set -euo pipefail
 
-          CORE_LINE=""
-          if [ "${CORE_CHANGED}" = "true" ]; then
-            CORE_LINE="- Updated \`Pod/core/RazorpayCore.xcframework\`"
-          fi
+          RELEASE_BRANCH="release/v${DEPLOYMENT_VERSION}"
 
           PR_BODY=$(cat <<EOF
           ## Standard Checkout v${DEPLOYMENT_VERSION}
 
-          ### Updated frameworks
+          ### Updated artifacts
           - Updated \`Pod/RazorpayStandard.xcframework\`
-          - Updated \`Pod/core/Razorpay.xcframework\` (Wrapper)
-          ${CORE_LINE}
-          - Podspec version bumped to \`${DEPLOYMENT_VERSION}\`
+          - Bumped \`razorpay-pod.podspec\` to \`${DEPLOYMENT_VERSION}\`
 
           ---
           Opened automatically by CI.
@@ -236,7 +199,7 @@ jobs:
             PR_URL=$(jq -r '.html_url' /tmp/pr_response.json)
             echo "✅ PR created: ${PR_URL}"
           elif [ "$HTTP_STATUS" -eq 422 ]; then
-            echo "⚠️  PR already exists (HTTP 422)"
+            echo "⚠️ PR already exists"
             jq -r '.errors[0].message // .message' /tmp/pr_response.json
           else
             echo "❌ Failed to create PR (HTTP ${HTTP_STATUS})"
@@ -247,24 +210,17 @@ jobs:
       - name: Job summary
         if: always()
         run: |
-          echo "## Deploy Standard Checkout v${{ env.DEPLOYMENT_VERSION }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| | |" >> $GITHUB_STEP_SUMMARY
-          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
-          echo "| Version | \`${{ env.DEPLOYMENT_VERSION }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| RC | ${{ env.IS_RC }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| RazorpayStandard.xcframework | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
-          echo "| Razorpay.xcframework (Wrapper) | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ env.CORE_CHANGED }}" = "true" ]; then
-            echo "| RazorpayCore.xcframework | ✅ replaced |" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "| RazorpayCore.xcframework | — unchanged |" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "| PR | opened to master |" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Deploy Standard Checkout v${DEPLOYMENT_VERSION}"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Version | \`${DEPLOYMENT_VERSION}\` |"
+            echo "| RC | ${IS_RC} |"
+            echo "| RazorpayStandard.xcframework | ✅ replaced |"
+            echo "| PR | opened to master |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
-# ─────────────────────────────────────────────────────────────────────────────
-# JOB 2 — After PR merge to master: tag, release, publish to CocoaPods
-# ─────────────────────────────────────────────────────────────────────────────
   release:
     name: Tag, release, and publish
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -281,35 +237,90 @@ jobs:
       - name: Read version from podspec
         id: version
         run: |
+          set -euo pipefail
+
           chmod +x .github/scripts/read-podspec-version.sh
           VERSION=$(./.github/scripts/read-podspec-version.sh)
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           echo "Detected version: ${VERSION}"
 
-      - name: Create and push tag
+      - name: Detect release state
+        id: state
+        env:
+          CI_BOT_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION_OUTPUT: ${{ steps.version.outputs.version }}
         run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          TAG_NAME="v${VERSION}"
+          set -euo pipefail
 
-          if git rev-parse "${TAG_NAME}" >/dev/null 2>&1; then
-            echo "⚠️  Tag ${TAG_NAME} already exists, skipping"
-            exit 0
+          VERSION="${VERSION_OUTPUT}"
+          TAG_NAME="v${VERSION}"
+          TAG_EXISTS="false"
+          RELEASE_EXISTS="false"
+          RELEASE_URL=""
+          POD_PUBLISHED="false"
+
+          if git ls-remote --tags origin "${TAG_NAME}" | grep -q "${TAG_NAME}$"; then
+            TAG_EXISTS="true"
           fi
+
+          HTTP_STATUS=$(curl --silent --output /tmp/release_response.json --write-out "%{http_code}" \
+            -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/razorpay/razorpay-pod/releases/tags/${TAG_NAME}")
+
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            RELEASE_EXISTS="true"
+            RELEASE_URL=$(jq -r '.html_url' /tmp/release_response.json)
+          elif [ "$HTTP_STATUS" -ne 404 ]; then
+            echo "❌ Failed to read GitHub release state (HTTP ${HTTP_STATUS})"
+            cat /tmp/release_response.json
+            exit 1
+          fi
+
+          POD_INFO=$(pod trunk info razorpay-pod 2>/dev/null || true)
+          if printf '%s\n' "$POD_INFO" | grep -Eq "(^|[[:space:]])${VERSION}([[:space:]]|$)"; then
+            POD_PUBLISHED="true"
+          fi
+
+          {
+            echo "tag_name=${TAG_NAME}"
+            echo "tag_exists=${TAG_EXISTS}"
+            echo "release_exists=${RELEASE_EXISTS}"
+            echo "release_url=${RELEASE_URL}"
+            echo "pod_published=${POD_PUBLISHED}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create and push tag
+        if: steps.state.outputs.tag_exists != 'true'
+        env:
+          VERSION_OUTPUT: ${{ steps.version.outputs.version }}
+          TAG_NAME_OUTPUT: ${{ steps.state.outputs.tag_name }}
+        run: |
+          set -euo pipefail
+
+          VERSION="${VERSION_OUTPUT}"
+          TAG_NAME="${TAG_NAME_OUTPUT}"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag -a "${TAG_NAME}" -m "Release Standard Checkout ${VERSION}"
           git push origin "${TAG_NAME}"
+
           echo "✅ Tagged ${TAG_NAME}"
 
       - name: Create GitHub Release
+        if: steps.state.outputs.release_exists != 'true'
         env:
           CI_BOT_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          VERSION_OUTPUT: ${{ steps.version.outputs.version }}
+          TAG_NAME_OUTPUT: ${{ steps.state.outputs.tag_name }}
         run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          TAG_NAME="v${VERSION}"
+          set -euo pipefail
 
+          VERSION="${VERSION_OUTPUT}"
+          TAG_NAME="${TAG_NAME_OUTPUT}"
           IS_PRERELEASE="false"
+
           if [[ "$VERSION" == *"-rc"* ]]; then
             IS_PRERELEASE="true"
           fi
@@ -331,7 +342,7 @@ jobs:
             RELEASE_URL=$(jq -r '.html_url' /tmp/release_response.json)
             echo "✅ GitHub Release created: ${RELEASE_URL}"
           elif [ "$HTTP_STATUS" -eq 422 ]; then
-            echo "⚠️  Release for ${TAG_NAME} already exists"
+            echo "⚠️ Release already exists for ${TAG_NAME}"
           else
             echo "❌ Failed to create release (HTTP ${HTTP_STATUS})"
             cat /tmp/release_response.json
@@ -339,20 +350,43 @@ jobs:
           fi
 
       - name: Publish to CocoaPods
-        run: |
-          set -eo pipefail
-          pod lib lint razorpay-pod.podspec --allow-warnings
-          pod trunk push razorpay-pod.podspec --allow-warnings
+        if: steps.state.outputs.pod_published != 'true'
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          pod lib lint razorpay-pod.podspec --allow-warnings
+          pod trunk push razorpay-pod.podspec --allow-warnings
 
       - name: Job summary
         if: always()
+        env:
+          VERSION_OUTPUT: ${{ steps.version.outputs.version }}
+          TAG_NAME_OUTPUT: ${{ steps.state.outputs.tag_name }}
+          TAG_EXISTS_OUTPUT: ${{ steps.state.outputs.tag_exists }}
+          RELEASE_EXISTS_OUTPUT: ${{ steps.state.outputs.release_exists }}
+          POD_PUBLISHED_OUTPUT: ${{ steps.state.outputs.pod_published }}
         run: |
-          echo "## Released Standard Checkout v${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| | |" >> $GITHUB_STEP_SUMMARY
-          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
-          echo "| Tag | \`v${{ steps.version.outputs.version }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| GitHub Release | ✅ created |" >> $GITHUB_STEP_SUMMARY
-          echo "| CocoaPods | ✅ published |" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Released Standard Checkout v${VERSION_OUTPUT}"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Tag | \`${TAG_NAME_OUTPUT}\` |"
+            if [ "${TAG_EXISTS_OUTPUT}" = "true" ]; then
+              echo "| Tag action | skipped (already exists) |"
+            else
+              echo "| Tag action | created |"
+            fi
+            if [ "${RELEASE_EXISTS_OUTPUT}" = "true" ]; then
+              echo "| GitHub Release | skipped (already exists) |"
+            else
+              echo "| GitHub Release | created |"
+            fi
+            if [ "${POD_PUBLISHED_OUTPUT}" = "true" ]; then
+              echo "| CocoaPods | skipped (already published) |"
+            else
+              echo "| CocoaPods | published |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
