@@ -2,8 +2,11 @@ name: Deploy Standard Checkout
 
 on:
   repository_dispatch:
-    types: [deploy_standard_xcframework]
-  push:
+    types:
+      - deploy_standard_xcframework
+  pull_request:
+    types:
+      - closed
     branches:
       - master
 
@@ -25,11 +28,11 @@ jobs:
 
     steps:
       - name: Checkout master
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: master
           token: ${{ secrets.CI_BOT_TOKEN }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Validate dispatch payload
         run: |
@@ -147,7 +150,43 @@ jobs:
           echo "✅ Podspec updated to v${DEPLOYMENT_VERSION}"
           grep "s.version" razorpay-pod.podspec
 
-      - name: Commit and push
+          sedi "s/s\\.version[[:space:]]*=.*/s.version          = '${DEPLOYMENT_VERSION}'/" "${podspec_path}"
+
+          echo "✅ razorpay-pod.podspec → v${DEPLOYMENT_VERSION}"
+
+          if [ "${VENDOR_ALL_XCFRAMEWORKS_LOCALLY}" = "true" ]; then
+            sedi "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = ['Pod/RazorpayStandard.xcframework', 'Pod/core/RazorpayCore.xcframework', 'Pod/core/Razorpay.xcframework']|" "${podspec_path}"
+            sedi "/s\\.dependency 'razorpay-core-pod'/d" "${podspec_path}"
+            echo "✅ razorpay-pod configured to vendor standard + core + wrapper frameworks locally"
+          else
+            sedi "s|s\\.vendored_frameworks = .*|s.vendored_frameworks = 'Pod/RazorpayStandard.xcframework'|" "${podspec_path}"
+
+            if grep -q "s\\.dependency 'razorpay-core-pod'" "${podspec_path}"; then
+              sedi "s|(s\\.dependency 'razorpay-core-pod'[[:space:]]*,[[:space:]]*')[^']*'|\\1${RESOLVED_CORE_VERSION}'|" "${podspec_path}"
+            else
+              temp_podspec="$(mktemp)"
+              awk -v dependency_line="  s.dependency 'razorpay-core-pod' , '${RESOLVED_CORE_VERSION}'" '
+                BEGIN { inserted = 0 }
+                /^[[:space:]]*s\.vendored_frameworks[[:space:]]*=/ {
+                  print
+                  print dependency_line
+                  inserted = 1
+                  next
+                }
+                { print }
+                END {
+                  if (!inserted) {
+                    exit 1
+                  }
+                }
+              ' "${podspec_path}" > "${temp_podspec}"
+              mv "${temp_podspec}" "${podspec_path}"
+            fi
+
+            echo "✅ razorpay-pod configured to depend on razorpay-core-pod ${RESOLVED_CORE_VERSION}"
+          fi
+
+      - name: Commit and push release branch
         run: |
           set -euo pipefail
 
@@ -223,16 +262,24 @@ jobs:
 
   release:
     name: Tag, release, and publish
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'master' &&
+      startsWith(github.event.pull_request.head.ref, 'release/') &&
+      startsWith(github.event.pull_request.title, 'release: v') &&
+      contains(github.event.pull_request.body || '', 'Opened automatically by CI.')
     runs-on: macos-latest
     timeout-minutes: 30
 
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v4
+      - name: Checkout merged release commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           token: ${{ secrets.CI_BOT_TOKEN }}
-          fetch-depth: 1
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
 
       - name: Read version from podspec
         id: version
@@ -333,7 +380,7 @@ jobs:
             -d "$(jq -n \
               --arg tag_name "${TAG_NAME}" \
               --arg name "Standard Checkout ${VERSION}" \
-              --arg target "master" \
+              --arg target "${{ github.event.pull_request.merge_commit_sha }}" \
               --argjson prerelease ${IS_PRERELEASE} \
               --argjson generate_release_notes true \
               '{tag_name: $tag_name, name: $name, target_commitish: $target, prerelease: $prerelease, generate_release_notes: $generate_release_notes}')")
@@ -346,6 +393,16 @@ jobs:
           else
             echo "❌ Failed to create release (HTTP ${HTTP_STATUS})"
             cat /tmp/release_response.json
+            exit 1
+          fi
+
+      - name: Validate CocoaPods token
+        if: steps.state.outputs.pod_published != 'true'
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          if [ -z "${COCOAPODS_TRUNK_TOKEN}" ]; then
+            echo "❌ COCOAPODS_TRUNK_TOKEN is not configured."
             exit 1
           fi
 
