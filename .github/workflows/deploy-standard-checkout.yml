@@ -14,6 +14,7 @@ env:
   DEPLOYMENT_VERSION: ${{ github.event.client_payload.version || '' }}
   IS_RC: ${{ github.event.client_payload.is_rc || '' }}
   CORE_CHANGED: ${{ github.event.client_payload.core_changed || 'false' }}
+  CORE_VERSION: ${{ github.event.client_payload.core_version || '' }}
   ARTIFACT_REPOSITORY: ${{ github.event.client_payload.source_repo || '' }}
   ARTIFACT_RUN_ID: ${{ github.event.client_payload.run_id || '' }}
   SDK_ARTIFACT: ${{ github.event.client_payload.artifacts.sdk || '' }}
