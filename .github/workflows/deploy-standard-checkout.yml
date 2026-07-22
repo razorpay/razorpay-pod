@@ -265,7 +265,7 @@ jobs:
           set -euo pipefail
 
           VERSION="${VERSION_OUTPUT}"
-          TAG_NAME="v${VERSION}"
+          TAG_NAME="${VERSION}"
           TAG_EXISTS="false"
           RELEASE_EXISTS="false"
           RELEASE_URL=""
@@ -337,6 +337,7 @@ jobs:
             IS_PRERELEASE="true"
           fi
 
+          # Release is created with an empty body (no auto-generated notes).
           HTTP_STATUS=$(curl --silent --output /tmp/release_response.json --write-out "%{http_code}" \
             -X POST \
             -H "Authorization: Bearer ${CI_BOT_TOKEN}" \
@@ -347,8 +348,7 @@ jobs:
               --arg name "Standard Checkout ${VERSION}" \
               --arg target "${{ github.event.pull_request.merge_commit_sha }}" \
               --argjson prerelease ${IS_PRERELEASE} \
-              --argjson generate_release_notes true \
-              '{tag_name: $tag_name, name: $name, target_commitish: $target, prerelease: $prerelease, generate_release_notes: $generate_release_notes}')")
+              '{tag_name: $tag_name, name: $name, target_commitish: $target, prerelease: $prerelease, body: ""}')")
 
           if [ "$HTTP_STATUS" -eq 201 ]; then
             RELEASE_URL=$(jq -r '.html_url' /tmp/release_response.json)
