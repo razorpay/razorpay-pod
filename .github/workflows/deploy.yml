@@ -1,0 +1,215 @@
+# Deploy — SPM release
+name: Deploy
+
+on:
+  repository_dispatch:
+    types: [deploy_ios_sdk]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: deploy-ios-sdk-${{ github.event.client_payload.version }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Publish SPM release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERSION:       ${{ github.event.client_payload.version }}
+      IS_RC:         ${{ github.event.client_payload.is_rc }}
+      RUN_ID:        ${{ github.event.client_payload.run_id }}
+      SOURCE_REPO:   ${{ github.event.client_payload.source_repo }}
+      TARGET_BRANCH: ${{ github.event.client_payload.target_branch }}
+      CHANGED_CHECKSUMS: ${{ toJson(github.event.client_payload.checksums) }}
+
+    steps:
+      - name: Resolve branches + release flags
+        id: cfg
+        run: |
+          set -euo pipefail
+          # BASE = branch the release branch is cut from + PR'd back into.
+          # During RC testing the CI code lives on refactor/spm-ci-changes; GA uses master.
+          BASE="${TARGET_BRANCH}"
+          if [ -z "${BASE}" ]; then
+            if [ "${IS_RC}" = "true" ]; then BASE="refactor/spm-ci-changes"; else BASE="master"; fi
+          fi
+          RELEASE_BRANCH="release/${VERSION}"
+          PRERELEASE="false"; [ "${IS_RC}" = "true" ] && PRERELEASE="true"
+          {
+            echo "base=${BASE}"
+            echo "release_branch=${RELEASE_BRANCH}"
+            echo "prerelease=${PRERELEASE}"
+          } >> "$GITHUB_OUTPUT"
+          echo "Base branch    : ${BASE}"
+          echo "Release branch : ${RELEASE_BRANCH}"
+          echo "Version        : ${VERSION}"
+          echo "Prerelease     : ${PRERELEASE}"
+
+      - name: Validate payload
+        run: |
+          set -euo pipefail
+          for v in VERSION RUN_ID SOURCE_REPO; do
+            [ -n "${!v}" ] || { echo "❌ Missing payload value: ${v}"; exit 1; }
+          done
+          COUNT=$(echo "${CHANGED_CHECKSUMS}" | jq 'length')
+          [ "${COUNT}" -ge 1 ] || { echo "❌ payload.checksums is empty — nothing changed to release"; exit 1; }
+          echo "Changed binaries this release:"
+          echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]' | sed 's/^/  - /'
+
+      - name: Checkout base branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ steps.cfg.outputs.base }}
+          token: ${{ secrets.CI_BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Create release branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Fresh branch off BASE. `-B` resets it if a prior RC run created it, so
+          # the stamp is always applied to a clean copy of BASE's manifest.
+          git checkout -B "${{ steps.cfg.outputs.release_branch }}"
+
+      - name: Download xcframework artifacts from razorpay-ios
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          github-token: ${{ secrets.CI_BOT_TOKEN }}
+          repository: ${{ env.SOURCE_REPO }}
+          run-id: ${{ env.RUN_ID }}
+          pattern: xcframework-release-assets-*
+          path: /tmp/dl
+
+      - name: Collect + verify the changed binaries
+        id: collect
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/assets
+          echo "${CHANGED_CHECKSUMS}" > /tmp/assets/changed-checksums.json
+
+          UPLOAD=()
+          for name in $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]'); do
+            expected=$(echo "${CHANGED_CHECKSUMS}" | jq -r --arg k "$name" '.[$k]')
+            found=$(find /tmp/dl -name "${name}.xcframework.zip" -type f | head -1)
+            [ -n "$found" ] || { echo "❌ ${name}.xcframework.zip not found in artifacts"; find /tmp/dl -type f; exit 1; }
+            cp "$found" "/tmp/assets/${name}.xcframework.zip"
+            actual=$(sha256sum "/tmp/assets/${name}.xcframework.zip" | awk '{print $1}')
+            [ "$actual" = "$expected" ] || { echo "❌ ${name} checksum mismatch: payload=${expected} actual=${actual}"; exit 1; }
+            echo "✅ ${name}  ${actual}"
+            UPLOAD+=("/tmp/assets/${name}.xcframework.zip")
+          done
+
+          # Space-separated list of asset paths for the release step.
+          echo "assets=${UPLOAD[*]}" >> "$GITHUB_OUTPUT"
+
+      - name: Stamp Package.swift
+        run: |
+          set -euo pipefail
+          chmod +x .github/scripts/stamp-package-swift.sh
+          ./.github/scripts/stamp-package-swift.sh "${VERSION}" /tmp/assets/changed-checksums.json Package.swift
+
+      - name: Commit stamped Package.swift to the release branch
+        id: commit
+        run: |
+          set -euo pipefail
+          RB="${{ steps.cfg.outputs.release_branch }}"
+          git add Package.swift
+          if git diff --cached --quiet; then
+            echo "No Package.swift changes to commit (manifest already stamped on base)"
+          else
+            git commit -m "release: iOS SDK ${VERSION} (stamp changed binaries)"
+          fi
+          # Force so an RC re-run cleanly replaces the release branch.
+          git push --force origin "HEAD:${RB}"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release + upload changed xcframework assets
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+          PRERELEASE: ${{ steps.cfg.outputs.prerelease }}
+          ASSETS: ${{ steps.collect.outputs.assets }}
+        run: |
+          set -euo pipefail
+
+          # RC clobbers a prior same-version prerelease (checksums change each
+          # rebuild during testing); GA refuses to overwrite a published release.
+          if gh release view "${VERSION}" >/dev/null 2>&1; then
+            if [ "${PRERELEASE}" = "true" ]; then
+              echo "♻️  Existing prerelease ${VERSION} found — deleting to re-publish."
+              gh release delete "${VERSION}" --yes --cleanup-tag
+            else
+              echo "❌ Release ${VERSION} already exists and is not an RC — refusing to overwrite."
+              exit 1
+            fi
+          fi
+
+          FLAGS=(--target "${COMMIT_SHA}" --title "iOS SDK ${VERSION}" --notes "")
+          [ "${PRERELEASE}" = "true" ] && FLAGS+=(--prerelease)
+
+          # ASSETS is a space-separated list of only the changed binaries' zips.
+          # shellcheck disable=SC2086
+          gh release create "${VERSION}" "${FLAGS[@]}" ${ASSETS}
+
+          echo "✅ Published ${VERSION} with assets:"
+          gh release view "${VERSION}" --json assets --jq '.assets[].name'
+
+      - name: Open PR against the base branch
+        env:
+          GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+          RELEASE_BRANCH: ${{ steps.cfg.outputs.release_branch }}
+          BASE: ${{ steps.cfg.outputs.base }}
+          PRERELEASE: ${{ steps.cfg.outputs.prerelease }}
+        run: |
+          set -euo pipefail
+
+          # PR targets the branch the release was cut from:
+          #   RC → refactor/spm-ci-changes   GA → master
+          # so the diff is a clean single-commit Package.swift stamp, and merging
+          # it seeds that base for the next release.
+          CHANGED_LIST=$(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys | join(", ")')
+          BODY=$(cat <<EOF
+          Automated SPM release opened by CI.
+
+          | | |
+          |---|---|
+          | Version | \`${VERSION}\` |
+          | Prerelease | ${PRERELEASE} |
+          | Re-stamped binaries | ${CHANGED_LIST} |
+          | Release | ${VERSION} (assets uploaded) |
+
+          Merging this brings the stamped \`Package.swift\` into \`${BASE}\`.
+          EOF
+          )
+
+          # Idempotent: update the existing PR (RC re-run) instead of failing.
+          if gh pr view "${RELEASE_BRANCH}" --json number >/dev/null 2>&1; then
+            gh pr edit "${RELEASE_BRANCH}" --title "release: iOS SDK ${VERSION}" --body "${BODY}"
+            echo "🔁 Updated existing PR for ${RELEASE_BRANCH} → ${BASE}"
+          else
+            gh pr create --base "${BASE}" --head "${RELEASE_BRANCH}" \
+              --title "release: iOS SDK ${VERSION}" --body "${BODY}"
+            echo "✅ Opened PR ${RELEASE_BRANCH} → ${BASE}"
+          fi
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## iOS SDK ${VERSION} (SPM, incremental)"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Version | \`${VERSION}\` (from release/ios-sdk-${VERSION}) |"
+            echo "| Prerelease | ${{ steps.cfg.outputs.prerelease }} |"
+            echo "| Release branch | \`${{ steps.cfg.outputs.release_branch }}\` |"
+            echo "| PR opened against | \`${{ steps.cfg.outputs.base }}\` |"
+            echo "| Source run | ${SOURCE_REPO} #${RUN_ID} |"
+            echo "| Changed (re-stamped) | $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys | join(", ")') |"
+            echo "| CocoaPods | manual — not handled here |"
+          } >> "$GITHUB_STEP_SUMMARY"
