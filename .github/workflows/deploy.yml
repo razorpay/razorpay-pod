@@ -122,22 +122,16 @@ jobs:
             zip="/tmp/assets/${name}.xcframework.zip"
             [ -f "$zip" ] || { echo "❌ ${name}.xcframework.zip missing (collect step should have staged it)"; exit 1; }
 
-            # Derive the destination directory from this binary's `path:` line in
-            # the manifest, e.g.  name: "RazorpayStandard", path: "Pod/RazorpayStandard.xcframework"
-            dest=$(python3 - Package.swift "$name" <<'PY'
-import io, re, sys
-manifest, name = sys.argv[1], sys.argv[2]
-s = io.open(manifest, encoding="utf-8").read()
-n = re.escape(name)
-m = re.search(r'name:\s*"' + n + r'",\s*path:\s*"([^"]*' + n + r'\.xcframework)"', s)
-if not m:
-    sys.stderr.write("no-local-path\n"); sys.exit(2)
-sys.stdout.write(m.group(1))
-PY
-            ) || {
+            # Derive the destination from this binary's local `path:` line in the
+            # manifest, e.g.  name: "RazorpayStandard", path: "Pod/RazorpayStandard.xcframework".
+            # Pure shell: flatten the manifest to one line (so a name/path pair that
+            # spans lines still matches), grep the pair for THIS name, then sed out
+            # the quoted path. Empty result ⇒ not in local path: form ⇒ skip.
+            dest=$(tr '\n' ' ' < Package.swift | grep -oE "name:[[:space:]]*\"${name}\"[[:space:]]*,[[:space:]]*path:[[:space:]]*\"[^\"]*${name}\.xcframework\"" | head -1 | sed -E 's/.*path:[[:space:]]*"([^"]*)".*/\1/')
+            if [ -z "$dest" ]; then
               echo "ℹ️  ${name} is not in local path: form in Package.swift — nothing to replace in repo (served from release zip)."
               continue
-            }
+            fi
 
             echo "→ replacing ${dest} from ${zip}"
             rm -rf "$dest"
@@ -199,10 +193,32 @@ PY
           git push --force origin "HEAD:${RB}"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      - name: Bump razorpay-pod.podspec version
+        id: podspec
+        run: |
+          set -euo pipefail
+          RB="${{ steps.cfg.outputs.release_branch }}"
+          # Bump s.version in razorpay-pod.podspec to the release VERSION, in place.
+          # Pure shell: sed rewrites only the `s.version = '...'` (or "...") literal,
+          # preserving the quote style and column alignment. Idempotent — if it's
+          # already at VERSION the substitution is a no-op and there's nothing to commit.
+          sed -i -E "s|^([[:space:]]*s\.version[[:space:]]*=[[:space:]]*)(['\"])[^'\"]*(['\"])|\1\2${VERSION}\3|" razorpay-pod.podspec
+          NEW=$(grep -m1 -E "s\.version[[:space:]]*=" razorpay-pod.podspec | grep -oE "[0-9]+\.[0-9]+\.[0-9]+[^'\"]*" | head -1 || true)
+          [ "$NEW" = "${VERSION}" ] || { echo "❌ failed to bump razorpay-pod.podspec to ${VERSION} (shows: ${NEW:-none})"; exit 1; }
+          echo "✅ razorpay-pod.podspec → ${VERSION}"
+          git add razorpay-pod.podspec
+          if git diff --cached --quiet; then
+            echo "razorpay-pod.podspec already at ${VERSION} — nothing to commit."
+          else
+            git commit -m "release: iOS SDK ${VERSION} (bump razorpay-pod.podspec)"
+            git push --force origin "HEAD:${RB}"
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub Release + upload changed xcframework assets
         env:
           GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
-          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+          COMMIT_SHA: ${{ steps.podspec.outputs.sha }}
           PRERELEASE: ${{ steps.cfg.outputs.prerelease }}
           ASSETS: ${{ steps.collect.outputs.assets }}
         run: |
