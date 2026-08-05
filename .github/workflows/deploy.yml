@@ -107,6 +107,77 @@ jobs:
           # Space-separated list of asset paths for the release step.
           echo "assets=${UPLOAD[*]}" >> "$GITHUB_OUTPUT"
 
+      - name: Replace changed xcframeworks in the repo
+        id: replace
+        run: |
+          set -euo pipefail
+          # For each CHANGED binary only, swap the checked-in xcframework with the
+          # freshly built one. Runs BEFORE stamping, so Package.swift still carries
+          # the local `path:` line we read the destination from. Binaries absent
+          # from the changed set are left untouched.
+          command -v jq >/dev/null || { echo "❌ jq required"; exit 1; }
+
+          REPLACED=()
+          for name in $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]'); do
+            zip="/tmp/assets/${name}.xcframework.zip"
+            [ -f "$zip" ] || { echo "❌ ${name}.xcframework.zip missing (collect step should have staged it)"; exit 1; }
+
+            # Derive the destination directory from this binary's `path:` line in
+            # the manifest, e.g.  name: "RazorpayStandard", path: "Pod/RazorpayStandard.xcframework"
+            dest=$(python3 - Package.swift "$name" <<'PY'
+import io, re, sys
+manifest, name = sys.argv[1], sys.argv[2]
+s = io.open(manifest, encoding="utf-8").read()
+n = re.escape(name)
+m = re.search(r'name:\s*"' + n + r'",\s*path:\s*"([^"]*' + n + r'\.xcframework)"', s)
+if not m:
+    sys.stderr.write("no-local-path\n"); sys.exit(2)
+sys.stdout.write(m.group(1))
+PY
+            ) || {
+              echo "ℹ️  ${name} is not in local path: form in Package.swift — nothing to replace in repo (served from release zip)."
+              continue
+            }
+
+            echo "→ replacing ${dest} from ${zip}"
+            rm -rf "$dest"
+            mkdir -p "$(dirname "$dest")"
+            # Unzip into a temp dir, then move the single .xcframework to dest so we
+            # don't inherit any wrapper folder the zip may contain.
+            tmp="$(mktemp -d)"
+            unzip -q "$zip" -d "$tmp"
+            fw=$(find "$tmp" -maxdepth 2 -name "${name}.xcframework" -type d | head -1)
+            [ -n "$fw" ] || { echo "❌ ${name}.xcframework not found inside ${zip}"; find "$tmp"; exit 1; }
+            mv "$fw" "$dest"
+            rm -rf "$tmp"
+            REPLACED+=("$dest")
+          done
+
+          if [ "${#REPLACED[@]}" -eq 0 ]; then
+            echo "replaced=" >> "$GITHUB_OUTPUT"
+            echo "No local xcframeworks to replace (all changed binaries are remote-only)."
+          else
+            echo "replaced=${REPLACED[*]}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit replaced xcframeworks to the release branch
+        run: |
+          set -euo pipefail
+          RB="${{ steps.cfg.outputs.release_branch }}"
+          REPLACED="${{ steps.replace.outputs.replaced }}"
+          if [ -z "${REPLACED}" ]; then
+            echo "No replaced binaries to commit."
+            exit 0
+          fi
+          # Commit the swapped binaries as their OWN commit, separate from the
+          # Package.swift stamp commit that follows.
+          for d in ${REPLACED}; do git add -A "$d"; done
+          if git diff --cached --quiet; then
+            echo "Replaced binaries are byte-identical to what's committed — nothing to commit."
+          else
+            git commit -m "release: iOS SDK ${VERSION} (replace changed xcframeworks)"
+          fi
+
       - name: Stamp Package.swift
         run: |
           set -euo pipefail

@@ -31,23 +31,52 @@ import io, re, sys
 path, name, version, sha = sys.argv[1:5]
 with io.open(path, encoding="utf-8") as f:
     s = f.read()
-# Rewrite the release-tag segment in this binary's literal URL AND its checksum,
-# in one match scoped by the binary name (works across the name/url/checksum lines):
-#   .binaryTarget( name: "<name>",
-#       url: ".../releases/download/<TAG>/<name>.xcframework.zip",
-#       checksum: "<SHA>" )
 n = re.escape(name)
-pat = re.compile(
+url = 'https://github.com/razorpay/razorpay-pod/releases/download/%s/%s.xcframework.zip' % (version, name)
+
+# A binaryTarget for this name can be in one of two shapes. We normalise both to
+# the stamped remote form:  name: "<name>", url: "<url>", checksum: "<sha>"
+#
+# (A) Already remote — real values or REL_*/CKSUM_* placeholders:
+#       name: "<name>", url: ".../download/<TAG>/<name>.xcframework.zip", checksum: "<X>"
+#     → rewrite the tag segment and the checksum.
+#
+# (B) Local path form:
+#       name: "<name>", path: "Pod/.../<name>.xcframework"
+#     → replace the `path: "..."` with `url: "<url>", checksum: "<sha>"`,
+#       preserving the indentation of the original path line.
+remote_pat = re.compile(
     r'(name:\s*"' + n + r'",\s*url:\s*"https://github\.com/razorpay/razorpay-pod/releases/download/)'
     r'[^/"]*'
     r'(/' + n + r'\.xcframework\.zip",\s*checksum:\s*)"[^"]*"'
 )
-new, count = pat.subn(r'\g<1>%s\g<2>"%s"' % (version, sha), s)
+local_pat = re.compile(
+    r'(name:\s*"' + n + r'",)'
+    r'(?P<pre>\s*?)(?P<indent>[ \t]*)path:\s*"[^"]*' + n + r'\.xcframework"'
+)
+
+new, count = remote_pat.subn(r'\g<1>%s\g<2>"%s"' % (version, sha), s)
+if count == 1:
+    mode = "remote (rewrote tag + checksum)"
+else:
+    def repl(m):
+        # `pre` is the whitespace/newline separating name: from path:;
+        # `indent` is the leading indent of the path: line, reused for checksum:.
+        pre, indent = m.group('pre'), m.group('indent')
+        return '%s%s%surl: "%s",\n%schecksum: "%s"' % (
+            m.group(1), pre, indent, url, indent, sha)
+    new, count = local_pat.subn(repl, s)
+    mode = "local path → url + checksum"
+
 if count != 1:
-    sys.stderr.write("❌ expected exactly one binaryTarget for \"%s\", found %d\n" % (name, count))
+    sys.stderr.write(
+        "❌ expected exactly one binaryTarget for \"%s\" (remote or path form), found %d\n"
+        % (name, count))
     sys.exit(1)
+
 with io.open(path, "w", encoding="utf-8") as f:
     f.write(new)
+sys.stderr.write("   %s: %s\n" % (name, mode))
 PY
   echo "✅ ${name}  release=${VERSION}  checksum=${sha}"
 done
