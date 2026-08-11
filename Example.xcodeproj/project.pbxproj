@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,13 @@
 			remoteGlobalIDString = 0C1A133B23E858E10015A0BD;
 			remoteInfo = Example;
 		};
+		246E84B22EE9504800BB8317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C1A133423E858E10015A0BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C1A133B23E858E10015A0BD;
+			remoteInfo = Example;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +52,15 @@
 		0CE1C1F624B77D9500D88A05 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		0CE1C1F724B77D9500D88A05 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0CE1C1FA24B77DAA00D88A05 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		246E84AC2EE9504800BB8317 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270E6932614E1A2D111EB02D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		607488159143E4B5917A2E63 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF85A34648FB346CE1F56E6F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		246E84AD2EE9504800BB8317 /* ExampleUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ExampleUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0C1A133923E858E10015A0BD /* Frameworks */ = {
@@ -66,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		246E84A92EE9504800BB8317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,6 +93,7 @@
 			children = (
 				0C1A133E23E858E10015A0BD /* Example */,
 				0C89ACE9246E79150097C815 /* ExampleTests */,
+				246E84AD2EE9504800BB8317 /* ExampleUITests */,
 				0C1A133D23E858E10015A0BD /* Products */,
 				B0E5AD7052C9FE9580DEAAAD /* Pods */,
 				34460DAAF6479DDCF0B56D44 /* Frameworks */,
@@ -85,6 +105,7 @@
 			children = (
 				0C1A133C23E858E10015A0BD /* Example.app */,
 				0C89ACE8246E79150097C815 /* ExampleTests.xctest */,
+				246E84AC2EE9504800BB8317 /* ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,13 +201,36 @@
 			productReference = 0C89ACE8246E79150097C815 /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		246E84AB2EE9504800BB8317 /* ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 246E84B62EE9504800BB8317 /* Build configuration list for PBXNativeTarget "ExampleUITests" */;
+			buildPhases = (
+				246E84A82EE9504800BB8317 /* Sources */,
+				246E84A92EE9504800BB8317 /* Frameworks */,
+				246E84AA2EE9504800BB8317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				246E84B32EE9504800BB8317 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				246E84AD2EE9504800BB8317 /* ExampleUITests */,
+			);
+			name = ExampleUITests;
+			packageProductDependencies = (
+			);
+			productName = ExampleUITests;
+			productReference = 246E84AC2EE9504800BB8317 /* ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0C1A133423E858E10015A0BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Razorpay;
 				TargetAttributes = {
@@ -195,6 +239,10 @@
 					};
 					0C89ACE7246E79150097C815 = {
 						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 0C1A133B23E858E10015A0BD;
+					};
+					246E84AB2EE9504800BB8317 = {
+						CreatedOnToolsVersion = 26.0.1;
 						TestTargetID = 0C1A133B23E858E10015A0BD;
 					};
 				};
@@ -214,6 +262,7 @@
 			targets = (
 				0C1A133B23E858E10015A0BD /* Example */,
 				0C89ACE7246E79150097C815 /* ExampleTests */,
+				246E84AB2EE9504800BB8317 /* ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +285,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		246E84AA2EE9504800BB8317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -247,9 +303,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -302,6 +362,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		246E84A82EE9504800BB8317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -309,6 +376,11 @@
 			isa = PBXTargetDependency;
 			target = 0C1A133B23E858E10015A0BD /* Example */;
 			targetProxy = 0C89ACED246E79150097C815 /* PBXContainerItemProxy */;
+		};
+		246E84B32EE9504800BB8317 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C1A133B23E858E10015A0BD /* Example */;
+			targetProxy = 246E84B22EE9504800BB8317 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -518,6 +590,59 @@
 			};
 			name = Release;
 		};
+		246E84B42EE9504800BB8317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3J5MJT3GNL;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Razorpay.ExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Example;
+			};
+			name = Debug;
+		};
+		246E84B52EE9504800BB8317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3J5MJT3GNL;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Razorpay.ExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Example;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,6 +669,15 @@
 			buildConfigurations = (
 				0C89ACEF246E79150097C815 /* Debug */,
 				0C89ACF0246E79150097C815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		246E84B62EE9504800BB8317 /* Build configuration list for PBXNativeTarget "ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				246E84B42EE9504800BB8317 /* Debug */,
+				246E84B52EE9504800BB8317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
