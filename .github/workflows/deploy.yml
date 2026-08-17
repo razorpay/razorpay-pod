@@ -107,6 +107,41 @@ jobs:
           # Space-separated list of asset paths for the release step.
           echo "assets=${UPLOAD[*]}" >> "$GITHUB_OUTPUT"
 
+      - name: Stage dSYM zips for changed binaries
+        id: dsyms
+        run: |
+          set -euo pipefail
+          # One dSYMs zip per changed binary (Razorpay, RazorpayCore,
+          # RazorpayCustom, RazorpayStandard). Each xcframework embeds
+          # per-slice dSYMs (built with -create-xcframework -debug-symbols);
+          # they are staged in /tmp and attached to the GitHub Release ONLY —
+          # nothing is committed to the repo.
+          DSYM_ASSETS=()
+          for name in $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]'); do
+            ZIP="/tmp/assets/${name}.xcframework.zip"
+            [ -f "${ZIP}" ] || { echo "❌ ${name}: ${ZIP} missing (collect step should have staged it)"; exit 1; }
+
+            work="$(mktemp -d)"
+            unzip -q "${ZIP}" -d "${work}"
+
+            staging="${work}/${name}.dSYMs"
+            found=0
+            while IFS= read -r d; do
+              slice=$(basename "$(dirname "$(dirname "$d")")")   # e.g. ios-arm64
+              mkdir -p "${staging}/${slice}"
+              cp -R "$d" "${staging}/${slice}/"
+              found=$((found+1))
+            done < <(find "${work}" -type d -name "*.dSYM" -path "*/dSYMs/*")
+
+            [ "${found}" -gt 0 ] || { echo "❌ ${name}: no dSYMs inside ${ZIP} — was it built with -debug-symbols?"; exit 1; }
+
+            (cd "${work}" && zip -qr "/tmp/assets/${name}.dSYMs.zip" "${name}.dSYMs")
+            rm -rf "${work}"
+            echo "✅ staged ${name}.dSYMs.zip (${found} slice dSYMs)"
+            DSYM_ASSETS+=("/tmp/assets/${name}.dSYMs.zip")
+          done
+          echo "assets=${DSYM_ASSETS[*]}" >> "$GITHUB_OUTPUT"
+
       - name: Replace changed xcframeworks in the repo
         id: replace
         run: |
@@ -221,6 +256,7 @@ jobs:
           COMMIT_SHA: ${{ steps.podspec.outputs.sha }}
           PRERELEASE: ${{ steps.cfg.outputs.prerelease }}
           ASSETS: ${{ steps.collect.outputs.assets }}
+          DSYM_ASSETS: ${{ steps.dsyms.outputs.assets }}
         run: |
           set -euo pipefail
 
@@ -240,8 +276,9 @@ jobs:
           [ "${PRERELEASE}" = "true" ] && FLAGS+=(--prerelease)
 
           # ASSETS is a space-separated list of only the changed binaries' zips.
+          # DSYM_ASSETS carries one dSYMs zip per changed binary.
           # shellcheck disable=SC2086
-          gh release create "${VERSION}" "${FLAGS[@]}" ${ASSETS}
+          gh release create "${VERSION}" "${FLAGS[@]}" ${ASSETS} ${DSYM_ASSETS}
 
           echo "✅ Published ${VERSION} with assets:"
           gh release view "${VERSION}" --json assets --jq '.assets[].name'
