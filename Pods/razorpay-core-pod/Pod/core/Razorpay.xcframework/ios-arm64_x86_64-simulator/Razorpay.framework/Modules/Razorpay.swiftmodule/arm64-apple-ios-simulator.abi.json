@@ -360,6 +360,1164 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "amazonPlugin",
+            "printedName": "amazonPlugin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.AmazonWalletPaylaterProtocol)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AmazonWalletPaylaterProtocol",
+                    "printedName": "any RazorpayCore.AmazonWalletPaylaterProtocol",
+                    "usr": "c:@M@RazorpayCore@objc(pl)AmazonWalletPaylaterProtocol"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout(py)amazonPlugin",
+            "mangledName": "$s8Razorpay0A8CheckoutC12amazonPlugin0A4Core28AmazonWalletPaylaterProtocol_pSgvp",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any RazorpayCore.AmazonWalletPaylaterProtocol)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AmazonWalletPaylaterProtocol",
+                        "printedName": "any RazorpayCore.AmazonWalletPaylaterProtocol",
+                        "usr": "c:@M@RazorpayCore@objc(pl)AmazonWalletPaylaterProtocol"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout(im)amazonPlugin",
+                "mangledName": "$s8Razorpay0A8CheckoutC12amazonPlugin0A4Core28AmazonWalletPaylaterProtocol_pSgvg",
+                "moduleName": "Razorpay",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any RazorpayCore.AmazonWalletPaylaterProtocol)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AmazonWalletPaylaterProtocol",
+                        "printedName": "any RazorpayCore.AmazonWalletPaylaterProtocol",
+                        "usr": "c:@M@RazorpayCore@objc(pl)AmazonWalletPaylaterProtocol"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout(im)setAmazonPlugin:",
+                "mangledName": "$s8Razorpay0A8CheckoutC12amazonPlugin0A4Core28AmazonWalletPaylaterProtocol_pSgvs",
+                "moduleName": "Razorpay",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:8Razorpay0A8CheckoutC12amazonPlugin0A4Core28AmazonWalletPaylaterProtocol_pSgvM",
+                "mangledName": "$s8Razorpay0A8CheckoutC12amazonPlugin0A4Core28AmazonWalletPaylaterProtocol_pSgvM",
+                "moduleName": "Razorpay",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "RecommendedInstruments",
+            "printedName": "RecommendedInstruments",
+            "children": [
+              {
+                "kind": "TypeDecl",
+                "name": "ResponseKey",
+                "printedName": "ResponseKey",
+                "children": [
+                  {
+                    "kind": "Var",
+                    "name": "getRecommendedInstruments",
+                    "printedName": "getRecommendedInstruments",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC03getcD0SSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC03getcD0SSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC03getcD0SSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC03getcD0SSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "items",
+                    "printedName": "items",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC5itemsSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC5itemsSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC5itemsSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC5itemsSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Constructor",
+                    "name": "init",
+                    "printedName": "init()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ResponseKey",
+                        "printedName": "Razorpay.RazorpayCheckout.RecommendedInstruments.ResponseKey",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC"
+                      }
+                    ],
+                    "declKind": "Constructor",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyCAGycfc",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyCAGycfc",
+                    "moduleName": "Razorpay",
+                    "overriding": true,
+                    "implicit": true,
+                    "objc_name": "init",
+                    "declAttributes": [
+                      "Dynamic",
+                      "ObjC",
+                      "Override"
+                    ],
+                    "init_kind": "Designated"
+                  }
+                ],
+                "declKind": "Class",
+                "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC",
+                "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC11ResponseKeyC",
+                "moduleName": "Razorpay",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjCMembers",
+                  "ObjC"
+                ],
+                "superclassUsr": "c:objc(cs)NSObject",
+                "inheritsConvenienceInitializers": true,
+                "superclassNames": [
+                  "ObjectiveC.NSObject"
+                ],
+                "conformances": [
+                  {
+                    "kind": "Conformance",
+                    "name": "Copyable",
+                    "printedName": "Copyable",
+                    "usr": "s:s8CopyableP",
+                    "mangledName": "$ss8CopyableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Escapable",
+                    "printedName": "Escapable",
+                    "usr": "s:s9EscapableP",
+                    "mangledName": "$ss9EscapableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Equatable",
+                    "printedName": "Equatable",
+                    "usr": "s:SQ",
+                    "mangledName": "$sSQ"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Hashable",
+                    "printedName": "Hashable",
+                    "usr": "s:SH",
+                    "mangledName": "$sSH"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CVarArg",
+                    "printedName": "CVarArg",
+                    "usr": "s:s7CVarArgP",
+                    "mangledName": "$ss7CVarArgP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObservingPublishing",
+                    "printedName": "_KeyValueCodingAndObservingPublishing",
+                    "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                    "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObserving",
+                    "printedName": "_KeyValueCodingAndObserving",
+                    "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                    "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomStringConvertible",
+                    "printedName": "CustomStringConvertible",
+                    "usr": "s:s23CustomStringConvertibleP",
+                    "mangledName": "$ss23CustomStringConvertibleP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomDebugStringConvertible",
+                    "printedName": "CustomDebugStringConvertible",
+                    "usr": "s:s28CustomDebugStringConvertibleP",
+                    "mangledName": "$ss28CustomDebugStringConvertibleP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeDecl",
+                "name": "InstrumentField",
+                "printedName": "InstrumentField",
+                "children": [
+                  {
+                    "kind": "Var",
+                    "name": "method",
+                    "printedName": "method",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC6methodSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC6methodSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC6methodSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC6methodSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "appPackage",
+                    "printedName": "appPackage",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC10appPackageSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC10appPackageSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC10appPackageSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC10appPackageSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Constructor",
+                    "name": "init",
+                    "printedName": "init()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InstrumentField",
+                        "printedName": "Razorpay.RazorpayCheckout.RecommendedInstruments.InstrumentField",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC"
+                      }
+                    ],
+                    "declKind": "Constructor",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldCAGycfc",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldCAGycfc",
+                    "moduleName": "Razorpay",
+                    "overriding": true,
+                    "implicit": true,
+                    "objc_name": "init",
+                    "declAttributes": [
+                      "Dynamic",
+                      "ObjC",
+                      "Override"
+                    ],
+                    "init_kind": "Designated"
+                  }
+                ],
+                "declKind": "Class",
+                "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC",
+                "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC15InstrumentFieldC",
+                "moduleName": "Razorpay",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjCMembers",
+                  "ObjC"
+                ],
+                "superclassUsr": "c:objc(cs)NSObject",
+                "inheritsConvenienceInitializers": true,
+                "superclassNames": [
+                  "ObjectiveC.NSObject"
+                ],
+                "conformances": [
+                  {
+                    "kind": "Conformance",
+                    "name": "Copyable",
+                    "printedName": "Copyable",
+                    "usr": "s:s8CopyableP",
+                    "mangledName": "$ss8CopyableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Escapable",
+                    "printedName": "Escapable",
+                    "usr": "s:s9EscapableP",
+                    "mangledName": "$ss9EscapableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Equatable",
+                    "printedName": "Equatable",
+                    "usr": "s:SQ",
+                    "mangledName": "$sSQ"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Hashable",
+                    "printedName": "Hashable",
+                    "usr": "s:SH",
+                    "mangledName": "$sSH"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CVarArg",
+                    "printedName": "CVarArg",
+                    "usr": "s:s7CVarArgP",
+                    "mangledName": "$ss7CVarArgP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObservingPublishing",
+                    "printedName": "_KeyValueCodingAndObservingPublishing",
+                    "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                    "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObserving",
+                    "printedName": "_KeyValueCodingAndObserving",
+                    "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                    "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomStringConvertible",
+                    "printedName": "CustomStringConvertible",
+                    "usr": "s:s23CustomStringConvertibleP",
+                    "mangledName": "$ss23CustomStringConvertibleP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomDebugStringConvertible",
+                    "printedName": "CustomDebugStringConvertible",
+                    "usr": "s:s28CustomDebugStringConvertibleP",
+                    "mangledName": "$ss28CustomDebugStringConvertibleP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeDecl",
+                "name": "InstrumentType",
+                "printedName": "InstrumentType",
+                "children": [
+                  {
+                    "kind": "Var",
+                    "name": "upi",
+                    "printedName": "upi",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3upiSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3upiSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3upiSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3upiSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "card",
+                    "printedName": "card",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC4cardSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC4cardSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC4cardSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC4cardSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "netbanking",
+                    "printedName": "netbanking",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC10netbankingSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC10netbankingSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC10netbankingSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC10netbankingSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "wallet",
+                    "printedName": "wallet",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC6walletSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC6walletSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC6walletSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC6walletSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "emi",
+                    "printedName": "emi",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3emiSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3emiSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3emiSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC3emiSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "paylater",
+                    "printedName": "paylater",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC8paylaterSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC8paylaterSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC8paylaterSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC8paylaterSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Var",
+                    "name": "bankTransfer",
+                    "printedName": "bankTransfer",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Var",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC12bankTransferSSvpZ",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC12bankTransferSSvpZ",
+                    "moduleName": "Razorpay",
+                    "static": true,
+                    "declAttributes": [
+                      "HasInitialValue",
+                      "Final",
+                      "HasStorage",
+                      "AccessControl",
+                      "ObjC"
+                    ],
+                    "isLet": true,
+                    "hasStorage": true,
+                    "accessors": [
+                      {
+                        "kind": "Accessor",
+                        "name": "Get",
+                        "printedName": "Get()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "declKind": "Accessor",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC12bankTransferSSvgZ",
+                        "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC12bankTransferSSvgZ",
+                        "moduleName": "Razorpay",
+                        "static": true,
+                        "implicit": true,
+                        "declAttributes": [
+                          "Final",
+                          "ObjC"
+                        ],
+                        "accessorKind": "get"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "Constructor",
+                    "name": "init",
+                    "printedName": "init()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InstrumentType",
+                        "printedName": "Razorpay.RazorpayCheckout.RecommendedInstruments.InstrumentType",
+                        "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC"
+                      }
+                    ],
+                    "declKind": "Constructor",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeCAGycfc",
+                    "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeCAGycfc",
+                    "moduleName": "Razorpay",
+                    "overriding": true,
+                    "implicit": true,
+                    "objc_name": "init",
+                    "declAttributes": [
+                      "Dynamic",
+                      "ObjC",
+                      "Override"
+                    ],
+                    "init_kind": "Designated"
+                  }
+                ],
+                "declKind": "Class",
+                "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC",
+                "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC14InstrumentTypeC",
+                "moduleName": "Razorpay",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjCMembers",
+                  "ObjC"
+                ],
+                "superclassUsr": "c:objc(cs)NSObject",
+                "inheritsConvenienceInitializers": true,
+                "superclassNames": [
+                  "ObjectiveC.NSObject"
+                ],
+                "conformances": [
+                  {
+                    "kind": "Conformance",
+                    "name": "Copyable",
+                    "printedName": "Copyable",
+                    "usr": "s:s8CopyableP",
+                    "mangledName": "$ss8CopyableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Escapable",
+                    "printedName": "Escapable",
+                    "usr": "s:s9EscapableP",
+                    "mangledName": "$ss9EscapableP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Equatable",
+                    "printedName": "Equatable",
+                    "usr": "s:SQ",
+                    "mangledName": "$sSQ"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "Hashable",
+                    "printedName": "Hashable",
+                    "usr": "s:SH",
+                    "mangledName": "$sSH"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CVarArg",
+                    "printedName": "CVarArg",
+                    "usr": "s:s7CVarArgP",
+                    "mangledName": "$ss7CVarArgP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObservingPublishing",
+                    "printedName": "_KeyValueCodingAndObservingPublishing",
+                    "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                    "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "_KeyValueCodingAndObserving",
+                    "printedName": "_KeyValueCodingAndObserving",
+                    "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                    "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomStringConvertible",
+                    "printedName": "CustomStringConvertible",
+                    "usr": "s:s23CustomStringConvertibleP",
+                    "mangledName": "$ss23CustomStringConvertibleP"
+                  },
+                  {
+                    "kind": "Conformance",
+                    "name": "CustomDebugStringConvertible",
+                    "printedName": "CustomDebugStringConvertible",
+                    "usr": "s:s28CustomDebugStringConvertibleP",
+                    "mangledName": "$ss28CustomDebugStringConvertibleP"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecommendedInstruments",
+                    "printedName": "Razorpay.RazorpayCheckout.RecommendedInstruments",
+                    "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsCAEycfc",
+                "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsCAEycfc",
+                "moduleName": "Razorpay",
+                "overriding": true,
+                "implicit": true,
+                "objc_name": "init",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC",
+                  "Override"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:8Razorpay0A8CheckoutC22RecommendedInstrumentsC",
+            "mangledName": "$s8Razorpay0A8CheckoutC22RecommendedInstrumentsC",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjCMembers",
+              "ObjC"
+            ],
+            "superclassUsr": "c:objc(cs)NSObject",
+            "inheritsConvenienceInitializers": true,
+            "superclassNames": [
+              "ObjectiveC.NSObject"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CVarArg",
+                "printedName": "CVarArg",
+                "usr": "s:s7CVarArgP",
+                "mangledName": "$ss7CVarArgP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObservingPublishing",
+                "printedName": "_KeyValueCodingAndObservingPublishing",
+                "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObserving",
+                "printedName": "_KeyValueCodingAndObserving",
+                "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomStringConvertible",
+                "printedName": "CustomStringConvertible",
+                "usr": "s:s23CustomStringConvertibleP",
+                "mangledName": "$ss23CustomStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomDebugStringConvertible",
+                "printedName": "CustomDebugStringConvertible",
+                "usr": "s:s28CustomDebugStringConvertibleP",
+                "mangledName": "$ss28CustomDebugStringConvertibleP"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "initWithKey",
             "printedName": "initWithKey(_:andDelegate:)",
@@ -1091,6 +2249,95 @@
           },
           {
             "kind": "Function",
+            "name": "subscribeToAnalyticsEvents",
+            "printedName": "subscribeToAnalyticsEvents(_:callback:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.RazorpayEventCallback)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RazorpayEventCallback",
+                    "printedName": "any RazorpayCore.RazorpayEventCallback",
+                    "usr": "c:@M@RazorpayCore@objc(pl)RazorpayEventCallback"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)subscribeToAnalyticsEvents:callback:",
+            "mangledName": "$s8Razorpay0A8CheckoutC26subscribeToAnalyticsEvents_8callbackySaySSG_0A4Core0A13EventCallback_pSgtF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAddressWalletUpdateDelegate",
+            "printedName": "setAddressWalletUpdateDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any RazorpayCore.AddressWalletUpdateDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AddressWalletUpdateDelegate",
+                    "printedName": "any RazorpayCore.AddressWalletUpdateDelegate",
+                    "usr": "c:@M@RazorpayCore@objc(pl)AddressWalletUpdateDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)setAddressWalletUpdateDelegate:",
+            "mangledName": "$s8Razorpay0A8CheckoutC30setAddressWalletUpdateDelegateyy0A4Core0defG0_pSgFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "initWithKey",
             "printedName": "initWithKey(_:andDelegate:withPaymentWebView:)",
             "children": [
@@ -1252,6 +2499,55 @@
             "declKind": "Func",
             "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:",
             "mangledName": "$s8Razorpay0A8CheckoutC11initWithKeyyACSSFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initWithKey",
+            "printedName": "initWithKey(_:andDelegate:withPaymentWebView:amazonPlugin:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayCheckout",
+                "printedName": "Razorpay.RazorpayCheckout",
+                "usr": "c:@M@Razorpay@objc(cs)RazorpayCheckout"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RazorpayPaymentCompletionProtocol",
+                "printedName": "any RazorpayCore.RazorpayPaymentCompletionProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)RazorpayPaymentCompletionProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AmazonWalletPaylaterProtocol",
+                "printedName": "any RazorpayCore.AmazonWalletPaylaterProtocol",
+                "usr": "c:@M@RazorpayCore@objc(pl)AmazonWalletPaylaterProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)initWithKey:andDelegate:withPaymentWebView:amazonPlugin:",
+            "mangledName": "$s8Razorpay0A8CheckoutC11initWithKey_11andDelegate18withPaymentWebView12amazonPluginACSS_0A4Core0aI18CompletionProtocol_pSo05WKWebK0CAH020AmazonWalletPaylaterP0_ptFZ",
             "moduleName": "Razorpay",
             "static": true,
             "declAttributes": [
@@ -1939,6 +3235,98 @@
           },
           {
             "kind": "Function",
+            "name": "getRecommendedInstruments",
+            "printedName": "getRecommendedInstruments(withOptions:withSuccessCallback:andFailureCallback:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.AnyHashable : Any]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.AnyHashable : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyHashable",
+                        "printedName": "Swift.AnyHashable",
+                        "usr": "s:s11AnyHashableV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)getRecommendedInstrumentsWithOptions:withSuccessCallback:andFailureCallback:",
+            "mangledName": "$s8Razorpay0A8CheckoutC25getRecommendedInstruments11withOptions0F15SuccessCallback010andFailureI0ySDys11AnyHashableVypG_yAJcySSctFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getSubscriptionAmount",
             "printedName": "getSubscriptionAmount(havingSubscriptionId:withSuccessCallback:andFailureCallback:)",
             "children": [
@@ -2179,10 +3567,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)userCancelledPayment",
-            "mangledName": "$s8Razorpay0A8CheckoutC20userCancelledPaymentyyFZ",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)userCancelledPayment",
+            "mangledName": "$s8Razorpay0A8CheckoutC20userCancelledPaymentyyF",
             "moduleName": "Razorpay",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -2350,8 +3737,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFail:withError:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC7webView_7didFail9withErrorySo05WKWebD0C_So12WKNavigationCSgs0H0_ptKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFail:withError:",
+            "mangledName": "$s8Razorpay0A8CheckoutC7webView_7didFail9withErrorySo05WKWebD0C_So12WKNavigationCSgs0H0_ptF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -2359,7 +3746,6 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2394,8 +3780,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFinish:error:",
-            "mangledName": "$s8Razorpay0A8CheckoutC7webView_9didFinishySo05WKWebD0C_So12WKNavigationCSgtKF",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:didFinish:",
+            "mangledName": "$s8Razorpay0A8CheckoutC7webView_9didFinishySo05WKWebD0C_So12WKNavigationCSgtF",
             "moduleName": "Razorpay",
             "declAttributes": [
               "Final",
@@ -2403,7 +3789,59 @@
               "ObjC"
             ],
             "isFromExtension": true,
-            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:decidePolicyFor:handler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKNavigationAction",
+                "printedName": "WebKit.WKNavigationAction",
+                "usr": "c:objc(cs)WKNavigationAction"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(WebKit.WKNavigationActionPolicy) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigationActionPolicy",
+                    "printedName": "WebKit.WKNavigationActionPolicy",
+                    "usr": "c:@E@WKNavigationActionPolicy"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(im)webView:decidePolicyFor:handler:",
+            "mangledName": "$s8Razorpay0A8CheckoutC7webView_15decidePolicyFor7handlerySo05WKWebD0C_So18WKNavigationActionCySo0jkF0VctF",
+            "moduleName": "Razorpay",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -2943,6 +4381,37 @@
             "isFromExtension": true,
             "throwing": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleRedirection",
+            "printedName": "handleRedirection(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Razorpay@objc(cs)RazorpayCheckout(cm)handleRedirection:",
+            "mangledName": "$s8Razorpay0A8CheckoutC17handleRedirectionySbSSFZ",
+            "moduleName": "Razorpay",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -3049,58 +4518,135 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 786,
+      "length": 29,
+      "value": "\"get_recommended_instruments\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 854,
+      "length": 7,
+      "value": "\"items\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 980,
+      "length": 8,
+      "value": "\"method\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1032,
+      "length": 13,
+      "value": "\"app_package\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1160,
+      "length": 5,
+      "value": "\"upi\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1203,
+      "length": 6,
+      "value": "\"card\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1253,
+      "length": 12,
+      "value": "\"netbanking\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1305,
+      "length": 8,
+      "value": "\"wallet\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1350,
+      "length": 5,
+      "value": "\"emi\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1397,
+      "length": 10,
+      "value": "\"paylater\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1453,
+      "length": 15,
+      "value": "\"bank_transfer\""
+    },
+    {
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 5826,
+      "offset": 6778,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 6365,
+      "offset": 7317,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 6959,
+      "offset": 7911,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 7632,
+      "offset": 8584,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
       "kind": "BooleanLiteral",
-      "offset": 3050,
+      "offset": 3658,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
       "kind": "BooleanLiteral",
-      "offset": 3616,
+      "offset": 4224,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
       "kind": "BooleanLiteral",
-      "offset": 4295,
+      "offset": 4903,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ramprasad.a\/Documents\/projects\/CheckoutModularisation\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
+      "filePath": "\/Users\/vivek.shindhe\/Razorpay\/ios\/razorpay-ios\/RazorpayIOS\/RazorpayWrapper\/RazorpayWrapper+Extension.swift",
       "kind": "BooleanLiteral",
-      "offset": 4784,
+      "offset": 5392,
       "length": 4,
       "value": "true"
     }
