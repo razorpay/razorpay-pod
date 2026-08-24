@@ -4084,9 +4084,9 @@
     {
       "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/Main\/NetworkDetails.swift",
       "kind": "BooleanLiteral",
-      "offset": 3753,
-      "length": 4,
-      "value": "true"
+      "offset": 3714,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/Main\/NetworkDetails.swift",
@@ -7946,21 +7946,21 @@
       "value": "60000"
     },
     {
-      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphoneos\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphoneos\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphonesimulator\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphonesimulator\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 738,
       "length": 15,
       "value": "\"Razorpay_Logo\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphoneos\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphoneos\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphonesimulator\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphonesimulator\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 882,
       "length": 12,
       "value": "\"check_mark\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphoneos\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphoneos\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/runner\/work\/razorpay-ios\/razorpay-ios\/RazorpayIOS\/DerivedData\/iphonesimulator\/Build\/Intermediates.noindex\/RazorpayIOS.build\/Release-iphonesimulator\/CheckoutOtpelf.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1018,
       "length": 9,
