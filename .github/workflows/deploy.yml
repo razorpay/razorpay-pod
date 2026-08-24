@@ -27,6 +27,12 @@ jobs:
       CHANGED_CHECKSUMS: ${{ toJson(github.event.client_payload.checksums) }}
 
     steps:
+      - name: Setup PMG (package firewall)
+        uses: safedep/pmg@5ac0f275b83d9d5a9342c6aae977ec32fa330daa # v1
+        with:
+          api-key:   ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+          tenant-id: ${{ secrets.PMG_TENANT_ID }}
+
       - name: Resolve branches + release flags
         id: cfg
         run: |
@@ -335,3 +341,7 @@ jobs:
             echo "| Changed (re-stamped) | $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys | join(", ")') |"
             echo "| CocoaPods | manual — not handled here |"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Flush PMG audit events to SafeDep Cloud
+        if: always()
+        run: pmg cloud sync --timeout 60s
