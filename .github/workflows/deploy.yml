@@ -147,9 +147,7 @@ jobs:
         run: |
           set -euo pipefail
           # For each CHANGED binary only, swap the checked-in xcframework with the
-          # freshly built one. Runs BEFORE stamping, so Package.swift still carries
-          # the local `path:` line we read the destination from. Binaries absent
-          # from the changed set are left untouched.
+          # freshly built one. Binaries absent from the changed set are left untouched.
           command -v jq >/dev/null || { echo "❌ jq required"; exit 1; }
 
           REPLACED=()
@@ -157,14 +155,14 @@ jobs:
             zip="/tmp/assets/${name}.xcframework.zip"
             [ -f "$zip" ] || { echo "❌ ${name}.xcframework.zip missing (collect step should have staged it)"; exit 1; }
 
-            # Derive the destination from this binary's local `path:` line in the
-            # manifest, e.g.  name: "RazorpayStandard", path: "Pod/RazorpayStandard.xcframework".
-            # Pure shell: flatten the manifest to one line (so a name/path pair that
-            # spans lines still matches), grep the pair for THIS name, then sed out
-            # the quoted path. Empty result ⇒ not in local path: form ⇒ skip.
-            dest=$(tr '\n' ' ' < Package.swift | grep -oE "name:[[:space:]]*\"${name}\"[[:space:]]*,[[:space:]]*path:[[:space:]]*\"[^\"]*${name}\.xcframework\"" | head -1 | sed -E 's/.*path:[[:space:]]*"([^"]*)".*/\1/')
+            # Only binaries CocoaPods vendors from this repo get a destination;
+            # the rest are SPM-only and served from the release zip.
+            case "$name" in
+              RazorpayStandard) dest="Pod/RazorpayStandard.xcframework" ;;
+              *)                dest="" ;;
+            esac
             if [ -z "$dest" ]; then
-              echo "ℹ️  ${name} is not in local path: form in Package.swift — nothing to replace in repo (served from release zip)."
+              echo "ℹ️  ${name} is not vendored from this repo — nothing to replace (SPM serves it from the release zip)."
               continue
             fi
 
