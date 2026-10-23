@@ -107,6 +107,104 @@ jobs:
           # Space-separated list of asset paths for the release step.
           echo "assets=${UPLOAD[*]}" >> "$GITHUB_OUTPUT"
 
+      - name: Stage dSYM zips for changed binaries
+        id: dsyms
+        run: |
+          set -euo pipefail
+          # One dSYMs zip per changed binary (Razorpay, RazorpayCore,
+          # RazorpayCustom, RazorpayStandard). Each xcframework embeds
+          # per-slice dSYMs (built with -create-xcframework -debug-symbols);
+          # they are staged in /tmp and attached to the GitHub Release ONLY —
+          # nothing is committed to the repo.
+          DSYM_ASSETS=()
+          for name in $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]'); do
+            ZIP="/tmp/assets/${name}.xcframework.zip"
+            [ -f "${ZIP}" ] || { echo "❌ ${name}: ${ZIP} missing (collect step should have staged it)"; exit 1; }
+
+            work="$(mktemp -d)"
+            unzip -q "${ZIP}" -d "${work}"
+
+            staging="${work}/${name}.dSYMs"
+            found=0
+            while IFS= read -r d; do
+              slice=$(basename "$(dirname "$(dirname "$d")")")   # e.g. ios-arm64
+              mkdir -p "${staging}/${slice}"
+              cp -R "$d" "${staging}/${slice}/"
+              found=$((found+1))
+            done < <(find "${work}" -type d -name "*.dSYM" -path "*/dSYMs/*")
+
+            [ "${found}" -gt 0 ] || { echo "❌ ${name}: no dSYMs inside ${ZIP} — was it built with -debug-symbols?"; exit 1; }
+
+            (cd "${work}" && zip -qr "/tmp/assets/${name}.dSYMs.zip" "${name}.dSYMs")
+            rm -rf "${work}"
+            echo "✅ staged ${name}.dSYMs.zip (${found} slice dSYMs)"
+            DSYM_ASSETS+=("/tmp/assets/${name}.dSYMs.zip")
+          done
+          echo "assets=${DSYM_ASSETS[*]}" >> "$GITHUB_OUTPUT"
+
+      - name: Replace changed xcframeworks in the repo
+        id: replace
+        run: |
+          set -euo pipefail
+          # For each CHANGED binary only, swap the checked-in xcframework with the
+          # freshly built one. Binaries absent from the changed set are left untouched.
+          command -v jq >/dev/null || { echo "❌ jq required"; exit 1; }
+
+          REPLACED=()
+          for name in $(echo "${CHANGED_CHECKSUMS}" | jq -r 'keys[]'); do
+            zip="/tmp/assets/${name}.xcframework.zip"
+            [ -f "$zip" ] || { echo "❌ ${name}.xcframework.zip missing (collect step should have staged it)"; exit 1; }
+
+            # Only binaries CocoaPods vendors from this repo get a destination;
+            # the rest are SPM-only and served from the release zip.
+            case "$name" in
+              RazorpayStandard) dest="Pod/RazorpayStandard.xcframework" ;;
+              *)                dest="" ;;
+            esac
+            if [ -z "$dest" ]; then
+              echo "ℹ️  ${name} is not vendored from this repo — nothing to replace (SPM serves it from the release zip)."
+              continue
+            fi
+
+            echo "→ replacing ${dest} from ${zip}"
+            rm -rf "$dest"
+            mkdir -p "$(dirname "$dest")"
+            # Unzip into a temp dir, then move the single .xcframework to dest so we
+            # don't inherit any wrapper folder the zip may contain.
+            tmp="$(mktemp -d)"
+            unzip -q "$zip" -d "$tmp"
+            fw=$(find "$tmp" -maxdepth 2 -name "${name}.xcframework" -type d | head -1)
+            [ -n "$fw" ] || { echo "❌ ${name}.xcframework not found inside ${zip}"; find "$tmp"; exit 1; }
+            mv "$fw" "$dest"
+            rm -rf "$tmp"
+            REPLACED+=("$dest")
+          done
+
+          if [ "${#REPLACED[@]}" -eq 0 ]; then
+            echo "replaced=" >> "$GITHUB_OUTPUT"
+            echo "No local xcframeworks to replace (all changed binaries are remote-only)."
+          else
+            echo "replaced=${REPLACED[*]}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit replaced xcframeworks to the release branch
+        run: |
+          set -euo pipefail
+          RB="${{ steps.cfg.outputs.release_branch }}"
+          REPLACED="${{ steps.replace.outputs.replaced }}"
+          if [ -z "${REPLACED}" ]; then
+            echo "No replaced binaries to commit."
+            exit 0
+          fi
+          # Commit the swapped binaries as their OWN commit, separate from the
+          # Package.swift stamp commit that follows.
+          for d in ${REPLACED}; do git add -A "$d"; done
+          if git diff --cached --quiet; then
+            echo "Replaced binaries are byte-identical to what's committed — nothing to commit."
+          else
+            git commit -m "release: iOS SDK ${VERSION} (replace changed xcframeworks)"
+          fi
+
       - name: Stamp Package.swift
         run: |
           set -euo pipefail
@@ -128,12 +226,35 @@ jobs:
           git push --force origin "HEAD:${RB}"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      - name: Bump razorpay-pod.podspec version
+        id: podspec
+        run: |
+          set -euo pipefail
+          RB="${{ steps.cfg.outputs.release_branch }}"
+          # Bump s.version in razorpay-pod.podspec to the release VERSION, in place.
+          # Pure shell: sed rewrites only the `s.version = '...'` (or "...") literal,
+          # preserving the quote style and column alignment. Idempotent — if it's
+          # already at VERSION the substitution is a no-op and there's nothing to commit.
+          sed -i -E "s|^([[:space:]]*s\.version[[:space:]]*=[[:space:]]*)(['\"])[^'\"]*(['\"])|\1\2${VERSION}\3|" razorpay-pod.podspec
+          NEW=$(grep -m1 -E "s\.version[[:space:]]*=" razorpay-pod.podspec | grep -oE "[0-9]+\.[0-9]+\.[0-9]+[^'\"]*" | head -1 || true)
+          [ "$NEW" = "${VERSION}" ] || { echo "❌ failed to bump razorpay-pod.podspec to ${VERSION} (shows: ${NEW:-none})"; exit 1; }
+          echo "✅ razorpay-pod.podspec → ${VERSION}"
+          git add razorpay-pod.podspec
+          if git diff --cached --quiet; then
+            echo "razorpay-pod.podspec already at ${VERSION} — nothing to commit."
+          else
+            git commit -m "release: iOS SDK ${VERSION} (bump razorpay-pod.podspec)"
+            git push --force origin "HEAD:${RB}"
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub Release + upload changed xcframework assets
         env:
           GH_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
-          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+          COMMIT_SHA: ${{ steps.podspec.outputs.sha }}
           PRERELEASE: ${{ steps.cfg.outputs.prerelease }}
           ASSETS: ${{ steps.collect.outputs.assets }}
+          DSYM_ASSETS: ${{ steps.dsyms.outputs.assets }}
         run: |
           set -euo pipefail
 
@@ -153,8 +274,9 @@ jobs:
           [ "${PRERELEASE}" = "true" ] && FLAGS+=(--prerelease)
 
           # ASSETS is a space-separated list of only the changed binaries' zips.
+          # DSYM_ASSETS carries one dSYMs zip per changed binary.
           # shellcheck disable=SC2086
-          gh release create "${VERSION}" "${FLAGS[@]}" ${ASSETS}
+          gh release create "${VERSION}" "${FLAGS[@]}" ${ASSETS} ${DSYM_ASSETS}
 
           echo "✅ Published ${VERSION} with assets:"
           gh release view "${VERSION}" --json assets --jq '.assets[].name'

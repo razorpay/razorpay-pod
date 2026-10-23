@@ -7,6 +7,7 @@ import CoreLocation
 import CoreTelephony
 import DeveloperToolsSupport
 import Foundation
+import MetricKit
 import Photos
 import RazorpayCore
 import Swift

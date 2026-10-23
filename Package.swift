@@ -1,6 +1,8 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
+let packageVersion = "1.4.1"
+
 let package = Package(
     name: "RazorpayCheckout",
     platforms: [
@@ -24,23 +26,23 @@ let package = Package(
 
         .binaryTarget(
             name: "Razorpay",
-            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.7-rc.2/Razorpay.xcframework.zip",
-            checksum: "59dfac8b0197c6e151ca93bc0475d69cddb0231e97fd9bc341a563fdc881feb1"
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.8/Razorpay.xcframework.zip",
+            checksum: "2465ee91b769a0ed67f6e255bd123ab19dc8613c00a077b99faab5e0610f6141"
         ),
         .binaryTarget(
             name: "RazorpayCore",
-            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.7-rc.2/RazorpayCore.xcframework.zip",
-            checksum: "6d341e40f333832e25383164498dc6d67ccaedafd49e37d0482c3afddac35faa"
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.8/RazorpayCore.xcframework.zip",
+            checksum: "e1011f0f2ffd411cc9f3db7832493fe1617f312412c8f6a42f937c42bd77c740"
         ),
         .binaryTarget(
             name: "RazorpayStandard",
-            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.7-rc.2/RazorpayStandard.xcframework.zip",
-            checksum: "a3523897b59f11c7d7b8f5359458b5b06c30460b03b5d7536fe7370de9acf00f"
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.8/RazorpayStandard.xcframework.zip",
+            checksum: "60db02c4ff70ddd3d52bfd411277d9be5b3f467f39880d19cc70975c6575b76b"
         ),
         .binaryTarget(
             name: "RazorpayCustom",
-            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.7-rc.2/RazorpayCustom.xcframework.zip",
-            checksum: "c4624240be70cdc7b5cd303945fc53d5cc8077615dd265792c052fba6a1a26cb"
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/1.5.8/RazorpayCustom.xcframework.zip",
+            checksum: "35acdf3571255138c175173aa9052755d04be577d284543986e2e1150ae0a71b"
         ),
 
         .testTarget(
